@@ -45,7 +45,7 @@ if ( !class_exists( 'Haru_Header_Post_Type' ) ) {
 
             $args = array(
                 'labels'                => $labels,
-                'description'           => esc_html__( 'Display Header of site', 'haru-pricom' ),
+                'description'           => esc_html__( 'Display Header of site', 'haru-starter' ),
                 'supports'              => array( 'title', 'editor', 'thumbnail', 'revisions', 'starter'),
                 'hierarchical'          => false,
                 'public'                => true,

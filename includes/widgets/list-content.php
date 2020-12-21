@@ -16,33 +16,32 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 use \Elementor\Widget_Base;
 use \Elementor\Controls_Manager;
-use \Elementor\Utils;
 use \Elementor\Repeater;
 use \Haru_Starter\Classes\Haru_Template;
 
-if ( ! class_exists( 'Haru_Starter_Footer_Link_Widget' ) ) {
-	class Haru_Starter_Footer_Link_Widget extends Widget_Base {
+if ( ! class_exists( 'Haru_Starter_List_Content_Widget' ) ) {
+	class Haru_Starter_List_Content_Widget extends Widget_Base {
 
 		public function get_name() {
-			return 'haru-footer-link';
+			return 'haru-list-content';
 		}
 
 		public function get_title() {
-			return esc_html__( 'Haru Footer Link', 'haru-starter' );
+			return esc_html__( 'Haru List Content', 'haru-starter' );
 		}
 
 		public function get_icon() {
-			return 'eicon-text';
+			return 'eicon-social-icons';
 		}
 
 		public function get_categories() {
-			return [ 'haru-footer-elements' ];
+			return [ 'haru-elements' ];
 		}
 
 		public function get_keywords() {
             return [
-                'footer',
-                'link',
+                'list',
+                'content',
             ];
         }
 
@@ -63,14 +62,14 @@ if ( ! class_exists( 'Haru_Starter_Footer_Link_Widget' ) ) {
 	        $this->add_control(
 				'pre_style',
 				[
-					'label' => __( 'Pre Footer Link', 'haru-starter' ),
-					'description' 	=> __( 'If you choose Pre Footer Link you will use Style default from our theme.', 'haru-starter' ),
+					'label' => __( 'Pre List Content', 'haru-starter' ),
+					'description' 	=> __( 'If you choose Pre List Content you will use Style default from our theme.', 'haru-starter' ),
 					'type' => Controls_Manager::SELECT,
 					'default' => 'none',
 					'options' => [
 						'none' 		=> __( 'None', 'haru-starter' ),
-						'style-1' 	=> __( 'Pre Footer Link 1', 'haru-starter' ),
-						'style-2' 	=> __( 'Pre Footer Link 2', 'haru-starter' ),
+						'style-1' 	=> __( 'Pre List Content 1', 'haru-starter' ),
+						'style-2' 	=> __( 'Pre List Content 2', 'haru-starter' ),
 					]
 				]
 			);
@@ -82,6 +81,15 @@ if ( ! class_exists( 'Haru_Starter_Footer_Link_Widget' ) ) {
 					'label' => esc_html__( 'Title', 'haru-starter' ),
 					'type' => Controls_Manager::TEXT,
 					'default' => esc_html__( 'List Title' , 'haru-starter' ),
+					'label_block' => true,
+				]
+			);
+
+			$repeater->add_control(
+				'list_description', [
+					'label' => esc_html__( 'Description', 'haru-starter' ),
+					'type' => Controls_Manager::TEXT,
+					'default' => esc_html__( 'List Description' , 'haru-starter' ),
 					'label_block' => true,
 				]
 			);
@@ -109,10 +117,12 @@ if ( ! class_exists( 'Haru_Starter_Footer_Link_Widget' ) ) {
 					'default' => [
 						[
 							'list_title' => esc_html__( 'Title #1', 'haru-starter' ),
+							'list_description' => esc_html__( 'Description', 'haru-starter' ),
 							'list_content' => esc_html__( 'Item content. Click the edit button to change this text.', 'haru-starter' ),
 						],
 						[
 							'list_title' => esc_html__( 'Title #2', 'haru-starter' ),
+							'list_description' => esc_html__( 'Description', 'haru-starter' ),
 							'list_content' => esc_html__( 'Item content. Click the edit button to change this text.', 'haru-starter' ),
 						],
 					],
@@ -144,99 +154,10 @@ if ( ! class_exists( 'Haru_Starter_Footer_Link_Widget' ) ) {
 				'section_title_style_description',
 				[
 					'type' => Controls_Manager::RAW_HTML,
-					'raw' => '<strong>' . __( 'You can set style if you set Pre Footer Link is None.', 'haru-starter' ) . '</strong><br>',
+					'raw' => '<strong>' . __( 'You can set style if you set Pre Social is None.', 'haru-starter' ) . '</strong><br>',
 					'content_classes' => 'elementor-panel-alert elementor-panel-alert-info',
 				]
 			);
-
-	        $this->start_controls_tabs( 
-	        	'footer_link_item_style',
-	        	[
-	        		'condition' => [
-						'pre_style' => [ 'none' ],
-					],
-	        	]
-	        );
-
-			$this->start_controls_tab(
-				'footer_link_item_normal',
-				[
-					'label' => __( 'Normal', 'haru-starter' ),
-				]
-			);
-
-			$this->add_control(
-				'title_color',
-				[
-					'label' => __( 'Text Color', 'haru-starter' ),
-					'type' => Controls_Manager::COLOR,
-					'global' => [
-						'default' => '',
-					],
-					'condition' => [
-						'pre_style' => [ 'none' ],
-					],
-					'selectors' => [
-						'{{WRAPPER}} .haru-footer-link a' => 'color: {{VALUE}};',
-					],
-				]
-			);
-
-			$this->end_controls_tab();
-
-			$this->start_controls_tab(
-				'footer_link_item_hover',
-				[
-					'label' => __( 'Hover', 'haru-starter' ),
-				]
-			);
-
-			$this->add_control(
-				'title_color_hover',
-				[
-					'label' => __( 'Text Color', 'haru-starter' ),
-					'type' => Controls_Manager::COLOR,
-					'global' => [
-						'default' => '',
-					],
-					'condition' => [
-						'pre_style' => [ 'none' ],
-					],
-					'selectors' => [
-						'{{WRAPPER}} .haru-footer-link a:hover' => 'color: {{VALUE}};',
-					],
-				]
-			);
-
-			$this->end_controls_tab();
-
-			$this->start_controls_tab(
-				'footer_link_item_active',
-				[
-					'label' => __( 'Active', 'haru-starter' ),
-				]
-			);
-
-			$this->add_control(
-				'title_color_active',
-				[
-					'label' => __( 'Text Color', 'haru-starter' ),
-					'type' => Controls_Manager::COLOR,
-					'global' => [
-						'default' => '',
-					],
-					'condition' => [
-						'pre_style' => [ 'none' ],
-					],
-					'selectors' => [
-						'{{WRAPPER}} .haru-footer-link a:active' => 'color: {{VALUE}};',
-					],
-				]
-			);
-
-			$this->end_controls_tab();
-
-			$this->end_controls_tabs();
 
 			$this->end_controls_section();
 
@@ -249,20 +170,32 @@ if ( ! class_exists( 'Haru_Starter_Footer_Link_Widget' ) ) {
 				return;
 			}
 
-        	$this->add_render_attribute( 'footer-link', 'class', 'haru-footer-link' );
+        	$this->add_render_attribute( 'list-content', 'class', 'haru-list-content' );
 
         	if ( 'none' != $settings['pre_style']  ) {
-				$this->add_render_attribute( 'footer-link', 'class', 'haru-footer-link--' . $settings['pre_style'] );
+				$this->add_render_attribute( 'list-content', 'class', 'haru-list-content--' . $settings['pre_style'] );
 			}
 
         	if ( ! empty( $settings['el_class'] ) ) {
-				$this->add_render_attribute( 'footer-link', 'class', $settings['el_class'] );
+				$this->add_render_attribute( 'list-content', 'class', $settings['el_class'] );
 			}
-
+			
         	?>
 
-        	<div <?php echo $this->get_render_attribute_string( 'footer-link' ); ?>>
-        		<?php echo Haru_Template::haru_get_template( 'footer-link/footer-link.php', $settings ); ?>
+        	<div <?php echo $this->get_render_attribute_string( 'list-content' ); ?>>
+        		<?php if ( $settings['list'] ) : ?>
+					<ul>
+						<?php foreach (  $settings['list'] as $item ) : ?>
+							<li>
+								<div class="haru-list-content__icon"><i class="haru-icon haru-icon-check"></i></div>
+								<div class="haru-list-content__content">
+									<div class="haru-list-content__title"><?php echo $item['list_title']; ?></div>
+									<div class="haru-list-content__description"><?php echo $item['list_description']; ?></div>
+								</div>
+							</li>
+						<?php endforeach; ?>
+					</ul>
+				<?php endif; ?>
     		</div>
 
     		<?php

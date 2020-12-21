@@ -21,24 +21,33 @@ use \Elementor\Utils;
 use \Elementor\Plugin;
 use \Haru_Starter\Classes\Haru_Template;
 
-if ( ! class_exists( 'Haru_Starter_Project_Carousel_Widget' ) ) {
-	class Haru_Starter_Project_Carousel_Widget extends Widget_Base {
+if ( ! class_exists( 'Haru_Starter_Images_Gallery_Widget' ) ) {
+	class Haru_Starter_Images_Gallery_Widget extends Widget_Base {
 
 		public function get_name() {
-			return 'haru-project-carousel';
+			return 'haru-images-gallery';
 		}
 
 		public function get_title() {
-			return esc_html__( 'Haru Project Carousel', 'haru-starter' );
+			return esc_html__( 'Haru Images Gallery', 'haru-starter' );
 		}
 
 		public function get_icon() {
-			return 'eicon-slides';
+			return 'eicon-photo-library';
 		}
 
 		public function get_categories() {
 			return [ 'haru-elements' ];
 		}
+
+		public function get_keywords() {
+            return [
+                'image',
+                'images',
+                'gallery',
+                'portfolio',
+            ];
+        }
 
 		public function get_custom_help_url() {
             return 'https://document.harutheme.com/elementor/';
@@ -74,20 +83,20 @@ if ( ! class_exists( 'Haru_Starter_Project_Carousel_Widget' ) ) {
 	            'content_section',
 	            [
 	                'label' => esc_html__( 'Content', 'haru-starter' ),
-	                'tab' => Controls_Manager::TAB_CONTENT,
+	                // 'tab' => Controls_Manager::TAB_CONTENT,
 	            ]
 	        );
 
 	        $this->add_control(
 				'pre_style',
 				[
-					'label' => __( 'Pre Project Carousel', 'haru-starter' ),
-					'description' 	=> __( 'If you choose Pre Project Carousel you will use Style default from our theme.', 'haru-starter' ),
+					'label' => __( 'Pre Images Gallery', 'haru-starter' ),
+					'description' 	=> __( 'If you choose Pre Images Gallery you will use Style default from our theme.', 'haru-starter' ),
 					'type' => Controls_Manager::SELECT,
 					'default' => 'style-1',
 					'options' => [
-						'style-1' 	=> __( 'Pre Project Carousel 1', 'haru-starter' ),
-						'style-2' 	=> __( 'Pre Project Carousel 2', 'haru-starter' ),
+						'style-1' 	=> __( 'Pre Images Gallery (Carousel)', 'haru-starter' ),
+						'style-2' 	=> __( 'Pre Images Gallery 2', 'haru-starter' ),
 					]
 				]
 			);
@@ -109,6 +118,9 @@ if ( ! class_exists( 'Haru_Starter_Project_Carousel_Widget' ) ) {
 					'type' => Controls_Manager::TEXT,
 					'default' => esc_html__( 'List Sub Title' , 'haru-starter' ),
 					'label_block' => true,
+					'condition' => [
+						'pre_style!' => [ 'style-1' ],
+					],
 				]
 			);
 
@@ -118,6 +130,9 @@ if ( ! class_exists( 'Haru_Starter_Project_Carousel_Widget' ) ) {
 					'type' => Controls_Manager::TEXTAREA,
 					'default' => esc_html__( 'List Description' , 'haru-starter' ),
 					'label_block' => true,
+					'condition' => [
+						'pre_style!' => [ 'style-1' ],
+					],
 				]
 			);
 
@@ -146,6 +161,9 @@ if ( ! class_exists( 'Haru_Starter_Project_Carousel_Widget' ) ) {
 						'is_external' => true,
 						'nofollow' => true,
 					],
+					'condition' => [
+						'pre_style!' => [ 'style-1' ],
+					],
 				]
 			);
 
@@ -155,13 +173,16 @@ if ( ! class_exists( 'Haru_Starter_Project_Carousel_Widget' ) ) {
 					'type' => Controls_Manager::TEXT,
 					'default' => esc_html__( 'Click Here' , 'haru-starter' ),
 					'label_block' => true,
+					'condition' => [
+						'pre_style!' => [ 'style-1' ],
+					],
 				]
 			);
 
 			$this->add_control(
 				'list',
 				[
-					'label' => esc_html__( 'Slide List', 'haru-starter' ),
+					'label' => esc_html__( 'Images List', 'haru-starter' ),
 					'type' => Controls_Manager::REPEATER,
 					'fields' => $repeater->get_controls(),
 					'default' => [
@@ -198,6 +219,125 @@ if ( ! class_exists( 'Haru_Starter_Project_Carousel_Widget' ) ) {
 
 	        $this->end_controls_section();
 
+	        $this->start_controls_section(
+	            'slide_section',
+	            [
+	                'label' => esc_html__( 'Slide Options', 'haru-starter' ),
+	                'tab' => Controls_Manager::TAB_CONTENT,
+	            ]
+	        );
+
+	        $this->add_control(
+				'section_title_slide_description',
+				[
+					'type' => Controls_Manager::RAW_HTML,
+					'raw' => '<strong>' . __( 'You can set Slide Options if you set Pre Images Gallery is Slide layout.', 'haru-starter' ) . '</strong><br>',
+					'content_classes' => 'elementor-panel-alert elementor-panel-alert-info',
+				]
+			);
+
+	        $this->add_control(
+				'slidesToShow',
+				[
+					'label' => __( 'Slide To Show', 'haru-starter' ),
+					'type' => Controls_Manager::NUMBER,
+					'min' => 1,
+					'max' => 10,
+					'step' => 1,
+					'default' => 3,
+				]
+			);
+
+			$this->add_control(
+				'slidesToScroll',
+				[
+					'label' => __( 'Slide To Scroll', 'haru-starter' ),
+					'type' => Controls_Manager::NUMBER,
+					'min' => 1,
+					'max' => 10,
+					'step' => 1,
+					'default' => 1,
+				]
+			);
+
+			$this->add_control(
+                'arrows', [
+                    'label' => __( 'Arrows', 'haru-starter' ),
+                    'type' => Controls_Manager::SWITCHER,
+                    'label_on' => __( 'Show', 'haru-starter' ),
+					'label_off' => __( 'Hide', 'haru-starter' ),
+					'return_value' => 'yes',
+					'default' => 'yes',
+                ]
+            );
+	     	
+	     	$this->add_control(
+				'heading_tablet_slide_options',
+				[
+					'label' 	=> __( 'Tablet Settings', 'haru-starter' ),
+					'type' 		=> Controls_Manager::HEADING,
+					'separator' => 'before',
+				]
+			);
+
+			$this->add_control(
+				'slidesToShow_tablet',
+				[
+					'label' => __( 'Slide To Show', 'haru-starter' ),
+					'type' => Controls_Manager::NUMBER,
+					'min' => 1,
+					'max' => 10,
+					'step' => 1,
+					'default' => 3,
+				]
+			);
+
+			$this->add_control(
+				'slidesToScroll_tablet',
+				[
+					'label' => __( 'Slide To Scroll', 'haru-starter' ),
+					'type' => Controls_Manager::NUMBER,
+					'min' => 1,
+					'max' => 10,
+					'step' => 1,
+					'default' => 1,
+				]
+			);
+	     	
+	     	$this->add_control(
+				'heading_mobile_slide_options',
+				[
+					'label' 	=> __( 'Mobile Settings', 'haru-starter' ),
+					'type' 		=> Controls_Manager::HEADING,
+					'separator' => 'before',
+				]
+			);
+
+			$this->add_control(
+				'slidesToShow_mobile',
+				[
+					'label' => __( 'Slide To Show', 'haru-starter' ),
+					'type' => Controls_Manager::NUMBER,
+					'min' => 1,
+					'max' => 10,
+					'step' => 1,
+					'default' => 1,
+				]
+			);
+
+			$this->add_control(
+				'slidesToScroll_mobile',
+				[
+					'label' => __( 'Slide To Scroll', 'haru-starter' ),
+					'type' => Controls_Manager::NUMBER,
+					'min' => 1,
+					'max' => 10,
+					'step' => 1,
+					'default' => 1,
+				]
+			);
+
+	        $this->end_controls_section();
 		}
 
 		protected function render() {
@@ -207,40 +347,20 @@ if ( ! class_exists( 'Haru_Starter_Project_Carousel_Widget' ) ) {
 				return;
 			}
 
-        	$this->add_render_attribute( 'project-carousel', 'class', 'haru-project-carousel' );
+        	$this->add_render_attribute( 'images-gallery', 'class', 'haru-images-gallery' );
 
-        	if ( 'none' != $settings['pre_style'] ) {
-				$this->add_render_attribute( 'project-carousel', 'class', 'haru-project-carousel--' . $settings['pre_style'] );
+        	if ( 'none' != $settings['pre_style']  ) {
+				$this->add_render_attribute( 'images-gallery', 'class', 'haru-images-gallery--' . $settings['pre_style'] );
 			}
 
         	if ( ! empty( $settings['el_class'] ) ) {
-				$this->add_render_attribute( 'project-carousel', 'class', $settings['el_class'] );
+				$this->add_render_attribute( 'images-gallery', 'class', $settings['el_class'] );
 			}
-			
+
         	?>
 
-        	<div <?php echo $this->get_render_attribute_string( 'project-carousel' ); ?>>
-        		<?php if ( $settings['list'] ) : ?>
-					<ul class="haru-slick" data-slick='{"slidesToShow" : 1, "slidesToScroll" : 1, "arrows" : true, "infinite" : false, "centerMode" : false, "focusOnSelect" : true, "vertical" : false, "responsive" : [{"breakpoint" : 767,"settings" : {"slidesToShow" : 1}}] }'>
-						<?php 
-							foreach (  $settings['list'] as $item ) :
-							$target = $item['list_content']['is_external'] ? ' target="_blank"' : '';
-							$nofollow = $item['list_content']['nofollow'] ? ' rel="nofollow"' : '';
-						?>
-							<li class="haru-project-carousel__item">
-								<img src="<?php echo esc_url( $item['list_image']['url'] ); ?>" class="haru-project-carousel__image" alt="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>">
-								<div class="haru-project-carousel__content">
-									<div class="haru-project-carousel__sub-title"><?php echo $item['list_sub_title']; ?></div>
-									<h6 class="haru-project-carousel__title"><?php echo $item['list_title']; ?></h6>
-									<div class="haru-project-carousel__description"><?php echo $item['list_description']; ?></div>
-									<?php if ( 'style-2' != $settings['pre_style'] ) : ?>
-									<a href="<?php echo $item['list_content']['url']; ?>" <?php echo $target . $nofollow; ?> class="haru-button haru-button--text haru-button--text-primary"><?php echo $item['list_btn_text']; ?><span class="haru-button__icon"><i class="haru-icon haru-arrow-right"></i></span></a>
-									<?php endif; ?>
-								</div>
-							</li>
-						<?php endforeach; ?>
-					</ul>
-				<?php endif; ?>
+        	<div <?php echo $this->get_render_attribute_string( 'images-gallery' ); ?>>
+        		<?php echo Haru_Template::haru_get_template( 'images-gallery/images-gallery.php', $settings ); ?>
     		</div>
 
     		<?php

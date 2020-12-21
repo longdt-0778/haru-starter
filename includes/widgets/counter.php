@@ -8,12 +8,19 @@
  * @link       http://harutheme.com
 */
 
+namespace Haru_Starter\Widgets;
+
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
 
+use \Elementor\Widget_Base;
+use \Elementor\Controls_Manager;
+use \Elementor\Repeater;
+use \Haru_Starter\Classes\Haru_Template;
+
 if ( ! class_exists( 'Haru_Starter_Counter_Widget' ) ) {
-	class Haru_Starter_Counter_Widget extends \Elementor\Widget_Base {
+	class Haru_Starter_Counter_Widget extends Widget_Base {
 
 		public function get_name() {
 			return 'haru-counter';
@@ -31,13 +38,24 @@ if ( ! class_exists( 'Haru_Starter_Counter_Widget' ) ) {
 			return [ 'haru-elements' ];
 		}
 
+		public function get_keywords() {
+            return [
+                'counter',
+                'count',
+            ];
+        }
+
+		public function get_custom_help_url() {
+            return 'https://document.harutheme.com/elementor/';
+        }
+
 		protected function _register_controls() {
 
 			$this->start_controls_section(
 	            'content_section',
 	            [
 	                'label' => esc_html__( 'Content', 'haru-starter' ),
-	                'tab' => \Elementor\Controls_Manager::TAB_CONTENT,
+	                'tab' => Controls_Manager::TAB_CONTENT,
 	            ]
 	        );
 
@@ -46,7 +64,7 @@ if ( ! class_exists( 'Haru_Starter_Counter_Widget' ) ) {
 				[
 					'label' => __( 'Pre Counter', 'haru-starter' ),
 					'description' 	=> __( 'If you choose Pre Counter you will use Style default from our theme.', 'haru-starter' ),
-					'type' => \Elementor\Controls_Manager::SELECT,
+					'type' => Controls_Manager::SELECT,
 					'default' => 'none',
 					'options' => [
 						'none' 		=> __( 'None', 'haru-starter' ),
@@ -56,12 +74,12 @@ if ( ! class_exists( 'Haru_Starter_Counter_Widget' ) ) {
 				]
 			);
 
-	        $repeater = new \Elementor\Repeater();
+	        $repeater = new Repeater();
 
 	        $repeater->add_control(
 				'list_title', [
 					'label' => esc_html__( 'Title', 'haru-starter' ),
-					'type' => \Elementor\Controls_Manager::TEXT,
+					'type' => Controls_Manager::TEXT,
 					'default' => esc_html__( 'List Title' , 'haru-starter' ),
 					'label_block' => true,
 				]
@@ -70,7 +88,7 @@ if ( ! class_exists( 'Haru_Starter_Counter_Widget' ) ) {
 			$repeater->add_control(
 				'list_number', [
 					'label' => esc_html__( 'Number', 'haru-starter' ),
-					'type' => \Elementor\Controls_Manager::NUMBER,
+					'type' => Controls_Manager::NUMBER,
 					'min' => 0,
 					'default' => 10,
 					'label_block' => true,
@@ -80,7 +98,7 @@ if ( ! class_exists( 'Haru_Starter_Counter_Widget' ) ) {
 			$repeater->add_control(
 				'list_label', [
 					'label' => esc_html__( 'Label', 'haru-starter' ),
-					'type' => \Elementor\Controls_Manager::TEXT,
+					'type' => Controls_Manager::TEXT,
 					'default' => esc_html__( '+' , 'haru-starter' ),
 					'label_block' => true,
 				]
@@ -89,7 +107,7 @@ if ( ! class_exists( 'Haru_Starter_Counter_Widget' ) ) {
 			$repeater->add_control(
 				'list_icon', [
 					'label' => esc_html__( 'Icon', 'haru-starter' ),
-					'type' => \Elementor\Controls_Manager::ICONS,
+					'type' => Controls_Manager::ICONS,
 					'default' => [
 						'value' => 'fas fa-star',
 						'library' => 'solid',
@@ -105,7 +123,7 @@ if ( ! class_exists( 'Haru_Starter_Counter_Widget' ) ) {
 				'list',
 				[
 					'label' => esc_html__( 'Link List', 'haru-starter' ),
-					'type' => \Elementor\Controls_Manager::REPEATER,
+					'type' => Controls_Manager::REPEATER,
 					'fields' => $repeater->get_controls(),
 					'default' => [
 						[
@@ -126,14 +144,14 @@ if ( ! class_exists( 'Haru_Starter_Counter_Widget' ) ) {
 			);
 
 	        $this->add_control(
-	            'el_class',
-	            [
-	                'label'         => esc_html__( 'Extra Class', 'haru-starter' ),
-	                'type'          => \Elementor\Controls_Manager::TEXT,
-	                'description'   => esc_html__( 'Add extra class for Element and use custom CSS for get different style.', 'haru-starter' ),
-	                'placeholder'   => esc_html__( 'Ex: haru-extra', 'haru-starter' ),
-	            ]
-	        );
+				'el_class',
+				[
+					'label' => __( 'CSS Classes', 'haru-starter' ),
+					'type' => Controls_Manager::TEXT,
+					'default' => '',
+					'title' => __( 'Add your custom class WITHOUT the dot. e.g: my-class', 'haru-starter' ),
+				]
+			);
 
 	        $this->end_controls_section();
 
@@ -141,7 +159,7 @@ if ( ! class_exists( 'Haru_Starter_Counter_Widget' ) ) {
 				'section_title_style',
 				[
 					'label' => __( 'Title', 'haru-starter' ),
-					'tab' => \Elementor\Controls_Manager::TAB_STYLE,
+					'tab' => Controls_Manager::TAB_STYLE,
 				]
 			);
 
@@ -248,37 +266,20 @@ if ( ! class_exists( 'Haru_Starter_Counter_Widget' ) ) {
 				return;
 			}
 
-        	extract( $settings );
-
-        	$this->add_render_attribute( 'list', 'class', 'haru-counter' );
+        	$this->add_render_attribute( 'counter', 'class', 'haru-counter' );
 
         	if ( 'none' != $settings['pre_style']  ) {
-				$this->add_render_attribute( 'list', 'class', 'haru-counter--' . $settings['pre_style'] );
+				$this->add_render_attribute( 'counter', 'class', 'haru-counter--' . $settings['pre_style'] );
 			}
 
         	if ( ! empty( $settings['el_class'] ) ) {
-				$this->add_render_attribute( 'list', 'class', $settings['el_class'] );
+				$this->add_render_attribute( 'counter', 'class', $settings['el_class'] );
 			}
 			
         	?>
 
-        	<div <?php echo $this->get_render_attribute_string( 'list' ); ?>>
-        		<?php if ( $settings['list'] ) : ?>
-					<ul>
-						<?php foreach (  $settings['list'] as $item ) : ?>
-							<li>
-								<?php if ( $item['list_icon'] ) : ?>
-									<div class="haru-counter__icon"><?php \Elementor\Icons_Manager::render_icon( $item['list_icon'], [ 'aria-hidden' => 'true' ] ); ?></div>
-								<?php endif; ?>
-								<div class="haru-counter__number-wrap">
-									<div class="haru-counter__number"><?php echo $item['list_number']; ?></div>
-									<div class="haru-counter__label"><?php echo $item['list_label']; ?></div>
-								</div>
-								<div class="haru-counter__title"><?php echo $item['list_title']; ?></div>
-							</li>
-						<?php endforeach; ?>
-					</ul>
-				<?php endif; ?>
+        	<div <?php echo $this->get_render_attribute_string( 'counter' ); ?>>
+        		<?php echo Haru_Template::haru_get_template( 'counter/counter.php', $settings ); ?>
     		</div>
 
     		<?php

@@ -19,15 +19,15 @@ use \Elementor\Controls_Manager;
 use \Elementor\Utils;
 use \Haru_Starter\Classes\Haru_Template;
 
-if ( ! class_exists( 'Haru_Starter_Logo_Widget' ) ) {
-	class Haru_Starter_Logo_Widget extends Widget_Base {
+if ( ! class_exists( 'Haru_Starter_Banner_Widget' ) ) {
+	class Haru_Starter_Banner_Widget extends Widget_Base {
 
 		public function get_name() {
-			return 'haru-logo';
+			return 'haru-banner';
 		}
 
 		public function get_title() {
-			return esc_html__( 'Haru Header Logo', 'haru-starter' );
+			return esc_html__( 'Haru Banner', 'haru-starter' );
 		}
 
 		public function get_icon() {
@@ -35,14 +35,15 @@ if ( ! class_exists( 'Haru_Starter_Logo_Widget' ) ) {
 		}
 
 		public function get_categories() {
-			return [ 'haru-header-elements', 'haru-footer-elements' ];
+			return [ 'haru-elements' ];
 		}
 
 		public function get_keywords() {
             return [
-                'logo retina',
-                'logo',
-                'retina',
+                'banner',
+                'image',
+                'advertising',
+                'advertise',
             ];
         }
 
@@ -55,15 +56,30 @@ if ( ! class_exists( 'Haru_Starter_Logo_Widget' ) ) {
 			$this->start_controls_section(
 	            'section_settings',
 	            [
-	                'label' 	=> esc_html__( 'Logo Settings', 'haru-starter' ),
+	                'label' 	=> esc_html__( 'Banner Settings', 'haru-starter' ),
 	                'tab' 		=> Controls_Manager::TAB_CONTENT,
 	            ]
 	        );
 
 	        $this->add_control(
-	            'logo',
+				'pre_style',
+				[
+					'label' => __( 'Pre Banner', 'haru-starter' ),
+					'description' 	=> __( 'If you choose Pre Banner you will use Style default from our theme.', 'haru-starter' ),
+					'type' => Controls_Manager::SELECT,
+					'default' => 'none',
+					'options' => [
+						'none' 		=> __( 'None', 'haru-starter' ),
+						'style-1' 	=> __( 'Pre Banner 1', 'haru-starter' ),
+						'style-2' 	=> __( 'Pre Banner 2', 'haru-starter' ),
+					]
+				]
+			);
+
+	        $this->add_control(
+	            'image',
 	            [
-	                'label' 	=> esc_html__( 'Choose Logo', 'haru-starter' ),
+	                'label' 	=> esc_html__( 'Choose Image', 'haru-starter' ),
 	                'type' 		=> Controls_Manager::MEDIA,
 	                'dynamic' 	=> [
 	                    'active' 	=> true,
@@ -75,28 +91,27 @@ if ( ! class_exists( 'Haru_Starter_Logo_Widget' ) ) {
 	        );
 
 	        $this->add_control(
-	            'logo_retina',
-	            [
-	                'label' 	=> esc_html__( 'Choose Logo Retina', 'haru-starter' ),
-	                'type' 		=> Controls_Manager::MEDIA,
-	                'dynamic' 	=> [
-	                    'active' 	=> true,
-	                ],
-	                'default' 	=> [
-	                    'url' 		=> Utils::get_placeholder_image_src(),
-	                ],
-	            ]
-	        );
+				'button_text',
+				[
+					'label' => esc_html__( 'Button Text', 'haru-starter' ),
+					'type' => Controls_Manager::TEXT,
+					'default' => esc_html__( 'Click Here' , 'haru-starter' ),
+					'label_block' => true,
+				]
+			);
 
 	        $this->add_control(
-				'max_height',
+				'link',
 				[
-					'label' 	=> __( 'Logo Max Height', 'haru-starter' ),
-					'type' 		=> Controls_Manager::NUMBER,
-					'min' 		=> 1,
-					'max' 		=> 200,
-					'step' 		=> 1,
-					'default' 	=> 40,
+					'label' => __( 'Link', 'haru-starter' ),
+					'type' => Controls_Manager::URL,
+					'dynamic' => [
+						'active' => true,
+					],
+					'placeholder' => __( 'https://your-link.com', 'haru-starter' ),
+					'default' => [
+						'url' => '#',
+					],
 				]
 			);
 
@@ -117,15 +132,19 @@ if ( ! class_exists( 'Haru_Starter_Logo_Widget' ) ) {
 		protected function render() {
 			$settings = $this->get_settings_for_display();
 
-        	$this->add_render_attribute( 'logo', 'class', 'haru-logo' );
+        	$this->add_render_attribute( 'banner', 'class', 'haru-banner' );
+
+        	if ( 'none' != $settings['pre_style']  ) {
+				$this->add_render_attribute( 'banner', 'class', 'haru-banner--' . $settings['pre_style'] );
+			}
 
         	if ( ! empty( $settings['el_class'] ) ) {
-				$this->add_render_attribute( 'logo', 'class', $settings['el_class'] );
+				$this->add_render_attribute( 'banner', 'class', $settings['el_class'] );
 			}
         	?>
 
-        	<div <?php echo $this->get_render_attribute_string( 'logo' ); ?>>
-    			<?php echo Haru_Template::haru_get_template( 'logo/logo.php', $settings ); ?>
+        	<div <?php echo $this->get_render_attribute_string( 'banner' ); ?>>
+    			<?php echo Haru_Template::haru_get_template( 'banner/banner.php', $settings ); ?>
     		</div>
 
     		<?php

@@ -8,7 +8,7 @@
  * @link       http://harutheme.com
 */
 
-if ( !class_exists( 'Haru_Footer_Post_Type' ) ) {
+if ( ! class_exists( 'Haru_Footer_Post_Type' ) ) {
     class Haru_Footer_Post_Type {
         private static $_instance = null;
 
@@ -45,7 +45,7 @@ if ( !class_exists( 'Haru_Footer_Post_Type' ) ) {
 
             $args = array(
                 'labels'                => $labels,
-                'description'           => esc_html__( 'Display Footer of site', 'haru-pricom' ),
+                'description'           => esc_html__( 'Display Footer of site', 'haru-starter' ),
                 'supports'              => array( 'title', 'editor', 'thumbnail', 'revisions', 'starter'),
                 'hierarchical'          => false,
                 'public'                => true,

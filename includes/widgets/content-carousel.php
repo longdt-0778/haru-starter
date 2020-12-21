@@ -21,15 +21,15 @@ use \Elementor\Utils;
 use \Elementor\Plugin;
 use \Haru_Starter\Classes\Haru_Template;
 
-if ( ! class_exists( 'Haru_Starter_Project_Carousel_Widget' ) ) {
-	class Haru_Starter_Project_Carousel_Widget extends Widget_Base {
+if ( ! class_exists( 'Haru_Starter_Content_Carousel_Widget' ) ) {
+	class Haru_Starter_Content_Carousel_Widget extends Widget_Base {
 
 		public function get_name() {
-			return 'haru-project-carousel';
+			return 'haru-content-carousel';
 		}
 
 		public function get_title() {
-			return esc_html__( 'Haru Project Carousel', 'haru-starter' );
+			return esc_html__( 'Haru Content Carousel', 'haru-starter' );
 		}
 
 		public function get_icon() {
@@ -39,6 +39,14 @@ if ( ! class_exists( 'Haru_Starter_Project_Carousel_Widget' ) ) {
 		public function get_categories() {
 			return [ 'haru-elements' ];
 		}
+
+		public function get_keywords() {
+            return [
+                'carousel',
+                'content',
+                'slideshow',
+            ];
+        }
 
 		public function get_custom_help_url() {
             return 'https://document.harutheme.com/elementor/';
@@ -81,13 +89,13 @@ if ( ! class_exists( 'Haru_Starter_Project_Carousel_Widget' ) ) {
 	        $this->add_control(
 				'pre_style',
 				[
-					'label' => __( 'Pre Project Carousel', 'haru-starter' ),
-					'description' 	=> __( 'If you choose Pre Project Carousel you will use Style default from our theme.', 'haru-starter' ),
+					'label' => __( 'Pre Content Carousel', 'haru-starter' ),
+					'description' 	=> __( 'If you choose Pre Content Carousel you will use Style default from our theme.', 'haru-starter' ),
 					'type' => Controls_Manager::SELECT,
 					'default' => 'style-1',
 					'options' => [
-						'style-1' 	=> __( 'Pre Project Carousel 1', 'haru-starter' ),
-						'style-2' 	=> __( 'Pre Project Carousel 2', 'haru-starter' ),
+						'style-1' 	=> __( 'Pre Content Carousel 1', 'haru-starter' ),
+						'style-2' 	=> __( 'Pre Content Carousel 2', 'haru-starter' ),
 					]
 				]
 			);
@@ -109,6 +117,9 @@ if ( ! class_exists( 'Haru_Starter_Project_Carousel_Widget' ) ) {
 					'type' => Controls_Manager::TEXT,
 					'default' => esc_html__( 'List Sub Title' , 'haru-starter' ),
 					'label_block' => true,
+					'condition' => [
+						'pre_style!' => 'style-1',
+					],
 				]
 			);
 
@@ -122,8 +133,7 @@ if ( ! class_exists( 'Haru_Starter_Project_Carousel_Widget' ) ) {
 			);
 
 			$repeater->add_control(
-	            'list_image',
-	            [
+	            'list_image', [
 	                'label' 	=> esc_html__( 'Choose Image', 'haru-starter' ),
 	                'type' 		=> Controls_Manager::MEDIA,
 	                'dynamic' 	=> [
@@ -155,6 +165,9 @@ if ( ! class_exists( 'Haru_Starter_Project_Carousel_Widget' ) ) {
 					'type' => Controls_Manager::TEXT,
 					'default' => esc_html__( 'Click Here' , 'haru-starter' ),
 					'label_block' => true,
+					'condition' => [
+						'pre_style!' => [ 'style-1' ],
+					],
 				]
 			);
 
@@ -207,39 +220,68 @@ if ( ! class_exists( 'Haru_Starter_Project_Carousel_Widget' ) ) {
 				return;
 			}
 
-        	$this->add_render_attribute( 'project-carousel', 'class', 'haru-project-carousel' );
+        	$this->add_render_attribute( 'content-carousel', 'class', 'haru-content-carousel' );
 
         	if ( 'none' != $settings['pre_style'] ) {
-				$this->add_render_attribute( 'project-carousel', 'class', 'haru-project-carousel--' . $settings['pre_style'] );
+				$this->add_render_attribute( 'content-carousel', 'class', 'haru-content-carousel--' . $settings['pre_style'] );
 			}
 
         	if ( ! empty( $settings['el_class'] ) ) {
-				$this->add_render_attribute( 'project-carousel', 'class', $settings['el_class'] );
+				$this->add_render_attribute( 'content-carousel', 'class', $settings['el_class'] );
 			}
 			
         	?>
 
-        	<div <?php echo $this->get_render_attribute_string( 'project-carousel' ); ?>>
+        	<div <?php echo $this->get_render_attribute_string( 'content-carousel' ); ?>>
         		<?php if ( $settings['list'] ) : ?>
+        			<?php if ( 'style-1' == $settings['pre_style'] ) : ?>
 					<ul class="haru-slick" data-slick='{"slidesToShow" : 1, "slidesToScroll" : 1, "arrows" : true, "infinite" : false, "centerMode" : false, "focusOnSelect" : true, "vertical" : false, "responsive" : [{"breakpoint" : 767,"settings" : {"slidesToShow" : 1}}] }'>
 						<?php 
 							foreach (  $settings['list'] as $item ) :
 							$target = $item['list_content']['is_external'] ? ' target="_blank"' : '';
 							$nofollow = $item['list_content']['nofollow'] ? ' rel="nofollow"' : '';
 						?>
-							<li class="haru-project-carousel__item">
-								<img src="<?php echo esc_url( $item['list_image']['url'] ); ?>" class="haru-project-carousel__image" alt="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>">
-								<div class="haru-project-carousel__content">
-									<div class="haru-project-carousel__sub-title"><?php echo $item['list_sub_title']; ?></div>
-									<h6 class="haru-project-carousel__title"><?php echo $item['list_title']; ?></h6>
-									<div class="haru-project-carousel__description"><?php echo $item['list_description']; ?></div>
-									<?php if ( 'style-2' != $settings['pre_style'] ) : ?>
-									<a href="<?php echo $item['list_content']['url']; ?>" <?php echo $target . $nofollow; ?> class="haru-button haru-button--text haru-button--text-primary"><?php echo $item['list_btn_text']; ?><span class="haru-button__icon"><i class="haru-icon haru-arrow-right"></i></span></a>
+							<li class="haru-content-carousel__item">
+								<img src="<?php echo esc_url( $item['list_image']['url'] ); ?>" class="haru-content-carousel__image" alt="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>">
+								<div class="haru-content-carousel__content">
+									<div class="haru-content-carousel__sub-title"><?php echo $item['list_sub_title']; ?></div>
+									<h6 class="haru-content-carousel__title"><?php echo $item['list_title']; ?></h6>
+									<div class="haru-content-carousel__description"><?php echo $item['list_description']; ?></div>
+									<?php if ( $item['list_content']['url'] ) : ?>
+									<a href="<?php echo $item['list_content']['url']; ?>" <?php echo $target . $nofollow; ?> class="haru-button haru-button--text haru-button--text-primary"><?php echo $item['list_btn_text']; ?><i class="haru-icon haru-arrow-right"></i></a>
 									<?php endif; ?>
 								</div>
 							</li>
 						<?php endforeach; ?>
 					</ul>
+					<?php endif; ?>
+
+					<?php if ( 'style-2' == $settings['pre_style'] ) : ?>
+							<ul class="haru-slick" data-slick='{"slidesToShow" : 1, "slidesToScroll" : 1, "arrows" : true, "infinite" : true, "centerMode" : false, "focusOnSelect" : true, "vertical" : false, "variableWidth": true, "responsive" : [{"breakpoint" : 767,"settings" : {"slidesToShow" : 1, "variableWidth": false }}] }'>
+							<?php 
+								foreach (  $settings['list'] as $item ) :
+								$target = $item['list_content']['is_external'] ? ' target="_blank"' : '';
+								$nofollow = $item['list_content']['nofollow'] ? ' rel="nofollow"' : '';
+							?>
+								<li class="haru-content-carousel__item">
+									<img src="<?php echo esc_url( $item['list_image']['url'] ); ?>" class="haru-content-carousel__image" alt="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>">
+									<div class="haru-content-carousel__content">
+										<div class="haru-content-carousel__sub-title"><?php echo $item['list_sub_title']; ?></div>
+										<h6 class="haru-content-carousel__title">
+											<?php if ( $item['list_content']['url'] ) : ?>
+												<a href="<?php echo $item['list_content']['url']; ?>" <?php echo $target . $nofollow; ?>>
+											<?php endif; ?>
+											<?php echo $item['list_title']; ?>
+											<?php if ( $item['list_content']['url'] ) : ?>
+												</a>
+											<?php endif; ?>
+										</h6>
+										<div class="haru-content-carousel__description"><?php echo $item['list_description']; ?></div>
+									</div>
+								</li>
+							<?php endforeach; ?>
+						</ul>
+					<?php endif; ?>
 				<?php endif; ?>
     		</div>
 

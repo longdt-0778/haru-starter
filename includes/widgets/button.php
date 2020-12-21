@@ -8,12 +8,19 @@
  * @link       http://harutheme.com
 */
 
+namespace Haru_Starter\Widgets;
+
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
 
+use \Elementor\Widget_Base;
+use \Elementor\Controls_Manager;
+use \Elementor\Icons_Manager;
+use \Haru_Starter\Classes\Haru_Template;
+
 if ( ! class_exists( 'Haru_Starter_Button_Widget' ) ) {
-	class Haru_Starter_Button_Widget extends \Elementor\Widget_Base {
+	class Haru_Starter_Button_Widget extends Widget_Base {
 
 		public function get_name() {
 			return 'haru-button';
@@ -31,6 +38,18 @@ if ( ! class_exists( 'Haru_Starter_Button_Widget' ) ) {
 			return [ 'haru-elements' ];
 		}
 
+		public function get_keywords() {
+            return [
+                'button',
+                'link',
+                'action',
+            ];
+        }
+
+		public function get_custom_help_url() {
+            return 'https://document.harutheme.com/elementor/';
+        }
+
 		public static function get_button_sizes() {
 			return [
 				'xs' => __( 'Extra Small', 'haru-starter' ),
@@ -46,8 +65,8 @@ if ( ! class_exists( 'Haru_Starter_Button_Widget' ) ) {
 			$this->start_controls_section(
 	            'content_section',
 	            [
-	                'label' 	=> esc_html__( 'Content', 'haru-starter' ),
-	                'tab' 		=> \Elementor\Controls_Manager::TAB_CONTENT,
+	                'label' 	=> esc_html__( 'Button Settings', 'haru-starter' ),
+	                'tab' 		=> Controls_Manager::TAB_CONTENT,
 	            ]
 	        );
 
@@ -56,12 +75,13 @@ if ( ! class_exists( 'Haru_Starter_Button_Widget' ) ) {
 				[
 					'label' => __( 'Pre Button', 'haru-starter' ),
 					'description' 	=> __( 'If you choose Pre Button you will use Style default from our theme.', 'haru-starter' ),
-					'type' => \Elementor\Controls_Manager::SELECT,
+					'type' => Controls_Manager::SELECT,
 					'default' => 'none',
 					'options' => [
 						'none' 		=> __( 'None', 'haru-starter' ),
 						'style-1' 	=> __( 'Pre Button 1', 'haru-starter' ),
 						'style-2' 	=> __( 'Pre Button 2', 'haru-starter' ),
+						'style-3' 	=> __( 'Pre Button 3', 'haru-starter' ),
 					]
 				]
 			);
@@ -70,7 +90,7 @@ if ( ! class_exists( 'Haru_Starter_Button_Widget' ) ) {
 				'text',
 				[
 					'label' => __( 'Text', 'haru-starter' ),
-					'type' => \Elementor\Controls_Manager::TEXT,
+					'type' => Controls_Manager::TEXT,
 					'dynamic' => [
 						'active' => true,
 					],
@@ -83,7 +103,7 @@ if ( ! class_exists( 'Haru_Starter_Button_Widget' ) ) {
 				'link',
 				[
 					'label' => __( 'Link', 'haru-starter' ),
-					'type' => \Elementor\Controls_Manager::URL,
+					'type' => Controls_Manager::URL,
 					'dynamic' => [
 						'active' => true,
 					],
@@ -98,7 +118,7 @@ if ( ! class_exists( 'Haru_Starter_Button_Widget' ) ) {
 				'align',
 				[
 					'label' => __( 'Alignment', 'haru-starter' ),
-					'type' => \Elementor\Controls_Manager::CHOOSE,
+					'type' => Controls_Manager::CHOOSE,
 					'options' => [
 						'left'    => [
 							'title' => __( 'Left', 'haru-starter' ),
@@ -126,7 +146,7 @@ if ( ! class_exists( 'Haru_Starter_Button_Widget' ) ) {
 				'size',
 				[
 					'label' => __( 'Size', 'haru-starter' ),
-					'type' => \Elementor\Controls_Manager::SELECT,
+					'type' => Controls_Manager::SELECT,
 					'default' => 'sm',
 					'options' => self::get_button_sizes(),
 					'style_transfer' => true,
@@ -140,7 +160,7 @@ if ( ! class_exists( 'Haru_Starter_Button_Widget' ) ) {
 				'selected_icon',
 				[
 					'label' => __( 'Icon', 'haru-starter' ),
-					'type' => \Elementor\Controls_Manager::ICONS,
+					'type' => Controls_Manager::ICONS,
 					'fa4compatibility' => 'icon',
 				]
 			);
@@ -149,7 +169,7 @@ if ( ! class_exists( 'Haru_Starter_Button_Widget' ) ) {
 				'icon_align',
 				[
 					'label' => __( 'Icon Position', 'haru-starter' ),
-					'type' => \Elementor\Controls_Manager::SELECT,
+					'type' => Controls_Manager::SELECT,
 					'default' => 'left',
 					'options' => [
 						'left' => __( 'Before', 'haru-starter' ),
@@ -165,7 +185,7 @@ if ( ! class_exists( 'Haru_Starter_Button_Widget' ) ) {
 				'icon_indent',
 				[
 					'label' => __( 'Icon Spacing', 'haru-starter' ),
-					'type' => \Elementor\Controls_Manager::SLIDER,
+					'type' => Controls_Manager::SLIDER,
 					'range' => [
 						'px' => [
 							'max' => 50,
@@ -182,7 +202,7 @@ if ( ! class_exists( 'Haru_Starter_Button_Widget' ) ) {
 				'view',
 				[
 					'label' => __( 'View', 'haru-starter' ),
-					'type' => \Elementor\Controls_Manager::HIDDEN,
+					'type' => Controls_Manager::HIDDEN,
 					'default' => 'traditional',
 				]
 			);
@@ -191,7 +211,7 @@ if ( ! class_exists( 'Haru_Starter_Button_Widget' ) ) {
 				'button_css_id',
 				[
 					'label' => __( 'Button ID', 'haru-starter' ),
-					'type' => \Elementor\Controls_Manager::TEXT,
+					'type' => Controls_Manager::TEXT,
 					'dynamic' => [
 						'active' => true,
 					],
@@ -199,18 +219,18 @@ if ( ! class_exists( 'Haru_Starter_Button_Widget' ) ) {
 					'title' => __( 'Add your custom id WITHOUT the Pound key. e.g: my-id', 'haru-starter' ),
 					'description' => __( 'Please make sure the ID is unique and not used elsewhere on the page this form is displayed. This field allows <code>A-z 0-9</code> & underscore chars without spaces.', 'haru-starter' ),
 					'separator' => 'before',
-
 				]
 			);
 
 	        $this->add_control(
-	            'el_class',
-	            [
-	                'label'         => esc_html__( 'Extra Class', 'haru-starter' ),
-	                'type'          => \Elementor\Controls_Manager::TEXT,
-	                'placeholder'   => esc_html__( 'Add extra class for Element and use custom CSS for get different style.', 'haru-starter' ),
-	            ]
-	        );
+				'el_class',
+				[
+					'label' => __( 'CSS Classes', 'haru-starter' ),
+					'type' => Controls_Manager::TEXT,
+					'default' => '',
+					'title' => __( 'Add your custom class WITHOUT the dot. e.g: my-class', 'haru-starter' ),
+				]
+			);
 
 	        $this->end_controls_section();
 
@@ -249,8 +269,27 @@ if ( ! class_exists( 'Haru_Starter_Button_Widget' ) ) {
 						'haru-button--round-full'
 					]
 				);
+			} else if ( 'style-3' == $settings['pre_style'] ) {
+				$this->add_render_attribute( 
+					'button',
+					'class',
+					[
+						'haru-button--' . $settings['pre_style'],
+						'haru-button--bg-black',
+						'haru-button--size-large',
+						'haru-button--round-small'
+					]
+				);
 			} else {
-
+				$this->add_render_attribute( 
+					'button',
+					'class',
+					[
+						'haru-button--' . $settings['pre_style'],
+						'haru-button--bg-black',
+						'haru-button--round-small'
+					]
+				);
 			}
 
 			if ( ! empty( $settings['link']['url'] ) ) {
@@ -285,7 +324,7 @@ if ( ! class_exists( 'Haru_Starter_Button_Widget' ) ) {
 			$settings = $this->get_settings_for_display();
 
 			$migrated = isset( $settings['__fa4_migrated']['selected_icon'] );
-			$is_new = empty( $settings['icon'] ) && \Elementor\Icons_Manager::is_migration_allowed();
+			$is_new = empty( $settings['icon'] ) && Icons_Manager::is_migration_allowed();
 
 			if ( ! $is_new && empty( $settings['icon_align'] ) ) {
 				// @todo: remove when deprecated
@@ -317,7 +356,7 @@ if ( ! class_exists( 'Haru_Starter_Button_Widget' ) ) {
 				<?php if ( ! empty( $settings['icon'] ) || ! empty( $settings['selected_icon']['value'] ) ) : ?>
 				<span <?php echo $this->get_render_attribute_string( 'icon-align' ); ?>>
 					<?php if ( $is_new || $migrated ) :
-						\Elementor\Icons_Manager::render_icon( $settings['selected_icon'], [ 'aria-hidden' => 'true' ] );
+						Icons_Manager::render_icon( $settings['selected_icon'], [ 'aria-hidden' => 'true' ] );
 					else : ?>
 						<i class="<?php echo esc_attr( $settings['icon'] ); ?>" aria-hidden="true"></i>
 					<?php endif; ?>
@@ -329,7 +368,7 @@ if ( ! class_exists( 'Haru_Starter_Button_Widget' ) ) {
 		}
 
 		public function on_import( $element ) {
-			return \Elementor\Icons_Manager::on_import_migration( $element, 'icon', 'selected_icon' );
+			return Icons_Manager::on_import_migration( $element, 'icon', 'selected_icon' );
 		}
 
 	}

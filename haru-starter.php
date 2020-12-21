@@ -173,8 +173,8 @@ if ( ! class_exists( 'Haru_Starter' ) ) {
 			// Register Widget Scripts
 			add_action( 'elementor/frontend/after_register_scripts', [ $this, 'widget_scripts' ] );
 
-			// Render Header & Footer
-			add_filter( 'haru_render_post_builder', [ $this, 'render_post_builder'] , 10, 2 );
+			// // Render Header & Footer
+			// add_filter( 'haru_render_post_builder', [ $this, 'render_post_builder'] , 10, 2 );
 		}
 
 		/**
@@ -291,8 +291,10 @@ if ( ! class_exists( 'Haru_Starter' ) ) {
 		 */
 		public function includes() {
 
+			require_once( 'includes/classes/class-haru-helper.php' );
 			require_once( 'includes/classes/class-haru-controls-helper.php' );
 			require_once( 'includes/classes/class-haru-templates.php' );
+			require_once( 'includes/classes/class-haru-ajax-helper.php' );
 
 			require_once( 'includes/posttypes/_init.php' );
 			require_once( 'core/libraries/_init.php' );
@@ -359,21 +361,45 @@ if ( ! class_exists( 'Haru_Starter' ) ) {
 			require_once( HARU_STARTER_CORE_DIR . '/includes/widgets/intro.php' );
 			require_once( HARU_STARTER_CORE_DIR . '/includes/widgets/counter.php' );
 			require_once( HARU_STARTER_CORE_DIR . '/includes/widgets/button.php' );
+			require_once( HARU_STARTER_CORE_DIR . '/includes/widgets/post-slideshow.php' );
 			require_once( HARU_STARTER_CORE_DIR . '/includes/widgets/project-carousel.php' );
+			require_once( HARU_STARTER_CORE_DIR . '/includes/widgets/career-intro.php' );
+			require_once( HARU_STARTER_CORE_DIR . '/includes/widgets/list-content.php' );
+			require_once( HARU_STARTER_CORE_DIR . '/includes/widgets/banner.php' );
+			require_once( HARU_STARTER_CORE_DIR . '/includes/widgets/news.php' );
+			require_once( HARU_STARTER_CORE_DIR . '/includes/widgets/meaning.php' );
+			require_once( HARU_STARTER_CORE_DIR . '/includes/widgets/content-carousel.php' );
+			require_once( HARU_STARTER_CORE_DIR . '/includes/widgets/tabs.php' );
+			require_once( HARU_STARTER_CORE_DIR . '/includes/widgets/images-gallery.php' );
+			require_once( HARU_STARTER_CORE_DIR . '/includes/widgets/recruitment.php' );
+			require_once( HARU_STARTER_CORE_DIR . '/includes/widgets/project.php' );
+			require_once( HARU_STARTER_CORE_DIR . '/includes/widgets/logo-showcase.php' );
 
 			// Register widget
-			\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \Haru_Starter_Logo_Widget() );
-			\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \Haru_Starter_Footer_Link_Widget() );
-			\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \Haru_Starter_Nav_Menu_Widget() );
-			\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \Haru_Starter_Heading_Widget() );
-			\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \Haru_Starter_Contact_Widget() );
-			\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \Haru_Starter_Social_Widget() );
-			\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \Haru_Starter_Video_Widget() );
-			\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \Haru_Starter_Business_Widget() );
-			\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \Haru_Starter_Intro_Widget() );
-			\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \Haru_Starter_Counter_Widget() );
-			\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \Haru_Starter_Button_Widget() );
-			\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \Haru_Starter_Project_Carousel_Widget() );
+			\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \Haru_Starter\Widgets\Haru_Starter_Logo_Widget() );
+			\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \Haru_Starter\Widgets\Haru_Starter_Footer_Link_Widget() );
+			\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \Haru_Starter\Widgets\Haru_Starter_Nav_Menu_Widget() );
+			\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \Haru_Starter\Widgets\Haru_Starter_Heading_Widget() );
+			\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \Haru_Starter\Widgets\Haru_Starter_Contact_Widget() );
+			\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \Haru_Starter\Widgets\Haru_Starter_Social_Widget() );
+			\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \Haru_Starter\Widgets\Haru_Starter_Video_Widget() );
+			\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \Haru_Starter\Widgets\Haru_Starter_Business_Widget() );
+			\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \Haru_Starter\Widgets\Haru_Starter_Intro_Widget() );
+			\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \Haru_Starter\Widgets\Haru_Starter_Counter_Widget() );
+			\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \Haru_Starter\Widgets\Haru_Starter_Button_Widget() );
+			\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \Haru_Starter\Widgets\Haru_Starter_Post_Slideshow_Widget() );
+			\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \Haru_Starter\Widgets\Haru_Starter_Project_Carousel_Widget() );
+			\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \Haru_Starter\Widgets\Haru_Starter_Career_Intro_Widget() );
+			\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \Haru_Starter\Widgets\Haru_Starter_List_Content_Widget() );
+			\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \Haru_Starter\Widgets\Haru_Starter_Banner_Widget() );
+			\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \Haru_Starter\Widgets\Haru_Starter_News_Widget() );
+			\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \Haru_Starter\Widgets\Haru_Starter_Meaning_Widget() );
+			\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \Haru_Starter\Widgets\Haru_Starter_Content_Carousel_Widget() );
+			\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \Haru_Starter\Widgets\Haru_Starter_Tabs_Widget() );
+			\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \Haru_Starter\Widgets\Haru_Starter_Images_Gallery_Widget() );
+			\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \Haru_Starter\Widgets\Haru_Starter_Recruitment_Widget() );
+			\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \Haru_Starter\Widgets\Haru_Starter_Project_Widget() );
+			\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \Haru_Starter\Widgets\Haru_Starter_Logo_Showcase_Widget() );
 
 		}
 
@@ -409,7 +435,9 @@ if ( ! class_exists( 'Haru_Starter' ) ) {
 
 			wp_register_style( 'widget-1', plugins_url( 'assets/css/widget-1.css', __FILE__ ) );
 			wp_register_style( 'widget-2', plugins_url( 'assets/css/widget-2.css', __FILE__ ) );
-			wp_register_style( 'animate', plugins_url( 'assets/libs/animate/animate.min.css', __FILE__ ) );
+			wp_register_style( 'animate', plugins_url( 'assets/lib/animate/animate.min.css', __FILE__ ) );
+			wp_register_style( 'slick', plugins_url( 'assets/lib/slick/slick.css', __FILE__ ) );
+			wp_register_style( 'magnific-popup', plugins_url( 'assets/lib/magnific-popup/magnific-popup.css', __FILE__ ) );
 
 		}
 
@@ -424,6 +452,9 @@ if ( ! class_exists( 'Haru_Starter' ) ) {
 		 */
 		public function widget_scripts() {
 
+			wp_register_script( 'slick', plugins_url( 'assets/lib/slick/slick.min.js', __FILE__ ) );
+			wp_register_script( 'isotope', plugins_url( 'assets/lib/isotope/isotope.pkgd.min.js', __FILE__ ) );
+			wp_register_script( 'magnific-popup', plugins_url( 'assets/lib/magnific-popup/jquery.magnific-popup.min.js', __FILE__ ) );
 			wp_register_script( 'some-library', plugins_url( 'assets/js/libs/some-library.js', __FILE__ ) );
 			wp_register_script( 'widget-1', plugins_url( 'assets/js/widget-1.js', __FILE__ ) );
 			wp_register_script( 'widget-2', plugins_url( 'assets/js/widget-2.js', __FILE__ ), [ 'jquery', 'some-library' ] );
@@ -454,7 +485,46 @@ if ( ! class_exists( 'Haru_Starter' ) ) {
 		 *
 		 * @access public
 		 */
-		public function render_page_content( $post_id ) {
+		// public function render_page_content( $post_id ) {
+  //           if ( class_exists( 'Elementor\Core\Files\CSS\Post' ) ) {
+  //               $css_file = new Elementor\Core\Files\CSS\Post( $post_id );
+  //               $css_file->enqueue();
+  //           }
+
+  //           // wp_reset_query();
+  //           // wp_reset_postdata();
+
+  //           // // var_dump($post);
+
+  //           var_dump(get_the_ID());
+  //           var_dump($post_id);
+
+  //           // var_dump(Elementor\Plugin::instance()->frontend->get_builder_content_for_display( $post_id ));
+  //           if ( get_the_ID() === (int) $post_id ) {
+  //           	return Elementor\Plugin::instance()->frontend->get_builder_content( $post_id );
+  //           } else {
+  //           	return Elementor\Plugin::instance()->frontend->get_builder_content_for_display( $post_id );
+  //           }
+            
+  //       }
+
+        // public function render_post_builder( $html, $post ) {
+        //     if ( ! empty( $post ) && ! empty( $post->ID ) ) {
+        //         return $this->render_page_content($post->ID);
+        //     }
+
+        //     return $html;
+        // }
+
+        // public function render_post_builder( $html, $post_id ) {
+        //     if ( ! empty( $post_id ) ) {
+        //         return $this->render_page_content( $post_id );
+        //     }
+
+        //     return $html;
+        // }
+
+        public function render_page_content($post_id) {
             if ( class_exists( 'Elementor\Core\Files\CSS\Post' ) ) {
                 $css_file = new Elementor\Core\Files\CSS\Post( $post_id );
                 $css_file->enqueue();
@@ -463,11 +533,10 @@ if ( ! class_exists( 'Haru_Starter' ) ) {
             return Elementor\Plugin::instance()->frontend->get_builder_content_for_display( $post_id );
         }
 
-        public function render_post_builder( $html, $post_id ) {
-            if ( ! empty( $post_id ) ) {
-                return $this->render_page_content( $post_id );
+        public function render_post_builder($html, $post) {
+            if ( !empty($post) && !empty($post->ID) ) {
+                return $this->render_page_content($post->ID);
             }
-
             return $html;
         }
 	}

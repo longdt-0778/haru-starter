@@ -1,15 +1,22 @@
 <?php
+/** 
+ * @package    HaruTheme/Haru Starter
+ * @version    1.0.0
+ * @author     Administrator <admin@harutheme.com>
+ * @copyright  Copyright (c) 2017, HaruTheme
+ * @license    http://opensource.org/licenses/gpl-2.0.php GPL v2 or later
+ * @link       http://harutheme.com
+*/
 
 namespace Haru_Starter\Classes;
 
-if (!defined('ABSPATH')) {
+if ( ! defined( 'ABSPATH' ) ) {
     exit;
 } // Exit if accessed directly
 
 use \Elementor\Controls_Manager;
 
-class Helper
-{
+class Helper {
 
     /**
      * Include a file with variables
@@ -20,9 +27,8 @@ class Helper
      * @return string
      * @since  4.2.2
      */
-    public static function include_with_variable( $file_path, $variables = [])
-    {
-        if (file_exists($file_path)) {
+    public static function include_with_variable( $file_path, $variables = []) {
+        if ( file_exists( $file_path ) ) {
             extract($variables);
 
             ob_start();
@@ -43,8 +49,7 @@ class Helper
      * @return bool
      * @since  4.0.4
      */
-    public static function prevent_extension_loading($post_id)
-    {
+    public static function prevent_extension_loading( $post_id ) {
         $template_name = get_post_meta($post_id, '_elementor_template_type', true);
         $template_list = [
             'header',
@@ -63,23 +68,22 @@ class Helper
         return in_array($template_name, $template_list);
     }
 
-    public static function fix_old_query($settings)
-    {
+    public static function fix_old_query( $settings ) {
         $update_query = false;
 
-        foreach ($settings as $key => $value) {
-            if (strpos($key, 'eaeposts_') !== false) {
-                $settings[str_replace('eaeposts_', '', $key)] = $value;
+        foreach ( $settings as $key => $value ) {
+            if ( strpos($key, 'eaeposts_') !== false ) {
+                $settings[str_replace( 'eaeposts_', '', $key )] = $value;
                 $update_query = true;
             }
         }
 
-        if ($update_query) {
+        if ( $update_query ) {
             global $wpdb;
 
             $post_id = get_the_ID();
-            $data = get_post_meta($post_id, '_elementor_data', true);
-            $data = str_replace('eaeposts_', '', $data);
+            $data = get_post_meta( $post_id, '_elementor_data', true );
+            $data = str_replace( 'eaeposts_', '', $data );
             $wpdb->update(
                 $wpdb->postmeta,
                 [
@@ -95,8 +99,7 @@ class Helper
         return $settings;
     }
 
-    public static function get_query_args($settings = [], $post_type = 'post')
-    {
+    public static function get_query_args($settings = [], $post_type = 'post') {
         $settings = wp_parse_args($settings, [
             'post_type' => $post_type,
             'posts_ids' => [],
@@ -116,21 +119,21 @@ class Helper
             'offset' => $settings['offset'],
         ];
 
-        if ('by_id' === $settings['post_type']) {
+        if ( 'by_id' === $settings['post_type'] ) {
             $args['post_type'] = 'any';
             $args['post__in'] = empty($settings['posts_ids']) ? [0] : $settings['posts_ids'];
         } else {
             $args['post_type'] = $settings['post_type'];
 
-            if ($args['post_type'] !== 'page') {
+            if ( $args['post_type'] !== 'page' ) {
                 $args['tax_query'] = [];
 
-                $taxonomies = get_object_taxonomies($settings['post_type'], 'objects');
+                $taxonomies = get_object_taxonomies( $settings['post_type'], 'objects' );
 
-                foreach ($taxonomies as $object) {
+                foreach ( $taxonomies as $object ) {
                     $setting_key = $object->name . '_ids';
 
-                    if (!empty($settings[$setting_key])) {
+                    if ( ! empty( $settings[$setting_key] ) ) {
                         $args['tax_query'][] = [
                             'taxonomy' => $object->name,
                             'field' => 'term_id',
@@ -139,17 +142,17 @@ class Helper
                     }
                 }
 
-                if (!empty($args['tax_query'])) {
+                if ( ! empty( $args['tax_query'] ) ) {
                     $args['tax_query']['relation'] = 'AND';
                 }
             }
         }
 
-        if (!empty($settings['authors'])) {
+        if ( ! empty( $settings['authors'] ) ) {
             $args['author__in'] = $settings['authors'];
         }
 
-        if (!empty($settings['post__not_in'])) {
+        if ( ! empty( $settings['post__not_in'] ) ) {
             $args['post__not_in'] = $settings['post__not_in'];
         }
 
@@ -157,47 +160,14 @@ class Helper
     }
 
     /**
-     * Go Premium
-     *
-     */
-    public static function go_premium($wb)
-    {
-        $wb->start_controls_section(
-            'eael_section_pro',
-            [
-                'label' => __('Go Premium for More Features', 'essential-addons-for-elementor-lite'),
-            ]
-        );
-
-        $wb->add_control(
-            'eael_control_get_pro',
-            [
-                'label' => __('Unlock more possibilities', 'essential-addons-for-elementor-lite'),
-                'type' => Controls_Manager::CHOOSE,
-                'options' => [
-                    '1' => [
-                        'title' => __('', 'essential-addons-for-elementor-lite'),
-                        'icon' => 'fa fa-unlock-alt',
-                    ],
-                ],
-                'default' => '1',
-                'description' => '<span class="pro-feature"> Get the  <a href="http://essential-addons.com/elementor/#pricing" target="_blank">Pro version</a> for more stunning elements and customization options.</span>',
-            ]
-        );
-
-        $wb->end_controls_section();
-    }
-
-    /**
      * Get All POst Types
      * @return array
      */
-    public static function get_post_types()
-    {
-        $post_types = get_post_types(['public' => true, 'show_in_nav_menus' => true], 'objects');
-        $post_types = wp_list_pluck($post_types, 'label', 'name');
+    public static function get_post_types() {
+        $post_types = get_post_types( ['public' => true, 'show_in_nav_menus' => true], 'objects' );
+        $post_types = wp_list_pluck( $post_types, 'label', 'name' );
 
-        return array_diff_key($post_types, ['elementor_library', 'attachment']);
+        return array_diff_key( $post_types, ['elementor_library', 'attachment'] );
     }
 
     /**
@@ -207,9 +177,8 @@ class Helper
      *
      * @return array
      */
-    public static function get_post_list($post_type = 'any')
-    {
-        return self::get_query_post_list($post_type);
+    public static function get_post_list( $post_type = 'any' ) {
+        return self::get_query_post_list( $post_type );
     }
 
     /**
@@ -217,8 +186,7 @@ class Helper
      *
      * @return array
      */
-    public static function get_post_orderby_options()
-    {
+    public static function get_post_orderby_options() {
         $orderby = array(
             'ID' => 'Post ID',
             'author' => 'Post Author',
@@ -239,16 +207,15 @@ class Helper
      *
      * @return array
      */
-    public static function get_terms_list($taxonomy = 'category', $key = 'term_id')
-    {
+    public static function get_terms_list( $taxonomy = 'category', $key = 'term_id' ) {
         $options = [];
         $terms = get_terms([
             'taxonomy' => $taxonomy,
             'hide_empty' => true,
         ]);
 
-        if (!empty($terms) && !is_wp_error($terms)) {
-            foreach ($terms as $term) {
+        if ( ! empty( $terms ) && ! is_wp_error( $terms ) ) {
+            foreach ( $terms as $term ) {
                 $options[$term->{$key}] = $term->name;
             }
         }
@@ -263,11 +230,10 @@ class Helper
      *
      * @return array
      */
-    public static function get_elementor_templates($type = null)
-    {
+    public static function get_elementor_templates( $type = null ) {
         $options = [];
 
-        if ($type) {
+        if ( $type ) {
             $args = [
                 'post_type' => 'elementor_library',
                 'posts_per_page' => -1,
