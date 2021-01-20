@@ -54,7 +54,7 @@ if ( !class_exists( 'Haru_MegaMenu_Post_Type' ) ) {
 
             $args = array(
                 'labels'                => $labels,
-                'description'           => esc_html__( 'Display MegaMenu of site', 'haru-pricom' ),
+                'description'           => esc_html__( 'Display MegaMenu of site', 'haru-starter' ),
                 'supports'              => array( 'title', 'editor', 'thumbnail', 'revisions', 'starter'),
                 'hierarchical'          => false,
                 'public'                => true,

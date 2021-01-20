@@ -8,12 +8,20 @@
  * @link       http://harutheme.com
 */
 
+namespace Haru_Starter\Widgets;
+
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
 
+use \Elementor\Widget_Base;
+use \Elementor\Controls_Manager;
+use \Elementor\Group_Control_Typography;
+use \Elementor\Group_Control_Text_Shadow;
+use \Haru_Starter\Classes\Haru_Template;
+
 if ( ! class_exists( 'Haru_Starter_Heading_Widget' ) ) {
-	class Haru_Starter_Heading_Widget extends \Elementor\Widget_Base {
+	class Haru_Starter_Heading_Widget extends Widget_Base {
 
 		public function get_name() {
 			return 'haru-heading';
@@ -31,12 +39,23 @@ if ( ! class_exists( 'Haru_Starter_Heading_Widget' ) ) {
 			return [ 'haru-elements', 'haru-footer-elements' ];
 		}
 
+		public function get_keywords() {
+            return [
+                'heading',
+                'title',
+            ];
+        }
+
+		public function get_custom_help_url() {
+            return 'https://document.harutheme.com/elementor/';
+        }
+
 		protected function _register_controls() {
 
 			$this->start_controls_section(
-				'section_title',
+				'section_settings',
 				[
-					'label' => __( 'Title', 'haru-starter' ),
+					'label' => __( 'Heading Settings', 'haru-starter' ),
 				]
 			);
 
@@ -45,12 +64,16 @@ if ( ! class_exists( 'Haru_Starter_Heading_Widget' ) ) {
 				[
 					'label' => __( 'Pre Heading', 'haru-starter' ),
 					'description' 	=> __( 'If you choose Pre Heading you will use Style default from our theme.', 'haru-starter' ),
-					'type' => \Elementor\Controls_Manager::SELECT,
+					'type' => Controls_Manager::SELECT,
 					'default' => 'none',
 					'options' => [
 						'none' 		=> __( 'None', 'haru-starter' ),
 						'style-1' 	=> __( 'Pre Footer 1', 'haru-starter' ),
 						'style-2' 	=> __( 'Pre Heading 1', 'haru-starter' ),
+						'style-3' 	=> __( 'Pre Heading 2', 'haru-starter' ),
+						'style-4' 	=> __( 'Pre Heading 3', 'haru-starter' ),
+						'style-5' 	=> __( 'Pre Heading 4', 'haru-starter' ),
+						'style-6' 	=> __( 'Pre Heading 5', 'haru-starter' ),
 					]
 				]
 			);
@@ -59,7 +82,7 @@ if ( ! class_exists( 'Haru_Starter_Heading_Widget' ) ) {
 				'title',
 				[
 					'label' => __( 'Title', 'haru-starter' ),
-					'type' => \Elementor\Controls_Manager::TEXTAREA,
+					'type' => Controls_Manager::TEXTAREA,
 					'dynamic' => [
 						'active' => true,
 					],
@@ -72,7 +95,7 @@ if ( ! class_exists( 'Haru_Starter_Heading_Widget' ) ) {
 				'sub_title',
 				[
 					'label' => __( 'Sub Title', 'haru-starter' ),
-					'type' => \Elementor\Controls_Manager::TEXTAREA,
+					'type' => Controls_Manager::TEXTAREA,
 					'dynamic' => [
 						'active' => true,
 					],
@@ -88,7 +111,7 @@ if ( ! class_exists( 'Haru_Starter_Heading_Widget' ) ) {
 				'link',
 				[
 					'label' => __( 'Link', 'haru-starter' ),
-					'type' => \Elementor\Controls_Manager::URL,
+					'type' => Controls_Manager::URL,
 					'dynamic' => [
 						'active' => true,
 					],
@@ -103,7 +126,7 @@ if ( ! class_exists( 'Haru_Starter_Heading_Widget' ) ) {
 				'size',
 				[
 					'label' => __( 'Size', 'haru-starter' ),
-					'type' => \Elementor\Controls_Manager::SLIDER,
+					'type' => Controls_Manager::SLIDER,
 					'range' => [
 						'px' => [
 							'max' => 100,
@@ -122,7 +145,7 @@ if ( ! class_exists( 'Haru_Starter_Heading_Widget' ) ) {
 				'header_size',
 				[
 					'label' => __( 'HTML Tag', 'haru-starter' ),
-					'type' => \Elementor\Controls_Manager::SELECT,
+					'type' => Controls_Manager::SELECT,
 					'options' => [
 						'h1' => 'H1',
 						'h2' => 'H2',
@@ -142,7 +165,7 @@ if ( ! class_exists( 'Haru_Starter_Heading_Widget' ) ) {
 				'align',
 				[
 					'label' => __( 'Alignment', 'haru-starter' ),
-					'type' => \Elementor\Controls_Manager::CHOOSE,
+					'type' => Controls_Manager::CHOOSE,
 					'options' => [
 						'left' => [
 							'title' => __( 'Left', 'haru-starter' ),
@@ -168,21 +191,21 @@ if ( ! class_exists( 'Haru_Starter_Heading_Widget' ) ) {
 				]
 			);
 
-			 $this->add_control(
-	            'el_class',
-	            [
-	                'label'         => esc_html__( 'Extra Class', 'haru-starter' ),
-	                'type'          => \Elementor\Controls_Manager::TEXT,
-	                'description'   => esc_html__( 'Add extra class for Element and use custom CSS for get different style.', 'haru-starter' ),
-	                'placeholder'   => esc_html__( 'Ex: haru-extra', 'haru-starter' ),
-	            ]
-	        );
+			$this->add_control(
+				'el_class',
+				[
+					'label' => __( 'CSS Classes', 'haru-starter' ),
+					'type' => Controls_Manager::TEXT,
+					'default' => '',
+					'title' => __( 'Add your custom class WITHOUT the dot. e.g: my-class', 'haru-starter' ),
+				]
+			);
 
 			$this->add_control(
 				'view',
 				[
 					'label' => __( 'View', 'haru-starter' ),
-					'type' => \Elementor\Controls_Manager::HIDDEN,
+					'type' => Controls_Manager::HIDDEN,
 					'default' => 'traditional',
 				]
 			);
@@ -193,7 +216,7 @@ if ( ! class_exists( 'Haru_Starter_Heading_Widget' ) ) {
 				'section_title_style',
 				[
 					'label' => __( 'Title', 'haru-starter' ),
-					'tab' => \Elementor\Controls_Manager::TAB_STYLE,
+					'tab' => Controls_Manager::TAB_STYLE,
 				]
 			);
 
@@ -201,7 +224,7 @@ if ( ! class_exists( 'Haru_Starter_Heading_Widget' ) ) {
 				'title_color',
 				[
 					'label' => __( 'Text Color', 'haru-starter' ),
-					'type' => \Elementor\Controls_Manager::COLOR,
+					'type' => Controls_Manager::COLOR,
 					'global' => [
 						'default' => '',
 					],
@@ -215,7 +238,7 @@ if ( ! class_exists( 'Haru_Starter_Heading_Widget' ) ) {
 			);
 
 			$this->add_group_control(
-				\Elementor\Group_Control_Typography::get_type(),
+				Group_Control_Typography::get_type(),
 				[
 					'name' => 'typography',
 					'global' => [
@@ -229,7 +252,7 @@ if ( ! class_exists( 'Haru_Starter_Heading_Widget' ) ) {
 			);
 
 			$this->add_group_control(
-				\Elementor\Group_Control_Text_Shadow::get_type(),
+				Group_Control_Text_Shadow::get_type(),
 				[
 					'name' => 'text_shadow',
 					'selector' => '{{WRAPPER}} .haru-heading-title',
@@ -240,7 +263,7 @@ if ( ! class_exists( 'Haru_Starter_Heading_Widget' ) ) {
 				'blend_mode',
 				[
 					'label' => __( 'Blend Mode', 'haru-starter' ),
-					'type' => \Elementor\Controls_Manager::SELECT,
+					'type' => Controls_Manager::SELECT,
 					'options' => [
 						'' => __( 'Normal', 'haru-starter' ),
 						'multiply' => 'Multiply',

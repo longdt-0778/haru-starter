@@ -8,12 +8,24 @@
  * @link       http://harutheme.com
 */
 
+namespace Haru_Starter\Widgets;
+
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
 
+use \Elementor\Widget_Base;
+use \Elementor\Controls_Manager;
+use \Elementor\Core\Responsive\Responsive;
+use \Elementor\Group_Control_Typography;
+use \Elementor\Group_Control_Border;
+use \Elementor\Group_Control_Box_Shadow;
+use \Elementor\Plugin;
+use \Haru_Starter\Classes\Haru_Template;
+use \Haru_Nav_Menu;
+
 if ( ! class_exists( 'Haru_Starter_Nav_Menu_Widget' ) ) {
-	class Haru_Starter_Nav_Menu_Widget extends \Elementor\Widget_Base {
+	class Haru_Starter_Nav_Menu_Widget extends Widget_Base {
 
 		protected $nav_menu_index = 1;
 
@@ -32,6 +44,22 @@ if ( ! class_exists( 'Haru_Starter_Nav_Menu_Widget' ) ) {
 		public function get_categories() {
 			return [ 'haru-header-elements' ];
 		}
+
+		public function get_keywords() {
+            return [
+                'menu',
+                'nav',
+                'nav menu',
+                'mega menu',
+                'menu columns',
+                'menu tab',
+                'menu dropdown'
+            ];
+        }
+
+		public function get_custom_help_url() {
+            return 'https://document.harutheme.com/elementor/';
+        }
 
 		public function get_style_depends() {
 			return [ 'animate' ];
@@ -56,9 +84,10 @@ if ( ! class_exists( 'Haru_Starter_Nav_Menu_Widget' ) ) {
 		protected function _register_controls() {
 
 			$this->start_controls_section(
-				'section_layout',
+				'section_settings',
 				[
-					'label' => __( 'Layout', 'haru-starter' ),
+					'label' => __( 'Menu Settings', 'haru-starter' ),
+					'tab' 		=> Controls_Manager::TAB_CONTENT,
 				]
 			);
 
@@ -69,7 +98,7 @@ if ( ! class_exists( 'Haru_Starter_Nav_Menu_Widget' ) ) {
 					'menu',
 					[
 						'label' => __( 'Menu', 'haru-starter' ),
-						'type' => \Elementor\Controls_Manager::SELECT,
+						'type' => Controls_Manager::SELECT,
 						'options' => $menus,
 						'default' => array_keys( $menus )[0],
 						'save_default' => true,
@@ -81,7 +110,7 @@ if ( ! class_exists( 'Haru_Starter_Nav_Menu_Widget' ) ) {
 				$this->add_control(
 					'menu',
 					[
-						'type' => \Elementor\Controls_Manager::RAW_HTML,
+						'type' => Controls_Manager::RAW_HTML,
 						'raw' => '<strong>' . __( 'There are no menus in your site.', 'haru-starter' ) . '</strong><br>' . sprintf( __( 'Go to the <a href="%s" target="_blank">Menus screen</a> to create one.', 'haru-starter' ), admin_url( 'nav-menus.php?action=edit&menu=0' ) ),
 						'separator' => 'after',
 						'content_classes' => 'elementor-panel-alert elementor-panel-alert-info',
@@ -93,7 +122,7 @@ if ( ! class_exists( 'Haru_Starter_Nav_Menu_Widget' ) ) {
 				'layout',
 				[
 					'label' => __( 'Layout', 'haru-starter' ),
-					'type' => \Elementor\Controls_Manager::SELECT,
+					'type' => Controls_Manager::SELECT,
 					'default' => 'horizontal',
 					'options' => [
 						'horizontal' => __( 'Horizontal', 'haru-starter' ),
@@ -108,7 +137,7 @@ if ( ! class_exists( 'Haru_Starter_Nav_Menu_Widget' ) ) {
 				'align_items',
 				[
 					'label' => __( 'Align', 'haru-starter' ),
-					'type' => \Elementor\Controls_Manager::CHOOSE,
+					'type' => Controls_Manager::CHOOSE,
 					'options' => [
 						'left' => [
 							'title' => __( 'Left', 'haru-starter' ),
@@ -138,7 +167,7 @@ if ( ! class_exists( 'Haru_Starter_Nav_Menu_Widget' ) ) {
 				'pointer',
 				[
 					'label' 	=> __( 'Pointer', 'haru-starter' ),
-					'type' 		=> \Elementor\Controls_Manager::SELECT,
+					'type' 		=> Controls_Manager::SELECT,
 					'default' 	=> 'none',
 					'options' 	=> [
 						'none' 			=> __( 'None', 'haru-starter' ),
@@ -157,7 +186,7 @@ if ( ! class_exists( 'Haru_Starter_Nav_Menu_Widget' ) ) {
 				'animation_line',
 				[
 					'label' 	=> __( 'Animation', 'haru-starter' ),
-					'type' 		=> \Elementor\Controls_Manager::SELECT,
+					'type' 		=> Controls_Manager::SELECT,
 					'default' 	=> 'fade',
 					'options' 	=> [
 						'fade' 		=> 'Fade',
@@ -178,7 +207,7 @@ if ( ! class_exists( 'Haru_Starter_Nav_Menu_Widget' ) ) {
 				'indicator',
 				[
 					'label' 	=> __( 'Submenu Indicator', 'haru-starter' ),
-					'type' 		=> \Elementor\Controls_Manager::SELECT,
+					'type' 		=> Controls_Manager::SELECT,
 					'default' 	=> 'classic',
 					'options' 	=> [
 						'none' 		=> __( 'None', 'haru-starter' ),
@@ -195,7 +224,7 @@ if ( ! class_exists( 'Haru_Starter_Nav_Menu_Widget' ) ) {
 				'heading_mobile_dropdown',
 				[
 					'label' 	=> __( 'Mobile Dropdown', 'haru-starter' ),
-					'type' 		=> \Elementor\Controls_Manager::HEADING,
+					'type' 		=> Controls_Manager::HEADING,
 					'separator' => 'before',
 					'condition' => [
 						'layout!' => 'dropdown',
@@ -208,7 +237,7 @@ if ( ! class_exists( 'Haru_Starter_Nav_Menu_Widget' ) ) {
 					'menu_mobile',
 					[
 						'label' => __( 'Menu Mobile', 'haru-starter' ),
-						'type' => \Elementor\Controls_Manager::SELECT,
+						'type' => Controls_Manager::SELECT,
 						'options' => $menus,
 						'default' => array_keys( $menus )[0],
 						'save_default' => true,
@@ -220,7 +249,7 @@ if ( ! class_exists( 'Haru_Starter_Nav_Menu_Widget' ) ) {
 				$this->add_control(
 					'menu_mobile',
 					[
-						'type' => \Elementor\Controls_Manager::RAW_HTML,
+						'type' => Controls_Manager::RAW_HTML,
 						'raw' => '<strong>' . __( 'There are no menus in your site.', 'haru-starter' ) . '</strong><br>' . sprintf( __( 'Go to the <a href="%s" target="_blank">Menus screen</a> to create one.', 'haru-starter' ), admin_url( 'nav-menus.php?action=edit&menu=0' ) ),
 						'separator' => 'after',
 						'content_classes' => 'elementor-panel-alert elementor-panel-alert-info',
@@ -228,7 +257,7 @@ if ( ! class_exists( 'Haru_Starter_Nav_Menu_Widget' ) ) {
 				);
 			}
 
-			$breakpoints = \Elementor\Core\Responsive\Responsive::get_breakpoints();
+			$breakpoints = Responsive::get_breakpoints();
 
 			$this->add_control(
 				'dropdown',
@@ -336,38 +365,28 @@ if ( ! class_exists( 'Haru_Starter_Nav_Menu_Widget' ) ) {
 				]
 			);
 
+			$this->add_control(
+				'el_class',
+				[
+					'label' => __( 'CSS Classes', 'haru-starter' ),
+					'type' => Controls_Manager::TEXT,
+					'default' => '',
+					'title' => __( 'Add your custom class WITHOUT the dot. e.g: my-class', 'haru-starter' ),
+				]
+			);
+
 			$this->end_controls_section();
-
-			$this->start_controls_section(
-	            'content_section',
-	            [
-	                'label' 	=> esc_html__( 'Content', 'haru-starter' ),
-	                'tab' 		=> \Elementor\Controls_Manager::TAB_CONTENT,
-	            ]
-	        );
-
-	        $this->add_control(
-	            'el_class',
-	            [
-	                'label'         => esc_html__( 'Extra Class', 'haru-starter' ),
-	                'type'          => \Elementor\Controls_Manager::TEXT,
-	                'description'   => esc_html__( 'Add extra class for Element and use custom CSS for get different style.', 'haru-starter' ),
-	                'placeholder'   => esc_html__( 'Ex: haru-extra', 'haru-starter' ),
-	            ]
-	        );
-
-	        $this->end_controls_section();
 
 	        $this->start_controls_section(
 	            'section_style_main-menu',
 	            [
 	                'label' => esc_html__( 'Main Menu', 'haru-starter' ),
-	                'tab' => Elementor\Controls_Manager::TAB_STYLE,
+	                'tab' => Controls_Manager::TAB_STYLE,
 	            ]
 	        );
 
 	        $this->add_group_control(
-				\Elementor\Group_Control_Typography::get_type(),
+				Group_Control_Typography::get_type(),
 				[
 					'name' => 'menu_typography',
 					'default' => '',
@@ -388,7 +407,7 @@ if ( ! class_exists( 'Haru_Starter_Nav_Menu_Widget' ) ) {
 				'color_menu_item',
 				[
 					'label' => __( 'Text Color', 'haru-starter' ),
-					'type' => \Elementor\Controls_Manager::COLOR,
+					'type' => Controls_Manager::COLOR,
 					'default' => '',
 					'selectors' => [
 						'{{WRAPPER}} .haru-nav-menu--main .haru-item' => 'color: {{VALUE}}',
@@ -409,7 +428,7 @@ if ( ! class_exists( 'Haru_Starter_Nav_Menu_Widget' ) ) {
 				'color_menu_item_hover',
 				[
 					'label' => __( 'Text Color', 'haru-starter' ),
-					'type' => \Elementor\Controls_Manager::COLOR,
+					'type' => Controls_Manager::COLOR,
 					'default' => '',
 					'selectors' => [
 						'{{WRAPPER}} .haru-nav-menu--main .haru-item:hover,
@@ -424,7 +443,7 @@ if ( ! class_exists( 'Haru_Starter_Nav_Menu_Widget' ) ) {
 				'pointer_color_menu_item_hover',
 				[
 					'label' => __( 'Pointer Color', 'haru-starter' ),
-					'type' => \Elementor\Controls_Manager::COLOR,
+					'type' => Controls_Manager::COLOR,
 					'default' => '',
 					'selectors' => [
 						'{{WRAPPER}} .haru-nav-menu--main .haru-item:before,
@@ -449,7 +468,7 @@ if ( ! class_exists( 'Haru_Starter_Nav_Menu_Widget' ) ) {
 				'color_menu_item_active',
 				[
 					'label' => __( 'Text Color', 'haru-starter' ),
-					'type' => \Elementor\Controls_Manager::COLOR,
+					'type' => Controls_Manager::COLOR,
 					'default' => '',
 					'selectors' => [
 						'{{WRAPPER}} .haru-nav-menu--main .haru-item.haru-item-active' => 'color: {{VALUE}}',
@@ -461,7 +480,7 @@ if ( ! class_exists( 'Haru_Starter_Nav_Menu_Widget' ) ) {
 				'pointer_color_menu_item_active',
 				[
 					'label' => __( 'Pointer Color', 'haru-starter' ),
-					'type' => \Elementor\Controls_Manager::COLOR,
+					'type' => Controls_Manager::COLOR,
 					'default' => '',
 					'selectors' => [
 						'{{WRAPPER}} .haru-nav-menu--main .haru-item.haru-item-active:before,
@@ -480,7 +499,7 @@ if ( ! class_exists( 'Haru_Starter_Nav_Menu_Widget' ) ) {
 			$this->add_control(
 				'hr',
 				[
-					'type' => \Elementor\Controls_Manager::DIVIDER,
+					'type' => Controls_Manager::DIVIDER,
 				]
 			);
 
@@ -488,7 +507,7 @@ if ( ! class_exists( 'Haru_Starter_Nav_Menu_Widget' ) ) {
 				'pointer_width',
 				[
 					'label' => __( 'Pointer Width', 'haru-starter' ),
-					'type' => \Elementor\Controls_Manager::SLIDER,
+					'type' => Controls_Manager::SLIDER,
 					'range' => [
 						'px' => [
 							'max' => 20,
@@ -510,7 +529,7 @@ if ( ! class_exists( 'Haru_Starter_Nav_Menu_Widget' ) ) {
 				'padding_horizontal_menu_item',
 				[
 					'label' => __( 'Horizontal Padding', 'haru-starter' ),
-					'type' => \Elementor\Controls_Manager::SLIDER,
+					'type' => Controls_Manager::SLIDER,
 					'range' => [
 						'px' => [
 							'max' => 60,
@@ -526,7 +545,7 @@ if ( ! class_exists( 'Haru_Starter_Nav_Menu_Widget' ) ) {
 				'padding_vertical_menu_item',
 				[
 					'label' => __( 'Vertical Padding', 'haru-starter' ),
-					'type' => \Elementor\Controls_Manager::SLIDER,
+					'type' => Controls_Manager::SLIDER,
 					'range' => [
 						'px' => [
 							'max' => 60,
@@ -542,7 +561,7 @@ if ( ! class_exists( 'Haru_Starter_Nav_Menu_Widget' ) ) {
 				'menu_space_between',
 				[
 					'label' => __( 'Space Between', 'haru-starter' ),
-					'type' => \Elementor\Controls_Manager::SLIDER,
+					'type' => Controls_Manager::SLIDER,
 					'range' => [
 						'px' => [
 							'max' => 60,
@@ -561,16 +580,16 @@ if ( ! class_exists( 'Haru_Starter_Nav_Menu_Widget' ) ) {
 	        $this->start_controls_section(
 				'section_style_dropdown',
 				[
-					'label' => __( 'Dropdown', 'haru-starter' ),
-					'tab' => \Elementor\Controls_Manager::TAB_STYLE,
+					'label' => __( 'Dropdown Mobile', 'haru-starter' ),
+					'tab' => Controls_Manager::TAB_STYLE,
 				]
 			);
 
 			$this->add_control(
 				'dropdown_description',
 				[
-					'raw' => __( 'On desktop, this will affect the submenu. On mobile, this will affect the entire menu.', 'haru-starter' ),
-					'type' => \Elementor\Controls_Manager::RAW_HTML,
+					'raw' => __( 'On mobile, this will affect the entire menu.', 'haru-starter' ),
+					'type' => Controls_Manager::RAW_HTML,
 					'content_classes' => 'elementor-descriptor',
 				]
 			);
@@ -588,7 +607,7 @@ if ( ! class_exists( 'Haru_Starter_Nav_Menu_Widget' ) ) {
 				'color_dropdown_item',
 				[
 					'label' => __( 'Text Color', 'haru-starter' ),
-					'type' =>  \Elementor\Controls_Manager::COLOR,
+					'type' =>  Controls_Manager::COLOR,
 					'default' => '',
 					'selectors' => [
 						'{{WRAPPER}} .haru-nav-menu--dropdown a, {{WRAPPER}} .haru-menu-toggle' => 'color: {{VALUE}}',
@@ -600,7 +619,7 @@ if ( ! class_exists( 'Haru_Starter_Nav_Menu_Widget' ) ) {
 				'background_color_dropdown_item',
 				[
 					'label' => __( 'Background Color', 'haru-starter' ),
-					'type' =>  \Elementor\Controls_Manager::COLOR,
+					'type' =>  Controls_Manager::COLOR,
 					'default' => '',
 					'selectors' => [
 						'{{WRAPPER}} .haru-nav-menu--dropdown' => 'background-color: {{VALUE}}',
@@ -622,7 +641,7 @@ if ( ! class_exists( 'Haru_Starter_Nav_Menu_Widget' ) ) {
 				'color_dropdown_item_hover',
 				[
 					'label' => __( 'Text Color', 'haru-starter' ),
-					'type' => \Elementor\Controls_Manager::COLOR,
+					'type' => Controls_Manager::COLOR,
 					'default' => '',
 					'selectors' => [
 						'{{WRAPPER}} .haru-nav-menu--dropdown a:hover,
@@ -637,7 +656,7 @@ if ( ! class_exists( 'Haru_Starter_Nav_Menu_Widget' ) ) {
 				'background_color_dropdown_item_hover',
 				[
 					'label' => __( 'Background Color', 'haru-starter' ),
-					'type' => \Elementor\Controls_Manager::COLOR,
+					'type' => Controls_Manager::COLOR,
 					'default' => '',
 					'selectors' => [
 						'{{WRAPPER}} .haru-nav-menu--dropdown a:hover,
@@ -661,7 +680,7 @@ if ( ! class_exists( 'Haru_Starter_Nav_Menu_Widget' ) ) {
 				'color_dropdown_item_active',
 				[
 					'label' => __( 'Text Color', 'haru-starter' ),
-					'type' => \Elementor\Controls_Manager::COLOR,
+					'type' => Controls_Manager::COLOR,
 					'default' => '',
 					'selectors' => [
 						'{{WRAPPER}} .haru-nav-menu--dropdown a.haru-item-active' => 'color: {{VALUE}}',
@@ -673,7 +692,7 @@ if ( ! class_exists( 'Haru_Starter_Nav_Menu_Widget' ) ) {
 				'background_color_dropdown_item_active',
 				[
 					'label' => __( 'Background Color', 'haru-starter' ),
-					'type' => \Elementor\Controls_Manager::COLOR,
+					'type' => Controls_Manager::COLOR,
 					'default' => '',
 					'selectors' => [
 						'{{WRAPPER}} .haru-nav-menu--dropdown a.haru-item-active' => 'background-color: {{VALUE}}',
@@ -687,7 +706,7 @@ if ( ! class_exists( 'Haru_Starter_Nav_Menu_Widget' ) ) {
 			$this->end_controls_tabs();
 
 			$this->add_group_control(
-				\Elementor\Group_Control_Typography::get_type(),
+				Group_Control_Typography::get_type(),
 				[
 					'name' => 'dropdown_typography',
 					'default' => '',
@@ -698,7 +717,7 @@ if ( ! class_exists( 'Haru_Starter_Nav_Menu_Widget' ) ) {
 			);
 
 			$this->add_group_control(
-				\Elementor\Group_Control_Border::get_type(),
+				Group_Control_Border::get_type(),
 				[
 					'name' => 'dropdown_border',
 					'selector' => '{{WRAPPER}} .haru-nav-menu--dropdown',
@@ -710,7 +729,7 @@ if ( ! class_exists( 'Haru_Starter_Nav_Menu_Widget' ) ) {
 				'dropdown_border_radius',
 				[
 					'label' => __( 'Border Radius', 'haru-starter' ),
-					'type' => \Elementor\Controls_Manager::DIMENSIONS,
+					'type' => Controls_Manager::DIMENSIONS,
 					'size_units' => [ 'px', '%' ],
 					'selectors' => [
 						'{{WRAPPER}} .haru-nav-menu--dropdown' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
@@ -721,7 +740,7 @@ if ( ! class_exists( 'Haru_Starter_Nav_Menu_Widget' ) ) {
 			);
 
 			$this->add_group_control(
-				\Elementor\Group_Control_Box_Shadow::get_type(),
+				Group_Control_Box_Shadow::get_type(),
 				[
 					'name' => 'dropdown_box_shadow',
 					'exclude' => [
@@ -735,7 +754,7 @@ if ( ! class_exists( 'Haru_Starter_Nav_Menu_Widget' ) ) {
 				'padding_horizontal_dropdown_item',
 				[
 					'label' => __( 'Horizontal Padding', 'haru-starter' ),
-					'type' => \Elementor\Controls_Manager::SLIDER,
+					'type' => Controls_Manager::SLIDER,
 					'selectors' => [
 						'{{WRAPPER}} .haru-nav-menu--dropdown a' => 'padding-left: {{SIZE}}{{UNIT}}; padding-right: {{SIZE}}{{UNIT}}',
 					],
@@ -748,7 +767,7 @@ if ( ! class_exists( 'Haru_Starter_Nav_Menu_Widget' ) ) {
 				'padding_vertical_dropdown_item',
 				[
 					'label' => __( 'Vertical Padding', 'haru-starter' ),
-					'type' => \Elementor\Controls_Manager::SLIDER,
+					'type' => Controls_Manager::SLIDER,
 					'range' => [
 						'px' => [
 							'max' => 50,
@@ -764,13 +783,13 @@ if ( ! class_exists( 'Haru_Starter_Nav_Menu_Widget' ) ) {
 				'heading_dropdown_divider',
 				[
 					'label' => __( 'Divider', 'haru-starter' ),
-					'type' => \Elementor\Controls_Manager::HEADING,
+					'type' => Controls_Manager::HEADING,
 					'separator' => 'before',
 				]
 			);
 
 			$this->add_group_control(
-				\Elementor\Group_Control_Border::get_type(),
+				Group_Control_Border::get_type(),
 				[
 					'name' => 'dropdown_divider',
 					'selector' => '{{WRAPPER}} .haru-nav-menu--dropdown li:not(:last-child)',
@@ -782,7 +801,7 @@ if ( ! class_exists( 'Haru_Starter_Nav_Menu_Widget' ) ) {
 				'dropdown_divider_width',
 				[
 					'label' => __( 'Border Width', 'haru-starter' ),
-					'type' => \Elementor\Controls_Manager::SLIDER,
+					'type' => Controls_Manager::SLIDER,
 					'range' => [
 						'px' => [
 							'max' => 50,
@@ -801,7 +820,7 @@ if ( ! class_exists( 'Haru_Starter_Nav_Menu_Widget' ) ) {
 				'dropdown_top_distance',
 				[
 					'label' => __( 'Distance', 'haru-starter' ),
-					'type' => \Elementor\Controls_Manager::SLIDER,
+					'type' => Controls_Manager::SLIDER,
 					'range' => [
 						'px' => [
 							'min' => -100,
@@ -828,13 +847,11 @@ if ( ! class_exists( 'Haru_Starter_Nav_Menu_Widget' ) ) {
 
 			$settings = $this->get_settings();
 
-	        extract( $settings );
-
 	        $args = array(
                 // 'theme_location' => 'primary-menu',
 	        	'echo' 				=> false,
                 'menu' 				=> $settings['menu'],
-                'menu_class' 		=> 'haru-nav-menu megamenu1 ' . $effect,
+                'menu_class' 		=> 'haru-nav-menu ' . $effect,
                 'menu_id' 			=> 'menu-' . $this->get_nav_menu_index() . '-' . $this->get_id(),
                 'fallback_cb' 		=> '__return_empty_string',
                 'container' 		=> '',
@@ -874,7 +891,7 @@ if ( ! class_exists( 'Haru_Starter_Nav_Menu_Widget' ) ) {
 				// 'aria-expanded' => 'false',
 			] );
 
-			if ( \Elementor\Plugin::$instance->editor->is_edit_mode() ) {
+			if ( Plugin::$instance->editor->is_edit_mode() ) {
 				$this->add_render_attribute( 'menu-toggle', [
 					'class' => 'elementor-clickable',
 				] );

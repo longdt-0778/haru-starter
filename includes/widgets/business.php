@@ -8,12 +8,19 @@
  * @link       http://harutheme.com
 */
 
+namespace Haru_Starter\Widgets;
+
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
 
+use \Elementor\Widget_Base;
+use \Elementor\Controls_Manager;
+use \Elementor\Repeater;
+use \Haru_Starter\Classes\Haru_Template;
+
 if ( ! class_exists( 'Haru_Starter_Business_Widget' ) ) {
-	class Haru_Starter_Business_Widget extends \Elementor\Widget_Base {
+	class Haru_Starter_Business_Widget extends Widget_Base {
 
 		public function get_name() {
 			return 'haru-business';
@@ -37,7 +44,7 @@ if ( ! class_exists( 'Haru_Starter_Business_Widget' ) ) {
 	            'content_section',
 	            [
 	                'label' => esc_html__( 'Content', 'haru-starter' ),
-	                'tab' => \Elementor\Controls_Manager::TAB_CONTENT,
+	                'tab' => Controls_Manager::TAB_CONTENT,
 	            ]
 	        );
 
@@ -46,7 +53,7 @@ if ( ! class_exists( 'Haru_Starter_Business_Widget' ) ) {
 				[
 					'label' => __( 'Pre Business', 'haru-starter' ),
 					'description' 	=> __( 'If you choose Pre Business you will use Style default from our theme.', 'haru-starter' ),
-					'type' => \Elementor\Controls_Manager::SELECT,
+					'type' => Controls_Manager::SELECT,
 					'default' => 'none',
 					'options' => [
 						'none' 		=> __( 'None', 'haru-starter' ),
@@ -56,12 +63,12 @@ if ( ! class_exists( 'Haru_Starter_Business_Widget' ) ) {
 				]
 			);
 
-	        $repeater = new \Elementor\Repeater();
+	        $repeater = new Repeater();
 
 	        $repeater->add_control(
 				'list_title', [
 					'label' => esc_html__( 'Title', 'haru-starter' ),
-					'type' => \Elementor\Controls_Manager::TEXT,
+					'type' => Controls_Manager::TEXT,
 					'default' => esc_html__( 'List Title' , 'haru-starter' ),
 					'label_block' => true,
 				]
@@ -70,7 +77,7 @@ if ( ! class_exists( 'Haru_Starter_Business_Widget' ) ) {
 			$repeater->add_control(
 				'list_sub_title', [
 					'label' => esc_html__( 'Sub Title', 'haru-starter' ),
-					'type' => \Elementor\Controls_Manager::TEXT,
+					'type' => Controls_Manager::TEXT,
 					'default' => esc_html__( 'List Sub Title' , 'haru-starter' ),
 					'label_block' => true,
 				]
@@ -79,7 +86,7 @@ if ( ! class_exists( 'Haru_Starter_Business_Widget' ) ) {
 			$repeater->add_control(
 				'list_description', [
 					'label' => esc_html__( 'Description', 'haru-starter' ),
-					'type' => \Elementor\Controls_Manager::TEXTAREA,
+					'type' => Controls_Manager::TEXTAREA,
 					'default' => esc_html__( 'List Description' , 'haru-starter' ),
 					'label_block' => true,
 				]
@@ -88,7 +95,7 @@ if ( ! class_exists( 'Haru_Starter_Business_Widget' ) ) {
 			$repeater->add_control(
 				'list_content', [
 					'label' => esc_html__( 'Link', 'haru-starter' ),
-					'type' => \Elementor\Controls_Manager::URL,
+					'type' => Controls_Manager::URL,
 					'placeholder' => __( 'https://your-link.com', 'haru-starter' ),
 					'show_external' => true,
 					'default' => [
@@ -102,7 +109,7 @@ if ( ! class_exists( 'Haru_Starter_Business_Widget' ) ) {
 			$repeater->add_control(
 				'list_btn_text', [
 					'label' => esc_html__( 'Button Text', 'haru-starter' ),
-					'type' => \Elementor\Controls_Manager::TEXT,
+					'type' => Controls_Manager::TEXT,
 					'default' => esc_html__( 'Click Here' , 'haru-starter' ),
 					'label_block' => true,
 				]
@@ -112,7 +119,7 @@ if ( ! class_exists( 'Haru_Starter_Business_Widget' ) ) {
 				'list',
 				[
 					'label' => esc_html__( 'Link List', 'haru-starter' ),
-					'type' => \Elementor\Controls_Manager::REPEATER,
+					'type' => Controls_Manager::REPEATER,
 					'fields' => $repeater->get_controls(),
 					'default' => [
 						[
@@ -135,14 +142,14 @@ if ( ! class_exists( 'Haru_Starter_Business_Widget' ) ) {
 			);
 
 	        $this->add_control(
-	            'el_class',
-	            [
-	                'label'         => esc_html__( 'Extra Class', 'haru-starter' ),
-	                'type'          => \Elementor\Controls_Manager::TEXT,
-	                'description'   => esc_html__( 'Add extra class for Element and use custom CSS for get different style.', 'haru-starter' ),
-	                'placeholder'   => esc_html__( 'Ex: haru-extra', 'haru-starter' ),
-	            ]
-	        );
+				'el_class',
+				[
+					'label' => __( 'CSS Classes', 'haru-starter' ),
+					'type' => Controls_Manager::TEXT,
+					'default' => '',
+					'title' => __( 'Add your custom class WITHOUT the dot. e.g: my-class', 'haru-starter' ),
+				]
+			);
 
 	        $this->end_controls_section();
 
@@ -150,101 +157,9 @@ if ( ! class_exists( 'Haru_Starter_Business_Widget' ) ) {
 				'section_title_style',
 				[
 					'label' => __( 'Title', 'haru-starter' ),
-					'tab' => \Elementor\Controls_Manager::TAB_STYLE,
+					'tab' => Controls_Manager::TAB_STYLE,
 				]
 			);
-
-			// $this->add_control(
-			// 	'section_title_style_description',
-			// 	[
-			// 		'type' => \Elementor\Controls_Manager::RAW_HTML,
-			// 		'raw' => '<strong>' . __( 'You can set style if you set Pre Business is None.', 'haru-starter' ) . '</strong><br>',
-			// 		'content_classes' => 'elementor-panel-alert elementor-panel-alert-info',
-			// 	]
-			// );
-
-			// $this->add_control(
-			// 	'icon_color',
-			// 	[
-			// 		'label' => __( 'Icon Color', 'haru-starter' ),
-			// 		'type' => \Elementor\Controls_Manager::COLOR,
-			// 		'global' => [
-			// 			'default' => '',
-			// 		],
-			// 		'condition' => [
-			// 			'pre_style' => [ 'none' ],
-			// 		],
-			// 		'selectors' => [
-			// 			'{{WRAPPER}} .haru-business__icon' => 'color: {{VALUE}};',
-			// 			'{{WRAPPER}} .haru-business__icon svg path' => 'fill: {{VALUE}}!important;',
-			// 		],
-			// 	]
-			// );
-
-			// $this->add_control(
-			// 	'title_color',
-			// 	[
-			// 		'label' => __( 'Title Color', 'haru-starter' ),
-			// 		'type' => \Elementor\Controls_Manager::COLOR,
-			// 		'global' => [
-			// 			'default' => '',
-			// 		],
-			// 		'condition' => [
-			// 			'pre_style' => [ 'none' ],
-			// 		],
-			// 		'selectors' => [
-			// 			'{{WRAPPER}} .haru-business__title' => 'color: {{VALUE}};',
-			// 		],
-			// 	]
-			// );
-
-			// $this->add_control(
-			// 	'hr',
-			// 	[
-			// 		'type' => \Elementor\Controls_Manager::DIVIDER,
-			// 		'condition' => [
-			// 			'pre_style' => [ 'none' ],
-			// 		],
-			// 	]
-			// );
-
-			// $this->add_control(
-			// 	'icon_font_size',
-			// 	[
-			// 		'label' => __( 'Icon Font Size', 'haru-starter' ),
-			// 		'type' => \Elementor\Controls_Manager::SLIDER,
-			// 		'range' => [
-			// 			'px' => [
-			// 				'max' => 60,
-			// 			],
-			// 		],
-			// 		'condition' => [
-			// 			'pre_style' => [ 'none' ],
-			// 		],
-			// 		'selectors' => [
-			// 			'{{WRAPPER}} .haru-business__icon' => 'font-size: {{SIZE}}{{UNIT}}',
-			// 		],
-			// 	]
-			// );
-
-			// $this->add_control(
-			// 	'title_font_size',
-			// 	[
-			// 		'label' => __( 'Title Font Size', 'haru-starter' ),
-			// 		'type' => \Elementor\Controls_Manager::SLIDER,
-			// 		'range' => [
-			// 			'px' => [
-			// 				'max' => 60,
-			// 			],
-			// 		],
-			// 		'condition' => [
-			// 			'pre_style' => [ 'none' ],
-			// 		],
-			// 		'selectors' => [
-			// 			'{{WRAPPER}} .haru-business__title' => 'font-size: {{SIZE}}{{UNIT}}',
-			// 		],
-			// 	]
-			// );
 
 			$this->end_controls_section();
 
@@ -257,29 +172,39 @@ if ( ! class_exists( 'Haru_Starter_Business_Widget' ) ) {
 				return;
 			}
 
-        	extract( $settings );
-
-        	$this->add_render_attribute( 'list', 'class', 'haru-business' );
+        	$this->add_render_attribute( 'business', 'class', 'haru-business' );
 
         	if ( 'none' != $settings['pre_style']  ) {
-				$this->add_render_attribute( 'list', 'class', 'haru-business--' . $settings['pre_style'] );
+				$this->add_render_attribute( 'business', 'class', 'haru-business--' . $settings['pre_style'] );
 			}
 
         	if ( ! empty( $settings['el_class'] ) ) {
-				$this->add_render_attribute( 'list', 'class', $settings['el_class'] );
+				$this->add_render_attribute( 'business', 'class', $settings['el_class'] );
 			}
 			
         	?>
 
-        	<div <?php echo $this->get_render_attribute_string( 'list' ); ?>>
+        	<div <?php echo $this->get_render_attribute_string( 'business' ); ?>>
         		<?php if ( $settings['list'] ) : ?>
 					<ul>
-						<?php foreach (  $settings['list'] as $key => $item ) : ?>
+						<?php 
+							foreach ( $settings['list'] as $key => $item ) : 
+							$target = $item['list_content']['is_external'] ? ' target="_blank"' : '';
+							$nofollow = $item['list_content']['nofollow'] ? ' rel="nofollow"' : '';
+						?>
 							<li class="haru-business__item <?php echo ($key == 0) ? 'haru-business__item--active' : ''; ?>">
 								<div class="haru-business__sub-title"><?php echo $item['list_sub_title']; ?></div>
 								<div class="haru-business__title"><?php echo $item['list_title']; ?></div>
 								<div class="haru-business__description"><?php echo $item['list_description']; ?></div>
-								<a class="haru-business__btn haru-button <?php echo ($key == 0) ? 'haru-button--bg-white' : 'haru-button--bg-black'; ?> haru-button--size-large haru-button--round-large" href="<?php echo $item['list_content']['url']; ?>" <?php echo $target . $nofollow; ?>><?php echo $item['list_btn_text']; ?><i class="haru-icon haru-arrow-right"></i></a>
+								<?php if ( 'style-1' == $settings['pre_style'] ) : ?>
+								<a class="haru-business__btn haru-button haru-button--bg-<?php echo ($key == 0) ? 'white' : 'black'; ?> haru-button--size-large haru-button--round-large" href="<?php echo $item['list_content']['url']; ?>" <?php echo $target . $nofollow; ?>><?php echo $item['list_btn_text']; ?>
+									<span class="haru-button__icon"><i class="haru-icon haru-arrow-right"></i></span>
+								</a>
+								<?php elseif ( 'style-2' == $settings['pre_style'] ) : ?>
+								<a class="haru-button haru-button--text haru-button--text-<?php echo ($key == 0) ? 'white' : 'primary'; ?>" href="<?php echo $item['list_content']['url']; ?>" <?php echo $target . $nofollow; ?>><?php echo $item['list_btn_text']; ?>
+									<span class="haru-button__icon"><i class="haru-icon haru-arrow-right"></i></span>
+								</a>
+								<?php endif; ?>
 							</li>
 						<?php endforeach; ?>
 					</ul>

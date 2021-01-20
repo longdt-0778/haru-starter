@@ -8,12 +8,19 @@
  * @link       http://harutheme.com
 */
 
+namespace Haru_Starter\Widgets;
+
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
 
+use \Elementor\Widget_Base;
+use \Elementor\Controls_Manager;
+use \Elementor\Utils;
+use \Haru_Starter\Classes\Haru_Template;
+
 if ( ! class_exists( 'Haru_Starter_Logo_Widget' ) ) {
-	class Haru_Starter_Logo_Widget extends \Elementor\Widget_Base {
+	class Haru_Starter_Logo_Widget extends Widget_Base {
 
 		public function get_name() {
 			return 'haru-logo';
@@ -28,16 +35,28 @@ if ( ! class_exists( 'Haru_Starter_Logo_Widget' ) ) {
 		}
 
 		public function get_categories() {
-			return [ 'haru-header-elements' ];
+			return [ 'haru-header-elements', 'haru-footer-elements' ];
 		}
+
+		public function get_keywords() {
+            return [
+                'logo retina',
+                'logo',
+                'retina',
+            ];
+        }
+
+		public function get_custom_help_url() {
+            return 'https://document.harutheme.com/elementor/';
+        }
 
 		protected function _register_controls() {
 
 			$this->start_controls_section(
-	            'content_section',
+	            'section_settings',
 	            [
-	                'label' 	=> esc_html__( 'Content', 'haru-starter' ),
-	                'tab' 		=> \Elementor\Controls_Manager::TAB_CONTENT,
+	                'label' 	=> esc_html__( 'Logo Settings', 'haru-starter' ),
+	                'tab' 		=> Controls_Manager::TAB_CONTENT,
 	            ]
 	        );
 
@@ -45,12 +64,12 @@ if ( ! class_exists( 'Haru_Starter_Logo_Widget' ) ) {
 	            'logo',
 	            [
 	                'label' 	=> esc_html__( 'Choose Logo', 'haru-starter' ),
-	                'type' 		=> \Elementor\Controls_Manager::MEDIA,
+	                'type' 		=> Controls_Manager::MEDIA,
 	                'dynamic' 	=> [
 	                    'active' 	=> true,
 	                ],
 	                'default' 	=> [
-	                    'url'		=> \Elementor\Utils::get_placeholder_image_src(),
+	                    'url'		=> Utils::get_placeholder_image_src(),
 	                ],
 	            ]
 	        );
@@ -59,12 +78,12 @@ if ( ! class_exists( 'Haru_Starter_Logo_Widget' ) ) {
 	            'logo_retina',
 	            [
 	                'label' 	=> esc_html__( 'Choose Logo Retina', 'haru-starter' ),
-	                'type' 		=> \Elementor\Controls_Manager::MEDIA,
+	                'type' 		=> Controls_Manager::MEDIA,
 	                'dynamic' 	=> [
 	                    'active' 	=> true,
 	                ],
 	                'default' 	=> [
-	                    'url' 		=> \Elementor\Utils::get_placeholder_image_src(),
+	                    'url' 		=> Utils::get_placeholder_image_src(),
 	                ],
 	            ]
 	        );
@@ -73,7 +92,7 @@ if ( ! class_exists( 'Haru_Starter_Logo_Widget' ) ) {
 				'max_height',
 				[
 					'label' 	=> __( 'Logo Max Height', 'haru-starter' ),
-					'type' 		=> \Elementor\Controls_Manager::NUMBER,
+					'type' 		=> Controls_Manager::NUMBER,
 					'min' 		=> 1,
 					'max' 		=> 200,
 					'step' 		=> 1,
@@ -82,13 +101,14 @@ if ( ! class_exists( 'Haru_Starter_Logo_Widget' ) ) {
 			);
 
 	        $this->add_control(
-	            'el_class',
-	            [
-	                'label'         => esc_html__( 'Extra Class', 'haru-starter' ),
-	                'type'          => \Elementor\Controls_Manager::TEXT,
-	                'placeholder'   => esc_html__( 'Add extra class for Element and use custom CSS for get different style.', 'haru-starter' ),
-	            ]
-	        );
+				'el_class',
+				[
+					'label' => __( 'CSS Classes', 'haru-starter' ),
+					'type' => Controls_Manager::TEXT,
+					'default' => '',
+					'title' => __( 'Add your custom class WITHOUT the dot. e.g: my-class', 'haru-starter' ),
+				]
+			);
 
 	        $this->end_controls_section();
 
@@ -96,8 +116,6 @@ if ( ! class_exists( 'Haru_Starter_Logo_Widget' ) ) {
 
 		protected function render() {
 			$settings = $this->get_settings_for_display();
-
-        	extract( $settings );
 
         	$this->add_render_attribute( 'logo', 'class', 'haru-logo' );
 
@@ -107,10 +125,7 @@ if ( ! class_exists( 'Haru_Starter_Logo_Widget' ) ) {
         	?>
 
         	<div <?php echo $this->get_render_attribute_string( 'logo' ); ?>>
-        		<a href="<?php echo esc_url( home_url( '/' ) ); ?>">
-        			<img src="<?php echo esc_url( $settings['logo']['url'] ); ?>" class="haru-logo__default" alt="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?> - <?php bloginfo( 'description' ); ?>" style="max-height: <?php echo esc_attr( $settings['max_height'] ); ?>px;">
-        			<img src="<?php echo esc_url( $settings['logo_retina']['url'] ); ?>" class="haru-logo__retina" alt="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?> - <?php bloginfo( 'description' ); ?>" style="max-height: <?php echo esc_attr( $settings['max_height'] ); ?>px;">
-    			</a>
+    			<?php echo Haru_Template::haru_get_template( 'logo/logo.php', $settings ); ?>
     		</div>
 
     		<?php

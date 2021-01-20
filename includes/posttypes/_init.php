@@ -32,6 +32,8 @@ if ( ! class_exists( 'Haru_Starter_Posttypes' ) ) {
 			require_once( HARU_STARTER_CORE_DIR . 'includes/posttypes/header.php');
 			require_once( HARU_STARTER_CORE_DIR . 'includes/posttypes/footer.php');
 			require_once( HARU_STARTER_CORE_DIR . 'includes/posttypes/megamenu.php');
+			require_once( HARU_STARTER_CORE_DIR . 'includes/posttypes/recruitment.php');
+			require_once( HARU_STARTER_CORE_DIR . 'includes/posttypes/project.php');
 		}
 	}
 }

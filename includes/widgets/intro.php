@@ -8,12 +8,19 @@
  * @link       http://harutheme.com
 */
 
+namespace Haru_Starter\Widgets;
+
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
 
+use \Elementor\Widget_Base;
+use \Elementor\Controls_Manager;
+use \Elementor\Utils;
+use \Haru_Starter\Classes\Haru_Template;
+
 if ( ! class_exists( 'Haru_Starter_Intro_Widget' ) ) {
-	class Haru_Starter_Intro_Widget extends \Elementor\Widget_Base {
+	class Haru_Starter_Intro_Widget extends Widget_Base {
 
 		public function get_name() {
 			return 'haru-intro';
@@ -37,7 +44,7 @@ if ( ! class_exists( 'Haru_Starter_Intro_Widget' ) ) {
 	            'content_section',
 	            [
 	                'label' 	=> esc_html__( 'Content', 'haru-starter' ),
-	                'tab' 		=> \Elementor\Controls_Manager::TAB_CONTENT,
+	                'tab' 		=> Controls_Manager::TAB_CONTENT,
 	            ]
 	        );
 
@@ -46,11 +53,16 @@ if ( ! class_exists( 'Haru_Starter_Intro_Widget' ) ) {
 				[
 					'label' => __( 'Pre Intro', 'haru-starter' ),
 					'description' 	=> __( 'If you choose Pre Intro you will use Style default from our theme.', 'haru-starter' ),
-					'type' => \Elementor\Controls_Manager::SELECT,
+					'type' => Controls_Manager::SELECT,
 					'default' => 'style-1',
 					'options' => [
 						'style-1' 	=> __( 'Pre Intro 1', 'haru-starter' ),
 						'style-2' 	=> __( 'Pre Intro 2', 'haru-starter' ),
+						'style-3' 	=> __( 'Pre Intro 3', 'haru-starter' ),
+						'style-4' 	=> __( 'Pre Intro 4', 'haru-starter' ),
+						'style-5' 	=> __( 'Pre Intro 5', 'haru-starter' ),
+						'style-6' 	=> __( 'Pre Intro 6', 'haru-starter' ),
+						'style-7' 	=> __( 'Pre Intro 7', 'haru-starter' ),
 					]
 				]
 			);
@@ -58,11 +70,11 @@ if ( ! class_exists( 'Haru_Starter_Intro_Widget' ) ) {
 	        $this->add_control(
 				'title', [
 					'label' => esc_html__( 'Title', 'haru-starter' ),
-					'type' => \Elementor\Controls_Manager::TEXT,
+					'type' => Controls_Manager::TEXT,
 					'default' => esc_html__( 'Title' , 'haru-starter' ),
 					'label_block' => true,
 					'condition' => [
-						'pre_style' => [ 'style-2' ],
+						'pre_style' => [ 'style-2', 'style-3', 'style-4' ],
 					],
 				]
 			);
@@ -70,11 +82,11 @@ if ( ! class_exists( 'Haru_Starter_Intro_Widget' ) ) {
 			$this->add_control(
 				'sub_title', [
 					'label' => esc_html__( 'Sub Title', 'haru-starter' ),
-					'type' => \Elementor\Controls_Manager::TEXT,
+					'type' => Controls_Manager::TEXT,
 					'default' => esc_html__( 'Sub Title' , 'haru-starter' ),
 					'label_block' => true,
 					'condition' => [
-						'pre_style' => [ 'style-2' ],
+						'pre_style' => [ 'style-2', 'style-3', 'style-4' ],
 					],
 				]
 			);
@@ -82,7 +94,7 @@ if ( ! class_exists( 'Haru_Starter_Intro_Widget' ) ) {
 	        $this->add_control(
 				'description', [
 					'label' => esc_html__( 'Description', 'haru-starter' ),
-					'type' => \Elementor\Controls_Manager::TEXTAREA,
+					'type' => Controls_Manager::TEXTAREA,
 					'default' => esc_html__( 'Description' , 'haru-starter' ),
 					'label_block' => true,
 				]
@@ -92,24 +104,25 @@ if ( ! class_exists( 'Haru_Starter_Intro_Widget' ) ) {
 	            'image',
 	            [
 	                'label' 	=> esc_html__( 'Choose Image', 'haru-starter' ),
-	                'type' 		=> \Elementor\Controls_Manager::MEDIA,
+	                'type' 		=> Controls_Manager::MEDIA,
 	                'dynamic' 	=> [
 	                    'active' 	=> true,
 	                ],
 	                'default' 	=> [
-	                    'url'		=> \Elementor\Utils::get_placeholder_image_src(),
+	                    'url'		=> Utils::get_placeholder_image_src(),
 	                ],
 	            ]
 	        );
 
 	        $this->add_control(
-	            'el_class',
-	            [
-	                'label'         => esc_html__( 'Extra Class', 'haru-starter' ),
-	                'type'          => \Elementor\Controls_Manager::TEXT,
-	                'placeholder'   => esc_html__( 'Add extra class for Element and use custom CSS for get different style.', 'haru-starter' ),
-	            ]
-	        );
+				'el_class',
+				[
+					'label' => __( 'CSS Classes', 'haru-starter' ),
+					'type' => Controls_Manager::TEXT,
+					'default' => '',
+					'title' => __( 'Add your custom class WITHOUT the dot. e.g: my-class', 'haru-starter' ),
+				]
+			);
 
 	        $this->end_controls_section();
 
@@ -117,8 +130,6 @@ if ( ! class_exists( 'Haru_Starter_Intro_Widget' ) ) {
 
 		protected function render() {
 			$settings = $this->get_settings_for_display();
-
-        	extract( $settings );
 
         	$this->add_render_attribute( 'intro', 'class', 'haru-intro' );
 
@@ -133,6 +144,7 @@ if ( ! class_exists( 'Haru_Starter_Intro_Widget' ) ) {
         	?>
 
         	<div <?php echo $this->get_render_attribute_string( 'intro' ); ?>>
+        		<?php if ( in_array( $settings['pre_style'], array( 'style-1', 'style-2', 'style-3' ) ) ) : ?>
         		<div class="haru-intro__content">
 	        		<div class="haru-intro__sub-title"><?php echo $settings['sub_title']; ?></div>
 					<div class="haru-intro__title"><?php echo $settings['title']; ?></div>
@@ -141,6 +153,23 @@ if ( ! class_exists( 'Haru_Starter_Intro_Widget' ) ) {
 				<div class="haru-intro__image">
 					<img src="<?php echo esc_url( $settings['image']['url'] ); ?>" alt="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>">
 				</div>
+				<?php elseif ( in_array( $settings['pre_style'], array( 'style-4' ) ) ) : ?>
+					<div class="haru-intro__image">
+						<img src="<?php echo esc_url( $settings['image']['url'] ); ?>" alt="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>">
+					</div>
+					<div class="haru-intro__content">
+		        		<div class="haru-intro__sub-title"><?php echo $settings['sub_title']; ?></div>
+						<div class="haru-intro__title"><?php echo $settings['title']; ?></div>
+						<div class="haru-intro__description"><?php echo $settings['description']; ?></div>
+					</div>
+				<?php elseif ( in_array( $settings['pre_style'], array( 'style-5', 'style-6', 'style-7' ) ) ) : ?>
+					<div class="haru-intro__image">
+						<img src="<?php echo esc_url( $settings['image']['url'] ); ?>" alt="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>">
+					</div>
+					<div class="haru-intro__content">
+						<div class="haru-intro__description"><?php echo $settings['description']; ?></div>
+					</div>
+				<?php endif; ?>
     		</div>
 
     		<?php

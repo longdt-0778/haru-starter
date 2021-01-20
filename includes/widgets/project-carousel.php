@@ -8,21 +8,21 @@
  * @link       http://harutheme.com
 */
 
+namespace Haru_Starter\Widgets;
+
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
 
+use \Elementor\Widget_Base;
 use \Elementor\Controls_Manager;
-use \Elementor\Group_Control_Background;
-use \Elementor\Group_Control_Border;
-use \Elementor\Group_Control_Box_Shadow;
-use \Elementor\Group_Control_Image_Size;
-use \Elementor\Group_Control_Typography;
+use \Elementor\Repeater;
 use \Elementor\Utils;
-use \Haru_Starter\Classes\Helper as ControlsHelper;
+use \Elementor\Plugin;
+use \Haru_Starter\Classes\Haru_Template;
 
 if ( ! class_exists( 'Haru_Starter_Project_Carousel_Widget' ) ) {
-	class Haru_Starter_Project_Carousel_Widget extends \Elementor\Widget_Base {
+	class Haru_Starter_Project_Carousel_Widget extends Widget_Base {
 
 		public function get_name() {
 			return 'haru-project-carousel';
@@ -40,167 +40,161 @@ if ( ! class_exists( 'Haru_Starter_Project_Carousel_Widget' ) ) {
 			return [ 'haru-elements' ];
 		}
 
-		public function get_keywords() {
-	        return [
-	            'post',
-	            'posts',
-	            'grid',
-	            'post grid',
-	            'posts grid',
-	            'blog post',
-	            'article',
-	            'custom posts',
-	            'masonry',
-	            'content views',
-	            'blog view',
-	            'content marketing',
-	            'blogger',
-	        ];
-	    }
+		public function get_custom_help_url() {
+            return 'https://document.harutheme.com/elementor/';
+        }
+
+		public function get_script_depends() {
+
+			if ( Plugin::$instance->editor->is_edit_mode() || Plugin::$instance->preview->is_preview_mode() ) {
+		        return ['slick', 'other_conditional_script'];
+		    }
+
+			// if ( $this->get_settings_for_display( 'layout_style' ) == 'carousel' ) {
+		 //        return [ 'slick' ];
+		 //    } else if ( $this->get_settings_for_display( 'condition' ) === 'yes' ) {
+		 //        return [ 'other_conditional_script' ];
+		 //    }
+
+		    return [ 'slick' ];
+
+		}
+
+		public function get_style_depends() {
+			if ( Plugin::$instance->editor->is_edit_mode() || Plugin::$instance->preview->is_preview_mode() ) {
+		        return ['slick', 'other_conditional_script'];
+		    }
+
+			return [ 'slick' ];
+		}
 
 		protected function _register_controls() {
-
-			$post_types = array();
-			$post_types['post'] = __( 'Posts', 'haru-starter' );
-        	$post_types['by_id'] = __( 'Manual Selection', 'haru-starter' );
-
-        	$taxonomies = get_taxonomies([], 'objects');
-        	// var_dump($taxonomies);
 
 			$this->start_controls_section(
 	            'content_section',
 	            [
-	                'label' 	=> esc_html__( 'Content', 'haru-starter' ),
-	                'tab' 		=> \Elementor\Controls_Manager::TAB_CONTENT,
+	                'label' => esc_html__( 'Content', 'haru-starter' ),
+	                'tab' => Controls_Manager::TAB_CONTENT,
 	            ]
 	        );
 
 	        $this->add_control(
-	            'post_type',
-	            [
-	                'label' => __( 'Source', 'haru-starter' ),
-	                'type' => Controls_Manager::SELECT,
-	                'options' => $post_types,
-	                'default' => key($post_types),
-	            ]
-	        );
+				'pre_style',
+				[
+					'label' => __( 'Pre Project Carousel', 'haru-starter' ),
+					'description' 	=> __( 'If you choose Pre Project Carousel you will use Style default from our theme.', 'haru-starter' ),
+					'type' => Controls_Manager::SELECT,
+					'default' => 'style-1',
+					'options' => [
+						'style-1' 	=> __( 'Pre Project Carousel 1', 'haru-starter' ),
+						'style-2' 	=> __( 'Pre Project Carousel 2', 'haru-starter' ),
+					]
+				]
+			);
 
-	        $this->add_control(
-	            'posts_ids',
+	        $repeater = new Repeater();
+
+	        $repeater->add_control(
+				'list_title', [
+					'label' => esc_html__( 'Title', 'haru-starter' ),
+					'type' => Controls_Manager::TEXT,
+					'default' => esc_html__( 'List Title' , 'haru-starter' ),
+					'label_block' => true,
+				]
+			);
+
+			$repeater->add_control(
+				'list_sub_title', [
+					'label' => esc_html__( 'Sub Title', 'haru-starter' ),
+					'type' => Controls_Manager::TEXT,
+					'default' => esc_html__( 'List Sub Title' , 'haru-starter' ),
+					'label_block' => true,
+				]
+			);
+
+			$repeater->add_control(
+				'list_description', [
+					'label' => esc_html__( 'Description', 'haru-starter' ),
+					'type' => Controls_Manager::TEXTAREA,
+					'default' => esc_html__( 'List Description' , 'haru-starter' ),
+					'label_block' => true,
+				]
+			);
+
+			$repeater->add_control(
+	            'list_image',
 	            [
-	                'label' => __( 'Search & Select', 'haru-starter' ),
-	                'type' => Controls_Manager::SELECT2,
-	                'options' => ControlsHelper::get_post_list(),
-	                'label_block' => true,
-	                'multiple' => true,
-	                'condition' => [
-	                    'post_type' => 'by_id',
+	                'label' 	=> esc_html__( 'Choose Image', 'haru-starter' ),
+	                'type' 		=> Controls_Manager::MEDIA,
+	                'dynamic' 	=> [
+	                    'active' 	=> true,
+	                ],
+	                'default' 	=> [
+	                    'url'		=> Utils::get_placeholder_image_src(),
 	                ],
 	            ]
 	        );
 
-	        $this->add_control(
-	            'authors', [
-	                'label' => __( 'Author', 'haru-starter' ),
-	                'label_block' => true,
-	                'type' => Controls_Manager::SELECT2,
-	                'multiple' => true,
-	                'default' => [],
-	                'options' => ControlsHelper::get_authors_list(),
-	                'options' => array(),
-	                'condition' => [
-	                    'post_type!' => ['by_id'],
-	                ],
-	            ]
-	        );
+			$repeater->add_control(
+				'list_content', [
+					'label' => esc_html__( 'Link', 'haru-starter' ),
+					'type' => Controls_Manager::URL,
+					'placeholder' => __( 'https://your-link.com', 'haru-starter' ),
+					'show_external' => true,
+					'default' => [
+						'url' => '',
+						'is_external' => true,
+						'nofollow' => true,
+					],
+				]
+			);
 
-	        foreach ($taxonomies as $taxonomy => $object) {
-	            if (!isset($object->object_type[0]) || !in_array($object->object_type[0], array_keys($post_types))) {
-	                continue;
-	            }
+			$repeater->add_control(
+				'list_btn_text', [
+					'label' => esc_html__( 'Button Text', 'haru-starter' ),
+					'type' => Controls_Manager::TEXT,
+					'default' => esc_html__( 'Click Here' , 'haru-starter' ),
+					'label_block' => true,
+				]
+			);
 
-	            $this->add_control(
-	                $taxonomy . '_ids',
-	                [
-	                    'label' => $object->label,
-	                    'type' => Controls_Manager::SELECT2,
-	                    'label_block' => true,
-	                    'multiple' => true,
-	                    'object_type' => $taxonomy,
-	                    'options' => wp_list_pluck(get_terms($taxonomy), 'name', 'term_id'),
-	                    'condition' => [
-	                        'post_type' => $object->object_type,
-	                    ],
-	                ]
-	            );
-	        }
-
-	        $this->add_control(
-	            'post__not_in',
-	            [
-	                'label' => __( 'Exclude', 'haru-starter' ),
-	                'type' => Controls_Manager::SELECT2,
-	                'options' => ControlsHelper::get_post_list(),
-	                'label_block' => true,
-	                'post_type' => '',
-	                'multiple' => true,
-	                'condition' => [
-	                    'post_type!' => ['by_id'],
-	                ],
-	            ]
-	        );
-
-	        $this->add_control(
-	            'posts_per_page',
-	            [
-	                'label' => __( 'Posts Per Page', 'haru-starter' ),
-	                'type' => Controls_Manager::NUMBER,
-	                'default' => '4',
-	            ]
-	        );
+			$this->add_control(
+				'list',
+				[
+					'label' => esc_html__( 'Slide List', 'haru-starter' ),
+					'type' => Controls_Manager::REPEATER,
+					'fields' => $repeater->get_controls(),
+					'default' => [
+						[
+							'list_title' => esc_html__( 'Title #1', 'haru-starter' ),
+							'list_sub_title' => esc_html__( 'Sub Title', 'haru-starter' ),
+							'list_description' => esc_html__( 'Description', 'haru-starter' ),
+							'list_image' => esc_html__( 'Select Image', 'haru-starter' ),
+							'list_content' => esc_html__( 'Item content. Click the edit button to change this text.', 'haru-starter' ),
+							'list_btn_text' => esc_html__( 'Click Here', 'haru-starter' ),
+						],
+						[
+							'list_title' => esc_html__( 'Title #2', 'haru-starter' ),
+							'list_sub_title' => esc_html__( 'Sub Title', 'haru-starter' ),
+							'list_description' => esc_html__( 'Description', 'haru-starter' ),
+							'list_image' => esc_html__( 'Select Image', 'haru-starter' ),
+							'list_content' => esc_html__( 'Item content. Click the edit button to change this text.', 'haru-starter' ),
+							'list_btn_text' => esc_html__( 'Click Here', 'haru-starter' ),
+						],
+					],
+					'title_field' => '{{{ list_title }}}',
+				]
+			);
 
 	        $this->add_control(
-	            'offset',
-	            [
-	                'label' => __( 'Offset', 'haru-starter' ),
-	                'type' => Controls_Manager::NUMBER,
-	                'default' => '0',
-	            ]
-	        );
-
-	        $this->add_control(
-	            'orderby',
-	            [
-	                'label' => __( 'Order By', 'haru-starter' ),
-	                'type' => Controls_Manager::SELECT,
-	                'options' => ControlsHelper::get_post_orderby_options(),
-	                'default' => 'date',
-
-	            ]
-	        );
-
-	        $this->add_control(
-	            'order',
-	            [
-	                'label' => __( 'Order', 'haru-starter' ),
-	                'type' => Controls_Manager::SELECT,
-	                'options' => [
-	                    'asc' => 'Ascending',
-	                    'desc' => 'Descending',
-	                ],
-	                'default' => 'desc',
-
-	            ]
-	        );
-
-	        $this->add_control(
-	            'el_class',
-	            [
-	                'label'         => esc_html__( 'Extra Class', 'haru-starter' ),
-	                'type'          => \Elementor\Controls_Manager::TEXT,
-	                'placeholder'   => esc_html__( 'Add extra class for Element and use custom CSS for get different style.', 'haru-starter' ),
-	            ]
-	        );
+				'el_class',
+				[
+					'label' => __( 'CSS Classes', 'haru-starter' ),
+					'type' => Controls_Manager::TEXT,
+					'default' => '',
+					'title' => __( 'Add your custom class WITHOUT the dot. e.g: my-class', 'haru-starter' ),
+				]
+			);
 
 	        $this->end_controls_section();
 
@@ -209,29 +203,44 @@ if ( ! class_exists( 'Haru_Starter_Project_Carousel_Widget' ) ) {
 		protected function render() {
 			$settings = $this->get_settings_for_display();
 
-        	$this->add_render_attribute( 'project', 'class', 'haru-project' );
-
-        	if ( ! empty( $settings['el_class'] ) ) {
-				$this->add_render_attribute( 'project', 'class', $settings['el_class'] );
+			if ( '' === $settings['list'] ) {
+				return;
 			}
 
-			$args = ControlsHelper::get_query_args( $settings );
+        	$this->add_render_attribute( 'project-carousel', 'class', 'haru-project-carousel' );
+
+        	if ( 'none' != $settings['pre_style'] ) {
+				$this->add_render_attribute( 'project-carousel', 'class', 'haru-project-carousel--' . $settings['pre_style'] );
+			}
+
+        	if ( ! empty( $settings['el_class'] ) ) {
+				$this->add_render_attribute( 'project-carousel', 'class', $settings['el_class'] );
+			}
+			
         	?>
 
-        	<div <?php echo $this->get_render_attribute_string( 'project' ); ?>>
-        		<?php
-        			$query = new \WP_Query( $args );
-        			if ( $query->have_posts() ) :
-                        while ( $query->have_posts() ) :
-                            $query->the_post();
-                ?>
-                	<?php echo wcpt_get_template( 'project-carousel/project-carousel.php', $settings ); ?>
-                <?php
-                        endwhile;
-                    else :
-        		?>
-        		<p class="no-items-found"><?php echo esc_html__( 'No items found!', 'haru-starter' ); ?></p>
-        		<?php endif; ?>
+        	<div <?php echo $this->get_render_attribute_string( 'project-carousel' ); ?>>
+        		<?php if ( $settings['list'] ) : ?>
+					<ul class="haru-slick" data-slick='{"slidesToShow" : 1, "slidesToScroll" : 1, "arrows" : true, "infinite" : false, "centerMode" : false, "focusOnSelect" : true, "vertical" : false, "responsive" : [{"breakpoint" : 767,"settings" : {"slidesToShow" : 1}}] }'>
+						<?php 
+							foreach (  $settings['list'] as $item ) :
+							$target = $item['list_content']['is_external'] ? ' target="_blank"' : '';
+							$nofollow = $item['list_content']['nofollow'] ? ' rel="nofollow"' : '';
+						?>
+							<li class="haru-project-carousel__item">
+								<img src="<?php echo esc_url( $item['list_image']['url'] ); ?>" class="haru-project-carousel__image" alt="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>">
+								<div class="haru-project-carousel__content">
+									<div class="haru-project-carousel__sub-title"><?php echo $item['list_sub_title']; ?></div>
+									<h6 class="haru-project-carousel__title"><?php echo $item['list_title']; ?></h6>
+									<div class="haru-project-carousel__description"><?php echo $item['list_description']; ?></div>
+									<?php if ( 'style-2' != $settings['pre_style'] ) : ?>
+									<a href="<?php echo $item['list_content']['url']; ?>" <?php echo $target . $nofollow; ?> class="haru-button haru-button--text haru-button--text-primary"><?php echo $item['list_btn_text']; ?><span class="haru-button__icon"><i class="haru-icon haru-arrow-right"></i></span></a>
+									<?php endif; ?>
+								</div>
+							</li>
+						<?php endforeach; ?>
+					</ul>
+				<?php endif; ?>
     		</div>
 
     		<?php
