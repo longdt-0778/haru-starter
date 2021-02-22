@@ -1,0 +1,2962 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Haru Starter\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-01-07 08:34+0000\n"
+"PO-Revision-Date: 2021-02-02 08:26+0000\n"
+"Last-Translator: \n"
+"Language-Team: Vietnamese\n"
+"Language: vi\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Loco https://localise.biz/\n"
+"X-Loco-Version: 2.5.0; wp-5.6\n"
+"X-Domain: haru-starter"
+
+#. 1: Plugin name 2: Elementor
+#: haru-starter.php:195
+#, php-format
+msgid "\"%1$s\" requires \"%2$s\" to be installed and activated."
+msgstr ""
+
+#. 1: Plugin name 2: Elementor 3: Required Elementor version
+#. 1: Plugin name 2: PHP 3: Required PHP version
+#: haru-starter.php:219 haru-starter.php:244
+#, php-format
+msgid "\"%1$s\" requires \"%2$s\" version %3$s or greater."
+msgstr ""
+
+#: core/redux-extensions/extensions/wbc_importer/inc/importer/wordpress-importer.php:642
+#, php-format
+msgid "%s &#8220;%s&#8221; already exists."
+msgstr ""
+
+#: includes/widgets/counter.php:113 includes/widgets/counter.php:143
+#: includes/widgets/counter.php:149
+msgid "+"
+msgstr ""
+
+#: core/redux-extensions/extensions/wbc_importer/inc/importer/wordpress-importer.php:322
+msgid "- Select -"
+msgstr ""
+
+#: includes/widgets/counter.php:142 includes/widgets/counter.php:148
+msgid "10"
+msgstr ""
+
+#: core/redux-extensions/extensions/wbc_importer/inc/importer/wordpress-importer.php:1136
+#, php-format
+msgid ""
+"A new version of this importer is available. Please update to version %s to "
+"ensure compatibility with newer export files."
+msgstr ""
+
+#: includes/widgets/tabs.php:705 includes/widgets/footer-link.php:216
+#: includes/widgets/nav-menu.php:463 includes/widgets/nav-menu.php:675
+msgid "Active"
+msgstr ""
+
+#: core/libraries/theme-metabox.php:514
+msgid "Add another Testimonial"
+msgstr ""
+
+#: core/libraries/theme-metabox.php:227
+msgid "Add extra class to body and use Custom CSS to get different style."
+msgstr ""
+
+#: includes/posttypes/megamenu.php:44 includes/posttypes/recruitment.php:35
+#: includes/posttypes/project.php:35 includes/posttypes/header.php:35
+#: includes/posttypes/footer.php:35
+msgid "Add New"
+msgstr ""
+
+#: includes/posttypes/footer.php:36 includes/posttypes/footer.php:38
+msgid "Add New Footer"
+msgstr ""
+
+#: includes/posttypes/header.php:36 includes/posttypes/header.php:38
+msgid "Add New Header"
+msgstr ""
+
+#: includes/posttypes/megamenu.php:45 includes/posttypes/megamenu.php:47
+msgid "Add New MegaMenu"
+msgstr ""
+
+#: includes/posttypes/project.php:36 includes/posttypes/project.php:38
+msgid "Add New Project"
+msgstr ""
+
+#: includes/posttypes/project.php:82
+msgid "Add New Project Client"
+msgstr ""
+
+#: includes/posttypes/project.php:114
+msgid "Add New Project Service"
+msgstr ""
+
+#: includes/posttypes/project.php:178
+msgid "Add New Project Solution"
+msgstr ""
+
+#: includes/posttypes/project.php:146
+msgid "Add New Project Team"
+msgstr ""
+
+#: includes/posttypes/recruitment.php:36 includes/posttypes/recruitment.php:38
+msgid "Add New Recruitment"
+msgstr ""
+
+#: includes/posttypes/recruitment.php:82
+msgid "Add New Recruitment Category"
+msgstr ""
+
+#: includes/posttypes/recruitment.php:114
+msgid "Add New Recruitment Location"
+msgstr ""
+
+#: includes/posttypes/recruitment.php:146
+msgid "Add New Recruitment Status"
+msgstr ""
+
+#: includes/widgets/news.php:149 includes/widgets/tabs.php:284
+#: includes/widgets/images-gallery.php:217
+#: includes/widgets/project-carousel.php:195 includes/widgets/banner.php:124
+#: includes/widgets/footer-link.php:129 includes/widgets/heading.php:200
+#: includes/widgets/counter.php:163 includes/widgets/intro.php:123
+#: includes/widgets/content-carousel.php:208 includes/widgets/contact.php:180
+#: includes/widgets/recruitment.php:77 includes/widgets/project.php:88
+#: includes/widgets/career-intro.php:160 includes/widgets/logo.php:109
+#: includes/widgets/video.php:112 includes/widgets/logo-showcase.php:171
+#: includes/widgets/business.php:150 includes/widgets/post-slideshow.php:209
+#: includes/widgets/nav-menu.php:374 includes/widgets/list-content.php:140
+#: includes/widgets/meaning.php:199 includes/widgets/language-switcher.php:68
+#: includes/widgets/button.php:232 includes/widgets/social.php:145
+msgid "Add your custom class WITHOUT the dot. e.g: my-class"
+msgstr ""
+
+#: includes/widgets/button.php:220
+msgid "Add your custom id WITHOUT the Pound key. e.g: my-id"
+msgstr ""
+
+#: includes/widgets/heading.php:90
+msgid "Add Your Heading Text Here"
+msgstr ""
+
+#: includes/widgets/heading.php:103
+msgid "Add Your Sub Heading Text Here"
+msgstr ""
+
+#: includes/widgets/button.php:177
+msgid "After"
+msgstr ""
+
+#: includes/widgets/nav-menu.php:139 includes/widgets/nav-menu.php:300
+msgid "Align"
+msgstr ""
+
+#: includes/widgets/heading.php:167 includes/widgets/button.php:121
+msgid "Alignment"
+msgstr ""
+
+#: includes/posttypes/megamenu.php:168
+msgid "Alignment:"
+msgstr ""
+
+#: includes/posttypes/recruitment.php:77
+msgid "All Category"
+msgstr ""
+
+#: includes/posttypes/project.php:77
+msgid "All Client"
+msgstr ""
+
+#: core/redux-extensions/extensions/wbc_importer/inc/importer/wordpress-importer.php:176
+msgid "All done."
+msgstr ""
+
+#: includes/posttypes/footer.php:34
+msgid "All Footer"
+msgstr ""
+
+#: includes/posttypes/header.php:34
+msgid "All Header"
+msgstr ""
+
+#: includes/posttypes/recruitment.php:109
+msgid "All Location"
+msgstr ""
+
+#: includes/posttypes/megamenu.php:43
+msgid "All MegaMenu"
+msgstr ""
+
+#: includes/posttypes/project.php:34
+msgid "All Project"
+msgstr ""
+
+#: includes/posttypes/recruitment.php:34
+msgid "All Recruitment"
+msgstr ""
+
+#: includes/posttypes/project.php:109
+msgid "All Service"
+msgstr ""
+
+#: includes/posttypes/project.php:173
+msgid "All Solution"
+msgstr ""
+
+#: includes/posttypes/recruitment.php:141
+msgid "All Status"
+msgstr ""
+
+#: includes/posttypes/project.php:141
+msgid "All Team"
+msgstr ""
+
+#: includes/widgets/nav-menu.php:216
+msgid "Angle"
+msgstr ""
+
+#: includes/widgets/nav-menu.php:188
+msgid "Animation"
+msgstr ""
+
+#: includes/widgets/images-gallery.php:266
+#: includes/widgets/logo-showcase.php:296
+msgid "Arrows"
+msgstr ""
+
+#: core/redux-extensions/extensions/wbc_importer/inc/importer/wordpress-importer.php:311
+msgid "as a new user:"
+msgstr ""
+
+#: includes/widgets/nav-menu.php:304
+msgid "Aside"
+msgstr ""
+
+#: core/redux-extensions/extensions/wbc_importer/inc/importer/wordpress-importer.php:264
+msgid "Assign Authors"
+msgstr ""
+
+#: core/redux-extensions/extensions/wbc_importer/inc/importer/wordpress-importer.php:319
+msgid "assign posts to an existing user:"
+msgstr ""
+
+#: core/libraries/cmb2-attached-posts/init.php:182
+#, php-format
+msgid "Attached %s"
+msgstr ""
+
+#: includes/widgets/post-slideshow.php:111
+msgid "Author"
+msgstr ""
+
+#: core/libraries/cmb2-attached-posts/init.php:142
+#, php-format
+msgid "Available %s"
+msgstr ""
+
+#: includes/widgets/tabs.php:577 includes/widgets/tabs.php:792
+#: includes/widgets/nav-menu.php:621 includes/widgets/nav-menu.php:658
+#: includes/widgets/nav-menu.php:694
+msgid "Background Color"
+msgstr ""
+
+#: includes/widgets/banner.php:59
+msgid "Banner Settings"
+msgstr ""
+
+#: includes/widgets/button.php:176
+msgid "Before"
+msgstr ""
+
+#: core/redux-extensions/extensions/wbc_importer/extension_wbc_importer.php:367
+msgid "Behance"
+msgstr ""
+
+#: includes/widgets/heading.php:265
+msgid "Blend Mode"
+msgstr ""
+
+#: includes/widgets/tabs.php:432 includes/widgets/tabs.php:622
+#: includes/widgets/tabs.php:688 includes/widgets/tabs.php:757
+#: includes/widgets/tabs.php:852
+msgid "Border"
+msgstr ""
+
+#: includes/widgets/tabs.php:440 includes/widgets/tabs.php:629
+#: includes/widgets/tabs.php:695 includes/widgets/tabs.php:764
+#: includes/widgets/tabs.php:859 includes/widgets/nav-menu.php:731
+msgid "Border Radius"
+msgstr ""
+
+#: includes/widgets/nav-menu.php:803
+msgid "Border Width"
+msgstr ""
+
+#: core/libraries/theme-metabox.php:155
+msgid "Boxed"
+msgstr ""
+
+#: includes/widgets/nav-menu.php:265
+msgid "Breakpoint"
+msgstr ""
+
+#: includes/widgets/button.php:214
+msgid "Button ID"
+msgstr ""
+
+#: includes/widgets/button.php:68
+msgid "Button Settings"
+msgstr ""
+
+#: includes/widgets/images-gallery.php:173
+#: includes/widgets/project-carousel.php:154 includes/widgets/banner.php:96
+#: includes/widgets/content-carousel.php:164
+#: includes/widgets/career-intro.php:133 includes/widgets/business.php:111
+#: includes/widgets/meaning.php:144
+msgid "Button Text"
+msgstr ""
+
+#: includes/widgets/tabs.php:885
+msgid "Caret"
+msgstr ""
+
+#: includes/widgets/tabs.php:923
+msgid "Caret Color"
+msgstr ""
+
+#: includes/widgets/tabs.php:901
+msgid "Caret Size"
+msgstr ""
+
+#: includes/widgets/news.php:100
+msgid "Carousel 1"
+msgstr ""
+
+#: includes/posttypes/recruitment.php:75
+msgid "Category"
+msgstr ""
+
+#: core/libraries/theme-metabox.php:452
+msgid "Category Image"
+msgstr ""
+
+#: includes/widgets/heading.php:175 includes/widgets/nav-menu.php:147
+#: includes/widgets/nav-menu.php:305 includes/widgets/nav-menu.php:345
+#: includes/widgets/button.php:129
+msgid "Center"
+msgstr ""
+
+#: includes/widgets/nav-menu.php:215
+msgid "Chevron"
+msgstr ""
+
+#: core/redux-extensions/extensions/wbc_importer/inc/importer/wordpress-importer.php:1152
+msgid "Choose a WXR (.xml) file to upload, then click Upload file and import."
+msgstr ""
+
+#: includes/widgets/meaning.php:131
+msgid "Choose Background Image"
+msgstr ""
+
+#: includes/widgets/images-gallery.php:143
+#: includes/widgets/project-carousel.php:127 includes/widgets/banner.php:82
+#: includes/widgets/intro.php:106 includes/widgets/content-carousel.php:137
+#: includes/widgets/career-intro.php:143 includes/widgets/meaning.php:117
+msgid "Choose Image"
+msgstr ""
+
+#: includes/widgets/logo.php:66 includes/widgets/logo-showcase.php:118
+msgid "Choose Logo"
+msgstr ""
+
+#: includes/widgets/logo-showcase.php:463
+msgid "Choose Logo Hover style."
+msgstr ""
+
+#: includes/widgets/logo.php:80
+msgid "Choose Logo Retina"
+msgstr ""
+
+#: includes/widgets/tabs.php:225
+msgid "Choose Template"
+msgstr ""
+
+#: core/libraries/cmb2/includes/CMB2_JS.php:220
+msgid "Choose Time"
+msgstr ""
+
+#: includes/widgets/nav-menu.php:214
+msgid "Classic"
+msgstr ""
+
+#: core/libraries/cmb2/includes/CMB2_JS.php:172
+#: core/libraries/cmb2/includes/CMB2_JS.php:217
+msgid "Clear"
+msgstr ""
+
+#: includes/widgets/images-gallery.php:175
+#: includes/widgets/images-gallery.php:196
+#: includes/widgets/images-gallery.php:204
+#: includes/widgets/project-carousel.php:156
+#: includes/widgets/project-carousel.php:174
+#: includes/widgets/project-carousel.php:182 includes/widgets/banner.php:98
+#: includes/widgets/content-carousel.php:166
+#: includes/widgets/content-carousel.php:187
+#: includes/widgets/content-carousel.php:195
+#: includes/widgets/career-intro.php:135 includes/widgets/business.php:113
+#: includes/widgets/business.php:130 includes/widgets/business.php:137
+#: includes/widgets/meaning.php:146
+msgid "Click Here"
+msgstr ""
+
+#: includes/widgets/button.php:97 includes/widgets/button.php:98
+msgid "Click here"
+msgstr ""
+
+#: includes/posttypes/project.php:75
+msgid "Client"
+msgstr ""
+
+#: includes/widgets/logo-showcase.php:209
+#: includes/widgets/logo-showcase.php:236
+#: includes/widgets/logo-showcase.php:263
+msgid "Columns"
+msgstr ""
+
+#: includes/widgets/contact.php:114
+msgid "Contact List"
+msgstr ""
+
+#: includes/widgets/contact.php:57
+msgid "Contact Settings"
+msgstr ""
+
+#: includes/widgets/contact.php:137
+msgid "Contact Us"
+msgstr ""
+
+#: core/libraries/theme-metabox.php:170 core/libraries/theme-metabox.php:318
+#: core/libraries/theme-metabox.php:336 includes/posttypes/megamenu.php:142
+msgid "Container"
+msgstr ""
+
+#: includes/widgets/news.php:87 includes/widgets/tabs.php:136
+#: includes/widgets/tabs.php:216 includes/widgets/tabs.php:785
+#: includes/widgets/images-gallery.php:85
+#: includes/widgets/project-carousel.php:76 includes/widgets/footer-link.php:58
+#: includes/widgets/counter.php:68 includes/widgets/intro.php:46
+#: includes/widgets/content-carousel.php:84 includes/widgets/contact.php:104
+#: includes/widgets/career-intro.php:46 includes/widgets/video.php:57
+#: includes/widgets/logo-showcase.php:84 includes/widgets/business.php:46
+#: includes/widgets/post-slideshow.php:80 includes/widgets/list-content.php:57
+#: includes/widgets/meaning.php:65 includes/widgets/social.php:60
+msgid "Content"
+msgstr ""
+
+#: includes/widgets/contact.php:241
+msgid "Content Color"
+msgstr ""
+
+#: includes/widgets/contact.php:306
+msgid "Content Font Size"
+msgstr ""
+
+#: includes/widgets/tabs.php:213
+msgid "Content Type"
+msgstr ""
+
+#: includes/widgets/news.php:146 includes/widgets/tabs.php:281
+#: includes/widgets/images-gallery.php:214
+#: includes/widgets/project-carousel.php:192 includes/widgets/banner.php:121
+#: includes/widgets/footer-link.php:126 includes/widgets/heading.php:197
+#: includes/widgets/counter.php:160 includes/widgets/intro.php:120
+#: includes/widgets/content-carousel.php:205 includes/widgets/contact.php:177
+#: includes/widgets/recruitment.php:74 includes/widgets/project.php:85
+#: includes/widgets/career-intro.php:157 includes/widgets/logo.php:106
+#: includes/widgets/video.php:109 includes/widgets/logo-showcase.php:168
+#: includes/widgets/business.php:147 includes/widgets/post-slideshow.php:206
+#: includes/widgets/nav-menu.php:371 includes/widgets/list-content.php:137
+#: includes/widgets/meaning.php:196 includes/widgets/language-switcher.php:65
+#: includes/widgets/button.php:229 includes/widgets/social.php:142
+msgid "CSS Classes"
+msgstr ""
+
+#: core/libraries/cmb2/includes/CMB2_JS.php:175
+msgid "Current Color"
+msgstr ""
+
+#: core/libraries/theme-metabox.php:279
+msgid "Dark"
+msgstr ""
+
+#: core/libraries/theme-metabox.php:154 core/libraries/theme-metabox.php:168
+#: core/libraries/theme-metabox.php:181 core/libraries/theme-metabox.php:251
+#: core/libraries/theme-metabox.php:264 core/libraries/theme-metabox.php:277
+#: core/libraries/theme-metabox.php:304 core/libraries/theme-metabox.php:317
+#: core/libraries/theme-metabox.php:335 core/libraries/theme-metabox.php:400
+#: core/libraries/theme-metabox.php:413
+#: core/libraries/cmb2/includes/CMB2_JS.php:173
+msgid "Default"
+msgstr ""
+
+#: core/redux-extensions/extensions/wbc_importer/extension_wbc_importer.php:249
+msgid "Demo Already Imported"
+msgstr ""
+
+#: core/redux-extensions/extensions/wbc_importer/wbc_importer/field_wbc_importer.php:97
+msgid "Demo Imported"
+msgstr ""
+
+#: core/redux-extensions/extensions/wbc_importer/extension_wbc_importer.php:276
+#: core/redux-extensions/extensions/wbc_importer/extension_wbc_importer.php:278
+msgid "Demo Importer"
+msgstr ""
+
+#: core/libraries/theme-metabox.php:540 includes/widgets/images-gallery.php:130
+#: includes/widgets/images-gallery.php:193
+#: includes/widgets/images-gallery.php:201
+#: includes/widgets/project-carousel.php:117
+#: includes/widgets/project-carousel.php:171
+#: includes/widgets/project-carousel.php:179 includes/widgets/intro.php:96
+#: includes/widgets/intro.php:98 includes/widgets/content-carousel.php:128
+#: includes/widgets/content-carousel.php:184
+#: includes/widgets/content-carousel.php:192
+#: includes/widgets/career-intro.php:92 includes/widgets/career-intro.php:94
+#: includes/widgets/business.php:88 includes/widgets/business.php:128
+#: includes/widgets/business.php:135 includes/widgets/list-content.php:91
+#: includes/widgets/list-content.php:121 includes/widgets/list-content.php:126
+#: includes/widgets/meaning.php:107 includes/widgets/meaning.php:109
+msgid "Description"
+msgstr ""
+
+#: includes/widgets/logo-showcase.php:197
+#: includes/widgets/logo-showcase.php:326
+msgid "Desktop Settings"
+msgstr ""
+
+#: core/redux-extensions/extensions/wbc_importer/inc/importer/parsers.php:43
+msgid ""
+"Details are shown above. The importer will now try again with a different "
+"parser..."
+msgstr ""
+
+#: includes/posttypes/megamenu.php:122
+msgid "Disable"
+msgstr ""
+
+#: includes/posttypes/footer.php:48
+msgid "Display Footer of site"
+msgstr ""
+
+#: includes/posttypes/header.php:48
+msgid "Display Header of site"
+msgstr ""
+
+#: includes/posttypes/megamenu.php:57
+msgid "Display MegaMenu of site"
+msgstr ""
+
+#: includes/posttypes/project.php:48
+msgid "Display Project of site"
+msgstr ""
+
+#: includes/posttypes/recruitment.php:48
+msgid "Display Recruitment of site"
+msgstr ""
+
+#: includes/widgets/nav-menu.php:822
+msgid "Distance"
+msgstr ""
+
+#: includes/widgets/nav-menu.php:785
+msgid "Divider"
+msgstr ""
+
+#: core/libraries/cmb2/includes/CMB2_JS.php:216
+#: core/libraries/cmb2/includes/CMB2_JS.php:226
+msgid "Done"
+msgstr ""
+
+#: includes/widgets/nav-menu.php:176
+msgid "Double Line"
+msgstr ""
+
+#: core/libraries/cmb2/includes/CMB2_JS.php:238
+msgid "Download"
+msgstr ""
+
+#: core/redux-extensions/extensions/wbc_importer/inc/importer/wordpress-importer.php:280
+msgid "Download and import file attachments"
+msgstr ""
+
+#: includes/widgets/nav-menu.php:583
+msgid "Dropdown Mobile"
+msgstr ""
+
+#: includes/posttypes/recruitment.php:80
+msgid "Edit Category"
+msgstr ""
+
+#: includes/posttypes/project.php:80
+msgid "Edit Client"
+msgstr ""
+
+#: includes/posttypes/footer.php:37
+msgid "Edit Footer"
+msgstr ""
+
+#: includes/posttypes/header.php:37
+msgid "Edit Header"
+msgstr ""
+
+#: includes/posttypes/recruitment.php:112
+msgid "Edit Location"
+msgstr ""
+
+#: includes/posttypes/megamenu.php:46
+msgid "Edit MegaMenu"
+msgstr ""
+
+#: includes/posttypes/project.php:37
+msgid "Edit Project"
+msgstr ""
+
+#: includes/posttypes/recruitment.php:37
+msgid "Edit Recruitment"
+msgstr ""
+
+#: includes/posttypes/project.php:112
+msgid "Edit Service"
+msgstr ""
+
+#: includes/posttypes/project.php:176
+msgid "Edit Solution"
+msgstr ""
+
+#: includes/posttypes/recruitment.php:144
+msgid "Edit Status"
+msgstr ""
+
+#: includes/posttypes/project.php:144
+msgid "Edit Team"
+msgstr ""
+
+#: haru-starter.php:197 haru-starter.php:221
+msgid "Elementor"
+msgstr ""
+
+#: includes/widgets/tabs.php:91
+msgid "Enable Icon"
+msgstr ""
+
+#: core/libraries/theme-metabox.php:260
+msgid ""
+"Enable/Disable Header Sticky. This option will override settings in Theme "
+"Options -> Header -> Header Sticky."
+msgstr ""
+
+#: core/libraries/theme-metabox.php:247
+msgid ""
+"Enable/Disable Header Transparent. This option will override settings in "
+"Theme Options -> Header -> Header Transparent."
+msgstr ""
+
+#: core/redux-extensions/extensions/wbc_importer/extension_wbc_importer.php:304
+msgid "Enable/Disable your site maintenance mode."
+msgstr ""
+
+#: includes/widgets/heading.php:102
+msgid "Enter your sub title"
+msgstr ""
+
+#: includes/widgets/heading.php:89
+msgid "Enter your title"
+msgstr ""
+
+#: includes/widgets/post-slideshow.php:148
+msgid "Exclude"
+msgstr ""
+
+#: core/libraries/theme-metabox.php:226
+msgid "Extra Class"
+msgstr ""
+
+#: includes/widgets/button.php:59
+msgid "Extra Large"
+msgstr ""
+
+#: includes/widgets/button.php:55
+msgid "Extra Small"
+msgstr ""
+
+#: core/redux-extensions/extensions/wbc_importer/extension_wbc_importer.php:359
+msgid "Facebook"
+msgstr ""
+
+#: core/redux-extensions/extensions/wbc_importer/inc/importer/wordpress-importer.php:372
+#, php-format
+msgid ""
+"Failed to create new user for %s. Their posts will be attributed to the "
+"current user."
+msgstr ""
+
+#: core/redux-extensions/extensions/wbc_importer/inc/importer/wordpress-importer.php:516
+#: core/redux-extensions/extensions/wbc_importer/inc/importer/wordpress-importer.php:738
+#, php-format
+msgid "Failed to import %s %s"
+msgstr ""
+
+#: core/redux-extensions/extensions/wbc_importer/inc/importer/wordpress-importer.php:704
+#, php-format
+msgid "Failed to import %s &#8220;%s&#8221;"
+msgstr ""
+
+#: core/redux-extensions/extensions/wbc_importer/inc/importer/wordpress-importer.php:605
+#, php-format
+msgid "Failed to import &#8220;%s&#8221;: Invalid post type %s"
+msgstr ""
+
+#: core/redux-extensions/extensions/wbc_importer/inc/importer/wordpress-importer.php:238
+#, php-format
+msgid ""
+"Failed to import author %s. Their posts will be attributed to the current "
+"user."
+msgstr ""
+
+#: core/redux-extensions/extensions/wbc_importer/inc/importer/wordpress-importer.php:424
+#, php-format
+msgid "Failed to import category %s"
+msgstr ""
+
+#: core/redux-extensions/extensions/wbc_importer/inc/importer/wordpress-importer.php:467
+#, php-format
+msgid "Failed to import post tag %s"
+msgstr ""
+
+#: includes/widgets/news.php:103
+msgid "Featured 1"
+msgstr ""
+
+#: includes/widgets/news.php:262
+msgid "Featured news"
+msgstr "Tin tức nổi bật"
+
+#: core/redux-extensions/extensions/wbc_importer/inc/importer/wordpress-importer.php:940
+msgid "Fetching attachments is not enabled"
+msgstr ""
+
+#: core/libraries/cmb2/includes/CMB2_JS.php:237
+msgid "File:"
+msgstr ""
+
+#: core/libraries/cmb2-attached-posts/init.php:124
+#, php-format
+msgid "Filter %s"
+msgstr ""
+
+#: core/redux-extensions/extensions/wbc_importer/extension_wbc_importer.php:363
+msgid "Flickr"
+msgstr ""
+
+#: core/libraries/theme-metabox.php:157
+msgid "Float"
+msgstr ""
+
+#: core/libraries/theme-metabox.php:126 includes/posttypes/footer.php:33
+msgid "Footer"
+msgstr ""
+
+#: includes/posttypes/footer.php:32
+msgid "Footer Builders"
+msgstr ""
+
+#: core/libraries/theme-metabox.php:286
+msgid "Footer Layout"
+msgstr ""
+
+#: core/libraries/theme-metabox.php:169 core/libraries/theme-metabox.php:319
+#: core/libraries/theme-metabox.php:337 includes/widgets/nav-menu.php:285
+msgid "Full Width"
+msgstr ""
+
+#: includes/posttypes/megamenu.php:147 includes/posttypes/megamenu.php:164
+msgid "Fullwidth"
+msgstr ""
+
+#: includes/widgets/tabs.php:401
+msgid "General"
+msgstr ""
+
+#: includes/widgets/tabs.php:70
+msgid "General Settings"
+msgstr ""
+
+#: includes/widgets/nav-menu.php:114 includes/widgets/nav-menu.php:253
+#, php-format
+msgid ""
+"Go to the <a href=\"%s\" target=\"_blank\">Menus screen</a> to create one."
+msgstr ""
+
+#: includes/widgets/nav-menu.php:106 includes/widgets/nav-menu.php:245
+#, php-format
+msgid ""
+"Go to the <a href=\"%s\" target=\"_blank\">Menus screen</a> to manage your "
+"menus."
+msgstr ""
+
+#: core/redux-extensions/extensions/wbc_importer/extension_wbc_importer.php:362
+msgid "Google+"
+msgstr ""
+
+#: includes/widgets/logo-showcase.php:99
+msgid "Grid"
+msgstr ""
+
+#: includes/widgets/news.php:101
+msgid "Grid 1"
+msgstr ""
+
+#: includes/widgets/logo-showcase.php:180
+msgid "Grid Options"
+msgstr ""
+
+#: includes/widgets/nav-menu.php:322
+msgid "Hamburger"
+msgstr ""
+
+#: includes/widgets/banner.php:30
+msgid "Haru Banner"
+msgstr ""
+
+#: includes/widgets/business.php:30
+msgid "Haru Business"
+msgstr ""
+
+#: includes/widgets/button.php:30
+msgid "Haru Button"
+msgstr ""
+
+#: includes/widgets/career-intro.php:30
+msgid "Haru Career Intro"
+msgstr ""
+
+#: includes/widgets/contact.php:30
+msgid "Haru Contact"
+msgstr ""
+
+#: includes/widgets/content-carousel.php:32
+msgid "Haru Content Carousel"
+msgstr ""
+
+#: includes/widgets/counter.php:31
+msgid "Haru Counter"
+msgstr ""
+
+#: haru-starter.php:318
+msgid "Haru Elements"
+msgstr ""
+
+#: haru-starter.php:334
+msgid "Haru Footer Elements"
+msgstr ""
+
+#: includes/widgets/footer-link.php:31
+msgid "Haru Footer Link"
+msgstr ""
+
+#: haru-starter.php:326
+msgid "Haru Header Elements"
+msgstr ""
+
+#: includes/widgets/logo.php:30
+msgid "Haru Header Logo"
+msgstr ""
+
+#: includes/widgets/heading.php:31
+msgid "Haru Heading"
+msgstr ""
+
+#: includes/widgets/images-gallery.php:32
+msgid "Haru Images Gallery"
+msgstr ""
+
+#: includes/widgets/intro.php:30
+msgid "Haru Intro"
+msgstr ""
+
+#: includes/widgets/language-switcher.php:30
+msgid "Haru Language Switcher"
+msgstr ""
+
+#: includes/widgets/list-content.php:30
+msgid "Haru List Content"
+msgstr ""
+
+#: includes/widgets/logo-showcase.php:32
+msgid "Haru Logo Showcase"
+msgstr ""
+
+#: includes/widgets/meaning.php:31
+msgid "Haru Meaning"
+msgstr ""
+
+#: includes/widgets/nav-menu.php:37
+msgid "Haru Nav Menu"
+msgstr ""
+
+#: includes/widgets/news.php:31
+msgid "Haru News"
+msgstr ""
+
+#: includes/widgets/post-slideshow.php:36
+msgid "Haru Post Carousel"
+msgstr ""
+
+#: includes/widgets/project.php:31
+msgid "Haru Project"
+msgstr ""
+
+#: includes/widgets/project-carousel.php:32
+msgid "Haru Project Carousel"
+msgstr ""
+
+#: includes/widgets/recruitment.php:30
+msgid "Haru recruitment"
+msgstr ""
+
+#: includes/widgets/social.php:30
+msgid "Haru Social"
+msgstr ""
+
+#. Name of the plugin
+#: haru-starter.php:196 haru-starter.php:220 haru-starter.php:245
+msgid "Haru Starter"
+msgstr ""
+
+#. Description of the plugin
+msgid "Haru Starter extension from HaruTheme."
+msgstr ""
+
+#: includes/widgets/tabs.php:38
+msgid "Haru Tabs"
+msgstr ""
+
+#: includes/widgets/video.php:30
+msgid "Haru Video"
+msgstr ""
+
+#. Author of the plugin
+msgid "HaruTheme"
+msgstr ""
+
+#: core/redux-extensions/extensions/wbc_importer/inc/importer/wordpress-importer.php:176
+msgid "Have fun!"
+msgstr ""
+
+#: core/libraries/theme-metabox.php:115 includes/posttypes/header.php:33
+msgid "Header"
+msgstr ""
+
+#: includes/posttypes/header.php:32
+msgid "Header Builders"
+msgstr ""
+
+#: core/libraries/theme-metabox.php:234
+msgid "Header Layout"
+msgstr ""
+
+#: core/libraries/theme-metabox.php:259
+msgid "Header Sticky"
+msgstr ""
+
+#: core/libraries/theme-metabox.php:272
+msgid "Header Sticky Skin"
+msgstr ""
+
+#: core/libraries/theme-metabox.php:246
+msgid "Header Transparent"
+msgstr ""
+
+#: includes/widgets/contact.php:135
+msgid "Heading"
+msgstr ""
+
+#: includes/widgets/heading.php:58
+msgid "Heading Settings"
+msgstr ""
+
+#: includes/widgets/images-gallery.php:269
+#: includes/widgets/logo-showcase.php:299
+msgid "Hide"
+msgstr ""
+
+#: includes/widgets/tabs.php:82 includes/widgets/nav-menu.php:128
+msgid "Horizontal"
+msgstr ""
+
+#: includes/widgets/nav-menu.php:531 includes/widgets/nav-menu.php:756
+msgid "Horizontal Padding"
+msgstr ""
+
+#: core/libraries/cmb2/includes/CMB2_JS.php:222
+msgid "Hour"
+msgstr ""
+
+#: includes/widgets/tabs.php:639 includes/widgets/footer-link.php:190
+#: includes/widgets/nav-menu.php:423 includes/widgets/nav-menu.php:636
+msgid "Hover"
+msgstr ""
+
+#: includes/widgets/logo-showcase.php:462
+msgid "Hover Style"
+msgstr ""
+
+#: core/redux-extensions/extensions/wbc_importer/inc/importer/wordpress-importer.php:1151
+msgid ""
+"Howdy! Upload your WordPress eXtended RSS (WXR) file and we&#8217;ll import "
+"the posts, pages, comments, custom fields, categories, and tags into this "
+"site."
+msgstr ""
+
+#: includes/widgets/heading.php:147
+msgid "HTML Tag"
+msgstr ""
+
+#. URI of the plugin
+#. Author URI of the plugin
+msgid "http://harutheme.com"
+msgstr ""
+
+#: includes/widgets/images-gallery.php:158
+#: includes/widgets/project-carousel.php:142 includes/widgets/banner.php:111
+#: includes/widgets/footer-link.php:93
+#: includes/widgets/content-carousel.php:152 includes/widgets/contact.php:149
+#: includes/widgets/career-intro.php:112 includes/widgets/logo-showcase.php:133
+#: includes/widgets/business.php:99 includes/widgets/list-content.php:102
+#: includes/widgets/meaning.php:159 includes/widgets/button.php:111
+#: includes/widgets/social.php:107
+msgid "https://your-link.com"
+msgstr ""
+
+#: includes/widgets/tabs.php:162 includes/widgets/tabs.php:171
+#: includes/widgets/tabs.php:185 includes/widgets/counter.php:120
+#: includes/widgets/contact.php:92 includes/widgets/button.php:163
+#: includes/widgets/social.php:93
+msgid "Icon"
+msgstr ""
+
+#: includes/widgets/tabs.php:607 includes/widgets/tabs.php:673
+#: includes/widgets/tabs.php:741 includes/widgets/contact.php:206
+#: includes/widgets/social.php:171
+msgid "Icon Color"
+msgstr ""
+
+#: includes/posttypes/megamenu.php:97
+msgid "Icon Font"
+msgstr ""
+
+#: includes/widgets/contact.php:268 includes/widgets/social.php:216
+msgid "Icon Font Size"
+msgstr ""
+
+#: includes/widgets/tabs.php:528
+msgid "Icon Gap"
+msgstr ""
+
+#: includes/posttypes/megamenu.php:104
+msgid "Icon Image"
+msgstr ""
+
+#: includes/widgets/tabs.php:101 includes/widgets/button.php:172
+msgid "Icon Position"
+msgstr ""
+
+#: includes/widgets/tabs.php:505
+msgid "Icon Size"
+msgstr ""
+
+#: includes/widgets/button.php:188
+msgid "Icon Spacing"
+msgstr ""
+
+#: core/redux-extensions/extensions/wbc_importer/inc/importer/wordpress-importer.php:267
+#, php-format
+msgid ""
+"If a new user is created by WordPress, a new password will be randomly "
+"generated and the new user&#8217;s role will be set as %s. Manually changing "
+"the new user&#8217;s details will be necessary."
+msgstr ""
+
+#: includes/posttypes/megamenu.php:130
+msgid "If enabled megamenu, its submenu will be disabled."
+msgstr ""
+
+#: includes/posttypes/megamenu.php:115
+msgid "If have both Icon Font & Icon Image, Icon Image will be used."
+msgstr ""
+
+#: includes/posttypes/megamenu.php:157
+msgid "If have both width & Fullwidth, Fullwidth will be used."
+msgstr ""
+
+#: includes/widgets/banner.php:68
+msgid "If you choose Pre Banner you will use Style default from our theme."
+msgstr ""
+
+#: includes/widgets/business.php:55
+msgid "If you choose Pre Business you will use Style default from our theme."
+msgstr ""
+
+#: includes/widgets/button.php:77
+msgid "If you choose Pre Button you will use Style default from our theme."
+msgstr ""
+
+#: includes/widgets/career-intro.php:55
+msgid ""
+"If you choose Pre Career Intro you will use Style default from our theme."
+msgstr ""
+
+#: includes/widgets/contact.php:66
+msgid "If you choose Pre Contact you will use Style default from our theme."
+msgstr ""
+
+#: includes/widgets/content-carousel.php:93
+msgid ""
+"If you choose Pre Content Carousel you will use Style default from our theme."
+msgstr ""
+
+#: includes/widgets/counter.php:77
+msgid "If you choose Pre Counter you will use Style default from our theme."
+msgstr ""
+
+#: includes/widgets/footer-link.php:67
+msgid ""
+"If you choose Pre Footer Link you will use Style default from our theme."
+msgstr ""
+
+#: includes/widgets/heading.php:66
+msgid "If you choose Pre Heading you will use Style default from our theme."
+msgstr ""
+
+#: includes/widgets/images-gallery.php:94
+msgid ""
+"If you choose Pre Images Gallery you will use Style default from our theme."
+msgstr ""
+
+#: includes/widgets/intro.php:55
+msgid "If you choose Pre Intro you will use Style default from our theme."
+msgstr ""
+
+#: includes/widgets/list-content.php:66
+msgid ""
+"If you choose Pre List Content you will use Style default from our theme."
+msgstr ""
+
+#: includes/widgets/logo-showcase.php:93
+msgid ""
+"If you choose Pre Logo Showcase you will use Style default from our theme."
+msgstr ""
+
+#: includes/widgets/meaning.php:74
+msgid "If you choose Pre Meaning you will use Style default from our theme."
+msgstr ""
+
+#: includes/widgets/news.php:96
+msgid "If you choose Pre News you will use Style default from our theme."
+msgstr ""
+
+#: includes/widgets/project-carousel.php:85
+msgid ""
+"If you choose Pre Project Carousel you will use Style default from our theme."
+msgstr ""
+
+#: includes/widgets/social.php:69
+msgid "If you choose Pre Social you will use Style default from our theme."
+msgstr ""
+
+#: includes/widgets/tabs.php:119
+msgid "If you choose Pre Tab you will use Style default from our theme."
+msgstr ""
+
+#: includes/widgets/video.php:66
+msgid "If you choose Pre Video you will use Style default from our theme."
+msgstr ""
+
+#: core/libraries/theme-metabox.php:521 includes/widgets/tabs.php:175
+#: includes/widgets/tabs.php:200
+msgid "Image"
+msgstr ""
+
+#: core/libraries/theme-metabox.php:475
+msgid "Image Layout"
+msgstr ""
+
+#: includes/widgets/images-gallery.php:186
+msgid "Images List"
+msgstr ""
+
+#: core/libraries/theme-metabox.php:483
+msgid "Images Slideshow"
+msgstr ""
+
+#: core/redux-extensions/extensions/wbc_importer/inc/importer/wordpress-importer.php:1226
+msgid ""
+"Import <strong>posts, pages, comments, custom fields, categories, and "
+"tags</strong> from a WordPress export file."
+msgstr ""
+
+#: core/redux-extensions/extensions/wbc_importer/inc/importer/wordpress-importer.php:277
+msgid "Import Attachments"
+msgstr ""
+
+#: core/redux-extensions/extensions/wbc_importer/inc/importer/wordpress-importer.php:297
+msgid "Import author:"
+msgstr ""
+
+#: core/redux-extensions/extensions/wbc_importer/wbc_importer/field_wbc_importer.php:93
+#: core/redux-extensions/extensions/wbc_importer/wbc_importer/field_wbc_importer.php:114
+msgid "Import Demo"
+msgstr ""
+
+#: core/redux-extensions/extensions/wbc_importer/inc/importer/wordpress-importer.php:1129
+msgid "Import WordPress"
+msgstr ""
+
+#: core/redux-extensions/extensions/wbc_importer/wbc_importer/field_wbc_importer.php:116
+#: core/redux-extensions/extensions/wbc_importer/inc/importer/radium-importer.php:499
+msgid "Imported"
+msgstr ""
+
+#: core/redux-extensions/extensions/wbc_importer/inc/importer/radium-importer.php:502
+msgid "Imported to Inactive"
+msgstr ""
+
+#: includes/widgets/tabs.php:107
+msgid "Inline"
+msgstr ""
+
+#: core/redux-extensions/extensions/wbc_importer/extension_wbc_importer.php:318
+msgid "Insert coming soon title."
+msgstr ""
+
+#: core/redux-extensions/extensions/wbc_importer/extension_wbc_importer.php:366
+msgid "Instagram"
+msgstr ""
+
+#: core/redux-extensions/extensions/wbc_importer/inc/importer/wordpress-importer.php:953
+msgid "Invalid file type"
+msgstr ""
+
+#: includes/widgets/images-gallery.php:195
+#: includes/widgets/images-gallery.php:203
+#: includes/widgets/project-carousel.php:173
+#: includes/widgets/project-carousel.php:181
+#: includes/widgets/footer-link.php:112 includes/widgets/footer-link.php:116
+#: includes/widgets/content-carousel.php:186
+#: includes/widgets/content-carousel.php:194 includes/widgets/contact.php:121
+#: includes/widgets/contact.php:126 includes/widgets/business.php:129
+#: includes/widgets/business.php:136 includes/widgets/list-content.php:122
+#: includes/widgets/list-content.php:127 includes/widgets/social.php:127
+#: includes/widgets/social.php:132
+msgid "Item content. Click the edit button to change this text."
+msgstr ""
+
+#: includes/widgets/counter.php:144 includes/widgets/counter.php:150
+#: includes/widgets/contact.php:120 includes/widgets/contact.php:125
+#: includes/widgets/social.php:126 includes/widgets/social.php:131
+msgid "Item icon. Click to select icon"
+msgstr ""
+
+#: includes/widgets/logo-showcase.php:153
+#: includes/widgets/logo-showcase.php:158
+msgid "Item Link. Click the edit button to change this text."
+msgstr ""
+
+#: core/libraries/cmb2/includes/CMB2_JS.php:212
+msgid "Jan, Feb, Mar, Apr, May, Jun, Jul, Aug, Sep, Oct, Nov, Dec"
+msgstr ""
+
+#: core/libraries/cmb2/includes/CMB2_JS.php:211
+msgid ""
+"January, February, March, April, May, June, July, August, September, October,"
+" November, December"
+msgstr ""
+
+#: includes/widgets/heading.php:183 includes/widgets/button.php:137
+msgid "Justified"
+msgstr ""
+
+#: templates/recruitment/recruitment.php:22
+msgid "Keyword"
+msgstr "Search"
+
+#: includes/posttypes/megamenu.php:184 includes/widgets/counter.php:111
+msgid "Label"
+msgstr ""
+
+#: includes/posttypes/megamenu.php:190
+msgid "Label Color"
+msgstr ""
+
+#: includes/widgets/button.php:58
+msgid "Large"
+msgstr ""
+
+#: core/libraries/theme-metabox.php:102 includes/widgets/tabs.php:77
+#: includes/widgets/logo-showcase.php:454 includes/widgets/nav-menu.php:124
+msgid "Layout"
+msgstr ""
+
+#: core/libraries/theme-metabox.php:149
+msgid "Layout Style"
+msgstr ""
+
+#: includes/posttypes/megamenu.php:162 includes/widgets/heading.php:171
+#: includes/widgets/nav-menu.php:143 includes/widgets/nav-menu.php:341
+#: includes/widgets/button.php:125
+msgid "Left"
+msgstr ""
+
+#: core/libraries/theme-metabox.php:183
+msgid "Left Sidebar"
+msgstr ""
+
+#: core/libraries/theme-metabox.php:278
+msgid "Light"
+msgstr ""
+
+#: includes/widgets/images-gallery.php:156
+#: includes/widgets/project-carousel.php:140 includes/widgets/banner.php:106
+#: includes/widgets/footer-link.php:91 includes/widgets/heading.php:113
+#: includes/widgets/content-carousel.php:150
+#: includes/widgets/career-intro.php:110 includes/widgets/logo-showcase.php:131
+#: includes/widgets/business.php:97 includes/widgets/list-content.php:100
+#: includes/widgets/meaning.php:154 includes/widgets/button.php:105
+#: includes/widgets/social.php:105
+msgid "Link"
+msgstr ""
+
+#: includes/widgets/footer-link.php:106 includes/widgets/counter.php:136
+#: includes/widgets/logo-showcase.php:146 includes/widgets/business.php:121
+#: includes/widgets/list-content.php:115 includes/widgets/social.php:120
+msgid "Link List"
+msgstr ""
+
+#: core/redux-extensions/extensions/wbc_importer/extension_wbc_importer.php:361
+msgid "LinkedIn"
+msgstr ""
+
+#: includes/widgets/news.php:102
+msgid "List 1"
+msgstr ""
+
+#: includes/widgets/images-gallery.php:132
+#: includes/widgets/project-carousel.php:119
+#: includes/widgets/content-carousel.php:130 includes/widgets/business.php:90
+#: includes/widgets/list-content.php:93
+msgid "List Description"
+msgstr ""
+
+#: includes/widgets/images-gallery.php:120
+#: includes/widgets/project-carousel.php:110
+#: includes/widgets/content-carousel.php:118 includes/widgets/business.php:81
+msgid "List Sub Title"
+msgstr ""
+
+#: includes/widgets/tabs.php:146 includes/widgets/images-gallery.php:111
+#: includes/widgets/project-carousel.php:101
+#: includes/widgets/footer-link.php:84 includes/widgets/counter.php:94
+#: includes/widgets/content-carousel.php:109 includes/widgets/contact.php:85
+#: includes/widgets/logo-showcase.php:110 includes/widgets/business.php:72
+#: includes/widgets/list-content.php:84 includes/widgets/social.php:86
+msgid "List Title"
+msgstr ""
+
+#: includes/classes/class-haru-ajax-helper.php:142
+msgid "Load more"
+msgstr "Xem thêm"
+
+#: includes/posttypes/recruitment.php:107
+#: templates/recruitment/recruitment.php:27
+msgid "Location"
+msgstr "Địa điểm"
+
+#: includes/widgets/logo.php:94
+msgid "Logo Max Height"
+msgstr ""
+
+#: includes/widgets/logo.php:58
+msgid "Logo Settings"
+msgstr ""
+
+#: includes/widgets/tabs.php:238 includes/widgets/tabs.php:261
+#: includes/widgets/tabs.php:271
+msgid ""
+"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio, neque qui "
+"velit. Magni dolorum quidem ipsam eligendi, totam, facilis laudantium cum "
+"accusamus ullam voluptatibus commodi numquam, error, est. Ea, consequatur."
+msgstr ""
+
+#: includes/widgets/nav-menu.php:383
+msgid "Main Menu"
+msgstr ""
+
+#: core/redux-extensions/extensions/wbc_importer/extension_wbc_importer.php:326
+msgid "Maintenance Background"
+msgstr ""
+
+#: core/redux-extensions/extensions/wbc_importer/extension_wbc_importer.php:295
+#: core/redux-extensions/extensions/wbc_importer/extension_wbc_importer.php:303
+msgid "Maintenance Mode"
+msgstr ""
+
+#: core/redux-extensions/extensions/wbc_importer/extension_wbc_importer.php:355
+msgid "Maintenance social profiles"
+msgstr ""
+
+#: core/redux-extensions/extensions/wbc_importer/extension_wbc_importer.php:317
+msgid "Maintenance title"
+msgstr ""
+
+#: includes/widgets/post-slideshow.php:73
+msgid "Manual Selection"
+msgstr ""
+
+#: includes/widgets/contact.php:164
+msgid "Map Button Text"
+msgstr ""
+
+#: includes/widgets/contact.php:147
+msgid "Map Link"
+msgstr ""
+
+#: includes/widgets/tabs.php:420 includes/widgets/tabs.php:562
+#: includes/widgets/tabs.php:840
+msgid "Margin"
+msgstr ""
+
+#: includes/widgets/button.php:57
+msgid "Medium"
+msgstr ""
+
+#: includes/posttypes/megamenu.php:42
+msgid "MegaMenu"
+msgstr ""
+
+#: includes/posttypes/megamenu.php:41
+msgid "MegaMenu Builders"
+msgstr ""
+
+#: includes/widgets/nav-menu.php:100 includes/widgets/nav-menu.php:932
+#: includes/widgets/nav-menu.php:935
+msgid "Menu"
+msgstr ""
+
+#: core/redux-extensions/extensions/wbc_importer/inc/importer/wordpress-importer.php:877
+#, php-format
+msgid "Menu item skipped due to invalid menu slug: %s"
+msgstr ""
+
+#: core/redux-extensions/extensions/wbc_importer/inc/importer/wordpress-importer.php:870
+msgid "Menu item skipped due to missing menu slug"
+msgstr ""
+
+#: includes/widgets/nav-menu.php:239
+msgid "Menu Mobile"
+msgstr ""
+
+#: includes/widgets/nav-menu.php:89
+msgid "Menu Settings"
+msgstr ""
+
+#: includes/widgets/nav-menu.php:890
+msgid "Menu Toggle"
+msgstr ""
+
+#: core/libraries/cmb2/includes/CMB2_JS.php:223
+msgid "Minute"
+msgstr ""
+
+#. %d: Breakpoint number.
+#: includes/widgets/nav-menu.php:270
+#, php-format
+msgid "Mobile (< %dpx)"
+msgstr ""
+
+#: includes/widgets/nav-menu.php:226
+msgid "Mobile Dropdown"
+msgstr ""
+
+#: includes/widgets/images-gallery.php:311
+#: includes/widgets/logo-showcase.php:251
+#: includes/widgets/logo-showcase.php:410
+msgid "Mobile Settings"
+msgstr ""
+
+#: includes/posttypes/recruitment.php:83
+msgid "New Category Name"
+msgstr ""
+
+#: includes/posttypes/project.php:83
+msgid "New Client Name"
+msgstr ""
+
+#: includes/posttypes/recruitment.php:115
+msgid "New Location Name"
+msgstr ""
+
+#: includes/posttypes/project.php:115
+msgid "New Service Name"
+msgstr ""
+
+#: includes/posttypes/project.php:179
+msgid "New Solution Name"
+msgstr ""
+
+#: includes/posttypes/recruitment.php:147
+msgid "New Status Name"
+msgstr ""
+
+#: includes/posttypes/project.php:147
+msgid "New Team Name"
+msgstr ""
+
+#: includes/widgets/news.php:111
+msgid "News Tag"
+msgstr ""
+
+#: core/libraries/cmb2/includes/CMB2_JS.php:213
+msgid "Next"
+msgstr ""
+
+#: includes/widgets/tabs.php:956
+msgid "No"
+msgstr ""
+
+#: core/redux-extensions/extensions/wbc_importer/wbc_importer/field_wbc_importer.php:127
+msgid "No Demo Data Provided"
+msgstr ""
+
+#: includes/posttypes/footer.php:41
+msgid "No Footer items found"
+msgstr ""
+
+#: includes/posttypes/footer.php:42
+msgid "No Footer items found in trash"
+msgstr ""
+
+#: core/redux-extensions/extensions/footer/footer/field_footer.php:124
+msgid "No Footer were found."
+msgstr ""
+
+#: includes/posttypes/header.php:41
+msgid "No Header items found"
+msgstr ""
+
+#: includes/posttypes/header.php:42
+msgid "No Header items found in trash"
+msgstr ""
+
+#: core/redux-extensions/extensions/header/header/field_header.php:124
+msgid "No Header were found."
+msgstr ""
+
+#: includes/widgets/post-slideshow.php:241
+msgid "No items found!"
+msgstr ""
+
+#: core/redux-extensions/extensions/product_attribute/product_attribute/field_product_attribute.php:118
+#: core/redux-extensions/extensions/menu/menu/field_menu.php:118
+msgid "No items of this type were found."
+msgstr ""
+
+#: includes/classes/class-haru-ajax-helper.php:110
+msgid "No job available. Please try other search"
+msgstr ""
+
+#: includes/posttypes/megamenu.php:50
+msgid "No MegaMenu items found"
+msgstr ""
+
+#: includes/posttypes/megamenu.php:51
+msgid "No MegaMenu items found in trash"
+msgstr ""
+
+#: includes/posttypes/project.php:41
+msgid "No Project items found"
+msgstr ""
+
+#: includes/posttypes/project.php:42
+msgid "No Project items found in trash"
+msgstr ""
+
+#: includes/posttypes/recruitment.php:41
+msgid "No Recruitment items found"
+msgstr ""
+
+#: includes/posttypes/recruitment.php:42
+msgid "No Recruitment items found in trash"
+msgstr ""
+
+#: core/libraries/theme-metabox.php:182
+msgid "No Sidebar"
+msgstr ""
+
+#: core/redux-extensions/extensions/wbc_importer/inc/importer/radium-importer.php:509
+msgid "No Title"
+msgstr ""
+
+#: includes/posttypes/megamenu.php:141 includes/widgets/tabs.php:123
+#: includes/widgets/tabs.php:167 includes/widgets/banner.php:72
+#: includes/widgets/footer-link.php:71 includes/widgets/heading.php:70
+#: includes/widgets/counter.php:81 includes/widgets/contact.php:70
+#: includes/widgets/video.php:70 includes/widgets/logo-showcase.php:97
+#: includes/widgets/logo-showcase.php:467 includes/widgets/business.php:59
+#: includes/widgets/nav-menu.php:173 includes/widgets/nav-menu.php:213
+#: includes/widgets/nav-menu.php:273 includes/widgets/nav-menu.php:321
+#: includes/widgets/list-content.php:70 includes/widgets/button.php:81
+#: includes/widgets/social.php:73
+#: core/redux-extensions/extensions/product_attribute/product_attribute/field_product_attribute.php:97
+msgid "None"
+msgstr ""
+
+#: includes/widgets/tabs.php:573 includes/widgets/footer-link.php:164
+#: includes/widgets/heading.php:268 includes/widgets/nav-menu.php:402
+#: includes/widgets/nav-menu.php:602
+msgid "Normal"
+msgstr ""
+
+#: core/libraries/cmb2/includes/CMB2_JS.php:225
+msgid "Now"
+msgstr ""
+
+#: includes/widgets/counter.php:101
+msgid "Number"
+msgstr ""
+
+#: includes/widgets/logo-showcase.php:311
+msgid "Number of Rows"
+msgstr ""
+
+#: core/libraries/theme-metabox.php:253 core/libraries/theme-metabox.php:266
+#: core/libraries/theme-metabox.php:306 core/libraries/theme-metabox.php:402
+#: core/libraries/theme-metabox.php:415
+msgid "Off"
+msgstr ""
+
+#: includes/widgets/post-slideshow.php:172
+msgid "Offset"
+msgstr ""
+
+#: core/libraries/theme-metabox.php:252 core/libraries/theme-metabox.php:265
+#: core/libraries/theme-metabox.php:305 core/libraries/theme-metabox.php:401
+#: core/libraries/theme-metabox.php:414
+msgid "On"
+msgstr ""
+
+#: includes/widgets/nav-menu.php:591
+msgid "On mobile, this will affect the entire menu."
+msgstr ""
+
+#: core/redux-extensions/extensions/wbc_importer/extension_wbc_importer.php:337
+msgid "Online time"
+msgstr ""
+
+#: includes/widgets/logo-showcase.php:468
+msgid "Opacity"
+msgstr ""
+
+#: core/redux-extensions/extensions/wbc_importer/inc/importer/wordpress-importer.php:321
+msgid "or assign posts to an existing user:"
+msgstr ""
+
+#: core/redux-extensions/extensions/wbc_importer/inc/importer/wordpress-importer.php:308
+msgid "or create new user with login name:"
+msgstr ""
+
+#: includes/widgets/post-slideshow.php:192
+msgid "Order"
+msgstr ""
+
+#: includes/widgets/post-slideshow.php:181
+msgid "Order By"
+msgstr ""
+
+#: includes/widgets/nav-menu.php:175
+msgid "Overline"
+msgstr ""
+
+#: includes/widgets/tabs.php:409 includes/widgets/tabs.php:551
+#: includes/widgets/tabs.php:829
+msgid "Padding"
+msgstr ""
+
+#: core/libraries/theme-metabox.php:163
+msgid "Page Layout"
+msgstr ""
+
+#: core/libraries/theme-metabox.php:95
+msgid "Page Metabox"
+msgstr ""
+
+#: core/libraries/theme-metabox.php:176
+msgid "Page Sidebar"
+msgstr ""
+
+#: includes/posttypes/recruitment.php:78
+msgid "Parent Category"
+msgstr ""
+
+#: includes/posttypes/recruitment.php:79
+msgid "Parent Category:"
+msgstr ""
+
+#: includes/posttypes/project.php:78
+msgid "Parent Client"
+msgstr ""
+
+#: includes/posttypes/project.php:79
+msgid "Parent Client:"
+msgstr ""
+
+#: includes/posttypes/recruitment.php:110
+msgid "Parent Location"
+msgstr ""
+
+#: includes/posttypes/recruitment.php:111
+msgid "Parent Location:"
+msgstr ""
+
+#: includes/posttypes/project.php:110
+msgid "Parent Service"
+msgstr ""
+
+#: includes/posttypes/project.php:111
+msgid "Parent Service:"
+msgstr ""
+
+#: includes/posttypes/project.php:174
+msgid "Parent Solution"
+msgstr ""
+
+#: includes/posttypes/project.php:175
+msgid "Parent Solution:"
+msgstr ""
+
+#: includes/posttypes/recruitment.php:142
+msgid "Parent Status"
+msgstr ""
+
+#: includes/posttypes/recruitment.php:143
+msgid "Parent Status:"
+msgstr ""
+
+#: includes/posttypes/project.php:142
+msgid "Parent Team"
+msgstr ""
+
+#: includes/posttypes/project.php:143
+msgid "Parent Team:"
+msgstr ""
+
+#: haru-starter.php:246
+msgid "PHP"
+msgstr ""
+
+#: core/redux-extensions/extensions/wbc_importer/extension_wbc_importer.php:365
+msgid "Pinterest"
+msgstr ""
+
+#: includes/posttypes/megamenu.php:101
+msgid ""
+"Please click <a href=\"https://harutheme.com/forums/topic/list-of-font-icons-"
+"use-in-each-theme-from-harutheme/\" target=\"_blank\"> <b>here</b></a> to "
+"see the list of icons."
+msgstr ""
+
+#: includes/widgets/contact.php:106
+msgid "Please insert content"
+msgstr ""
+
+#: includes/widgets/button.php:221
+msgid ""
+"Please make sure the ID is unique and not used elsewhere on the page this "
+"form is displayed. This field allows <code>A-z 0-9</code> & underscore chars "
+"without spaces."
+msgstr ""
+
+#: core/redux-extensions/extensions/wbc_importer/wbc_importer/field_wbc_importer.php:114
+#: core/redux-extensions/extensions/wbc_importer/wbc_importer/field_wbc_importer.php:117
+msgid "Please Wait..."
+msgstr ""
+
+#: includes/widgets/nav-menu.php:217
+msgid "Plus"
+msgstr ""
+
+#: includes/widgets/nav-menu.php:169
+msgid "Pointer"
+msgstr ""
+
+#: includes/widgets/nav-menu.php:445 includes/widgets/nav-menu.php:482
+msgid "Pointer Color"
+msgstr ""
+
+#: includes/widgets/nav-menu.php:509
+msgid "Pointer Width"
+msgstr ""
+
+#: includes/widgets/meaning.php:183 includes/widgets/meaning.php:185
+msgid "Popup Content"
+msgstr ""
+
+#: includes/widgets/meaning.php:171 includes/widgets/meaning.php:173
+msgid "Popup Title"
+msgstr ""
+
+#: includes/widgets/news.php:311
+msgid "Posted by"
+msgstr "Đăng bởi"
+
+#: includes/widgets/post-slideshow.php:72
+msgid "Posts"
+msgstr ""
+
+#: includes/widgets/post-slideshow.php:163
+msgid "Posts Per Page"
+msgstr ""
+
+#: includes/widgets/banner.php:67
+msgid "Pre Banner"
+msgstr ""
+
+#: includes/widgets/banner.php:73
+msgid "Pre Banner 1"
+msgstr ""
+
+#: includes/widgets/banner.php:74
+msgid "Pre Banner 2"
+msgstr ""
+
+#: includes/widgets/business.php:54
+msgid "Pre Business"
+msgstr ""
+
+#: includes/widgets/business.php:60
+msgid "Pre Business 1"
+msgstr ""
+
+#: includes/widgets/business.php:61
+msgid "Pre Business 2"
+msgstr ""
+
+#: includes/widgets/button.php:76
+msgid "Pre Button"
+msgstr ""
+
+#: includes/widgets/button.php:82
+msgid "Pre Button 1"
+msgstr ""
+
+#: includes/widgets/button.php:83
+msgid "Pre Button 2"
+msgstr ""
+
+#: includes/widgets/button.php:84
+msgid "Pre Button 3"
+msgstr ""
+
+#: includes/widgets/career-intro.php:54
+msgid "Pre Career Intro"
+msgstr ""
+
+#: includes/widgets/career-intro.php:59
+msgid "Pre Career Intro 1"
+msgstr ""
+
+#: includes/widgets/career-intro.php:60
+msgid "Pre Career Intro 2"
+msgstr ""
+
+#: includes/widgets/career-intro.php:61
+msgid "Pre Career Intro 3"
+msgstr ""
+
+#: includes/widgets/contact.php:65
+msgid "Pre Contact"
+msgstr ""
+
+#: includes/widgets/contact.php:71
+msgid "Pre Contact 1"
+msgstr ""
+
+#: includes/widgets/contact.php:72
+msgid "Pre Contact 2"
+msgstr ""
+
+#: includes/widgets/contact.php:73
+msgid "Pre Contact 3"
+msgstr ""
+
+#: includes/widgets/contact.php:74
+msgid "Pre Contact 4"
+msgstr ""
+
+#: includes/widgets/content-carousel.php:92
+msgid "Pre Content Carousel"
+msgstr ""
+
+#: includes/widgets/content-carousel.php:97
+msgid "Pre Content Carousel 1"
+msgstr ""
+
+#: includes/widgets/content-carousel.php:98
+msgid "Pre Content Carousel 2"
+msgstr ""
+
+#: includes/widgets/counter.php:76
+msgid "Pre Counter"
+msgstr ""
+
+#: includes/widgets/counter.php:82
+msgid "Pre Counter 1"
+msgstr ""
+
+#: includes/widgets/counter.php:83
+msgid "Pre Counter 2"
+msgstr ""
+
+#: includes/widgets/heading.php:71
+msgid "Pre Footer 1"
+msgstr ""
+
+#: includes/widgets/footer-link.php:66
+msgid "Pre Footer Link"
+msgstr ""
+
+#: includes/widgets/footer-link.php:72
+msgid "Pre Footer Link 1"
+msgstr ""
+
+#: includes/widgets/footer-link.php:73
+msgid "Pre Footer Link 2"
+msgstr ""
+
+#: includes/widgets/heading.php:65
+msgid "Pre Heading"
+msgstr ""
+
+#: includes/widgets/heading.php:72
+msgid "Pre Heading 1"
+msgstr ""
+
+#: includes/widgets/heading.php:73
+msgid "Pre Heading 2"
+msgstr ""
+
+#: includes/widgets/heading.php:74
+msgid "Pre Heading 3"
+msgstr ""
+
+#: includes/widgets/heading.php:75
+msgid "Pre Heading 4"
+msgstr ""
+
+#: includes/widgets/heading.php:76
+msgid "Pre Heading 5"
+msgstr ""
+
+#: includes/widgets/images-gallery.php:93
+msgid "Pre Images Gallery"
+msgstr ""
+
+#: includes/widgets/images-gallery.php:100
+msgid "Pre Images Gallery (Carousel 2)"
+msgstr ""
+
+#: includes/widgets/images-gallery.php:98
+msgid "Pre Images Gallery (Carousel)"
+msgstr ""
+
+#: includes/widgets/images-gallery.php:99
+msgid "Pre Images Gallery 2"
+msgstr ""
+
+#: includes/widgets/intro.php:54
+msgid "Pre Intro"
+msgstr ""
+
+#: includes/widgets/intro.php:59
+msgid "Pre Intro 1"
+msgstr ""
+
+#: includes/widgets/intro.php:60
+msgid "Pre Intro 2"
+msgstr ""
+
+#: includes/widgets/intro.php:61
+msgid "Pre Intro 3"
+msgstr ""
+
+#: includes/widgets/intro.php:62
+msgid "Pre Intro 4"
+msgstr ""
+
+#: includes/widgets/intro.php:63
+msgid "Pre Intro 5"
+msgstr ""
+
+#: includes/widgets/intro.php:64
+msgid "Pre Intro 6"
+msgstr ""
+
+#: includes/widgets/intro.php:65
+msgid "Pre Intro 7"
+msgstr ""
+
+#: includes/widgets/list-content.php:65
+msgid "Pre List Content"
+msgstr ""
+
+#: includes/widgets/list-content.php:71
+msgid "Pre List Content 1"
+msgstr ""
+
+#: includes/widgets/list-content.php:72
+msgid "Pre List Content 2"
+msgstr ""
+
+#: includes/widgets/list-content.php:73
+msgid "Pre List Content 3"
+msgstr ""
+
+#: includes/widgets/logo-showcase.php:92
+msgid "Pre Logo Showcase"
+msgstr ""
+
+#: includes/widgets/meaning.php:73
+msgid "Pre Meaning"
+msgstr ""
+
+#: includes/widgets/meaning.php:78
+msgid "Pre Meaning 1"
+msgstr ""
+
+#: includes/widgets/meaning.php:79
+msgid "Pre Meaning 2"
+msgstr ""
+
+#: includes/widgets/news.php:95
+msgid "Pre News"
+msgstr ""
+
+#: includes/widgets/project-carousel.php:84
+msgid "Pre Project Carousel"
+msgstr ""
+
+#: includes/widgets/project-carousel.php:89
+msgid "Pre Project Carousel 1"
+msgstr ""
+
+#: includes/widgets/project-carousel.php:90
+msgid "Pre Project Carousel 2"
+msgstr ""
+
+#: includes/widgets/social.php:68
+msgid "Pre Social"
+msgstr ""
+
+#: includes/widgets/social.php:74
+msgid "Pre Social 1"
+msgstr ""
+
+#: includes/widgets/social.php:75
+msgid "Pre Social 2"
+msgstr ""
+
+#: includes/widgets/tabs.php:118
+msgid "Pre Tab"
+msgstr ""
+
+#: includes/widgets/tabs.php:124
+msgid "Pre Tab 1"
+msgstr ""
+
+#: includes/widgets/tabs.php:125
+msgid "Pre Tab 2"
+msgstr ""
+
+#: includes/widgets/tabs.php:126
+msgid "Pre Tab 3"
+msgstr ""
+
+#: includes/widgets/video.php:65
+msgid "Pre Video"
+msgstr ""
+
+#: includes/widgets/video.php:71
+msgid "Pre Video 1"
+msgstr ""
+
+#: core/libraries/cmb2/includes/CMB2_JS.php:214
+msgid "Prev"
+msgstr ""
+
+#: includes/posttypes/project.php:32 includes/posttypes/project.php:33
+msgid "Project"
+msgstr ""
+
+#: core/libraries/theme-metabox.php:470
+msgid "Project Metabox"
+msgstr ""
+
+#: includes/widgets/project.php:68
+msgid "Project Settings"
+msgstr ""
+
+#: core/redux-extensions/extensions/wbc_importer/wbc_importer/field_wbc_importer.php:118
+msgid "Re-Import"
+msgstr ""
+
+#: core/libraries/theme-metabox.php:446
+msgid "Recruit Metabox"
+msgstr ""
+
+#: includes/posttypes/recruitment.php:32 includes/posttypes/recruitment.php:33
+msgid "Recruitment"
+msgstr ""
+
+#: core/libraries/theme-metabox.php:501
+msgid "Recruitment Metabox"
+msgstr ""
+
+#: includes/widgets/recruitment.php:57
+msgid "Recruitment Settings"
+msgstr ""
+
+#: core/redux-extensions/extensions/wbc_importer/inc/importer/wordpress-importer.php:177
+msgid "Remember to update the passwords and roles of imported users."
+msgstr ""
+
+#: core/redux-extensions/extensions/wbc_importer/inc/importer/wordpress-importer.php:1018
+msgid "Remote file is incorrect size"
+msgstr ""
+
+#: core/redux-extensions/extensions/wbc_importer/inc/importer/wordpress-importer.php:1029
+#, php-format
+msgid "Remote file is too large, limit is %s"
+msgstr ""
+
+#: core/redux-extensions/extensions/wbc_importer/inc/importer/wordpress-importer.php:1003
+msgid "Remote server did not respond"
+msgstr ""
+
+#: core/redux-extensions/extensions/wbc_importer/inc/importer/wordpress-importer.php:1011
+#, php-format
+msgid "Remote server returned error response %1$d %2$s"
+msgstr ""
+
+#: core/libraries/cmb2/includes/CMB2_JS.php:236
+msgid "Remove"
+msgstr ""
+
+#: core/libraries/cmb2/includes/CMB2_JS.php:235
+msgid "Remove Image"
+msgstr ""
+
+#: core/libraries/theme-metabox.php:515
+msgid "Remove Testimonial"
+msgstr ""
+
+#: includes/widgets/recruitment.php:65 includes/widgets/project.php:76
+msgid "Result per page"
+msgstr ""
+
+#: includes/posttypes/megamenu.php:163 includes/widgets/heading.php:179
+#: includes/widgets/nav-menu.php:151 includes/widgets/nav-menu.php:349
+#: includes/widgets/button.php:133
+msgid "Right"
+msgstr ""
+
+#: core/libraries/theme-metabox.php:184
+msgid "Right Sidebar"
+msgstr ""
+
+#: includes/widgets/tabs.php:217
+msgid "Saved Templates"
+msgstr ""
+
+#: includes/widgets/logo-showcase.php:469
+msgid "Scale"
+msgstr ""
+
+#: templates/recruitment/recruitment.php:41
+#: core/libraries/cmb2-attached-posts/init.php:162
+msgid "Search"
+msgstr "Tìm kiếm"
+
+#: includes/widgets/post-slideshow.php:98
+msgid "Search & Select"
+msgstr ""
+
+#: includes/posttypes/footer.php:40
+msgid "Search Footer"
+msgstr ""
+
+#: includes/posttypes/header.php:40
+msgid "Search Header"
+msgstr ""
+
+#: includes/posttypes/megamenu.php:49
+msgid "Search MegaMenu"
+msgstr ""
+
+#: includes/posttypes/project.php:40
+msgid "Search Project"
+msgstr ""
+
+#: includes/posttypes/recruitment.php:40
+msgid "Search Recruitment"
+msgstr ""
+
+#: includes/posttypes/recruitment.php:76 includes/posttypes/recruitment.php:108
+#: includes/posttypes/recruitment.php:140 includes/posttypes/project.php:76
+#: includes/posttypes/project.php:108 includes/posttypes/project.php:140
+#: includes/posttypes/project.php:172
+msgid "Search Types"
+msgstr ""
+
+#: core/libraries/cmb2/includes/CMB2_JS.php:224
+msgid "Second"
+msgstr ""
+
+#: includes/widgets/news.php:205 includes/widgets/news.php:246
+#: templates/recruitment/recruitment.php:69
+msgid "See detail"
+msgstr "Xem chi tiết"
+
+#: includes/widgets/news.php:216 includes/widgets/news.php:256
+msgid "See more"
+msgstr ""
+
+#: core/libraries/cmb2/includes/CMB2_JS.php:239
+msgid "Select / Deselect All"
+msgstr ""
+
+#: core/libraries/theme-metabox.php:199
+msgid ""
+"Select a sidebar to display if use layout have sidebar left. This option "
+"will override settings in Theme Options -> XXX -> Sidebar Left."
+msgstr ""
+
+#: core/libraries/theme-metabox.php:213
+msgid ""
+"Select a sidebar to display if use layout have sidebar right. This option "
+"will override settings in Theme Options -> XXX -> Sidebar Right."
+msgstr ""
+
+#: core/redux-extensions/extensions/footer/footer/field_footer.php:100
+msgid "Select an Footer"
+msgstr ""
+
+#: core/redux-extensions/extensions/header/header/field_header.php:100
+msgid "Select an Header"
+msgstr ""
+
+#: core/redux-extensions/extensions/product_attribute/product_attribute/field_product_attribute.php:94
+#: core/redux-extensions/extensions/menu/menu/field_menu.php:93
+msgid "Select an item"
+msgstr ""
+
+#: core/libraries/cmb2/includes/CMB2_JS.php:174
+msgid "Select Color"
+msgstr ""
+
+#: core/libraries/theme-metabox.php:292
+msgid "Select Footer"
+msgstr ""
+
+#: core/libraries/theme-metabox.php:240
+msgid "Select Header"
+msgstr ""
+
+#: includes/widgets/images-gallery.php:194
+#: includes/widgets/images-gallery.php:202
+#: includes/widgets/project-carousel.php:172
+#: includes/widgets/project-carousel.php:180
+#: includes/widgets/content-carousel.php:185
+#: includes/widgets/content-carousel.php:193
+#: includes/widgets/logo-showcase.php:152
+#: includes/widgets/logo-showcase.php:157
+msgid "Select Image"
+msgstr ""
+
+#: core/redux-extensions/extensions/wbc_importer/extension_wbc_importer.php:327
+msgid "Select maintenance background image."
+msgstr ""
+
+#: core/libraries/theme-metabox.php:204
+msgid "Select sidebar Left for Single Page"
+msgstr ""
+
+#: core/libraries/theme-metabox.php:218
+msgid "Select sidebar Right for Single Page"
+msgstr ""
+
+#: core/redux-extensions/extensions/wbc_importer/extension_wbc_importer.php:356
+msgid "Select social profile for maintenance page."
+msgstr ""
+
+#: includes/posttypes/project.php:107
+msgid "Service"
+msgstr ""
+
+#: includes/widgets/tabs.php:153
+msgid "Set as Default"
+msgstr ""
+
+#: core/libraries/theme-metabox.php:287
+msgid ""
+"Set Footer for page. This option will override settings in Theme Options -> "
+"Footer."
+msgstr ""
+
+#: core/libraries/theme-metabox.php:235
+msgid ""
+"Set Header for page. This option will override settings in Theme Options -> "
+"Header -> Header Builder Type."
+msgstr ""
+
+#: core/libraries/theme-metabox.php:273
+msgid ""
+"Set Header Sticky. This option will override settings in Theme Options -> "
+"Header."
+msgstr ""
+
+#: core/libraries/theme-metabox.php:150
+msgid ""
+"Set Layout Style for this page. This option will override settings in Theme "
+"Options -> General Settings -> Layout Style."
+msgstr ""
+
+#: core/libraries/theme-metabox.php:164
+msgid ""
+"Set Page Layout for this page. This option will override settings in Theme "
+"Options -> XXX -> Layout."
+msgstr ""
+
+#: core/libraries/theme-metabox.php:177
+msgid ""
+"Set Page Sidebar for this page. This option will override settings in Theme "
+"Options -> XXX -> Sidebar."
+msgstr ""
+
+#: includes/widgets/images-gallery.php:268
+#: includes/widgets/logo-showcase.php:298
+msgid "Show"
+msgstr ""
+
+#: includes/widgets/tabs.php:892
+msgid "Show Caret on Active Tab"
+msgstr ""
+
+#: core/libraries/theme-metabox.php:300
+msgid ""
+"Show/Hide Page Title. This option will override settings in Theme Options -> "
+"XXX -> Page Title."
+msgstr ""
+
+#: core/redux-extensions/extensions/wbc_importer/inc/importer/radium-importer.php:405
+msgid "Sidebar does not exist in theme (using Inactive)"
+msgstr ""
+
+#: core/libraries/theme-metabox.php:198
+msgid "Sidebar Left"
+msgstr ""
+
+#: core/libraries/theme-metabox.php:212
+msgid "Sidebar Right"
+msgstr ""
+
+#: core/redux-extensions/extensions/wbc_importer/inc/importer/radium-importer.php:427
+msgid "Site does not support widget"
+msgstr ""
+
+#: includes/widgets/heading.php:128 includes/widgets/button.php:149
+msgid "Size"
+msgstr ""
+
+#: includes/widgets/logo-showcase.php:98
+msgid "Slick Carousel"
+msgstr ""
+
+#: includes/widgets/project-carousel.php:164
+#: includes/widgets/content-carousel.php:177
+msgid "Slide List"
+msgstr ""
+
+#: includes/widgets/images-gallery.php:226
+#: includes/widgets/logo-showcase.php:280
+msgid "Slide Options"
+msgstr ""
+
+#: includes/widgets/images-gallery.php:255
+#: includes/widgets/images-gallery.php:299
+#: includes/widgets/images-gallery.php:332
+#: includes/widgets/logo-showcase.php:353
+#: includes/widgets/logo-showcase.php:395
+#: includes/widgets/logo-showcase.php:437
+msgid "Slide To Scroll"
+msgstr ""
+
+#: includes/widgets/images-gallery.php:243
+#: includes/widgets/images-gallery.php:287
+#: includes/widgets/images-gallery.php:320
+#: includes/widgets/logo-showcase.php:338
+#: includes/widgets/logo-showcase.php:380
+#: includes/widgets/logo-showcase.php:422
+msgid "Slide To Show"
+msgstr ""
+
+#: includes/widgets/button.php:56
+msgid "Small"
+msgstr ""
+
+#: includes/posttypes/project.php:171
+msgid "Solution"
+msgstr ""
+
+#: core/redux-extensions/extensions/wbc_importer/inc/importer/wordpress-importer.php:132
+#: core/redux-extensions/extensions/wbc_importer/inc/importer/wordpress-importer.php:141
+#: core/redux-extensions/extensions/wbc_importer/inc/importer/wordpress-importer.php:192
+#: core/redux-extensions/extensions/wbc_importer/inc/importer/wordpress-importer.php:196
+#: core/redux-extensions/extensions/wbc_importer/inc/importer/wordpress-importer.php:205
+msgid "Sorry, there has been an error."
+msgstr ""
+
+#: includes/widgets/post-slideshow.php:88
+msgid "Source"
+msgstr ""
+
+#: includes/widgets/nav-menu.php:563
+msgid "Space Between"
+msgstr ""
+
+#: includes/widgets/tabs.php:106
+msgid "Stacked"
+msgstr ""
+
+#: includes/posttypes/recruitment.php:139
+msgid "Status"
+msgstr ""
+
+#: includes/posttypes/megamenu.php:143 includes/widgets/nav-menu.php:155
+msgid "Stretch"
+msgstr ""
+
+#: includes/widgets/nav-menu.php:287
+msgid "Stretch the dropdown of the menu to full width."
+msgstr ""
+
+#: core/libraries/cmb2/includes/CMB2_JS.php:209
+msgid "Su, Mo, Tu, We, Th, Fr, Sa"
+msgstr ""
+
+#: includes/widgets/career-intro.php:101 includes/widgets/career-intro.php:103
+msgid "Sub Description"
+msgstr ""
+
+#: includes/posttypes/megamenu.php:129
+msgid "Sub Megamenu Management"
+msgstr ""
+
+#: core/libraries/theme-metabox.php:534 includes/widgets/images-gallery.php:118
+#: includes/widgets/images-gallery.php:192
+#: includes/widgets/images-gallery.php:200
+#: includes/widgets/project-carousel.php:108
+#: includes/widgets/project-carousel.php:170
+#: includes/widgets/project-carousel.php:178 includes/widgets/heading.php:97
+#: includes/widgets/intro.php:84 includes/widgets/intro.php:86
+#: includes/widgets/content-carousel.php:116
+#: includes/widgets/content-carousel.php:183
+#: includes/widgets/content-carousel.php:191
+#: includes/widgets/career-intro.php:80 includes/widgets/career-intro.php:82
+#: includes/widgets/business.php:79 includes/widgets/business.php:127
+#: includes/widgets/business.php:134 includes/widgets/meaning.php:95
+#: includes/widgets/meaning.php:97
+msgid "Sub Title"
+msgstr ""
+
+#: core/libraries/theme-metabox.php:383
+msgid "Sub Title Custom"
+msgstr ""
+
+#: includes/widgets/nav-menu.php:209
+msgid "Submenu Indicator"
+msgstr ""
+
+#: core/redux-extensions/extensions/wbc_importer/inc/importer/wordpress-importer.php:284
+msgid "Submit"
+msgstr ""
+
+#: core/libraries/cmb2/includes/CMB2_JS.php:210
+msgid "Sun, Mon, Tue, Wed, Thu, Fri, Sat"
+msgstr ""
+
+#: core/libraries/cmb2/includes/CMB2_JS.php:208
+msgid "Sunday, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday"
+msgstr ""
+
+#: includes/widgets/language-switcher.php:57
+msgid "Switcher Settings"
+msgstr ""
+
+#: includes/widgets/tabs.php:643 includes/widgets/tabs.php:709
+msgid "Tab Background Color"
+msgstr ""
+
+#: includes/widgets/tabs.php:236
+msgid "Tab Content"
+msgstr ""
+
+#: includes/widgets/tabs.php:249
+msgid "Tab List"
+msgstr ""
+
+#: includes/widgets/tabs.php:465
+msgid "Tab Title"
+msgstr ""
+
+#: includes/widgets/tabs.php:254
+msgid "Tab Title 1"
+msgstr ""
+
+#: includes/widgets/tabs.php:264
+msgid "Tab Title 2"
+msgstr ""
+
+#. %d: Breakpoint number.
+#: includes/widgets/nav-menu.php:272
+#, php-format
+msgid "Tablet (< %dpx)"
+msgstr ""
+
+#: includes/widgets/images-gallery.php:278
+#: includes/widgets/logo-showcase.php:224
+#: includes/widgets/logo-showcase.php:368
+msgid "Tablet Settings"
+msgstr ""
+
+#: includes/posttypes/project.php:139
+msgid "Team"
+msgstr ""
+
+#: core/libraries/theme-metabox.php:431
+msgid "Term Metabox"
+msgstr ""
+
+#: core/libraries/theme-metabox.php:513
+msgid "Testimonial"
+msgstr ""
+
+#: includes/widgets/button.php:92
+msgid "Text"
+msgstr ""
+
+#: includes/widgets/tabs.php:596 includes/widgets/tabs.php:662
+#: includes/widgets/tabs.php:729 includes/widgets/tabs.php:811
+#: includes/widgets/footer-link.php:171 includes/widgets/footer-link.php:197
+#: includes/widgets/footer-link.php:223 includes/widgets/heading.php:226
+#: includes/widgets/nav-menu.php:409 includes/widgets/nav-menu.php:430
+#: includes/widgets/nav-menu.php:470 includes/widgets/nav-menu.php:609
+#: includes/widgets/nav-menu.php:643 includes/widgets/nav-menu.php:682
+msgid "Text Color"
+msgstr ""
+
+#: core/redux-extensions/extensions/wbc_importer/inc/importer/wordpress-importer.php:197
+#, php-format
+msgid ""
+"The export file could not be found at <code>%s</code>. It is likely that "
+"this was caused by a permissions problem."
+msgstr ""
+
+#: core/redux-extensions/extensions/wbc_importer/inc/importer/wordpress-importer.php:133
+msgid "The file does not exist, please try again."
+msgstr ""
+
+#: core/redux-extensions/extensions/wbc_importer/inc/importer/radium-importer.php:256
+msgid "Theme options Import file could not be found. Please try again."
+msgstr ""
+
+#: includes/widgets/nav-menu.php:114 includes/widgets/nav-menu.php:253
+msgid "There are no menus in your site."
+msgstr ""
+
+#: core/redux-extensions/extensions/wbc_importer/inc/importer/parsers.php:42
+#: core/redux-extensions/extensions/wbc_importer/inc/importer/parsers.php:72
+#: core/redux-extensions/extensions/wbc_importer/inc/importer/parsers.php:80
+msgid "There was an error when reading this WXR file"
+msgstr ""
+
+#: core/libraries/theme-metabox.php:484
+msgid "These images use for Slideshow at Top of Single Project"
+msgstr ""
+
+#: core/redux-extensions/extensions/wbc_importer/inc/importer/parsers.php:84
+#: core/redux-extensions/extensions/wbc_importer/inc/importer/parsers.php:89
+#: core/redux-extensions/extensions/wbc_importer/inc/importer/parsers.php:306
+#: core/redux-extensions/extensions/wbc_importer/inc/importer/parsers.php:502
+msgid ""
+"This does not appear to be a WXR file, missing/invalid WXR version number"
+msgstr ""
+
+#: core/libraries/theme-metabox.php:453
+msgid "This image use for Recruit Category Featured Image"
+msgstr ""
+
+#: core/libraries/theme-metabox.php:438
+msgid "This image use for Term Page Title background like Category, Tag..."
+msgstr ""
+
+#: core/libraries/theme-metabox.php:476
+msgid "This images use for display Project List Masonry layout"
+msgstr ""
+
+#: core/libraries/theme-metabox.php:385
+msgid "This option will override auto generate Sub Title."
+msgstr ""
+
+#: core/libraries/theme-metabox.php:373
+msgid "This option will override auto generate Title."
+msgstr ""
+
+#: core/libraries/theme-metabox.php:409
+msgid ""
+"This option will override settings in Theme Options -> XXX -> Breadcrumbs."
+msgstr ""
+
+#: core/libraries/theme-metabox.php:396
+msgid "This option will override settings in Theme Options -> XXX -> Heading."
+msgstr ""
+
+#: core/libraries/theme-metabox.php:349
+msgid ""
+"This option will override settings in Theme Options -> XXX -> Page Title "
+"Background."
+msgstr ""
+
+#: core/libraries/theme-metabox.php:331
+msgid ""
+"This option will override settings in Theme Options -> XXX -> Page Title "
+"Content Layout."
+msgstr ""
+
+#: core/libraries/theme-metabox.php:313
+msgid ""
+"This option will override settings in Theme Options -> XXX -> Page Title "
+"Layout."
+msgstr ""
+
+#: core/redux-extensions/extensions/wbc_importer/inc/importer/wordpress-importer.php:213
+#, php-format
+msgid ""
+"This WXR file (version %s) may not be supported by this version of the "
+"importer. Please consider updating."
+msgstr ""
+
+#: core/libraries/cmb2/includes/CMB2_JS.php:221
+msgid "Time"
+msgstr ""
+
+#: core/redux-extensions/extensions/wbc_importer/extension_wbc_importer.php:345
+msgid "Timezone"
+msgstr ""
+
+#: core/libraries/theme-metabox.php:134 core/libraries/theme-metabox.php:299
+#: core/libraries/theme-metabox.php:528 includes/widgets/tabs.php:144
+#: includes/widgets/images-gallery.php:109
+#: includes/widgets/project-carousel.php:99 includes/widgets/footer-link.php:82
+#: includes/widgets/footer-link.php:138 includes/widgets/heading.php:84
+#: includes/widgets/heading.php:218 includes/widgets/counter.php:92
+#: includes/widgets/counter.php:172 includes/widgets/intro.php:72
+#: includes/widgets/intro.php:74 includes/widgets/content-carousel.php:107
+#: includes/widgets/contact.php:83 includes/widgets/contact.php:189
+#: includes/widgets/career-intro.php:68 includes/widgets/career-intro.php:70
+#: includes/widgets/video.php:121 includes/widgets/logo-showcase.php:108
+#: includes/widgets/business.php:70 includes/widgets/business.php:159
+#: includes/widgets/list-content.php:82 includes/widgets/list-content.php:149
+#: includes/widgets/meaning.php:86 includes/widgets/meaning.php:88
+#: includes/widgets/social.php:84 includes/widgets/social.php:154
+msgid "Title"
+msgstr ""
+
+#: includes/widgets/images-gallery.php:191
+#: includes/widgets/project-carousel.php:169
+#: includes/widgets/footer-link.php:111 includes/widgets/counter.php:141
+#: includes/widgets/content-carousel.php:182 includes/widgets/contact.php:119
+#: includes/widgets/logo-showcase.php:151 includes/widgets/business.php:126
+#: includes/widgets/list-content.php:120 includes/widgets/social.php:125
+msgid "Title #1"
+msgstr ""
+
+#: includes/widgets/images-gallery.php:199
+#: includes/widgets/project-carousel.php:177
+#: includes/widgets/footer-link.php:115 includes/widgets/counter.php:147
+#: includes/widgets/content-carousel.php:190 includes/widgets/contact.php:124
+#: includes/widgets/logo-showcase.php:156 includes/widgets/business.php:133
+#: includes/widgets/list-content.php:125 includes/widgets/social.php:130
+msgid "Title #2"
+msgstr ""
+
+#: core/libraries/theme-metabox.php:437
+msgid "Title Background"
+msgstr ""
+
+#: core/libraries/theme-metabox.php:348
+msgid "Title Background Image"
+msgstr ""
+
+#: core/libraries/theme-metabox.php:408
+msgid "Title Breadcrumbs"
+msgstr ""
+
+#: includes/widgets/contact.php:224 includes/widgets/social.php:189
+msgid "Title Color"
+msgstr ""
+
+#: core/libraries/theme-metabox.php:330
+msgid "Title Content Layout"
+msgstr ""
+
+#: includes/widgets/contact.php:287 includes/widgets/social.php:235
+msgid "Title Font Size"
+msgstr ""
+
+#: core/libraries/theme-metabox.php:395
+msgid "Title Heading"
+msgstr ""
+
+#: core/libraries/theme-metabox.php:371
+msgid "Title Heading Custom"
+msgstr ""
+
+#: core/libraries/theme-metabox.php:312
+msgid "Title Layout"
+msgstr ""
+
+#: includes/widgets/tabs.php:479
+msgid "Title Min Width"
+msgstr ""
+
+#: core/redux-extensions/extensions/wbc_importer/inc/importer/wordpress-importer.php:265
+msgid ""
+"To make it easier for you to edit and save the imported content, you may "
+"want to reassign the author of the imported item to an existing user of this "
+"site. For example, you may want to import all the entries as <code>"
+"admin</code>s entries."
+msgstr ""
+
+#: core/libraries/cmb2/includes/CMB2_JS.php:215
+msgid "Today"
+msgstr ""
+
+#: includes/widgets/nav-menu.php:336
+msgid "Toggle Align"
+msgstr ""
+
+#: includes/widgets/nav-menu.php:317
+msgid "Toggle Button"
+msgstr ""
+
+#: includes/widgets/news.php:113
+msgid "tuyen-dung"
+msgstr ""
+
+#: core/redux-extensions/extensions/wbc_importer/extension_wbc_importer.php:358
+msgid "Twitter"
+msgstr ""
+
+#: core/libraries/theme-metabox.php:185
+msgid "Two Sidebar"
+msgstr ""
+
+#: includes/widgets/nav-menu.php:174
+msgid "Underline"
+msgstr ""
+
+#: includes/posttypes/recruitment.php:81
+msgid "Update Category"
+msgstr ""
+
+#: includes/posttypes/project.php:81
+msgid "Update Client"
+msgstr ""
+
+#: includes/posttypes/recruitment.php:113
+msgid "Update Location"
+msgstr ""
+
+#: includes/posttypes/project.php:113
+msgid "Update Service"
+msgstr ""
+
+#: includes/posttypes/project.php:177
+msgid "Update Solution"
+msgstr ""
+
+#: includes/posttypes/recruitment.php:145
+msgid "Update Status"
+msgstr ""
+
+#: includes/posttypes/project.php:145
+msgid "Update Team"
+msgstr ""
+
+#: core/libraries/cmb2/includes/CMB2_JS.php:234
+msgid "Use these files"
+msgstr ""
+
+#: core/libraries/cmb2/includes/CMB2_JS.php:233
+msgid "Use this file"
+msgstr ""
+
+#: core/libraries/cmb2/includes/CMB2_JS.php:207
+msgctxt "Valid formatDate string for jquery-ui datepicker"
+msgid "mm/dd/yy"
+msgstr ""
+
+#: core/libraries/cmb2/includes/CMB2_JS.php:227
+msgctxt ""
+"Valid formatting string, as per http://trentrichardson."
+"com/examples/timepicker/"
+msgid "hh:mm TT"
+msgstr ""
+
+#: includes/widgets/tabs.php:83 includes/widgets/nav-menu.php:129
+msgid "Vertical"
+msgstr ""
+
+#: includes/widgets/nav-menu.php:547 includes/widgets/nav-menu.php:769
+msgid "Vertical Padding"
+msgstr ""
+
+#: includes/widgets/heading.php:207 includes/widgets/button.php:205
+msgid "View"
+msgstr ""
+
+#: templates/project/project.php:65
+msgid "View detail"
+msgstr "Xem chi tiết"
+
+#: includes/posttypes/footer.php:39
+msgid "View Footer"
+msgstr ""
+
+#: includes/posttypes/header.php:39
+msgid "View Header"
+msgstr ""
+
+#: includes/widgets/contact.php:166
+msgid "View Map"
+msgstr ""
+
+#: includes/posttypes/megamenu.php:48
+msgid "View MegaMenu"
+msgstr ""
+
+#: includes/posttypes/project.php:39
+msgid "View Project"
+msgstr ""
+
+#: includes/posttypes/recruitment.php:39
+msgid "View Recruitment"
+msgstr ""
+
+#: includes/widgets/news.php:313
+msgid "Views"
+msgstr "Lượt xem"
+
+#: core/redux-extensions/extensions/wbc_importer/extension_wbc_importer.php:360
+msgid "Vimeo"
+msgstr ""
+
+#: core/libraries/theme-metabox.php:156
+msgid "Wide"
+msgstr ""
+
+#: core/redux-extensions/extensions/wbc_importer/inc/importer/radium-importer.php:450
+msgid "Widget already exists"
+msgstr ""
+
+#: core/redux-extensions/extensions/wbc_importer/inc/importer/radium-importer.php:331
+msgid "Widget Import file could not be found. Please try again."
+msgstr ""
+
+#: includes/posttypes/megamenu.php:134
+msgid "Width"
+msgstr ""
+
+#: core/redux-extensions/extensions/wbc_importer/extension_wbc_importer.php:283
+msgid "Works best to import on a new install of WordPress"
+msgstr ""
+
+#: includes/classes/class-haru-ajax-helper.php:118
+msgid "Xem thêm"
+msgstr ""
+
+#: includes/widgets/tabs.php:955
+msgid "Yes"
+msgstr ""
+
+#: core/redux-extensions/extensions/wbc_importer/extension_wbc_importer.php:346
+msgid ""
+"You can change timezone from here. More details: http://php."
+"net/manual/en/timezones.php"
+msgstr ""
+
+#: includes/widgets/logo-showcase.php:189
+msgid ""
+"You can set Grid Options if you set Pre Logo Showcase is Grid or None layout."
+msgstr ""
+
+#: includes/widgets/images-gallery.php:235
+msgid ""
+"You can set Slide Options if you set Pre Images Gallery is Slide layout."
+msgstr ""
+
+#: includes/widgets/logo-showcase.php:289
+msgid "You can set Slide Options if you set Pre Logo Showcase is Slick layout."
+msgstr ""
+
+#: includes/widgets/contact.php:198
+msgid "You can set style if you set Pre Contact is None."
+msgstr ""
+
+#: includes/widgets/footer-link.php:147
+msgid "You can set style if you set Pre Footer Link is None."
+msgstr ""
+
+#: includes/widgets/list-content.php:158 includes/widgets/social.php:163
+msgid "You can set style if you set Pre Social is None."
+msgstr ""
+
+#: includes/widgets/video.php:130
+msgid "You can set style if you set Pre Video is None."
+msgstr ""
+
+#: core/redux-extensions/extensions/wbc_importer/extension_wbc_importer.php:338
+msgid "Your page will automatic end maintenance mode after this time."
+msgstr ""
+
+#: core/redux-extensions/extensions/wbc_importer/extension_wbc_importer.php:364
+msgid "YouTube"
+msgstr ""
+
+#: core/redux-extensions/extensions/wbc_importer/inc/importer/wordpress-importer.php:1023
+msgid "Zero size file downloaded"
+msgstr ""

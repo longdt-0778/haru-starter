@@ -440,110 +440,108 @@ if ( ! function_exists( 'haru_starter_field_metaboxes_term' ) ) {
 	 		'type' => 'file',
 	 		'preview_size' => 'thumbnail',
 	 	) );
+
+	 	$cmb_recruit_category = new_cmb2_box( array(
+			'id'            => $prefix . 'metabox_recruit_category',
+			'title'         => esc_html__( 'Recruit Metabox', 'haru-starter' ),
+			'object_types'  => array( 'term' ), // Tells CMB2 to use term_meta vs post_meta
+			'taxonomies'    => array( 'recruitment_category' ),
+		) );
+
+		$cmb_recruit_category->add_field( array(
+	 		'name' => esc_html__( 'Category Image', 'haru-starter' ), 
+	 		'desc' => esc_html__( 'This image use for Recruit Category Featured Image', 'haru-starter' ), 
+	 		'id'   => $prefix . 'recruit_featured_image',
+	 		'type' => 'file',
+	 		'preview_size' => 'thumbnail',
+	 	) );
 	}
 
 	add_action( 'cmb2_admin_init', 'haru_starter_field_metaboxes_term' );
 }
 
-// Product Metabox
+// CPT Project Metabox
 if ( ! function_exists( 'haru_starter_field_metaboxes_project' ) ) {
 	function haru_starter_field_metaboxes_project() {
-		$prefix = 'haru_product_';
+		$prefix = 'haru_project_';
 
-		$cmb_product = new_cmb2_box( array(
+		$cmb_cpt_project = new_cmb2_box( array(
 			'id'            => $prefix . 'metabox',
-			'title'         => esc_html__( 'Product Metabox', 'haru-starter' ),
-			'object_types'  => array( 'product' ), // Post type
+			'title'         => esc_html__( 'Project Metabox', 'haru-starter' ),
+			'object_types'  => array( 'haru_project' ), // Post type
 		) );
 
-		$cmb_product->add_field( array(
-			'name' => esc_html__( 'Single Product Style', 'haru-starter' ), 
-	 		'desc' => esc_html__( 'This option will override Single Product layout in Theme Options -> WooCommerce -> Single Product -> Single Product Style', 'haru-starter' ), 
-	 		'id'   => $prefix . 'single_style',
-	 		'type' => 'select',
-	 		'options' => array(
-                ''    				=> esc_html__( 'Default', 'haru-starter' ),
-                'horizontal' 		=> esc_html__( 'Horizontal', 'haru-starter' ),
-                'vertical'  		=> esc_html__( 'Vertical', 'haru-starter' ),
-                'vertical_gallery'  => esc_html__( 'Vertical Gallery', 'haru-starter' )
-            ),
-            'default'      => '',
-		) );
-
-		$cmb_product->add_field( array(
-			'name' => esc_html__( 'Gallery Thumbnail Columns', 'haru-starter' ), 
-	 		'desc' => esc_html__( 'This option will override Single Product layout in Theme Options -> WooCommerce -> Single Product -> Single Product Gallery Thumbnail Columns', 'haru-starter' ), 
-	 		'id'   => $prefix . 'gallery_thumb_columns',
-	 		'type' => 'select',
-	 		'options' => array(
-                ''    				=> esc_html__( 'Default', 'haru-starter' ),
-                '2'     => '2',
-                '3'     => '3',
-                '4'     => '4',
-                '5'     => '5'
-            ),
-            'default'      => '',
-            'attributes' => array(
-				'required'               	=> false, // Will be required only if visible.
-				'data-conditional-id'    	=> $prefix . 'single_style',
-				'data-conditional-value' 	=> wp_json_encode( array( 'horizontal, vertical' ) ),
-			),
-		) );
-
-		$cmb_product->add_field( array(
-			'name' => esc_html__( 'Gallery Thumbnail Position', 'haru-starter' ), 
-	 		'desc' => esc_html__( 'This option will override Single Product layout in Theme Options -> WooCommerce -> Single Product -> Single Product Gallery Thumbnail Position', 'haru-starter' ), 
-	 		'id'   => $prefix . 'gallery_thumb_position',
-	 		'type' => 'select',
-	 		'options' => array(
-                ''    					=> esc_html__( 'Default', 'haru-starter' ),
-                'thumbnail-left'        => esc_html__( 'Left', 'haru-starter' ),
-                'thumbnail-right'       => esc_html__( 'Right', 'haru-starter' ),
-            ),
-            'default'      => '',
-            'attributes' => array(
-				'required'               	=> false, // Will be required only if visible.
-				'data-conditional-id'    	=> $prefix . 'single_style',
-				'data-conditional-value' 	=> wp_json_encode( array( 'vertical' ) ),
-			),
-		) );
-
-		$cmb_product->add_field( array(
-			'name' => esc_html__( 'Size Guide', 'haru-starter' ), 
-	 		'desc' => esc_html__( 'This image use for display Product Size Guide', 'haru-starter' ), 
-	 		'id'   => $prefix . 'size_guide',
+		$cmb_cpt_project->add_field( array(
+			'name' => esc_html__( 'Image Layout', 'haru-starter' ), 
+	 		'desc' => esc_html__( 'This images use for display Project List Masonry layout', 'haru-starter' ), 
+	 		'id'   => $prefix . 'image_layout',
 	 		'type' => 'file',
 	 		'preview_size' => 'thumbnail',
-		) );
+		) ); 
 
-
-  //           array(
-  //               'id'   => 'haru_'.  'single_product_thumbnail_columns',
-  //               'name' => esc_html__( 'Product Thumbnail Columns', 'starter' ),
-  //               'type' => 'select',
-  //               'options' => array(
-  //                   '-1'    => esc_html__( 'Default','starter' ),
-  //                   '2'     => '2',
-  //                   '3'     => '3',
-  //                   '4'     => '4',
-  //                   '5'     => '5'
-  //               ),
-  //               'std'      => '-1',
-  //               'hidden' => array( 'haru_' . 'single_product_style', 'not in', array('-1','horizontal', 'vertical') )
-  //           ),
-  //           array(
-  //               'id'   => 'haru_'.  'single_product_thumbnail_position',
-  //               'name' => esc_html__( 'Product Thumbnail Position', 'starter' ),
-  //               'type' => 'button_set',
-  //               'options' => array(
-  //                   '-1'    => esc_html__( 'Default','starter' ),
-  //                   'thumbnail-left'        => 'Left',
-  //                   'thumbnail-right'       => 'Right',
-  //               ),
-  //               'std'      => '-1',
-  //               'hidden' => array( 'haru_' . 'single_product_style', '!=', 'vertical' )
-  //           ),
+		$cmb_cpt_project->add_field( array(
+	 		'name' => esc_html__( 'Images Slideshow', 'haru-starter' ), 
+	 		'desc' => esc_html__( 'These images use for Slideshow at Top of Single Project', 'haru-starter' ), 
+	 		'id'   => $prefix . 'images_slideshow',
+	 		'type' => 'file_list',
+	 		'preview_size' => array( 50, 50 ),
+	 	) ); 
 	}
 
 	add_action( 'cmb2_admin_init', 'haru_starter_field_metaboxes_project' );
+}
+
+// CPT Recruitment Metabox
+if ( ! function_exists( 'haru_starter_field_metaboxes_recruit' ) ) {
+	function haru_starter_field_metaboxes_recruit() {
+		$prefix = 'haru_recruit_';
+
+		$cmb_cpt_recruitment = new_cmb2_box( array(
+			'id'            => $prefix . 'metabox',
+			'title'         => esc_html__( 'Recruitment Metabox', 'haru-starter' ),
+			'object_types'  => array( 'haru_recruitment' ), // Post type
+			'context'       => 'normal',
+            'priority'      => 'high',
+            'show_names'    => true,
+		) );
+
+		$group_repeat = $cmb_cpt_recruitment->add_field( array(
+	 		'id'   => $prefix . 'testimonial',
+	 		'type'        => 'group',
+	 		'repeatable'  => true,
+	 		'options'     => array(
+                'group_title'   => esc_html__( 'Testimonial', 'haru-starter' ) . ' {#}', // {#} gets replaced by row number
+                'add_button'    => esc_html__( 'Add another Testimonial', 'haru-starter' ),
+                'remove_button' => esc_html__( 'Remove Testimonial', 'haru-starter' ),
+                'sortable'      => true, // beta
+            ),
+		) ); 
+
+		$cmb_cpt_recruitment->add_group_field( $group_repeat, array(
+	 		'name' => esc_html__( 'Image', 'haru-starter' ),
+	 		'id'   => $prefix . 'testimonial_image',
+	 		'type' => 'file',
+	 		'preview_size' => array( 50, 50 ),
+	 	) ); 
+
+	 	$cmb_cpt_recruitment->add_group_field( $group_repeat, array(
+	        'name'          => esc_html__( 'Title', 'haru-starter' ),
+	        'id'            => $prefix . 'title',
+	        'type'          => 'text',
+	    ) );
+
+	    $cmb_cpt_recruitment->add_group_field( $group_repeat, array(
+	        'name'          => esc_html__( 'Sub Title', 'haru-starter' ),
+	        'id'            => $prefix . 'sub_title',
+	        'type'          => 'text',
+	    ) );
+
+	    $cmb_cpt_recruitment->add_group_field( $group_repeat, array(
+	        'name'          => esc_html__( 'Description', 'haru-starter' ),
+	        'id'            => $prefix . 'description',
+	        'type'          => 'textarea',
+	    ) );
+	}
+
+	add_action( 'cmb2_admin_init', 'haru_starter_field_metaboxes_recruit' );
 }

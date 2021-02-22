@@ -105,30 +105,40 @@ if ( ! class_exists( 'Haru_Starter_News_Widget' ) ) {
 				]
 			);
 
-	        $this->add_control(
-				'button_text',
+			 $this->add_control(
+				'news_tag',
 				[
-					'label' => esc_html__( 'Button Text', 'haru-starter' ),
+					'label' => esc_html__( 'News Tag', 'haru-starter' ),
 					'type' => Controls_Manager::TEXT,
-					'default' => esc_html__( 'Click Here' , 'haru-starter' ),
+					'default' => esc_html__( 'tuyen-dung' , 'haru-starter' ),
 					'label_block' => true,
 				]
 			);
 
-	        $this->add_control(
-				'link',
-				[
-					'label' => __( 'Link', 'haru-starter' ),
-					'type' => Controls_Manager::URL,
-					'dynamic' => [
-						'active' => true,
-					],
-					'placeholder' => __( 'https://your-link.com', 'haru-starter' ),
-					'default' => [
-						'url' => '#',
-					],
-				]
-			);
+	  //       $this->add_control(
+			// 	'button_text',
+			// 	[
+			// 		'label' => esc_html__( 'Button Text', 'haru-starter' ),
+			// 		'type' => Controls_Manager::TEXT,
+			// 		'default' => esc_html__( 'Click Here' , 'haru-starter' ),
+			// 		'label_block' => true,
+			// 	]
+			// );
+
+	  //       $this->add_control(
+			// 	'link',
+			// 	[
+			// 		'label' => __( 'Link', 'haru-starter' ),
+			// 		'type' => Controls_Manager::URL,
+			// 		'dynamic' => [
+			// 			'active' => true,
+			// 		],
+			// 		'placeholder' => __( 'https://your-link.com', 'haru-starter' ),
+			// 		'default' => [
+			// 			'url' => '#',
+			// 		],
+			// 	]
+			// );
 
 	        $this->add_control(
 				'el_class',
@@ -156,133 +166,158 @@ if ( ! class_exists( 'Haru_Starter_News_Widget' ) ) {
         	if ( ! empty( $settings['el_class'] ) ) {
 				$this->add_render_attribute( 'news', 'class', $settings['el_class'] );
 			}
+
+			if ( function_exists( 'pll_current_language' ) ) {
+				$current_language = pll_current_language();
+			} else {
+				$current_language = 'vi';
+			}
         	?>
 
         	<div <?php echo $this->get_render_attribute_string( 'news' ); ?>>
         		<?php if ( 'carousel' == $settings['pre_style']  ) : ?>
-	        		<ul class="haru-slick" data-slick='{"slidesToShow" : 3, "slidesToScroll" : 3, "arrows" : true, "infinite" : false, "centerMode" : false, "focusOnSelect" : true, "vertical" : false, "responsive" : [{"breakpoint" : 767, "settings" : {"slidesToShow" : 1, "slidesToScroll" : 1}}] }'>
+	        		<ul class="haru-slick" data-slick='{"slidesToShow" : 3, "slidesToScroll" : 1, "arrows" : true, "infinite" : true, "centerMode" : false, "focusOnSelect" : true, "vertical" : false, "responsive" : [{"breakpoint" : 767, "settings" : {"slidesToShow" : 1, "slidesToScroll" : 1}}] }'>
 		        		<?php
-				          	$json = file_get_contents('https://news.sun-asterisk.com/api/post/newest');
+		        			$news_link = 'https://news.sun-asterisk.com/api/tags/' . $settings['news_tag'] . '/posts';
+				          	$json = file_get_contents($news_link);
 				          	$obj = json_decode($json);
 				          	$news = $obj->data;
 				        ?>
 
-				        <?php for ( $i = 0; $i < 4; $i++ ) : ?>
-				        <li class="haru-news__item">
-				        	<div class="haru-news__image">
-				        		<img src="<?php echo esc_url( $news[$i]->bannerImage->data->origin_path ); ?>">
-				        		<?php if ( $news[$i]->category->data->slug == 'hotnews' ) : ?>
-				        		<div class="haru-news__label"><span><?php echo $news[$i]->category->data->name; ?><span></div>
-			        			<?php endif; ?>
-				        	</div>
-				        	<div class="haru-news__content">
-					          	<h6 class="haru-news__title">
-					          		<a href="<?php echo esc_url( 'https://news.sun-asterisk.com/vi' . $news[$i]->url ); ?>">
-					          			<?php echo $news[$i]->title_vi; ?>
-					          		</a>
-					          	</h6>
-					          	<div class="haru-news__preview"><?php echo $news[$i]->preview_vi; ?></div>
-					          	<div class="haru-news__btn-detail">
-					          		<a href="<?php echo esc_url( 'https://news.sun-asterisk.com/vi' . $news[$i]->url ); ?>" target="_blank" rel="nofollow" class="haru-button haru-button--text haru-button--text-primary" tabindex="0"><?php echo esc_html__( 'Xem chi tiết', 'haru-starter' ); ?>
-					          			<span class="haru-button__icon"><i class="haru-icon haru-arrow-right"></i></span>
-					          		</a>
-				          		</div>
-				          	</div>
-				        </li>
+				        <?php for ( $i = 0; $i < 6 && $i < count($news); $i++ ) : ?>
+				        	<?php if ( $news[$i]->{ 'on_ready_' . $current_language } ) : ?>
+					        <li class="haru-news__item">
+					        	<div class="haru-news__image">
+					        		<img src="<?php echo esc_url( $news[$i]->bannerImage->data->origin_path ); ?>">
+					        		<?php if ( $news[$i]->category->data->slug == 'hotnews' ) : ?>
+					        		<div class="haru-news__label"><span><?php echo $news[$i]->category->data->name; ?><span></div>
+				        			<?php endif; ?>
+					        	</div>
+					        	<div class="haru-news__content">
+						          	<h6 class="haru-news__title">
+						          		<a href="<?php echo esc_url( 'https://news.sun-asterisk.com/' . $current_language . $news[$i]->url ); ?>">
+						          			<?php echo $news[$i]->{ 'title_' . $current_language }; ?>
+						          		</a>
+						          	</h6>
+						          	<div class="haru-news__preview"><?php echo $news[$i]->{ 'preview_' . $current_language }; ?></div>
+						          	<div class="haru-news__btn-detail">
+						          		<!-- Xem chi tiết -->
+						          		<a href="<?php echo esc_url( 'https://news.sun-asterisk.com/' . $current_language . $news[$i]->url ); ?>" target="_blank" rel="nofollow" class="haru-button haru-button--text haru-button--text-primary" tabindex="0"><?php echo esc_html__( 'See detail', 'haru-starter' ); ?>
+						          			<span class="haru-button__icon"><i class="haru-icon haru-arrow-right"></i></span>
+						          		</a>
+					          		</div>
+					          	</div>
+					        </li>
+					    	<?php endif; ?>
 				        <?php endfor; ?>
 			        </ul>
+			        <!-- Xem nhiều tin hơn -->
 			        <div class="haru-news__btn-more">
-			        	<a class="haru-button haru-button--bg-black haru-button--size-large haru-button--round-large" href="<?php echo esc_url( 'https://news.sun-asterisk.com/vi' ); ?>"><?php echo esc_html__( 'Xem nhiều tin hơn', 'haru-starter' ); ?>
+			        	<a class="haru-button haru-button--bg-black haru-button--size-large haru-button--round-large" href="<?php echo esc_url( 'https://news.sun-asterisk.com/' . $current_language ); ?>" target="_blank"><?php echo esc_html__( 'See more', 'haru-starter' ); ?>
 			        		<span class="haru-button__icon"><i class="haru-icon haru-arrow-right"></i></span>
 			        	</a>
 		        	</div>
 	        	<?php elseif ( 'grid' == $settings['pre_style']  ) : ?>
 	        		<ul class="haru-news__grid">
 		        		<?php
-				          	$json = file_get_contents('https://news.sun-asterisk.com/api/post/newest');
+				          	$news_link = 'https://news.sun-asterisk.com/api/tags/' . $settings['news_tag'] . '/posts';
+				          	$json = file_get_contents($news_link);
 				          	$obj = json_decode($json);
 				          	$news = $obj->data;
 				        ?>
 
-				        <?php for ( $i = 0; $i < 6; $i++ ) : ?>
-				        <li class="haru-news__item">
-				        	<div class="haru-news__image">
-				        		<img src="<?php echo esc_url( $news[$i]->bannerImage->data->origin_path ); ?>">
-				        		<?php if ( $news[$i]->category->data->slug == 'hotnews' ) : ?>
-				        		<div class="haru-news__label"><span><?php echo $news[$i]->category->data->name; ?><span></div>
-			        			<?php endif; ?>
-				        	</div>
-				        	<div class="haru-news__content">
-					          	<h6 class="haru-news__title">
-					          		<a href="<?php echo esc_url( 'https://news.sun-asterisk.com/vi' . $news[$i]->url ); ?>">
-					          			<?php echo $news[$i]->title_vi; ?>
-					          		</a>
-					          	</h6>
-					          	<div class="haru-news__preview"><?php echo $news[$i]->preview_vi; ?></div>
-					          	<div class="haru-news__btn-detail">
-					          		<a href="<?php echo esc_url( 'https://news.sun-asterisk.com/vi' . $news[$i]->url ); ?>" target="_blank" rel="nofollow" class="haru-button haru-button--text haru-button--text-primary" tabindex="0"><?php echo esc_html__( 'Xem chi tiết', 'haru-starter' ); ?>
-					          			<span class="haru-button__icon"><i class="haru-icon haru-arrow-right"></i></span>
-					          		</a>
-				          		</div>
-				          	</div>
-				        </li>
+				        <?php for ( $i = 0; $i < 6 && $i < count($news); $i++ ) : ?>
+				        	<?php if ( $news[$i]->{ 'on_ready_' . $current_language } ) : ?>
+					        <li class="haru-news__item">
+					        	<div class="haru-news__image">
+					        		<img src="<?php echo esc_url( $news[$i]->bannerImage->data->origin_path ); ?>">
+					        		<?php if ( $news[$i]->category->data->slug == 'hotnews' ) : ?>
+					        		<div class="haru-news__label"><span><?php echo $news[$i]->category->data->name; ?><span></div>
+				        			<?php endif; ?>
+					        	</div>
+					        	<div class="haru-news__content">
+						          	<h6 class="haru-news__title">
+						          		<a href="<?php echo esc_url( 'https://news.sun-asterisk.com/' . $current_language . $news[$i]->url ); ?>">
+						          			<?php echo $news[$i]->{ 'title_' . $current_language }; ?>
+						          		</a>
+						          	</h6>
+						          	<div class="haru-news__preview"><?php echo $news[$i]->{ 'preview_' . $current_language }; ?></div>
+						          	<div class="haru-news__btn-detail">
+						          		<a href="<?php echo esc_url( 'https://news.sun-asterisk.com/' . $current_language . $news[$i]->url ); ?>" target="_blank" rel="nofollow" class="haru-button haru-button--text haru-button--text-primary" tabindex="0"><?php echo esc_html__( 'See detail', 'haru-starter' ); ?>
+						          			<span class="haru-button__icon"><i class="haru-icon haru-arrow-right"></i></span>
+						          		</a>
+					          		</div>
+					          	</div>
+					        </li>
+					        <?php endif; ?>
 				        <?php endfor; ?>
 			        </ul>
 			        <div class="haru-news__btn-more">
-			        	<a class="haru-button haru-button--bg-black haru-button--size-large haru-button--round-large" href="<?php echo esc_url( 'https://news.sun-asterisk.com/vi' ); ?>"><?php echo esc_html__( 'Xem nhiều tin hơn', 'haru-starter' ); ?>
+			        	<a class="haru-button haru-button--bg-black haru-button--size-large haru-button--round-large" href="<?php echo esc_url( 'https://news.sun-asterisk.com/' . $current_language ); ?>" target="_blank"><?php echo esc_html__( 'See more', 'haru-starter' ); ?>
 			        		<span class="haru-button__icon"><i class="haru-icon haru-arrow-right"></i></span>
 			        	</a>
 		        	</div>
+		        	<!-- Tin tức nổi bật -->
 	        	<?php elseif ( 'list' == $settings['pre_style']  ) : ?>
-	        		<h6 class="haru-news__heading"><?php echo esc_html__( 'Tin tức nổi bật', 'haru-starter' ); ?></h6>
+	        		<h6 class="haru-news__heading"><?php echo esc_html__( 'Featured news', 'haru-starter' ); ?></h6>
 	        		<ul class="haru-news__list">
 		        		<?php
-				          	$json = file_get_contents('https://news.sun-asterisk.com/api/post/newest');
+				          	$news_link = 'https://news.sun-asterisk.com/api/tags/' . $settings['news_tag'] . '/posts';
+				          	$json = file_get_contents($news_link);
 				          	$obj = json_decode($json);
 				          	$news = $obj->data;
 				        ?>
 
-				        <?php for ( $i = 0; $i < 6; $i++ ) : ?>
-				        <li class="haru-news__item">
-				        	<div class="haru-news__image" style="background-image: url('<?php echo esc_url( $news[$i]->bannerImage->data->origin_path ); ?>');">
-				        	</div>
-				        	<div class="haru-news__content">
-					          	<h6 class="haru-news__title">
-					          		<a href="<?php echo esc_url( 'https://news.sun-asterisk.com/vi' . $news[$i]->url ); ?>">
-					          			<?php echo $news[$i]->title_vi; ?>
-					          		</a>
-					          	</h6>
-					          	<div class="haru-news__preview"><?php echo $news[$i]->preview_vi; ?></div>
-				          	</div>
-				        </li>
+				        <?php for ( $i = 0; $i < 6 && $i < count($news); $i++ ) : ?>
+				        	<?php if ( $news[$i]->{ 'on_ready_' . $current_language } ) : ?>
+					        <li class="haru-news__item">
+					        	<div class="haru-news__image" style="background-image: url('<?php echo esc_url( $news[$i]->bannerImage->data->origin_path ); ?>');">
+					        	</div>
+					        	<div class="haru-news__content">
+						          	<h6 class="haru-news__title">
+						          		<a href="<?php echo esc_url( 'https://news.sun-asterisk.com/' . $current_language . $news[$i]->url ); ?>">
+						          			<?php echo $news[$i]->{ 'title_' . $current_language }; ?>
+						          		</a>
+						          	</h6>
+						          	<div class="haru-news__preview"><?php echo $news[$i]->{ 'preview_' . $current_language }; ?></div>
+					          	</div>
+					        </li>
+					        <?php endif; ?>
 				        <?php endfor; ?>
 			        </ul>
 	        	<?php elseif ( 'featured' == $settings['pre_style']  ) : ?>
-        			<?php
-			          	$json = file_get_contents('https://news.sun-asterisk.com/api/post/newest');
-			          	$obj = json_decode($json);
-			          	$news = $obj->data;
-			        ?>
-			        <?php for ( $i = 0; $i < 1; $i++ ) : ?>
-			        	<div class="haru-news__featured">
-			        		<div class="haru-news__image">
-			        			<img src="<?php echo esc_url( $news[$i]->bannerImage->data->mobile_path ); ?>">
-		        			</div>
-		        			<div class="haru-news__content">
-					          	<h6 class="haru-news__title">
-					          		<a href="<?php echo esc_url( 'https://news.sun-asterisk.com/vi' . $news[$i]->url ); ?>">
-					          			<?php echo $news[$i]->title_vi; ?>
-					          		</a>
-					          	</h6>
-					          	<div class="haru-news__preview"><?php echo $news[$i]->preview_vi; ?></div>
-					          	<div class="haru-news__meta">
-					          		<span class="haru-news__meta-author"><?php echo esc_html__( 'Đăng bởi', 'haru-starter' ); ?> <?php echo $news[$i]->name_author; ?></span>
-					          		<span class="haru-news__meta-view"><?php echo $news[$i]->views_count; ?> <?php echo esc_html__( 'Lượt xem', 'haru-starter' ); ?></span>
-					          		<span class="haru-news__meta-date"><?php echo $news[$i]->publish_at; ?></span>
-				          		</div>
-				          	</div>
-			        	</div>
-		        	<?php endfor; ?>
+	        		<ul class="haru-slick" data-slick='{"slidesToShow" : 1, "slidesToScroll" : 1, "arrows" : true, "infinite" : true, "centerMode" : false, "focusOnSelect" : true, "vertical" : false, "responsive" : [{"breakpoint" : 767, "settings" : {"slidesToShow" : 1, "slidesToScroll" : 1}}] }'>
+	        			<?php
+				          	$news_link = 'https://news.sun-asterisk.com/api/tags/' . $settings['news_tag'] . '/posts';
+				          	$json = file_get_contents($news_link);
+				          	$obj = json_decode($json);
+				          	$news = $obj->data;
+				        ?>
+				        <?php for ( $i = 0; $i < 3 && $i < count($news); $i++ ) : ?>
+				        	<li class="haru-news__item">
+					        	<div class="haru-news__featured">
+					        		<div class="haru-news__image">
+					        			<img src="<?php echo esc_url( $news[$i]->bannerImage->data->mobile_path ); ?>">
+				        			</div>
+				        			<div class="haru-news__content">
+							          	<h6 class="haru-news__title">
+							          		<a href="<?php echo esc_url( 'https://news.sun-asterisk.com/' . $current_language . $news[$i]->url ); ?>">
+							          			<?php echo $news[$i]->{ 'title_' . $current_language }; ?>
+							          		</a>
+							          	</h6>
+							          	<div class="haru-news__preview"><?php echo $news[$i]->{ 'preview_' . $current_language }; ?></div>
+							          	<div class="haru-news__meta">
+							          		<!-- Đăng bởi -->
+							          		<span class="haru-news__meta-author"><?php echo esc_html__( 'Posted by', 'haru-starter' ); ?> <?php echo $news[$i]->name_author; ?></span>
+							          		<!-- Lượt xem -->
+							          		<span class="haru-news__meta-view"><?php echo $news[$i]->views_count; ?> <?php echo esc_html__( 'Views', 'haru-starter' ); ?></span>
+							          		<span class="haru-news__meta-date"><?php echo $news[$i]->publish_at; ?></span>
+						          		</div>
+						          	</div>
+					        	</div>
+				        	</li>
+			        	<?php endfor; ?>
+		        	</ul>
 		        <?php endif; ?>
     		</div>
 

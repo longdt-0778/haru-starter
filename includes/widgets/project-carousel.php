@@ -231,7 +231,11 @@ if ( ! class_exists( 'Haru_Starter_Project_Carousel_Widget' ) ) {
 								<img src="<?php echo esc_url( $item['list_image']['url'] ); ?>" class="haru-project-carousel__image" alt="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>">
 								<div class="haru-project-carousel__content">
 									<div class="haru-project-carousel__sub-title"><?php echo $item['list_sub_title']; ?></div>
-									<h6 class="haru-project-carousel__title"><?php echo $item['list_title']; ?></h6>
+									<h6 class="haru-project-carousel__title">
+										<a href="<?php echo $item['list_content']['url']; ?>" <?php echo $target . $nofollow; ?> >
+											<?php echo $item['list_title']; ?>
+										</a>
+									</h6>
 									<div class="haru-project-carousel__description"><?php echo $item['list_description']; ?></div>
 									<?php if ( 'style-2' != $settings['pre_style'] ) : ?>
 									<a href="<?php echo $item['list_content']['url']; ?>" <?php echo $target . $nofollow; ?> class="haru-button haru-button--text haru-button--text-primary"><?php echo $item['list_btn_text']; ?><span class="haru-button__icon"><i class="haru-icon haru-arrow-right"></i></span></a>

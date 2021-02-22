@@ -10,28 +10,7 @@
 
 use \Haru_Starter\Classes\Haru_Ajax_Helper;
 
-$posts_per_page = 4;
-
-global $wp_query, $paged;
-            
-if ( is_front_page() ) {
-    $paged   = get_query_var( 'page' ) ? intval( get_query_var( 'page' ) ) : 1;
-} else {
-    $paged   = get_query_var( 'paged' ) ? intval( get_query_var( 'paged' ) ) : 1;
-}
-
-$original_query = $wp_query;
-
-$args = array(
-    'posts_per_page' => $posts_per_page, // -1 is Unlimited recruitment
-    'orderby'        => 'date',
-    'order'          => 'DESC',
-    'post_type'      => 'haru_recruitment',
-    'paged'          => $paged,
-    'post_status'    => 'publish'
-);
-
-$wp_query = new WP_Query($args);
+$posts_per_page = 3;
 
 ?>
 <form role="search" method="get" id="recruitment-searchform" class="recruitment-searchform" action="<?php echo esc_url( site_url() ); ?>" data-ajax-url="<?php echo get_site_url() . '/wp-admin/admin-ajax.php?activate-multi=true'; ?>" data-per-page="<?php echo esc_attr( $posts_per_page ); ?>">
@@ -40,12 +19,12 @@ $wp_query = new WP_Query($args);
         data-per_page="<?php echo esc_attr( $posts_per_page ); ?>">
 
         <div class="data-search__input">
-            <input type="text" value="" name="s" id="s" placeholder="<?php echo esc_html__( 'Tìm kiếm từ khoá', 'haru-starter' ); ?>" />
+            <input type="text" value="" name="s" id="s" placeholder="<?php echo esc_html__( 'Keyword', 'haru-starter' ); ?>" />
         </div>
 
         <div class="data-search__select">
              <select name="location" id="location">
-                <option value=""><?php echo esc_html__( 'Địa điểm', 'haru-starter' ); ?></option>
+                <option value=""><?php echo esc_html__( 'Location', 'haru-starter' ); ?></option>
                 <?php 
                     $terms = get_terms( array(
                         'taxonomy' => 'recruitment_location',
@@ -59,7 +38,7 @@ $wp_query = new WP_Query($args);
         </div>
 
         <div class="data-search__submit">
-            <input type="submit" id="searchsubmit" value="<?php echo esc_html__( 'Tìm kiếm', 'haru-starter' ); ?>" class="search-recruitment"/>
+            <input type="submit" id="searchsubmit" value="<?php echo esc_html__( 'Search', 'haru-starter' ); ?>" class="search-recruitment"/>
         </div>
 
         <input type="hidden" name="post_type" value="haru_recruitment" />
@@ -68,28 +47,31 @@ $wp_query = new WP_Query($args);
 
 <div class="recruitment-content">
     <div class="recruitment-list">
-        <?php while ( have_posts() ) : the_post(); ?>
-            <div class="recruitment-item">
-                <div class="recruitment-item-content">
-                	<div class="recruitment-item-meta">
-                        <div class="recruitment-item-location">
-                            <?php echo get_the_term_list( get_the_ID(), 'recruitment_location', '', ', ' ); ?>
-                        </div>
+        <?php
+            $args = array(
+               'taxonomy' => 'recruitment_category',
+               // 'orderby' => 'name',
+               'order'   => 'ASC'
+            );
+
+            $cats = get_categories($args);
+        ?>
+        <?php foreach( $cats as $cat ) :
+            $haru_recruit_image = get_term_meta( $cat->term_id, 'haru_recruit_featured_image', true );
+        ?>
+            <div class="recruitment-category">
+                <div class="recruitment-category-wrap">
+                    <div class="recruitment-category-image" style="background-image: url('<?php echo esc_url( $haru_recruit_image ); ?>');">
                     </div>
-                    <div class="recruitment-item-status">
-                    	<?php echo get_the_term_list( get_the_ID(), 'recruitment_status', '', ', ' ); ?>
-                	</div>
-                    <a class="recruitment-item-title" href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
+                    <div class="recruitment-category-content">
+                        <h6><a href="<?php echo get_category_link( $cat->term_id ) ?>"><?php echo $cat->name; ?></a></h6>
+                        <div class="recruitment-category-desc"><?php echo wp_trim_words( $cat->description, 18, '...' ); ?></div>
+                        <a href="<?php echo get_category_link( $cat->term_id ) ?>" class="recruitment-category-more"><?php echo esc_html__( 'See detail', 'haru-starter' ); ?></a>
+                    </div>
                 </div>
             </div>
-        <?php endwhile; ?>
+        <?php endforeach; ?>
     </div>
-
-    <?php if ( ( $wp_query->max_num_pages > 1 ) ) : ?>
-        <div class="recruitment-pagination">
-            <?php echo Haru_Ajax_Helper::haru_paging_nav_cpt(); ?>
-        </div>
-    <?php endif; ?>
 </div>
 <?php
 	wp_reset_query();

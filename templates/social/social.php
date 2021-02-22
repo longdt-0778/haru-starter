@@ -13,7 +13,7 @@ use \Elementor\Icons_Manager;
 if ( $settings['list'] ) : ?>
 	<ul>
 		<?php
-			foreach (  $settings['list'] as $item ) :
+			foreach (  $settings['list'] as $item ) : 
 			$target = $item['list_content']['is_external'] ? ' target="_blank"' : '';
 			$nofollow = $item['list_content']['nofollow'] ? ' rel="nofollow"' : '';
 		?>

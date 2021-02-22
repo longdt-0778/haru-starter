@@ -17,6 +17,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 use \Elementor\Widget_Base;
 use \Elementor\Controls_Manager;
 use \Elementor\Repeater;
+use \Elementor\Plugin;
 use \Haru_Starter\Classes\Haru_Template;
 
 if ( ! class_exists( 'Haru_Starter_Counter_Widget' ) ) {
@@ -48,6 +49,16 @@ if ( ! class_exists( 'Haru_Starter_Counter_Widget' ) ) {
 		public function get_custom_help_url() {
             return 'https://document.harutheme.com/elementor/';
         }
+
+        public function get_script_depends() {
+
+			if ( Plugin::$instance->editor->is_edit_mode() || Plugin::$instance->preview->is_preview_mode() ) {
+		        return ['appear', 'countTo'];
+		    }
+
+		    return [ 'appear', 'countTo' ];
+
+		}
 
 		protected function _register_controls() {
 

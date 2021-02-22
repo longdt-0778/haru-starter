@@ -62,7 +62,7 @@ $wp_query = new WP_Query($args);
                         <?php endif; ?>
                         <h6 class="project-item__title"><a class="project-item-title" href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h6>
                         <div class="project-item__description"><?php echo wp_trim_words( get_the_content(), 12, '...' ); ?></div>
-                        <a href="<?php the_permalink(); ?>" <?php echo $target . $nofollow; ?> class="haru-button haru-button--text haru-button--text-primary"><?php echo esc_html__( 'Xem chi tiết', 'haru-starter' ); ?>
+                        <a href="<?php the_permalink(); ?>" <?php echo $target . $nofollow; ?> class="haru-button haru-button--text haru-button--text-primary"><?php echo esc_html__( 'View detail', 'haru-starter' ); ?>
                             <span class="haru-button__icon"><i class="haru-icon haru-arrow-right"></i></span>
                         </a>
                     </div>

@@ -19,30 +19,29 @@ use \Elementor\Controls_Manager;
 use \Elementor\Utils;
 use \Haru_Starter\Classes\Haru_Template;
 
-if ( ! class_exists( 'Haru_Starter_Woo_Cart_Widget' ) ) {
-	class Haru_Starter_Woo_Cart_Widget extends Widget_Base {
+if ( ! class_exists( 'Haru_Starter_Language_Switcher_Widget' ) ) {
+	class Haru_Starter_Language_Switcher_Widget extends Widget_Base {
 
 		public function get_name() {
-			return 'haru-woo-cart';
+			return 'haru-language-switcher';
 		}
 
 		public function get_title() {
-			return esc_html__( 'Haru Woo Cart', 'haru-starter' );
+			return esc_html__( 'Haru Language Switcher', 'haru-starter' );
 		}
 
 		public function get_icon() {
-			return 'eicon-cart-medium';
+			return 'eicon-image';
 		}
 
 		public function get_categories() {
-			return [ 'haru-header-elements' ];
+			return [ 'haru-header-elements', 'haru-footer-elements' ];
 		}
 
 		public function get_keywords() {
             return [
-                'cart',
-                'mini cart',
-                'header',
+                'language-switcher',
+                'language',
             ];
         }
 
@@ -55,22 +54,10 @@ if ( ! class_exists( 'Haru_Starter_Woo_Cart_Widget' ) ) {
 			$this->start_controls_section(
 	            'section_settings',
 	            [
-	                'label' 	=> esc_html__( 'Cart Settings', 'haru-starter' ),
+	                'label' 	=> esc_html__( 'Switcher Settings', 'haru-starter' ),
 	                'tab' 		=> Controls_Manager::TAB_CONTENT,
 	            ]
 	        );
-
-	        $this->add_control(
-				'show_price',
-				[
-					'label' 		=> esc_html__( 'Show Price', 'haru-starter' ),
-					'type' 			=> Controls_Manager::SWITCHER,
-					'label_on' 		=> esc_html__( 'Show', 'haru-starter' ),
-					'label_off' 	=> esc_html__( 'Hide', 'haru-starter' ),
-					'return_value' 	=> 'yes',
-					'default' 		=> 'yes',
-				]
-			);
 
 	        $this->add_control(
 				'el_class',
@@ -87,22 +74,26 @@ if ( ! class_exists( 'Haru_Starter_Woo_Cart_Widget' ) ) {
 		}
 
 		protected function render() {
-			if ( null === WC()->cart ) {
-				return;
-			}
-
 			$settings = $this->get_settings_for_display();
 
-        	$this->add_render_attribute( 'cart', 'class', 'haru-cart' );
+        	$this->add_render_attribute( 'language-switcher', 'class', 'haru-language-switcher' );
 
         	if ( ! empty( $settings['el_class'] ) ) {
-				$this->add_render_attribute( 'cart', 'class', $settings['el_class'] );
+				$this->add_render_attribute( 'language-switcher', 'class', $settings['el_class'] );
 			}
         	?>
 
-        	<div <?php echo $this->get_render_attribute_string( 'cart' ); ?>>
-    			<?php echo Haru_Template::haru_get_template( 'woo-cart/woo-cart.php', $settings ); ?>
-    		</div>
+        	<ul <?php echo $this->get_render_attribute_string( 'language-switcher' ); ?>>
+    			<?php
+	    			$args   = [
+						'show_flags' => 0,
+						'show_names' => 1,
+						'display_names_as' => 'slug',
+						'echo'       => 0,
+					];
+					echo pll_the_languages( $args );
+    			?>
+    		</ul>
 
     		<?php
 		}
