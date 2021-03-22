@@ -107,6 +107,7 @@ if ( ! class_exists( 'Haru_Starter_Button_Widget' ) ) {
 					'dynamic' => [
 						'active' => true,
 					],
+					'show_external' => true,
 					'placeholder' => __( 'https://your-link.com', 'haru-starter' ),
 					'default' => [
 						'url' => '#',

@@ -56,17 +56,49 @@ if ( !class_exists( 'Haru_Recruitment_Post_Type' ) ) {
                 'show_in_admin_bar'     => true,
                 'show_in_nav_menus'     => false,
                 'can_export'            => true,
-                'has_archive'           => false,
+                'has_archive'           => true,
                 'exclude_from_search'   => true,
                 'publicly_queryable'    => true,
                 'capability_type'       => 'post',
                 'rewrite'           => array(
                     'slug'          => 'recruitment',
-                    'with_front'    => false
+                    'with_front'    => true
                 ) ,
             );
 
             register_post_type( 'haru_recruitment', $args );
+
+            // Register a taxonomy for Recruitment Category.
+            $category_labels = array(
+                'name'              => esc_html__( 'Recruitment Category', 'taxonomy general name', 'haru-starter' ),
+                'singular_name'     => esc_html__( 'Category', 'taxonomy singular name', 'haru-starter' ),
+                'menu_name'         => esc_html__( 'Category', 'haru-starter' ) ,
+                'search_items'      => esc_html__( 'Search Types', 'haru-starter' ),
+                'all_items'         => esc_html__( 'All Category', 'haru-starter' ),
+                'parent_item'       => esc_html__( 'Parent Category', 'haru-starter' ),
+                'parent_item_colon' => esc_html__( 'Parent Category:', 'haru-starter' ),
+                'edit_item'         => esc_html__( 'Edit Category', 'haru-starter' ),
+                'update_item'       => esc_html__( 'Update Category', 'haru-starter' ),
+                'add_new_item'      => esc_html__( 'Add New Recruitment Category', 'haru-starter' ),
+                'new_item_name'     => esc_html__( 'New Category Name', 'haru-starter' ),
+            );
+
+            $category_args = array(
+                'labels'       => $category_labels,
+                'public'       => true,
+                'hierarchical' => true,
+                'show_ui'      => true,
+                'query_var'    => true,
+                'rewrite'      => array( 
+                    'slug'       => 'recruitment-category',
+                    'with_front' => false
+                ),
+            );
+
+            // Custom taxonomy for Recruitment Category
+            register_taxonomy('recruitment_category', array(
+                'haru_recruitment'
+            ), $category_args);
 
             // Register a taxonomy for Recruitment Location.
             $location_labels = array(
@@ -100,38 +132,6 @@ if ( !class_exists( 'Haru_Recruitment_Post_Type' ) ) {
                 'haru_recruitment'
             ), $location_args);
 
-            // Register a taxonomy for Recruitment Tag.
-            $tag_labels = array(
-                'name'              => esc_html__( 'Recruitment Tag', 'taxonomy general name', 'haru-starter' ),
-                'singular_name'     => esc_html__( 'Tag', 'taxonomy singular name', 'haru-starter' ),
-                'menu_name'         => esc_html__( 'Tag', 'haru-starter' ) ,
-                'search_items'      => esc_html__( 'Search Types', 'haru-starter' ),
-                'all_items'         => esc_html__( 'All Tag', 'haru-starter' ),
-                'parent_item'       => esc_html__( 'Parent Tag', 'haru-starter' ),
-                'parent_item_colon' => esc_html__( 'Parent Tag:', 'haru-starter' ),
-                'edit_item'         => esc_html__( 'Edit Tag', 'haru-starter' ),
-                'update_item'       => esc_html__( 'Update Tag', 'haru-starter' ),
-                'add_new_item'      => esc_html__( 'Add New Recruitment Tag', 'haru-starter' ),
-                'new_item_name'     => esc_html__( 'New Tag Name', 'haru-starter' ),
-            );
-
-            $tag_args = array(
-                'labels'       => $tag_labels,
-                'public'       => true,
-                'hierarchical' => false,
-                'show_ui'      => true,
-                'query_var'    => true,
-                'rewrite'      => array( 
-                    'slug'       => 'tag',
-                    'with_front' => false
-                ),
-            );
-
-            // Custom taxonomy for Recruitment Tag
-            register_taxonomy('recruitment_tag', array(
-                'haru_recruitment'
-            ), $tag_args);
-
             // Register a taxonomy for Recruitment Status.
             $status_labels = array(
                 'name'              => esc_html__( 'Recruitment Status', 'taxonomy general name', 'haru-starter' ),
@@ -159,7 +159,7 @@ if ( !class_exists( 'Haru_Recruitment_Post_Type' ) ) {
                 ),
             );
 
-            // Custom taxonomy for Recruitment Tag
+            // Custom taxonomy for Recruitment Category
             register_taxonomy('recruitment_status', array(
                 'haru_recruitment'
             ), $status_args);

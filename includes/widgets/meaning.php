@@ -149,11 +149,32 @@ if ( ! class_exists( 'Haru_Starter_Meaning_Widget' ) ) {
 			);
 
 			$this->add_control(
+				'link',
+				[
+					'label' => __( 'Link', 'haru-starter' ),
+					'type' => Controls_Manager::URL,
+					'dynamic' => [
+						'active' => true,
+					],
+					'placeholder' => __( 'https://your-link.com', 'haru-starter' ),
+					'default' => [
+						'url' => '#',
+					],
+					'condition' => [
+						'pre_style' => [ 'style-2' ],
+					],
+				]
+			);
+
+			$this->add_control(
 				'popup_title', [
 					'label' => esc_html__( 'Popup Title', 'haru-starter' ),
 					'type' => Controls_Manager::TEXT,
 					'default' => esc_html__( 'Popup Title' , 'haru-starter' ),
 					'label_block' => true,
+					'condition' => [
+						'pre_style' => [ 'style-1' ],
+					],
 				]
 			);
 
@@ -163,6 +184,9 @@ if ( ! class_exists( 'Haru_Starter_Meaning_Widget' ) ) {
 					'type' => Controls_Manager::WYSIWYG,
 					'default' => esc_html__( 'Popup Content' , 'haru-starter' ),
 					'label_block' => true,
+					'condition' => [
+						'pre_style' => [ 'style-1' ],
+					],
 				]
 			);
 
@@ -205,9 +229,18 @@ if ( ! class_exists( 'Haru_Starter_Meaning_Widget' ) ) {
 						<div class="haru-meaning__title"><?php echo $settings['title']; ?></div>
 						<div class="haru-meaning__description"><?php echo $settings['description']; ?></div>
 						<div class="haru-meaning__btn">
+							<?php if ( in_array( $settings['pre_style'], array( 'style-1' ) ) ) : ?>
 							<a href="#meaning-popup-<?php echo esc_attr( $this->get_id() ); ?>" class="haru-meaning__click haru-button haru-button--text haru-button--text-white"><?php echo $settings['btn_text']; ?>
 								<span class="haru-button__icon"><i class="haru-icon haru-arrow-right"></i></span>
 							</a>
+							<?php elseif ( in_array( $settings['pre_style'], array( 'style-2' ) ) ) : 
+								$target = $settings['link']['is_external'] ? ' target="_blank"' : '';
+								$nofollow = $settings['link']['nofollow'] ? ' rel="nofollow"' : '';
+							?>
+							<a href="<?php echo $settings['link']['url']; ?>" <?php echo $target . $nofollow; ?> class="haru-button haru-button--text haru-button--text-white"><?php echo $settings['btn_text']; ?>
+								<span class="haru-button__icon"><i class="haru-icon haru-arrow-right"></i></span>
+							</a>
+							<?php endif; ?>
 						</div>
 					</div>
 				</div>
@@ -217,7 +250,9 @@ if ( ! class_exists( 'Haru_Starter_Meaning_Widget' ) ) {
 					</div>
 					<div class="haru-meaning__popup-description">
 						<h6 class="haru-meaning__popup-heading"><?php echo $settings['title']; ?></h6>
-						<?php echo $settings['popup_content']; ?>
+						<div class="haru-meaning__popup-info">
+							<?php echo $settings['popup_content']; ?>
+						</div>
 					</div>
 				</div>
     		</div>

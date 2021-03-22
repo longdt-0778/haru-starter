@@ -299,9 +299,6 @@ if ( ! class_exists( 'Haru_Starter' ) ) {
 			require_once( 'includes/posttypes/_init.php' );
 			require_once( 'core/libraries/_init.php' );
 
-			// WooCommerce @TODO: check load
-			require_once( 'includes/term-meta/index.php' ); // Add term meta to product attributes
-
 		}
 
 		/**
@@ -377,10 +374,7 @@ if ( ! class_exists( 'Haru_Starter' ) ) {
 			require_once( HARU_STARTER_CORE_DIR . '/includes/widgets/recruitment.php' );
 			require_once( HARU_STARTER_CORE_DIR . '/includes/widgets/project.php' );
 			require_once( HARU_STARTER_CORE_DIR . '/includes/widgets/logo-showcase.php' );
-			// Woo Widgets
-			if ( class_exists( 'WooCommerce' ) ) {
-				require_once( HARU_STARTER_CORE_DIR . '/includes/widgets/woo-cart.php' );
-			}
+			require_once( HARU_STARTER_CORE_DIR . '/includes/widgets/language-switcher.php' );
 
 			// Register widget
 			\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \Haru_Starter\Widgets\Haru_Starter_Logo_Widget() );
@@ -407,10 +401,8 @@ if ( ! class_exists( 'Haru_Starter' ) ) {
 			\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \Haru_Starter\Widgets\Haru_Starter_Recruitment_Widget() );
 			\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \Haru_Starter\Widgets\Haru_Starter_Project_Widget() );
 			\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \Haru_Starter\Widgets\Haru_Starter_Logo_Showcase_Widget() );
-			// Woo Widgets
-			if ( class_exists( 'WooCommerce' ) ) {
-				\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \Haru_Starter\Widgets\Haru_Starter_Woo_Cart_Widget() );
-			}
+			\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \Haru_Starter\Widgets\Haru_Starter_Language_Switcher_Widget() );
+
 		}
 
 		/**
@@ -465,10 +457,10 @@ if ( ! class_exists( 'Haru_Starter' ) ) {
 			wp_register_script( 'slick', plugins_url( 'assets/lib/slick/slick.min.js', __FILE__ ) );
 			wp_register_script( 'isotope', plugins_url( 'assets/lib/isotope/isotope.pkgd.min.js', __FILE__ ) );
 			wp_register_script( 'magnific-popup', plugins_url( 'assets/lib/magnific-popup/jquery.magnific-popup.min.js', __FILE__ ) );
-			wp_register_script( 'some-library', plugins_url( 'assets/js/libs/some-library.js', __FILE__ ) );
+			wp_register_script( 'appear', plugins_url( 'assets/lib/appear/jquery.appear.js', __FILE__ ) );
+			wp_register_script( 'countTo', plugins_url( 'assets/lib/countto/jquery.countTo.js', __FILE__ ) );
 			wp_register_script( 'widget-1', plugins_url( 'assets/js/widget-1.js', __FILE__ ) );
 			wp_register_script( 'widget-2', plugins_url( 'assets/js/widget-2.js', __FILE__ ), [ 'jquery', 'some-library' ] );
-			// wp_register_script( 'smartmenus', plugins_url( 'assets/libs/jquery.smartmenus.min.js', __FILE__ ), [ 'jquery' ] );
 
 		}
 
@@ -534,7 +526,7 @@ if ( ! class_exists( 'Haru_Starter' ) ) {
         //     return $html;
         // }
 
-        public function render_page_content( $post_id ) {
+        public function render_page_content($post_id) {
             if ( class_exists( 'Elementor\Core\Files\CSS\Post' ) ) {
                 $css_file = new Elementor\Core\Files\CSS\Post( $post_id );
                 $css_file->enqueue();
@@ -543,11 +535,10 @@ if ( ! class_exists( 'Haru_Starter' ) ) {
             return Elementor\Plugin::instance()->frontend->get_builder_content_for_display( $post_id );
         }
 
-        public function render_post_builder( $html, $post ) {
-            if ( ! empty($post) && ! empty( $post->ID ) ) {
-                return $this->render_page_content( $post->ID );
+        public function render_post_builder($html, $post) {
+            if ( !empty($post) && !empty($post->ID) ) {
+                return $this->render_page_content($post->ID);
             }
-
             return $html;
         }
 	}
