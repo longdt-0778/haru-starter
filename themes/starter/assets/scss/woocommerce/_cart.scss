@@ -1,0 +1,389 @@
+
+/*-----------------------------------
+ * WOOCOMMERCE SHOPPING CART
+ *-----------------------------------*/
+// Variation for mini cart, cart
+dl.variation {
+  margin: 15px 0;
+
+  @media screen and (max-width: $screen-xs-max) {
+    flex: 0 0 100%;
+    margin: 3px 0;
+  }
+
+  dt {
+    color: $cl-heading;
+    font-size: 12px;
+    font-weight: $fw-semi-bold;
+    float: left;
+    clear: left;
+    margin-right: 5px;
+    line-height: 1.4;
+  }
+
+  dd {
+    font-size: 12px;
+    margin-left: 0;
+
+    p {
+      line-height: 1.4;
+    }
+  }
+}
+
+.return-to-shop {
+
+}
+
+.woocommerce-cart {
+  .shopping-cart-title {
+    margin-bottom: 30px;
+    font-size: 18px;
+    text-align: center;
+    text-transform: uppercase;
+
+    @media screen and (max-width: $screen-xs-max) {
+      font-size: 16px;
+    }
+  }
+
+  .woocommerce-cart-form {
+    thead {
+      @media screen and (max-width: $screen-xs-max) {
+        display: none;
+      }
+    }
+
+    tr {
+      @media screen and (max-width: $screen-xs-max) {
+        display: block;
+        border-bottom: 1px solid $cl-border;
+        position: relative;
+        margin-bottom: 20px;
+        padding-bottom: 20px;
+        padding-left: 95px;
+        min-height: 120px;
+      }
+
+      &:last-child {
+        @media screen and (max-width: $screen-xs-max) {
+          margin-bottom: 0;
+        }
+      }
+    }
+
+    td {
+      @media screen and (max-width: $screen-xs-max) {
+        display: flex;
+        align-items: center;
+        flex-direction: row;
+        flex-wrap: wrap;
+        padding: 0;
+      }
+
+      &:not(:last-child) {
+        @media screen and (max-width: $screen-xs-max) {
+          border-bottom: 1px dashed $cl-border;
+        }
+      }
+
+      &:last-child {
+        @media screen and (max-width: $screen-xs-max) {
+          border: none;
+          margin-bottom: 0;
+          padding-bottom: 0;
+        }
+      }
+    }
+
+    .product-remove {
+      font-size: 18px;
+      padding: 0;
+      text-align: center;
+
+      @media screen and (max-width: $screen-xs-max) {
+        position: absolute;
+        top: -6px;
+        right: 0;
+        z-index: 1;
+        margin-bottom: 0;
+        padding-bottom: 0;
+        border: none!important;
+      }
+    }
+
+    .product-thumbnail {
+      img {
+        width: 80px;
+      }
+
+      @media screen and (max-width: $screen-xs-max) {
+        position: absolute;
+        top: 0;
+        left: 0;
+        overflow: hidden;
+        margin-bottom: 0;
+        padding-bottom: 0;
+        max-height: 115px;
+        border-bottom: none!important;
+      }
+    }
+
+    .product-name {
+      @media screen and (max-width: $screen-xs-max) {
+        margin-bottom: 0;
+        padding-bottom: 0;
+        border-bottom: none;
+        text-align: left;
+      }
+
+      a {
+        color: $cl-heading;
+        font-weight: $fw-semi-bold;
+
+        @media screen and (max-width: $screen-xs-max) {
+          margin-bottom: 10px;
+          padding-right: 25px;
+        }
+
+        &:hover {
+          color: $cl-primary;
+          transition: all .3s;
+        }
+      }
+    }
+
+    .product-price {
+        &:before {
+          @media screen and (max-width: $screen-xs-max) {
+            content: attr(data-title);
+            float: left;
+            padding: 6px 0;
+            color:$cl-heading;
+            text-transform: uppercase;
+            font-weight: $fw-semi-bold;
+            font-size: 11px;
+            flex: 1 1 auto;
+          }
+        }
+
+      bdi {
+        color: $cl-text;
+        font-weight: $fw-normal;
+      }
+    }
+
+    .product-quantity {
+      &:before {
+        @media screen and (max-width: $screen-xs-max) {
+          content: attr(data-title);
+          float: left;
+          padding: 13px 0;
+          color:$cl-heading;
+          text-transform: uppercase;
+          font-weight: $fw-semi-bold;
+          font-size: 11px;
+          flex: 1 1 auto;
+        }
+      }
+
+      .input-button {
+        @media screen and (max-width: $screen-xs-max) {
+          height: 28px;
+          line-height: 28px;
+        }
+      }
+
+      .input-text[type=number] {
+        @media screen and (max-width: $screen-xs-max) {
+          height: 28px;
+          line-height: 28px;
+        }
+      }
+    }
+
+    .product-subtotal {
+      &:before {
+        @media screen and (max-width: $screen-xs-max) {
+          content: attr(data-title);
+          float: left;
+          padding-top: 10px;
+          color: $cl-heading;
+          text-transform: uppercase;
+          font-weight: $fw-bold;
+          font-size: 12px;
+          flex: 1 1 auto;
+          text-align: left;
+        }
+      }
+
+      .amount {
+        color: $cl-primary;
+        font-weight: $fw-semi-bold;
+        font-size: 16px;
+
+        @media screen and (max-width: $screen-xs-max) {
+          font-size: 14px;
+        }
+      }
+    }
+
+    .cart-actions {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+
+      .coupon {
+        display: flex;
+        align-items: center;
+        flex-direction: row;
+
+        @media screen and (max-width: $screen-xs-max) {
+          border: 2px dashed $cl-border;
+          display: block;
+          flex: 0 0 100%;
+          order: 2;
+          padding: 15px;
+        }
+
+        label {
+          display: none;
+        }
+
+        .input-text {
+          margin-right: 10px;
+          max-width: 230px;
+          height: $e-height-base;
+          line-height: $e-height-base;
+
+          @media screen and (max-width: $screen-xs-max) {
+            max-width: none;
+            width: 100%;
+          }
+        }
+
+        .button {
+          @media screen and (max-width: $screen-xs-max) {
+            margin-top: 10px;
+            width: 100%;
+          }
+        }
+      }
+
+      > .button {
+        margin-left: auto;
+
+        @media screen and (max-width: $screen-xs-max) {
+          flex: 0 0 100%;
+          margin-bottom: 35px;
+          width: 100%;
+        }
+      }
+    }
+  }
+
+  .cart-collaterals {
+    display: flex;
+    margin-top: 35px;
+
+    @media screen and (max-width: $screen-xs-max) {
+      display: block;
+    }
+  }
+
+  .cross-sells {
+    flex: 0 0 50%;
+    padding-right: 15px;
+
+    @media screen and (max-width: $screen-xs-max) {
+      padding-right: 0;
+      margin-bottom: 30px;
+    }
+
+    > h2 {
+      font-size: 18px;
+      margin-top: 0;
+      margin-bottom: 25px;
+      text-transform: uppercase;
+
+      @media screen and (max-width: $screen-xs-max) {
+        font-size: 16px;
+      }
+    }
+
+    > ul {
+      padding: 0;
+      margin: 0;
+    }
+
+    // Un hide as in product-base
+    .add_to_cart_button.added {
+      display: block!important;
+    }
+  }
+
+  .cart_totals {
+    flex: 0 0 50%;
+    padding-left: 15px;
+    margin-left: auto;
+
+    @media screen and (max-width: $screen-xs-max) {
+      padding-left: 0;
+    }
+
+    > h2 {
+      font-size: 18px;
+      margin-top: 0;
+      margin-bottom: 25px;
+      text-transform: uppercase;
+
+      @media screen and (max-width: $screen-xs-max) {
+        font-size: 16px;
+      }
+    }
+
+    .cart-subtotal {
+      bdi {
+        color: $cl-text;
+        font-weight: $fw-normal;
+      }
+    }
+
+    .order-total {
+      th {
+        font-size: 18px;
+
+        @media screen and (max-width: $screen-xs-max) {
+          font-size: 16px;
+        }
+      }
+
+      .amount {
+        color: $cl-primary;
+        font-size: 18px;
+        font-weight: $fw-semi-bold;
+
+        @media screen and (max-width: $screen-xs-max) {
+          font-size: 16px;
+        }
+      }
+    }
+  }
+
+  .cart-totals-wrap {
+    position: relative;
+    padding: 15px;
+    background-color: $cl-gray;
+  }
+
+  .cart-totals-inner {
+    background-color: $cl-white;
+    box-shadow: 1px 1px 2px rgba($cl-black, .1);
+    padding: 5px 15px;
+    overflow-x: auto;
+  }
+
+  .wc-proceed-to-checkout {
+    margin-bottom: 15px;
+  }
+}

@@ -1,0 +1,181 @@
+/*-----------------------------------
+ * WOOCOMMERCE MY ACCOUNT
+ *-----------------------------------*/
+ .woocommerce form {
+    .form-row {
+        margin: 0 0 10px;
+    }
+ }
+
+.woocommerce-account {
+    .woocommerce {
+        margin-bottom: 60px;
+        margin-top: 30px;
+
+        @media screen and (max-width: $screen-sm-max) {
+            margin-bottom: 20px;
+        }
+
+        form .form-row label {
+            font-weight: $fw_medium;
+            color: $heading_color;
+            font-family: $secondary_font;
+        }
+
+        .woocommerce-MyAccount-navigation {
+            ul {
+                list-style: none;
+                list-style-type: none;
+                padding: 0;
+
+                li {
+                    margin: 15px 0;
+
+                    &.is-active {
+                        a {
+                            color: $link_color_active;
+                        }
+                    }
+
+                    &:first-child {
+                        margin-top: 0;
+                    }
+
+                    a {
+                        font-weight: $fw_medium;
+                        font-family: $secondary_font;
+                        color: $heading_color;
+                        transition: all .3s;
+
+                        &:hover {
+                            color: $primary_color;
+                            transition: all .3s;
+                        }
+                    }
+                }
+            }
+        }
+
+        .woocommerce-MyAccount-content {
+            // Table css
+            table {
+                border-radius: $border_radius;
+                font-size: 100%;
+
+                thead {
+                    text-transform: uppercase;
+                }
+            }
+
+            // Base form css
+            p {
+                input {
+                    border: 1px solid $border_color;
+                    padding: 8px 15px;
+                    border-radius: $border_radius;
+
+                    &:focus {
+                        border: 1px solid $primary_color;
+                    }
+
+                    &[type=submit] {
+                        background: $primary_color;
+                        border: none;
+                        color: $white;
+                        font-weight: $fw_medium;
+                        margin-top: 20px;
+                        padding: 10px 15px;
+                        transition: all .3s;
+
+                        &:hover {
+                            background: $secondary_color;
+                            transition: all .3s;
+                        }
+
+                        &:focus {
+                            outline: none;
+                        }
+                    }
+                }
+            }
+
+            // Account details
+            fieldset {
+                margin-top: 20px;
+
+                legend {
+                    position: relative;
+                    border: none;
+                    font-weight: $fw_medium;
+                    padding-left: 3px;
+                    margin-bottom: 10px;
+                    font-size: 20px;
+                }
+            }
+
+            // Addresses
+            .woocommerce-Address-title {
+                margin-top: 20px;
+
+                h3 {
+                    position: relative;
+                    margin-top: 0;
+                    margin-bottom: 30px;
+                    font-size: 20px;
+                }
+            }
+
+            // Button style
+            .button {
+                background: $primary_color;
+                color: $white;
+                padding: 10px 20px;
+                margin-left: 3px;
+                border-radius: $border_radius;
+
+                &:hover {
+                    background: $secondary_color;
+                }
+
+                &:focus {
+                    outline: none;
+                }
+            }
+        }
+
+        // Login
+        .customer_login_form_wrap {
+            h2 {
+                text-transform: uppercase;
+            }
+
+            form {
+                border-radius: $border_radius;
+
+                input {
+                    border: 1px solid $border_color;
+                    padding: 8px 15px;
+                    border-radius: $border_radius;
+                    
+                }
+
+                .button {
+                    background: $primary_color;
+                    border: none;
+                    color: $white;
+                    font-weight: $fw_medium;
+                    padding: 8px 15px;
+                    border-radius: $border_radius;
+
+                    &:hover {
+                        background: $secondary_color;
+                    }
+
+                    &:focus {
+                        outline: none;
+                    }
+                }
+            }
+        }
+    }
+}

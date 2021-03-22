@@ -1,0 +1,127 @@
+// Header-10
+.header-10 {
+    .haru-header-nav-above-wrap {
+        border-bottom: 1px solid $cl-border;
+
+        .header-nav-above {
+            height: 70px;
+            padding: 5px 0;
+
+            .header-left {
+                -webkit-box-flex: 1;
+                -ms-flex: 1 0 0px;
+                flex: 1 0 0;
+            }
+
+            .header-logo {
+                    
+            }
+
+            .header-right {
+                display: flex;
+                -webkit-box-flex: 1;
+                -ms-flex: 1 0 0px;
+                flex: 1 0 0;
+                -webkit-box-pack: end;
+                -ms-flex-pack: end;
+                justify-content: flex-end;
+            }
+
+            .header-elements-item {
+                
+            }
+        }
+    }
+
+    // Nav
+    .haru-header-nav-wrap {
+        border-bottom: 1px solid $cl-border;
+
+        &.nav-sticky {
+            border: none;
+        }
+
+        .header-navigation {
+            .header-primary-menu {
+                .menu-wrap {
+                    .haru-main-menu {
+                        margin-left: -20px;
+                        > li {
+                            &.current-menu-item {
+                                > a {
+                                    color: $cl-primary;
+                                }
+                            }
+
+                            > a {
+                                line-height: 60px;
+                            }
+                        }
+                    }
+                }
+            }
+            .header-elements-nav {
+                .header-elements-item {
+                    
+                }
+            }
+        }
+    }
+
+    // Header Over Slideshow
+    &.header-over-slideshow {
+        .haru-header-nav-above-wrap {
+            .header-elements {
+                .header-elements-item {
+                    color: $white;
+                    
+                    &.mini-cart-wrap {
+                        .widget_shopping_cart_content {
+                            .widget_shopping_cart_icon {
+                                position: relative;
+
+                                .total {
+                                    background: $white;
+                                    color: $cl-primary;
+                                }
+                                
+                                > i {
+                                    &:hover {
+                                        color: $white;
+                                    }
+
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        .haru-header-nav-wrap {
+            .header-navigation {
+                .menu-wrap {
+                    .haru-main-menu {
+                        // Only apply option for level 1
+                        > li {
+                            &.current-menu-item {
+                                > a {
+                                    &:before {
+                                    }
+                                }
+                            }
+                            > a {
+                                &:before {
+                                }
+                            }
+                            &:hover {
+                                > a {
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    // Sticky
+}

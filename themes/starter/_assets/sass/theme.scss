@@ -1,0 +1,508 @@
+/*-----------------------------------
+ * BASE STYLE
+ *-----------------------------------*/
+body {
+    color: $text_color;
+    line-height: 1.8;
+    overflow-x: hidden;
+    font-family: "Lato"; // Will override by Theme Options
+}
+
+a {
+    text-decoration: none;
+    color: $link_color;
+
+    &:hover {
+        color: $link_color_hover;
+        text-decoration: none;
+    }
+
+    &:active {
+        color: $link_color_active;
+        text-decoration: none;
+    }
+
+    &:focus {
+        color: $link_color_active;
+        outline: none;
+        text-decoration: none;
+    }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: $heading_color;
+    font-family: "Montserrat"; // Will override by Theme Options
+    font-weight: $fw_medium;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+p {
+    line-height: 1.8;
+}
+
+/*-----------------------------------
+ * LAYOUT STYLE
+ *-----------------------------------*/
+body {
+    &.layout-boxed {
+        #haru-main {
+            max-width: 1200px;
+            margin: auto;
+            overflow: hidden;
+        }
+    }
+
+    &.layout-float {
+        .vc_row:not(.vc_inner) {
+            padding: 0;
+
+            @media screen and (max-width: $screen-lg-max) {
+                padding: 0 25px;
+            }
+            @media screen and (max-width: $screen-md-max) {
+                padding: 0;
+            }
+        }
+
+        .vc_row[data-vc-full-width] {
+            padding: 0 85px;
+
+            &.vc_row-no-padding {
+                padding: 0 100px;
+
+                @media screen and (max-width: $screen-lg-max) {
+                    padding: 0 50px;
+                }
+
+                @media screen and (max-width: $screen-md-max) {
+                    padding: 0 50px;
+                }
+
+                @media screen and (max-width: $screen-sm-max) {
+                    padding: 0 15px;
+                }
+            }
+
+            @media screen and (max-width: $screen-lg-max) {
+                padding: 0 35px;
+            }
+
+            @media screen and (max-width: $screen-md-max) {
+                padding: 0 35px;
+            }
+
+            @media screen and (max-width: $screen-sm-max) {
+                padding: 0;
+            }
+        }
+        
+        // Header
+        .header-1 {
+            .haru-header-nav-wrap {
+                padding: 0;
+            }
+        }
+    }
+}
+
+/*-----------------------------------
+ * BACK TO TOP
+ *-----------------------------------*/
+.back-to-top {
+    display: block;
+    position: fixed;
+    right: 30px;
+    bottom: -50px;
+    background: rgba($black, .3);
+    padding: 10px 15px;
+    z-index: 99;
+    transition: all .3s;
+
+    &.in {
+        bottom: 30px;
+    }
+
+    &:hover {
+        background: rgba($black, .5);;
+    }
+
+    i {
+        color: $white;
+        font-size: 16px;
+    }
+}
+
+/*-----------------------------------
+ * PAGE TITLE AND BREADCRUMBS
+ *-----------------------------------*/
+.haru-page-title-section {
+    background-size: cover;
+    background-color: #f5f5f5;
+    margin-bottom: 80px;
+    position: relative;
+    min-height: 165px;
+
+    @media screen and (max-width: $screen-md-max) {
+        margin-bottom: 60px;
+    }
+
+    @media screen and (max-width: $screen-sm-max) {
+        margin-bottom: 30px;
+        min-height: 90px;
+    }
+
+    @media screen and (max-width: $screen-xs-max) {
+        min-height: 58px;
+    }
+
+    &:before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba($black, .7);
+
+        @media screen and (max-width: $screen-xs-max) {
+            
+        }
+    }
+
+    // Page title
+    .haru-page-title-wrapper {
+        padding-top: 4%;
+
+        &.no-breadcrumbs {
+            padding-bottom: 6%;
+        }
+
+        .page-title-inner {
+            .block-center-inner {
+                h2 {
+                    font-size: 36px;
+                    margin-bottom: 0;
+                    position: relative;
+                    text-align: center;
+                    color: $white;
+
+                    @media screen and (max-width: $screen-md-max) {
+                        font-size: 32px;
+                    }
+
+                    @media screen and (max-width: $screen-sm-max) {
+                        font-size: 28px;
+                    }
+
+                    @media screen and (max-width: $screen-xs-max) {
+                        font-size: 18px;
+                    }
+                }
+
+                .page-sub-title {
+                    display: block;
+                    position: relative;
+                    padding-top: 15px;
+                    color: $white;
+                    text-align: center;
+                }
+            }
+        }
+    }
+
+    // Breadcrumbs
+    .haru-breadcrumb-wrapper {
+        padding-bottom: 4%;
+
+        &.no-page-title {
+            padding-top: 4%;
+        }
+
+        .breadcrumbs {
+            list-style-type: none;
+            list-style: none;
+            padding: 0;
+            text-align: center;
+
+            li {
+                position: relative;
+                display: inline-block;
+                padding-right: 30px;
+                padding-top: 20px;
+                padding-bottom: 20px;
+
+                @media screen and (max-width: $screen-sm-max) {
+                    padding-top: 15px;
+                    padding-bottom: 15px;
+                }
+
+                @media screen and (max-width: $screen-xs-max) {
+                    padding-top: 5px;
+                    padding-bottom: 5px;
+                }
+
+                &:last-child {
+                    padding-right: 0;
+                }
+
+                span {
+                    color: $primary_color;
+                    font-weight: $fw_normal;
+                }
+
+                a {
+                    color: $white;
+                    font-weight: $fw_normal;
+
+                    &:hover {
+                        color: $link_color_hover;
+                    }
+                }
+
+                &:first-child {
+                    &:before {
+                        display: none;
+                    }
+                }
+
+                &:before {
+                    content: "\f054";
+                    font-size: 10px;
+                    color: $white;
+                    top: 50%;
+                    transform: translateY(-50%);
+                    font-family: "FontAwesome";
+                    left: -18px;
+                    position: absolute;
+                }
+            }
+        }
+    }
+}
+// Process when don't have page heading theme unit test
+// .hide-page-title {
+//     .haru-single-blog,
+//     .haru-archive-blog,
+//     .haru-archive-product,
+//     .haru-single-product {
+//         margin-top: 80px;
+
+//         @media screen and (max-width: $screen-sm-max) {
+//             margin-top: 40px;
+//         }
+//     }
+// }
+
+/*-----------------------------------
+ * CUSTOMIZE VISUAL COMPOSER OVERLAY
+ *-----------------------------------*/
+// .overlay-bg-vc-wapper {
+//     position: relative;
+// }
+// .overlay-bg-vc {
+//     position: absolute;
+//     top: 0;
+//     left: 0;
+//     right: 0;
+//     bottom: 0;
+// }
+
+
+/*-----------------------------------
+ * CONTACT PAGES
+ *-----------------------------------*/
+.contact-form {
+    .contact-name {
+        padding-right: 15px;
+        width: 50%;
+        float: left;
+        
+        @media screen and(max-width: $screen-xs-max) {
+            width: 100%;
+            padding-right: 0;
+        }
+    }
+
+    .contact-email {
+        padding-left: 15px;
+        width: 50%;
+        float: left;
+
+        @media screen and(max-width: $screen-xs-max) {
+            width: 100%;
+            padding-left: 0;
+        }
+    }
+
+    .contact-subject {
+        clear: both;
+    }
+
+    .contact-submit {
+        input {
+            background-color: $primary_color;
+            display: inline-block;
+            height: 40px;
+            border: 1px solid $primary_color;
+            border-radius: $border_radius;
+            padding: 0 25px;
+            line-height: 38px;
+            font-weight: $fw-medium;
+            color: $white;
+            transition: all .3s;
+
+            &:hover {
+                background-color: transparent;
+                border: 1px solid $primary_color;
+                color: $primary_color;
+                transition: all .3s;
+            }
+        }
+    }
+
+    input[type="text"], 
+    input[type="email"], 
+    textarea {
+        border: 1px solid $border_color;
+        margin-bottom: 25px;
+        padding: 8px 15px;
+        width: 100%;
+        border-radius: $border_radius;
+        @include placeholder($text_color_secondary);
+
+        &:focus {
+            outline: none;
+            border: 1px solid $primary_color;
+        }
+
+        @media screen and(max-width: $screen-sm-max) {
+            margin-bottom: 20px;
+        }
+    }
+}
+
+
+/*-----------------------------------
+ * SPECIAL PARALLAX PAGE HOME 2 FIX
+ *-----------------------------------*/
+body.parallax-disable {
+    overflow-x: hidden;
+
+    .vc_row[data-vc-full-width] {
+        overflow: inherit;
+    }
+}
+
+/*-----------------------------------
+ * AJAX LOADING OVERFLOW
+ *-----------------------------------*/
+.haru-ajax-overflow {
+    display: none;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    background-color: rgba($black, .5);
+    transition: all .3s;
+
+    &.active {
+        display: table;
+        z-index: 99999999;
+    }
+
+    .haru-ajax-loading {
+        width: 60px;
+        height: 50px;
+        background-color: $white;
+        display: inline-block;
+        left: 0;
+        right: 0;
+        margin: auto;
+        position: absolute;
+        top: 50%;
+        transform: translate(0,-50%);
+        box-shadow: 0 1px 8px rgba($black, .2);
+
+        .loading-wrapper {
+            width: 38px;
+            height: 38px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+
+        }
+    }
+
+    // Spinner copy from loading.less
+    .spinner {
+        width: 5px;
+        height: 5px;
+        background-color: $primary_color;
+        position: absolute;
+        border-radius:50%;
+        @include animation(round-9 .8s infinite);
+    }
+
+    #spinner_one {
+        top: 5px;
+        left: 5px;
+
+    }
+
+    #spinner_two {
+        top: 0px;
+        left: 16px;
+        @include animation-delay(.1s);
+    }
+
+    #spinner_three {
+        top: 5px;
+        left: 27px;
+        @include animation-delay(.2s);
+    }
+
+    #spinner_four {
+        top: 16px;
+        left: 31px;
+        @include animation-delay(.3s);
+    }
+
+    #spinner_five {
+        top: 27px;
+        left: 27px;
+        @include animation-delay(.4s);
+    }
+
+    #spinner_six {
+        top: 31px;
+        left: 16px;
+        @include animation-delay(.5s);
+    }
+
+    #spinner_seven {
+        top: 27px;
+        left: 5px;
+        @include animation-delay(.6s);
+    }
+
+    #spinner_eight {
+        top: 16px;
+        left: 0px;
+        @include animation-delay(.7s);
+    }
+}

@@ -305,10 +305,6 @@ if ( ! class_exists( 'Haru_Starter_Button_Widget' ) ) {
 				$this->add_render_attribute( 'button', 'class', 'elementor-size-' . $settings['size'] );
 			}
 
-			if ( $settings['hover_animation'] ) {
-				$this->add_render_attribute( 'button', 'class', 'elementor-animation-' . $settings['hover_animation'] );
-			}
-
         	?>
 
         	<div <?php echo $this->get_render_attribute_string( 'button-wrap' ); ?>>

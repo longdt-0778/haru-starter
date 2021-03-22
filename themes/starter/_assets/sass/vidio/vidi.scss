@@ -1,0 +1,179 @@
+// Buttons
+.haru-button,
+.button-background,
+.button-border {
+	font-family: $secondary_font;
+}
+
+// Video base
+.video-item__category,
+.video-item__duration,
+.video-item__labels,
+.video-item__thumbnail .video-watch-later {
+	font-family: $secondary_font;
+}
+
+.single-video-view {
+	font-family: $secondary_font;
+	margin-bottom: -1px;
+}
+
+.single-video-meta-bottom .single-video-meta-right-bottom {
+	font-family: $secondary_font;
+}
+
+.single-video-content-toggle .single-video-content-btn {
+	font-family: $secondary_font;
+	font-size: $fs_small;
+}
+
+.single-video-nav .video-nav-duration {
+	font-family: $secondary_font;
+}
+
+// Channel
+.single-channel__meta {
+	font-family: $secondary_font;
+}
+
+.channel-item.channel-style-7 .channel-subscribe {
+	font-size: $fs_small - 1px;
+}
+
+// Playlist base
+.playlist-item__count-video {
+	font-family: $secondary_font;
+
+	&:before {
+		bottom: -3px;
+	}
+}
+
+.single-haru_playlist .single-playlist__count-video {
+	font-family: $secondary_font;
+
+	&:before {
+		bottom: -3px;
+	}
+}
+
+.single-haru_playlist .single-playlist-nav .playlist-nav-count-video {
+	font-family: $secondary_font;
+}
+
+// Series base
+.series-item__count-video {
+	font-family: $secondary_font;
+
+	&:before {
+		bottom: -3px;
+	}
+}
+
+.single-haru_series .single-series__count-video {
+	font-family: $secondary_font;
+
+	&:before {
+		bottom: -3px;
+	}
+}
+
+.single-haru_series .single-series-nav .series-nav-count-video {
+	font-family: $secondary_font;
+}
+
+// Actor base
+.actor-item__count-video {
+	font-family: $secondary_font;
+
+	&:before {
+		bottom: -3px;
+	}
+}
+
+.single-haru_actor .single-actor__count-video {
+	font-family: $secondary_font;
+
+	&:before {
+		bottom: -3px;
+	}
+}
+
+.single-haru_actor .single-actor-nav .actor-nav-count-video {
+	font-family: $secondary_font;
+}
+
+// Director base
+.director-item__count-video {
+	font-family: $secondary_font;
+
+	&:before {
+		bottom: -3px;
+	}
+}
+
+.single-haru_director .single-director__count-video {
+	font-family: $secondary_font;
+
+	&:before {
+		bottom: -3px;
+	}
+}
+
+.single-haru_director .single-director-nav .director-nav-count-video {
+	font-family: $secondary_font;
+}
+
+// Paging
+.archive-pagination {
+	font-family: $secondary_font;
+}
+
+// Vidi Plugin
+.cmb-form {
+	.cmb-th {
+		label {
+	        font-family: $secondary_font;
+	    }
+	}
+}
+
+// General
+input[type=submit],
+.button,
+button {
+	font-family: $secondary_font!important;
+}
+
+// 
+.haru-single-video,
+.haru-single-playlist,
+.haru-single-channel,
+.haru-single-series,
+.haru-single-actor,
+.haru-single-director {
+	.single-content {
+		margin-bottom: 0;
+	}
+}
+
+// PMPRo
+.pmpro_login_wrap {
+	label {
+		font-family: $secondary_font;
+	}
+}
+
+#pmpro_levels_table thead {
+	font-family: $secondary_font;
+}
+
+.pmpro_btn {
+	font-family: $secondary_font;
+}
+
+.pmpro_form {
+	label {
+		font-family: $secondary_font;
+	}
+}

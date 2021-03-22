@@ -1,0 +1,100 @@
+/*-----------------------------------
+ * WOOCOMMERCE WISHLIST
+ *-----------------------------------*/
+ .yith-wcwl-add-to-wishlist {
+    .ajax-loading {
+        visibility: hidden;
+    }
+ }
+ .yith-wcwl-wishlistaddedbrowse {
+    display: none;
+ }
+ .woocommerce-wishlist {
+    .woocommerce {
+        margin-bottom: 60px;
+        margin-top: 30px;
+        .wishlist-title {
+            display: block;
+            text-align: center;
+            h2 {
+                color: $primary_color;
+                font-size: 24px;
+                @media screen and (max-width: $screen-sm-max) {
+                    font-size: 18px;
+                }
+                @media screen and (max-width: $screen-xs-max) {
+                    font-size: 16px;
+                }
+            }
+        }
+        .wishlist_table {
+            margin-top: 40px;
+            font-size: 100%;
+            @media screen and (max-width: $screen-sm-max) {
+                margin-top: 30px;
+            }
+            @media screen and (max-width: $screen-xs-max) {
+                margin-top: 15px;
+            }
+            thead {
+                text-transform: uppercase;
+                tr {
+                    th {
+                        border-top: none;
+                    }
+                }
+            }
+            tbody {
+                .product-remove {
+                    a.remove {
+                        margin: 0 auto;
+                    }
+                }
+                .product-name {
+                    a {
+                        color: $heading_color;
+                        font-weight: 700;
+                        &:hover {
+                            color: $link_color_hover;
+                        }
+                    }
+                }
+                .product-price {
+                    color: $heading_color;
+                    font-family: $secondary_font;
+                    text-align: left;
+                    font-weight: 700;
+                    del {
+                        display: block;
+                        opacity: .7;
+                    }
+                }
+                .product-stock-status {
+                    text-align: left;
+                    span {
+                        color: $primary_color;
+                    }
+                }
+                .product-add-to-cart {
+                    .add-to-cart-wrapper {
+                        a {
+                            background: $primary_color;
+                            color: $white;
+                            font-weight: 700;
+                            padding: 10px 15px;
+                            border-radius: 0;
+                            @include transition(all .3s);
+                            &:hover {
+                                background: $secondary_color;
+                                @include transition(all .3s);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        .yith-wcwl-share-title {
+            font-size: 18px;
+        }
+    }
+ }

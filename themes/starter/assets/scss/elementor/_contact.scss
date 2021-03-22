@@ -1,0 +1,166 @@
+$root: '.haru-contact';
+$root-widget: '.elementor-widget-haru-contact';
+
+#{$root} {
+
+	ul {
+		list-style: none;
+		list-style-type: none;
+		padding: 0;
+		margin: 0;
+	}
+
+	li {
+		display: flex;
+		margin-bottom: 15px;
+
+		&:last-child {
+			margin-bottom: 0;
+		}
+	}
+
+	&__icon {
+		margin-right: 10px;
+	}
+
+	&__title {
+		margin-top: 0;
+		margin-bottom: 10px;
+	}
+
+	&--style-1 {
+		a {
+			color: $cl-black-3;
+			transition: all .3s;
+
+			&:hover,
+			&:active {
+				color: $cl-primary;
+				transition: all .3s;
+			}
+		}
+
+		#{$root}__icon {
+			color: $cl-black-3;
+			margin-right: 10px;
+
+			svg path {
+				fill: $cl-black-3!important;
+			}
+		}
+
+		#{$root}__title {
+			color: $cl-black-3;
+			margin-top: 0;
+			margin-bottom: 10px;
+		}
+
+		#{$root}__desc {
+			color: $cl-black-3;
+		}
+	}
+
+	&--style-2 {
+		a {
+			color: $cl-black-3;
+			transition: all .3s;
+
+			&:hover,
+			&:active {
+				color: $cl-primary;
+				transition: all .3s;
+			}
+		}
+
+		#{$root}__icon {
+			display: none;
+		}
+
+		#{$root}__title {
+			display: none;
+		}
+
+		#{$root}__desc {
+			color: $cl-black-3;
+		}
+	}
+
+	&--style-3 {
+		#{$root}__top {
+			display: flex;
+			justify-content: space-between;
+			margin-bottom: 15px;
+		}
+
+		#{$root}__heading {
+			font-size: 16px;
+			color: $cl-black-3;
+			font-weight: $fw-semi-bold;
+		}
+
+		#{$root}__btn {
+			a {
+				color: $cl-primary;
+				font-weight: $fw-bold;
+				text-decoration: underline;
+			}
+		}
+
+		#{$root}__icon {
+
+		}
+
+		#{$root}__title {
+			display: none;
+		}
+
+		li {
+			color: $cl-black-3;
+
+			&:first-child {
+				#{$root}__desc {
+					font-weight: $fw-bold;
+					color: $cl-black-2;
+				}
+			}
+		}
+	}
+
+	&--style-4 {
+		border: 6px solid $cl-white-2;
+		border-radius: $border-radius-large;
+		padding: 40px;
+
+		@media screen and (max-width: $screen-xs-max) {
+			padding: 20px;
+		}
+
+		#{$root}__icon {
+			color: $cl-primary;
+			font-size: 27px;
+			line-height: 1;
+			margin-right: 20px;
+		}
+	}
+}
+
+#{$root-widget} {
+	&#{$root}--center {
+		position: absolute;
+		width: 423px!important;
+		max-width: 100%;
+		top: calc(50% - 10px);
+		left: 50%;
+		transform: translate(-50%, -50%);
+		background-color: $cl-white;
+		border-radius: $border-radius;
+		padding: 18px 20px;
+
+		@media screen and (max-width: $screen-xs-max) {
+			position: relative;
+			top: auto;
+			left: auto;
+			transform: none;
+		}
+	}
+}

@@ -1,0 +1,1114 @@
+.banner-creative-shortcode-wrap {
+	.banner-list {
+		.banner-item {
+            // Columns
+            &.image-col-2 {
+                &.portrait {
+                    width: 50%;
+                }
+                &.landscape {
+                    width: 100%;
+                }
+                &.small_squared {
+                    width: 50%;
+                }
+                &.big_squared {
+                    width: 100%;
+                }
+                &.default {
+                    width: 50%;
+                }
+            }
+            &.image-col-3 {
+                &.portrait {
+                    width: 33.3333333%;
+                    @media screen and (max-width: $screen-xs-max) {
+                    	width: 50%;
+                    }
+                }
+                &.landscape {
+                    width: 66.6666666%;
+                    @media screen and (max-width: $screen-xs-max) {
+                    	width: 100%;
+                    }
+                }
+                &.small_squared {
+                    width: 33.3333333%;
+                    @media screen and (max-width: $screen-xs-max) {
+                    	width: 50%;
+                    }
+                }
+                &.big_squared {
+                    width: 66.6666666%;
+                    @media screen and (max-width: $screen-xs-max) {
+                    	width: 100%;
+                    }
+                }
+                &.default {
+                    width: 33.3333333%;
+                    @media screen and (max-width: $screen-xs-max) {
+                    	width: 50%;
+                    }
+                }
+            }
+            &.image-col-4 {
+                &.portrait {
+                    width: 25%;
+                    @media screen and (max-width: $screen-xs-max) {
+                    	width: 50%;
+                        height: auto!important;
+                    }
+                }
+                &.landscape {
+                    width: 50%;
+                    @media screen and (max-width: $screen-xs-max) {
+                    	width: 100%;
+                        height: auto!important;
+                    }
+                }
+                &.small_squared {
+                    width: 25%;
+                    @media screen and (max-width: $screen-xs-max) {
+                    	width: 50%;
+                        height: auto!important;
+                    }
+                }
+                &.big_squared {
+                    width: 50%;
+                    @media screen and (max-width: $screen-xs-max) {
+                    	width: 100%;
+                        height: auto!important;
+                    }
+                }
+                &.default {
+                    width: 25%;
+                    @media screen and (max-width: $screen-xs-max) {
+                    	width: 50%;
+                        height: auto!important;
+                    }
+                }
+                &.special {
+                    width: 80%;
+                }
+            }
+            &.image-col-5 {
+                &.portrait {
+                    width: 20%;
+                    @media screen and (max-width: $screen-xs-max) {
+                    	width: 50%;
+                    }
+                }
+                &.landscape {
+                    width: 40%;
+                    @media screen and (max-width: $screen-xs-max) {
+                    	width: 100%;
+                    }
+                }
+                &.small_squared {
+                    width: 20%;
+                    @media screen and (max-width: $screen-xs-max) {
+                    	width: 100%;
+                    }
+                }
+                &.big_squared {
+                    width: 40%;
+                    @media screen and (max-width: $screen-xs-max) {
+                    	width: 100%;
+                    }
+                }
+                &.default {
+                    width: 20%;
+                    @media screen and (max-width: $screen-xs-max) {
+                    	width: 50%;
+                    }
+                }
+                &.special {
+                    width: 60%;
+                    @media screen and (max-width: $screen-xs-max) {
+                        width: 100%;
+                    }
+                }
+            }
+            &.image-col-6 {
+                &.portrait {
+                    width: 16.6666667%;
+                    @media screen and (max-width: $screen-xs-max) {
+                    	width: 50%;
+                    }
+                }
+                &.landscape {
+                    width: 33.3333333%;
+                    @media screen and (max-width: $screen-xs-max) {
+                    	width: 100%;
+                    }
+                }
+                &.small_squared {
+                    width: 16.6666667%;
+                    @media screen and (max-width: $screen-xs-max) {
+                    	width: 50%;
+                    }
+                }
+                &.big_squared {
+                    width: 33.3333333%;
+                    @media screen and (max-width: $screen-xs-max) {
+                    	width: 100%;
+                    }
+                }
+                &.default {
+                    width: 16.6666667%;
+                    @media screen and (max-width: $screen-xs-max) {
+                    	width: 50%;
+                    }
+                }
+            }
+            // Padding
+            &.padding-5 {
+            	padding: 0 5px;
+            	margin: 5px 0;
+            }
+            &.padding-10 {
+                padding: 0 10px;
+                margin: 10px 0;
+            }
+            &.padding-15 {
+                padding: 0 15px;
+                margin: 15px 0;
+            }
+            // Banner style
+            &.style_1 {
+                @media screen and (max-width: $screen-xs-max) {
+                    height: auto!important;
+                }
+                &:hover {
+                    .banner-content-inner {
+                       transition: all .3s;
+                        &:before {
+                            opacity: 1;
+                           transition: all .3s;
+                        }
+                        .banner-content {
+                            opacity: 1;
+                           transition: all .3s;
+                        }
+                    }
+                    img {
+                        transform: scale(1.03);
+                        transition: all .3s;
+                    }
+                }
+                .banner-item-wrap {
+                    border: 1px solid #e5e5e5;
+                    position: relative;
+                    overflow: hidden;
+                    &:before {
+                        content: "";
+                        position: absolute;
+                        width: calc(100% - 2px);
+                        height: calc(100% - 2px);
+                        top: 1px;
+                        left: 1px;
+                        background-color: rgba($black, .5);
+                        opacity: 0;
+                       transition: all .3s;
+                    }
+                }
+
+                img {
+                    width: 100%;
+                    transform: scale(1.0);
+                    transition: all .3s;
+                    @media screen and (max-width: $screen-xs-max) {
+                        height: auto!important;
+                    }
+                }
+                
+                .banner-content-inner {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    padding: 15px;
+                    text-align: center;
+                   transition: all .3s;
+                    &:before {
+                        content: "";
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        width: 100%;
+                        height: 100%;
+                        background-color: rgba($black, .15);
+                        opacity: 0;
+                       transition: all .3s;
+                    }
+                    .banner-content {
+                        position: absolute;
+                        top: 50%;
+                        left: 0;
+                        width: 100%;
+                        opacity: 0;
+                        color: $white;
+                       transition: all .3s;
+                        transform: translateY(-50%);
+                        .banner-title,
+                        a {
+                            color: $white;
+                            font-size: 17px;
+                            font-weight: 700;
+                            letter-spacing: 0.2em;
+                            text-transform: uppercase;
+                           transition: all .3s;
+                            @media screen and (max-width: $screen-md-max) {
+                                font-size: 16px;
+                            }
+                            @media screen and (max-width: $screen-sm-max) {
+                                font-size: 14px;
+                            }
+                        }
+                        a {
+                            &:hover {
+                                color: $cl-primary;
+                               transition: all .3s;
+                            }
+                        }
+                        .banner-description {
+                            font-size: 15px;
+                            letter-spacing: 0.15em;
+                            @media screen and (max-width: $screen-md-max) {
+                                font-size: 14px;
+                            }
+                            @media screen and (max-width: $screen-sm-max) {
+                                
+                            }
+                        }
+                    }
+                }
+            }
+            &.style_2 {
+                @media screen and (max-width: $screen-xs-max) {
+                    height: auto!important;
+                }
+                .banner-item-wrap {
+                    border: 1px solid #e5e5e5;
+                    position: relative;
+                    overflow: hidden;
+                }
+                img {
+                    width: 100%;
+                    @media screen and (max-width: $screen-xs-max) {
+                        height: auto!important;
+                    }
+                }
+                .banner-content-inner {
+                    background-color: $white;
+                    border: 1px solid #c9c6ca;
+                    padding: 5px;
+                    position: absolute;
+                    top: 50%;
+                    right: 30px;
+                    transform: translateY(-50%);
+                    .banner-content {
+                        border: 1px solid $cl-border;
+                        padding: 30px 20px;
+                        @media screen and (max-width: $screen-md-max) {
+                            padding: 20px 15px;
+                        }
+                        .banner-title,
+                        a {
+                            color: $cl-heading;
+                            font-size: 36px;
+                            font-family: $font-secondary;
+                            margin: 0;
+                            transition: all .3s;
+                            &:hover {
+                                color: $cl-primary;
+                                transition: all .3s;
+                            }
+                            @media screen and (max-width: $screen-md-max) {
+                                font-size: 28px;
+                            }
+                            @media screen and (max-width: $screen-sm-max) {
+                                font-size: 20px;
+                            }
+                        }
+                        .banner-title {
+                            &:hover {
+                                color: $cl-heading;
+                            }
+                        }
+                        .banner-description {
+                            color: $cl-heading;
+                            font-size: 20px;
+                            margin: 0;
+                            text-align: right;
+                            @media screen and (max-width: $screen-md-max) {
+                                font-size: 18px;
+                            }
+                            @media screen and (max-width: $screen-sm-max) {
+                                font-size: 16px;
+                            }
+                        }
+                    }
+                }
+            }
+            &.style_3 {
+                @media screen and (max-width: $screen-xs-max) {
+                    height: auto!important;
+                }
+                .banner-item-wrap {
+                    border: 1px solid $cl-border;
+                    position: relative;
+                    overflow: hidden;
+                }
+                img {
+                    width: 100%;
+                    @media screen and (max-width: $screen-xs-max) {
+                        height: auto!important;
+                    }
+                }
+                .banner-content-inner {
+                    .banner-content {
+                        position: absolute;
+                        top: 50%;
+                        left: 0;
+                        width: 100%;
+                        text-align: center;
+                       transition: all .3s;
+                        transform: translateY(-50%);
+                        .banner-title,
+                        a {
+                            font-size: 22px;
+                            color: $cl-heading;
+                            letter-spacing: 0.12em;
+                            padding-bottom: 6px;
+                            text-transform: uppercase;
+                           transition: all .3s;
+                            @media screen and (max-width: $screen-md-max) {
+                                font-size: 20px;
+                            }
+                            @media screen and (max-width: $screen-sm-max) {
+                                font-size: 16px;
+                            }
+                        }
+                        a {
+                            &:hover {
+                                color: $cl-primary;
+                               transition: all .3s;
+                            }
+                        }
+                        .banner-sub-title {
+                            font-size: 18px;
+                            position: relative;
+                            @media screen and (max-width: $screen-md-max) {
+                                font-size: 16px;
+                            }
+                            @media screen and (max-width: $screen-sm-max) {
+                                font-size: 14px;
+                            }
+                            &:before {
+                                content: "";
+                                position: absolute;
+                                height: 1px;
+                                width: 48px;
+                                background-color: $cl-heading;
+                                top: 50%;
+                                right: 50%;
+                                transform: translateX(-50%);
+                            }
+                            &:after {
+                                content: "";
+                                position: absolute;
+                                height: 1px;
+                                width: 48px;
+                                background-color: $cl-heading;
+                                top: 50%;
+                                left: 50%;
+                                transform: translateX(50%);
+                            }
+                        }
+                        .banner-description {
+                            font-size: 22px;
+                            font-weight: 700;
+                            letter-spacing: .15em;
+                            margin-bottom: 0;
+                            font-family: $font-secondary;
+                            color: $cl-heading;
+                            @media screen and (max-width: $screen-md-max) {
+                                font-size: 20px;
+                            }
+                            @media screen and (max-width: $screen-md-max) {
+                                font-size: 16px;
+                            }
+                        }
+                        .banner-sub-description {
+                            font-size: 50px;
+                            font-weight: 700;
+                            letter-spacing: .15em;
+                            line-height: 1;
+                            text-transform: uppercase;
+                            font-family: $font-secondary;
+                            color: $cl-heading;
+                            @media screen and (max-width: $screen-md-max) {
+                                font-size: 44px;
+                            }
+                            @media screen and (max-width: $screen-md-max) {
+                                font-size: 36px;
+                            }
+                        }
+                    }
+                }
+            }
+            &.style_4 {
+                @media screen and (max-width: $screen-xs-max) {
+                    height: auto!important;
+                }
+                &:hover {
+                    .banner-item-wrap {
+                        &:before {
+                            opacity: 1;
+                           transition: all .3s;
+                        }
+                    }
+                    .banner-content-inner {
+                        opacity: 1;
+                       transition: all .3s;
+                    }
+                    img {
+                        
+                    }
+                }
+                .banner-item-wrap {
+                    border: 1px solid $cl-border;
+                    position: relative;
+                    overflow: hidden;
+                    &:before {
+                        content: "";
+                        position: absolute;
+                        width: 100%;
+                        height: 100%;
+                        top: 0;
+                        left: 0;
+                        background-color: rgba($black, .15);
+                        opacity: 1;
+                       transition: all .3s;
+                    }
+                }
+                img {
+                    width: 100%;
+                    @media screen and (max-width: $screen-xs-max) {
+                        height: auto!important;
+                    }
+                }
+                .banner-content-inner {
+                    position: absolute;
+                    width: 100%;
+                    top: 50%;
+                    left: 50%;
+                    opacity: 1;
+                   transition: all .3s;
+                    transform: translate(-50%, -50%);
+                    .banner-content {
+                        padding: 30px 20px;
+                        text-align: center;
+                        .banner-title,
+                        a {
+                            color: $white;
+                            font-size: 48px;
+                            font-family: $font-secondary;
+                            margin: 0;
+                            transition: all .3s;
+                            &:hover {
+                                color: $cl-primary;
+                                transition: all .3s;
+                            }
+                            @media screen and(max-width: $screen-md-max) {
+                                font-size: 36px;
+                            }
+                            @media screen and(max-width: $screen-sm-max) {
+                                font-size: 28px;
+                            }
+                        }
+                        .banner-title {
+                            &:hover {
+                                color: $cl-heading;
+                            }
+                        }
+                        .banner-description {
+                            color: $white;
+                            font-size: 20px;
+                            font-family: $font-secondary;
+                            margin: 35px 0 0 0;
+                            letter-spacing: 0.1em;
+                            @media screen and(max-width: $screen-md-max) {
+                                font-size: 16px;
+                            }
+                            @media screen and(max-width: $screen-sm-max) {
+                                font-size: 14px;
+                                margin: 15px 0 0 0;
+                            }
+                        }
+                        .banner-button {
+                            background-color: $white;
+                            color: $cl-heading;
+                            display: inline-block;
+                            font-size: 14px;
+                            font-family: $font-primary;
+                            font-weight: 700;
+                            letter-spacing: 0.1em;
+                            padding: 10px 35px;
+                            margin-top: 50px;
+                            text-transform: uppercase;
+                            border-radius: 0;
+                            @media screen and(max-width: $screen-sm-max) {
+                                margin-top: 35px;
+                                font-size: 14px;
+                            }
+                            i {
+                                margin-left: 15px;
+                                font-size: 16px;
+                            }
+                            &:hover {
+                                background-color: $cl-primary;
+                                color: $white;
+                            }
+                        }
+                    }
+                }
+            }
+            &.style_5 {
+                @media screen and (max-width: $screen-xs-max) {
+                    height: auto!important;
+                }
+                @media screen and (max-width: $screen-md-max) {
+                    margin-bottom: 5px;
+                }
+                @media screen and (max-width: $screen-sm-max) {
+                    margin-bottom: 0;
+                }
+                @media screen and (max-width: $screen-xs-max) {
+                    margin-bottom: 10px;
+                }
+                .banner-item-wrap {
+                    border: 1px solid #e5e5e5;
+                    padding: 4px;
+                    position: relative;
+                    overflow: hidden;
+                }
+                img {
+                    border: 1px solid #e5e5e5;
+                    width: 100%;
+                    @media screen and (max-width: $screen-xs-max) {
+                        height: auto!important;
+                    }
+                }
+                .banner-content-inner {
+                    .banner-content {
+                        position: absolute;
+                        top: 50%;
+                        left: 0;
+                        width: 100%;
+                        text-align: center;
+                       transition: all .3s;
+                        transform: translateY(-50%);
+                        .banner-title,
+                        a {
+                            font-size: 22px;
+                            color: $cl-heading;
+                            letter-spacing: 0.12em;
+                            padding-bottom: 6px;
+                            text-transform: uppercase;
+                           transition: all .3s;
+                            @media screen and (max-width: $screen-md-max) {
+                                font-size: 18px;
+                            }
+                            @media screen and (max-width: $screen-sm-max) {
+                                font-size: 16px;
+                                padding-bottom: 0;
+                            }
+                        }
+                        a {
+                            &:hover {
+                                color: $cl-primary;
+                               transition: all .3s;
+                            }
+                        }
+                        .banner-sub-title {
+                            font-size: 18px;
+                            position: relative;
+                            @media screen and (max-width: $screen-md-max) {
+                                font-size: 15px;
+                            }
+                            @media screen and (max-width: $screen-sm-max) {
+                                font-size: 14px;
+                                margin-bottom: 3px;
+                            }
+                            &:before {
+                                content: "";
+                                position: absolute;
+                                height: 1px;
+                                width: 48px;
+                                background-color: $cl-heading;
+                                top: 50%;
+                                right: 50%;
+                                transform: translateX(-50%);
+                            }
+                            &:after {
+                                content: "";
+                                position: absolute;
+                                height: 1px;
+                                width: 48px;
+                                background-color: $cl-heading;
+                                top: 50%;
+                                left: 50%;
+                                transform: translateX(50%);
+                            }
+                        }
+                        .banner-description {
+                            font-size: 22px;
+                            font-weight: 700;
+                            font-family: $font-secondary;
+                            color: $cl-heading;
+                            letter-spacing: .15em;
+                            margin-bottom: 0;
+                            @media screen and (max-width: $screen-md-max) {
+                                font-size: 18px;
+                            }
+                            @media screen and (max-width: $screen-sm-max) {
+                                font-size: 16px;
+                            }
+                        }
+                        .banner-sub-description {
+                            font-size: 50px;
+                            font-weight: 700;
+                            letter-spacing: .15em;
+                            color: $cl-heading;
+                            font-family: $font-secondary;
+                            line-height: 1;
+                            text-transform: uppercase;
+                            @media screen and (max-width: $screen-md-max) {
+                                font-size: 36px;
+                            }
+                            @media screen and (max-width: $screen-sm-max) {
+                                font-size: 28px;
+                            }
+                        }
+                    }
+                }
+            }
+            &.style_6 {
+                .banner-item-wrap {
+                    border: 1px solid #e5e5e5;
+                    position: relative;
+                    overflow: hidden;
+                }
+                img {
+                    width: 100%;
+                }
+                .banner-content-inner {
+                    background-color: $white;
+                    border: 1px solid #c9c6ca;
+                    padding: 5px;
+                    position: absolute;
+                    top: 50%;
+                    right: 0;
+                    max-width: 70%;
+                    transform: translateY(-50%);
+                    .banner-content {
+                        border: 1px solid $cl-border;
+                        padding: 30px 20px;
+                        text-align: right;
+                        @media screen and(max-width: $screen-md-max) {
+                            padding: 15px 10px;
+                        }
+                        .banner-title,
+                        a {
+                            color: $cl-heading;
+                            font-size: 28px;
+                            font-family: $font-secondary;
+                            letter-spacing: 0.1em;
+                            margin: 0;
+                            position: relative;
+                            padding-bottom: 25px;
+                            transition: all .3s;
+                            &:hover {
+                                color: $cl-primary;
+                                transition: all .3s;
+                            }
+                            @media screen and(max-width: $screen-md-max) {
+                                font-size: 24px;
+                            }
+                        }
+                        .banner-title {
+                            &:hover {
+                                color: $cl-heading;
+                            }
+                            &:before {
+                                content: "";
+                                position: absolute;
+                                background-color: $cl-primary;
+                                background-repeat: no-repeat;
+                                -webkit-mask-image: url(../starter/assets/images/img_leaf.svg);
+                                mask-image: url(../starter/assets/images/img_leaf.svg);
+                                background-size: cover;
+                                width: 91px;
+                                height: 19px;
+                                right: 0;
+                                bottom: 0;
+                            }
+                        }
+                        .banner-description {
+                            color: $cl-heading;
+                            margin: 15px 0 0 0;
+                            letter-spacing: 0.05em;
+                            @media screen and(max-width: $screen-md-max) {
+                                font-size: 14px;
+                            }
+                        }
+                    }
+                }
+            }
+            &.style_7 {
+                &:hover {
+                    .banner-item-wrap {
+                        &:before {
+                            opacity: 1;
+                           transition: all .3s;
+                        }
+                    }
+                    .banner-content-inner {
+                        opacity: 1;
+                       transition: all .3s;
+                    }
+                    img {
+                        
+                    }
+                }
+                .banner-item-wrap {
+                    border: 1px solid #e5e5e5;
+                    position: relative;
+                    overflow: hidden;
+                    &:before {
+                        content: "";
+                        position: absolute;
+                        width: 100%;
+                        height: 100%;
+                        top: 0;
+                        left: 0;
+                        background-color: rgba($black, .15);
+                        opacity: 1;
+                       transition: all .3s;
+                    }
+                }
+                img {
+                    width: 100%;
+                }
+                .banner-content-inner {
+                    position: absolute;
+                    width: 100%;
+                    top: 50%;
+                    left: 50%;
+                    opacity: 1;
+                   transition: all .3s;
+                    transform: translate(-50%, -50%);
+                    .banner-content {
+                        padding: 30px 20px;
+                        text-align: center;
+                        @media screen and (max-width: $screen-md-max) {
+                            padding: 15px 5px;
+                        }
+                        .banner-title,
+                        a {
+                            color: $white;
+                            font-size: 20px;
+                            font-family: $font-secondary;
+                            margin-top: 10px;
+                            transition: all .3s;
+                            &:hover {
+                                color: $cl-primary;
+                                transition: all .3s;
+                            }
+                        }
+                        .banner-title {
+                            &:hover {
+                                color: $cl-heading;
+                            }
+                        }
+                        .banner-description {
+                            color: $white;
+                            font-size: 16px;
+                            letter-spacing: 0.1em;
+                            @media screen and (max-width: $screen-xs-max) {
+                                font-size: 14px;
+                            }
+                        }
+                        .banner-button {
+                            background-color: $white;
+                            color: $cl-heading;
+                            display: inline-block;
+                            font-family: $font-primary;
+                            font-weight: 700;
+                            font-size: 14px;
+                            letter-spacing: 0.05em;
+                            padding: 12px 20px;
+                            margin-top: 5px;
+                            text-transform: uppercase;
+                            border-radius: 0;
+                            @media screen and (max-width: $screen-md-max) {
+                                font-size: 13px;
+                                padding: 12px 12px;
+                            }
+                            i {
+                                margin-left: 8px;
+                                font-size: 16px;
+                                @media screen and (max-width: $screen-md-max) {
+                                    margin-left: 5px;
+                                    font-size: 16px;
+                                }
+                                @media screen and (max-width: $screen-sm-max) {
+                                    display: none;
+                                }
+                                @media screen and (max-width: $screen-xs-max) {
+                                    display: inline-block;
+                                }
+                            }
+                            &:hover {
+                                background-color: $cl-primary;
+                                color: $white;
+                            }
+                        }
+                    }
+                }
+            }
+            &.style_8 {
+                &:hover {
+                    .banner-content-inner {
+                       transition: all .3s;
+                        &:before {
+                            opacity: 1;
+                           transition: all .3s;
+                        }
+                        .banner-content {
+                            opacity: 1;
+                           transition: all .3s;
+                        }
+                    }
+                    img {
+                        transform: scale(1.03);
+                        transition: all .3s;
+                    }
+                }
+                .banner-item-wrap {
+                    border: 1px solid #e5e5e5;
+                    position: relative;
+                    overflow: hidden;
+                    &:before {
+                        content: "";
+                        position: absolute;
+                        width: calc(100% - 2px);
+                        height: calc(100% - 2px);
+                        top: 1px;
+                        left: 1px;
+                        background-color: rgba($black, .15);
+                        opacity: 0;
+                       transition: all .3s;
+                    }
+                }
+
+                img {
+                    width: 100%;
+                    transform: scale(1.0);
+                    transition: all .3s;
+                }
+                
+                .banner-content-inner {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    padding: 15px;
+                    text-align: center;
+                   transition: all .3s;
+                    &:before {
+                        content: "";
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        width: 100%;
+                        height: 100%;
+                        background-color: rgba($cl-primary, .7);
+                        opacity: 1;
+                       transition: all .3s;
+                    }
+                    .banner-content {
+                        position: absolute;
+                        top: 50%;
+                        left: 0;
+                        width: 100%;
+                        opacity: 1;
+                        color: $white;
+                       transition: all .3s;
+                        transform: translateY(-50%);
+                        .banner-title,
+                        a {
+                            color: $white;
+                            font-size: 20px;
+                            font-weight: 400;
+                            letter-spacing: 0.085em;
+                            text-transform: uppercase;
+                            position: relative;
+                            padding-bottom: 30px;
+                           transition: all .3s;
+                            @media screen and (max-width: $screen-md-max) {
+                                font-size: 14px;
+                                padding-bottom: 15px;
+                            }
+                            &:before,
+                            &:after {
+                                content: "";
+                                position: absolute;
+                                width: 70px;
+                                height: 1px;
+                                background-color: $white;
+                                left: 50%;
+                                transform: translateX(-50%);
+                            }
+                            &:before {
+                                bottom: 0;
+                            }
+                            &:after {
+                                bottom: 2px;
+                            }
+                        }
+                        a {
+                            &:hover {
+                                color: $cl-primary;
+                               transition: all .3s;
+                            }
+                        }
+                        .banner-sub-title {
+                            font-size: 20px;
+                            font-weight: 700;
+                            color: $white;
+                            padding-top: 16px;
+                            margin-bottom: 5px;
+                            @media screen and (max-width: $screen-md-max) {
+                                font-size: 14px;
+                                padding-top: 6px;
+                            }
+                        }
+                        .banner-description {
+                            display: inline-block;
+                            font-size: 50px;
+                            font-weight: 700;
+                            letter-spacing: 0.075em;
+                            line-height: 1;
+                            font-family: $font-secondary;
+                            @media screen and (max-width: $screen-md-max) {
+                                font-size: 28px;
+                            }
+                        }
+                        .banner-sub-description {
+                            display: inline-block;
+                            font-size: 20px;
+                            letter-spacing: 0.075em;
+                            text-transform: uppercase;
+                            font-family: $font-secondary;
+                            @media screen and (max-width: $screen-md-max) {
+                                font-size: 14px;
+                            }
+                        }
+                    }
+                }
+            }
+            &.style_9 {
+                .banner-item-wrap {
+                    border: 1px solid #e5e5e5;
+                    position: relative;
+                    overflow: hidden;
+                }
+                img {
+                    width: 100%;
+                }
+                .banner-content-inner {
+                    background-color: $white;
+                    border: 1px solid #c9c6ca;
+                    padding: 5px;
+                    position: absolute;
+                    top: 50%;
+                    right: 0;
+                    max-width: 70%;
+                    transform: translateY(-50%);
+                    .banner-content {
+                        border: 1px solid $cl-border;
+                        padding: 30px 20px;
+                        text-align: right;
+                        @media screen and(max-width: $screen-md-max) {
+                            padding: 15px 10px;
+                        }
+                        .banner-title,
+                        a {
+                            color: $cl-heading;
+                            font-size: 17px;
+                            letter-spacing: 0.2em;
+                            margin: 0;
+                            position: relative;
+                            text-transform: uppercase;
+                            transition: all .3s;
+                            &:hover {
+                                color: $cl-primary;
+                                transition: all .3s;
+                            }
+                            @media screen and(max-width: $screen-md-max) {
+                                font-size: 14px;
+                            }
+                        }
+                        .banner-title {
+                            &:hover {
+                                color: $cl-heading;
+                            }
+                        }
+                        .banner-description {
+                            color: $cl-heading;
+                            font-size: 15px;
+                            margin: 15px 0 0 0;
+                            letter-spacing: 0.1em;
+                            @media screen and(max-width: $screen-md-max) {
+                                font-size: 15px;
+                                letter-spacing: 0.1em;
+                                margin: 10px 0 0 0;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+	}
+	// Layout style
+	&.packery {
+		.banner-list {
+            margin-left: -1px;
+            margin-right: -1px;
+            border-top: 1px solid #e5e5e5;
+            border-bottom: 1px solid #e5e5e5;
+            padding: 1px 0;
+            .banner-item {
+                // General
+                padding: 1px;
+            }
+		}
+	}
+    &.packery_2 {
+        .banner-list {
+            margin-left: -10px;
+            margin-right: -10px;
+        }
+    }
+    &.masonry {
+        .banner-list {
+            margin-left: -10px;
+            margin-right: -10px;
+        }
+    }
+}

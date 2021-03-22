@@ -1,0 +1,1033 @@
+// Single Actor
+$root: '.single-person';
+
+#{$root} {
+	// General
+	&__information {
+		margin-top: 20px;
+		font-weight: $fw-semi-bold;
+
+		ul {
+			padding: 0;
+			margin: 0;
+			list-style: none;
+		}
+
+		.information-label {
+			display: inline-block;
+			min-width: 120px;
+		}
+
+		.information-content {
+			color: $cl-heading;
+			padding-left: 50px;
+		}
+	}
+
+	&__social {
+		margin-top: 40px;
+
+		ul {
+    		padding: 0;
+    		margin: 0;
+    		list-style: none;
+    	}
+
+    	li {
+    		display: inline-block;
+    		margin: 0 3px;
+
+    		&:first-child {
+    			margin-left: 0;
+    		}
+
+    		&:last-child {
+    			margin-right: 0;
+    		}
+    	}
+
+    	.social-label {
+    		display: none;
+    	}
+
+    	a {
+    		display: block;
+    		border-radius: 50%;
+    		color: $cl-black;
+    		width: 48px;
+    		height: 48px;
+    		line-height: 48px;
+    		font-size: 16px;
+    		text-align: center;
+    		border: 1px solid rgba($cl-black, .2);
+    		transition: all .3s;
+
+    		&:hover {
+    			border: 1px solid $cl-primary;
+    			background-color: $cl-primary;
+    			color: $cl-white;
+    			transition: all .3s;
+    		}
+    	}
+	}
+
+	&__filmography {
+		ul {
+    		padding: 0;
+    		margin: 0;
+    		list-style: none;
+    	}
+
+    	li {
+    		display: flex;
+    		border-bottom: 1px solid $cl-border-2;
+    		padding: 20px 0 25px;
+    	}
+
+    	.filmography-year {
+    		flex: 0 0 125px;
+    		font-size: 24px;
+    		color: $cl-heading;
+    	}
+
+    	.filmography-movie {
+    		display: block;
+    		font-size: 24px;
+    		font-weight: $fw-semi-bold;
+    		color: $cl-heading;
+
+    		a {
+    			color: $cl-heading;
+    			transition: all .3s;
+
+    			&:hover {
+    				color: $cl-primary;
+    				transition: all .3s;
+    			}
+    		}
+    	}
+
+    	.filmography-position {
+    		color: $cl-heading;
+    		font-weight: $fw-medium;
+    	}
+
+    	.filmography-url {
+    		margin-left: auto;
+    		padding-top: 10px;
+    		flex: 0 0 100px;
+
+    		a {
+    			font-size: 18px;
+    			font-weight: $fw-semi-bold;
+    			color: $cl-heading;
+    			display: flex;
+    			justify-content: flex-end;
+    			align-items: center;
+    			transition: all .3s;
+
+    			&:hover {
+    				color: $cl-primary;
+    				transition: all .3s;
+    			}
+
+    			i {
+    				font-size: 24px;
+    				margin-left: 6px;
+    				margin-bottom: -5px;
+    			}
+    		}
+    	}
+	}
+
+	&__gallery-list {
+		
+	}
+
+	.padding {
+		margin: -10px;
+
+		#{$root}__gallery-item {
+			padding: 10px;
+		}
+
+		.landscape {
+			#{$root}__gallery-image {
+				padding-bottom: calc(50% - 10px);
+			}
+		}
+
+		.portrait {
+			#{$root}__gallery-image {
+				padding-bottom: calc(200% + 20px);
+			}
+		}
+	}
+
+	&__gallery-image {
+		padding-bottom: 100%;
+		position: relative;
+		overflow: hidden;
+
+		&:hover {
+			img {
+				transform: translate(-50%, -50%) scale(1.1);
+				transition: all .3s;
+			}
+		}
+
+		img {
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%) scale(1);
+			transition: all .3s;
+		}
+	}
+
+	&__gallery-popup-link {
+		display: block;
+	    position: absolute;
+	    top: 0;
+	    left: 0;
+	    width: 100%;
+	    height: 100%;
+	    z-index: 1;
+	}
+
+	&__gallery-item {
+		position: relative;
+		float: left;
+		width: 25%;
+
+		&.landscape {
+			width: 50%;
+
+			#{$root}__gallery-image {
+				padding-bottom: 50%;
+			}
+		}
+
+		&.portrait {
+			#{$root}__gallery-image {
+				padding-bottom: 200%;
+			}
+
+			img {
+				height: 100%;
+				max-width: none;
+			}
+		}
+
+		&.big-square {
+			width: 50%;
+		}
+	}
+
+	// Director
+	&__director-top {
+		display: flex;
+	}
+
+	&__director-thumbnail {
+		flex: 0 0 50%;
+		padding-right: 10%;
+	}
+
+	&__director-info {
+		flex: 0 0 50%;
+	}
+
+	&__director-title {
+		color: $cl-heading;
+		font-size: 56px;
+	}
+
+	&__director-known-for {
+		font-size: 18px;
+		text-transform: uppercase;
+	}
+
+	&__director-short-description {
+		margin-top: 15px;
+	}
+
+	&__director-section-title {
+		font-size: 36px;
+		border-bottom: 1px solid $cl-border;
+	    margin-bottom: 35px;
+	    padding-bottom: 10px;
+	    margin-top: 50px;
+	}
+
+	&__director-main {
+		display: flex;
+	}
+
+	&__director-quote {
+		flex: 0 0 calc(33% + 30px);
+		padding-right: 45px;
+		padding-top: 45px;
+		text-align: center;
+
+		#{$root}__director-quote-text {
+			font-size: 36px;
+			color: $cl-heading;
+			line-height: 1.4;
+		}
+
+		&-author {
+			font-size: 18px;
+			font-weight: $fw-semi-bold;
+			color: $cl-heading;
+			margin-top: 35px;
+		}
+	}
+
+	&__director-videos {
+		margin: 0 -15px;
+	}
+
+	&__director-award {
+		ul {
+    		padding: 0;
+    		margin: 0;
+    		list-style: none;
+    	}
+
+    	li {
+    		display: flex;
+    		border-bottom: 1px solid $cl-border-2;
+    		padding: 20px 0 25px;
+    	}
+
+    	.award-year {
+    		flex: 0 0 125px;
+    		font-size: 24px;
+    		color: $cl-heading;
+    	}
+
+    	.award-winner {
+    		display: block;
+    		font-size: 24px;
+    		font-weight: $fw-semi-bold;
+    		color: $cl-heading;
+    	}
+
+    	.award-movie {
+    		color: $cl-heading;
+    		font-weight: $fw-medium;
+    		text-transform: uppercase;
+
+    		a {
+    			color: $cl-heading;
+    			transition: all .3s;
+
+    			&:hover {
+    				color: $cl-primary;
+    				transition: all .3s;
+    			}
+    		}
+    	}
+
+    	.award-url {
+    		margin-left: auto;
+    		padding-top: 10px;
+    		flex: 0 0 100px;
+
+    		a {
+    			font-size: 18px;
+    			font-weight: $fw-semi-bold;
+    			color: $cl-heading;
+    			display: flex;
+    			justify-content: flex-end;
+    			align-items: center;
+    			transition: all .3s;
+
+    			&:hover {
+    				color: $cl-primary;
+    				transition: all .3s;
+    			}
+
+    			i {
+    				font-size: 24px;
+    				margin-left: 6px;
+    				margin-bottom: -5px;
+    			}
+    		}
+    	}
+	}
+
+	// Actor
+	&__actor-top {
+		text-align: center;
+	}
+
+	#{$root}__actor-title {
+		font-size: 56px;
+		font-weight: $fw-normal;
+		text-transform: uppercase;
+	}
+
+	&__actor-known-for {
+		font-size: 18px;
+		text-transform: uppercase;
+	}
+
+	&__actor-intro {
+		margin-top: 70px;
+	}
+
+	// Section
+	&__actor-section {
+		display: flex;
+		margin-top: 90px;
+	}
+
+	&__actor-section-title {
+		flex: 0 0 50%;
+		padding-right: 10%;
+	}
+
+	&__actor-section-content {
+		flex: 0 0 50%;
+	}
+
+	&__actor-main-title {
+		font-size: 18px;
+		text-transform: uppercase;
+	}
+
+	&__actor-sub-title {
+		font-size: 44px;
+	}
+
+	// Counter
+	&__actor-counter {
+		display: flex;
+		flex-wrap: wrap;
+	}
+
+	&__actor-counter-item {
+		flex: 0 0 50%;
+		padding: 10px 0;
+	}
+
+	&__actor-counter-number {
+		font-size: 44px;
+		font-weight: $fw-bold;
+		color: $cl-heading;
+	}
+
+	&__actor-counter-title {
+		font-size: 24px;
+		font-weight: $fw-medium;
+		color: $cl-text-2;
+		text-transform: uppercase;
+	}
+
+	// Videos
+	&__actor-video-url {
+		margin-top: 30px;
+
+		a {
+			font-size: 18px;
+			font-weight: $fw-semi-bold;
+			color: $cl-heading;
+			display: inline-flex;
+			align-items: center;
+			transition: all .3s;
+
+			&:hover {
+				color: $cl-primary;
+				transition: all .3s;
+			}
+
+			i {
+				font-size: 24px;
+				margin-left: 6px;
+				margin-bottom: -5px;
+			}
+		}
+	}
+
+	.video-item {
+		padding: 0 15px;
+		margin-bottom: 20px;
+	}
+
+	// Award
+	&__actor-award {
+		ul {
+			padding: 0;
+			margin: 0;
+			list-style: none;
+			display: flex;
+			flex-wrap: wrap;
+		}
+
+		li {
+			flex: 0 0 33.333333%;
+			margin-bottom: 50px;
+			padding-right: 20px;
+		}
+
+		img {
+			max-width: 80%;
+		}
+	}
+
+	&__actor-award-winner {
+		color: $cl-text-2;
+	}
+
+	&__actor-gallery {
+		margin-top: 80px;
+	}
+}
+
+// Contact
+// Director
+$director-contact: '.director-contact';
+
+#{$director-contact} {
+	margin-top: 100px;
+	padding: 8% 15px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: relative;
+    text-align: center;
+
+    &:before {
+    	content: '';
+    	position: absolute;
+    	top: 0;
+    	left: 0;
+    	width: 100%;
+    	height: 100%;
+    	background-color: rgba($cl-black, .7);
+    }
+
+    &__title,
+    &__sub-title,
+    &__social {
+    	color: $cl-white;
+    	position: relative;
+    	z-index: 1;
+    }
+
+    &__title {
+    	font-size: 16px;
+		text-transform: uppercase;
+    }
+
+    #{$director-contact}__sub-title {
+    	font-size: 56px;
+    	margin-top: 10px;
+    }
+
+    &__social {
+    	margin-top: 30px;
+
+    	ul {
+    		padding: 0;
+    		margin: 0;
+    	}
+
+    	li {
+    		display: inline-block;
+    		margin: 0 3px;
+
+    		&:first-child {
+    			margin-left: 0;
+    		}
+
+    		&:last-child {
+    			margin-right: 0;
+    		}
+    	}
+
+    	.social-label {
+    		display: none;
+    	}
+
+    	a {
+    		display: block;
+    		border-radius: 50%;
+    		color: $cl-white;
+    		width: 48px;
+    		height: 48px;
+    		line-height: 46px;
+    		font-size: 16px;
+    		text-align: center;
+    		border: 1px solid rgba($cl-white, .2);
+    		transition: all .3s;
+
+    		&:hover {
+    			border: 1px solid $cl-primary;
+    			background-color: $cl-primary;
+    			transition: all .3s;
+    		}
+    	}
+    }
+}
+
+// Actor
+$actor-contact: '.actor-contact';
+
+#{$actor-contact} {
+	padding: 6% 0;
+	text-align: center;
+
+	#{$actor-contact}__title,
+	#{$actor-contact}__sub-title {
+		font-weight: $fw-light;
+		line-height: 1.4;
+		text-transform: uppercase;
+	}
+
+	#{$actor-contact}__title {
+		font-size: 64px;
+	}
+
+	#{$actor-contact}__sub-title {
+		font-size: 40px;
+		
+	}
+
+	&__social {
+    	margin-top: 30px;
+
+    	ul {
+    		padding: 0;
+    		margin: 0;
+    	}
+
+    	li {
+    		display: inline-block;
+    		margin: 0 15px;
+
+    		&:first-child {
+    			margin-left: 0;
+    		}
+
+    		&:last-child {
+    			margin-right: 0;
+    		}
+    	}
+
+    	
+
+    	a {
+    		display: block;
+    		color: $cl-heading;
+    		font-size: 20px;
+    		font-weight: $fw-semi-bold;
+    		transition: all .3s;
+
+    		&:hover {
+    			color: $cl-primary;
+    			transition: all .3s;
+    		}
+    	}
+    }
+
+    &__content {
+		display: none;
+	}
+}
+
+// Dark Mode
+.dark-mode {
+    #{$root} {
+    	// General
+		&__information {
+			.information-content {
+				color: $cl-white-dark;
+			}
+		}
+
+		&__social {
+	    	a {
+	    		color: $cl-white-dark;
+	    		border: 1px solid rgba($cl-white-dark, .2);
+	    	}
+		}
+
+		&__filmography {
+	    	li {
+	    		border-bottom: 1px solid $cl-border-2-dark;
+	    	}
+
+	    	.filmography-year {
+	    		color: $cl-white-dark;
+	    	}
+
+	    	.filmography-movie {
+	    		color: $cl-white-dark;
+
+	    		a {
+	    			color: $cl-white-dark;
+
+	    			&:hover {
+	    				color: $cl-primary;
+	    			}
+	    		}
+	    	}
+
+	    	.filmography-position {
+	    		color: $cl-white-dark;
+	    	}
+
+	    	.filmography-url {
+	    		a {
+	    			color: $cl-white-dark;
+
+	    			&:hover {
+	    				color: $cl-primary;
+	    			}
+	    		}
+	    	}
+		}
+
+		// Director
+		&__director-section-title {
+			color: $cl-white-dark;
+			border-bottom: 1px solid $cl-border-dark;
+		}
+
+		&__director-quote {
+			#{$root}__director-quote-text {
+				color: $cl-white-dark;
+			}
+
+			&-author {
+				color: $cl-white-dark;
+			}
+		}
+
+		&__director-award {
+	    	li {
+	    		border-bottom: 1px solid $cl-border-2-dark;
+	    	}
+
+	    	.award-year {
+	    		color: $cl-white-dark;
+	    	}
+
+	    	.award-winner {
+	    		color: $cl-white-dark;
+	    	}
+
+	    	.award-movie {
+	    		color: $cl-white-dark;
+
+	    		a {
+	    			color: $cl-white-dark;
+
+	    			&:hover {
+	    				color: $cl-primary;
+	    			}
+	    		}
+	    	}
+
+	    	.award-url {
+	    		a {
+	    			color: $cl-white-dark;
+
+	    			&:hover {
+	    				color: $cl-primary;
+	    			}
+	    		}
+	    	}
+		}
+
+		// Actor
+		&__actor-counter-number {
+			color: $cl-white-dark;
+		}
+
+		&__actor-counter-title {
+			color: $cl-text-2;
+		}
+
+		&__actor-video-url {
+    		a {
+    			color: $cl-white-dark;
+
+    			&:hover {
+    				color: $cl-primary;
+    			}
+    		}
+    	}
+
+    	#{$actor-contact} {
+    		&__social {
+    			a {
+	    			color: $cl-white-dark;
+
+	    			&:hover {
+	    				color: $cl-primary;
+	    			}
+	    		}
+    		}
+    	}
+    }
+}
+
+// Navigation
+// .single-person-nav {
+// 	display: flex;
+// 	padding-bottom: 30px;
+// 	margin-bottom: 30px;
+// 	border-bottom: 1px solid $cl-border;
+
+// 	@media screen and (max-width: $screen-xs-max) {
+// 		display: block;
+// 	}
+
+// 	.person-nav-link {
+// 		position: absolute;
+// 		top: 0;
+// 		left: 0;
+// 		width: 100%;
+// 		height: 100%;
+// 		z-index: 1;
+// 	}
+
+// 	.single-person-nav-content {
+// 		display: flex;
+// 		align-items: flex-start;
+// 	}
+
+// 	.person-nav-thumb {
+// 		position: relative;
+
+// 		img {
+// 			max-width: 110px;
+// 			border-radius: $border-radius;
+// 		}
+// 	}
+
+// 	.person-nav-count-video {
+// 		position: absolute;
+//         bottom: 5px;
+//         right: 5px;
+//         color: $white;
+//         background-color: rgba($black, .7);
+//         font-size: $fs_extra_small;
+//         font-weight: $fw-medium;
+//         padding: 0 5px;
+//         z-index: 2;
+//         border-radius: $border-radius_small;
+//         text-transform: capitalize;
+// 	}
+
+// 	.person-nav-label {
+// 		color: $cl-text-2;
+// 		letter-spacing: 1px;
+// 		line-height: 1;
+// 		font-weight: $fw-medium;
+// 		text-transform: uppercase;
+// 	}
+
+// 	.person-nav-title {
+// 		margin: 8px 0;
+// 		font-weight: $fw-medium;
+// 	}
+
+// 	.person-nav-info {
+// 		display: flex;
+// 		flex-wrap: wrap;
+// 	    font-size: 12px;
+
+// 	    > div {
+// 		    margin-right: 15px;
+// 		    position: relative;
+
+// 		    &:after {
+// 		    	content: '';
+// 			    width: 3px;
+// 			    height: 3px;
+// 			    background-color: $cl-text;
+// 			    position: absolute;
+// 			    right: -8px;
+// 			    border-radius: 50%;
+// 			    top: 50%;
+// 			    transform: translateY(-50%);
+// 		    }
+
+// 		    &:last-child {
+// 		    	margin-right: 0;
+
+// 		    	&:after {
+// 		    		display: none;
+// 		    	}
+// 		    }
+// 		}
+// 	}
+
+// 	.single-person-prev {
+// 		width: 50%;
+// 		position: relative;
+
+// 		@media screen and (max-width: $screen-xs-max) {
+// 			width: 100%;
+// 			padding-bottom: 15px;
+// 			margin-bottom: 16px;
+// 			border-bottom: 1px solid $cl-border;
+// 		}
+
+// 		.person-nav-meta {
+// 			padding-left: 10px;
+// 		}
+// 	}
+
+// 	.single-person-next {
+// 		width: 50%;
+// 		margin-left: auto;
+// 		text-align: right;
+// 		position: relative;
+
+// 		@media screen and (max-width: $screen-xs-max) {
+// 			width: 100%;
+// 		}
+
+// 		.single-person-nav-content {
+// 			justify-content: flex-end;
+// 		}
+
+// 		.person-nav-info {
+// 			justify-content: flex-end;
+// 		}
+
+// 		.person-nav-meta {
+// 			padding-right: 10px;
+// 		}
+// 	}
+// }
+
+// Related
+// .single-related-person {
+// 	position: relative;
+// 	overflow: hidden;
+
+// 	.related-title {
+// 		padding-bottom: 15px;
+// 		margin-bottom: 25px;
+// 		font-size: 20px;
+// 		position: relative;
+// 		font-weight: $fw-medium;
+
+// 		@media screen and (max-width: $screen-md-max) {
+// 			font-size: 18px;
+// 		}
+
+// 		@media screen and (max-width: $screen-xs-max) {
+// 			font-size: 16px;
+// 		}
+// 	}
+
+// 	.related-list {
+// 		margin: 0 -10px;
+// 	}
+
+// 	.person-item {
+// 		padding: 0 10px;
+
+// 		&:focus {
+// 			outline: none;
+// 		}
+// 	}
+
+// 	// Slick general
+// 	.haru-slick {
+// 		display: none;
+
+// 		&.slick-initialized {
+// 			display: block;
+// 		}
+
+// 		&:hover {
+// 			.slick-arrow {
+// 		        &.slick-prev, 
+// 		        &.slick-next {
+					
+// 		        }
+// 	        }
+// 		}
+// 	}
+
+// 	// Arrow
+//     .slick-arrow {
+//         &.slick-prev, 
+//         &.slick-next {
+//             border: none;
+//             color: transparent;
+//             cursor: pointer;
+//             display: block;
+//             font-size: 0;
+//             line-height: 0;
+//             outline: none;
+//             padding: 0;
+//             position: absolute;
+//             background-color: transparent;
+//             top: -58px;
+//             right: 0;
+//             z-index: 9;
+//             width: 26px;
+//             height: 26px;
+//             border-radius: $border-radius_small;
+//             transition: all .3s;
+
+//             &:before {
+//                 color: $white;
+//                 font-family: 'slick';
+//                 font-size: 14px;
+//                 line-height: 1;
+//                 opacity: 1;
+//                 transition: all .3s;
+//             }
+
+//             &:hover {
+//                 &:before {
+//                     background-color: $cl-primary;
+//                     transition: all .3s;
+//                 }
+//             }
+//         }
+
+//         &.slick-prev {
+//             right: 40px;
+
+//             &:before {
+//                 display: inline-block;
+//                 background-repeat: no-repeat;
+//     			background-size: cover;
+//                 content: '';
+//                 -webkit-mask-image: url(../images/icon-arrow-left.svg);
+// 			    mask-image: url(../images/icon-arrow-left.svg);
+// 			    width: 4.69px;
+// 			    height: 8px;
+// 			    background-color: $cl-text;
+//             }
+//         }
+        
+//         &.slick-next {
+//             right: 10px;
+
+//             &:before {
+//                 display: inline-block;
+//                 background-repeat: no-repeat;
+//     			background-size: cover;
+//                 content: '';
+//                 -webkit-mask-image: url(../images/icon-arrow-right.svg);
+// 			    mask-image: url(../images/icon-arrow-right.svg);
+// 			    width: 4.69px;
+// 			    height: 8px;
+// 			    background-color: $cl-text;
+//             }
+//         }
+//     }
+// }
+

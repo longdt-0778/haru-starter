@@ -1,0 +1,211 @@
+$root: '.haru-meaning';
+
+#{$root} {
+    #{$root}__wrap {
+        display: flex;
+        align-items: center;
+        background-size: cover;
+        border-radius: $border-radius-large;
+        padding: 40px 75px;
+
+        @media screen and (max-width: $screen-xs-max) {
+            display: block;
+            padding: 40px 30px;
+        }
+    }
+
+    #{$root}__image {
+        flex: 0 0 125px;
+        margin-top: 5px;
+    }
+
+    #{$root}__content {
+        padding-left: 40px;
+
+        @media screen and (max-width: $screen-xs-max) {
+            padding-left: 0;
+        }
+    }
+
+    #{$root}__sub-title {
+        color: $cl-white;
+        font-weight: $fw-bold;
+    }
+
+    #{$root}__title {
+        color: $cl-white;
+        font-weight: $fw-bold;
+        margin-bottom: 10px;
+    }
+
+    #{$root}__description {
+        color: $cl-white;
+        font-size: 16px;
+        margin-bottom: 20px;
+
+        @media screen and (max-width: $screen-md-max) {
+            font-size: 15px;
+        }
+    }
+
+    #{$root}__btn {
+        font-size: 18px;
+
+        @media screen and (max-width: $screen-md-max) {
+            font-size: 16px;
+        }
+
+        .haru-button__icon {
+            width: 24px;
+            height: 24px;
+            margin-left: 12px;
+            border-radius: 50%;
+            display: inline-block;
+            background-color: rgba($cl-white, .1);
+            line-height: 20px;
+            text-align: center;
+
+            @media screen and (max-width: $screen-md-max) {
+                line-height: 22px;
+            }
+        }
+
+        .haru-icon {
+            margin-left: 0;
+        }
+
+        .haru-button {
+            &:hover,
+            &:focus {
+                color: $cl-white;
+            }
+        }
+    }
+
+    &__popup {
+
+        .mfp-content {
+            width: 80%!important;
+            max-width: 1140px;
+        }
+
+        &-content {
+            padding: 50px 65px;
+            background-color: $cl-white;
+            border-radius: $border-radius-large;
+            display: flex;
+
+            @media screen and (max-width: $screen-xs-max) {
+                display: block;
+                padding: 30px 15px;
+            }
+        }
+
+        &-image {
+            flex: 0 0 125px;
+        }
+
+        &-heading {
+            font-size: 24px;
+            margin-top: 0;
+
+             @media screen and (max-width: $screen-xs-max) {
+                font-size: 18px;
+             }
+        }
+
+        &-description {
+            padding-left: 45px;
+
+            @media screen and (max-width: $screen-xs-max) {
+                padding-left: 0;
+            }
+        }
+    }
+
+    &--style-1 {
+        #{$root}__wrap {
+            background-color: $cl-primary;
+        }
+
+        #{$root}__title {
+            font-size: 24px;
+
+            @media screen and (max-width: $screen-md-max) {
+                font-size: 22px;
+            }
+
+            @media screen and (max-width: $screen-xs-max) {
+                font-size: 18px;
+            }
+        }
+    }
+
+    &--style-2 {
+        #{$root}__wrap {
+            position: relative;
+            overflow: hidden;
+            align-items: flex-start;
+
+            &:before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-color: rgba($cl-black, .9);
+                z-index: 0;
+            }
+        }
+
+        #{$root}__title {
+            font-size: 40px;
+
+            @media screen and (max-width: $screen-md-max) {
+                font-size: 36px;
+            }
+
+            @media screen and (max-width: $screen-sm-max) {
+                font-size: 32px;
+            }
+
+            @media screen and (max-width: $screen-xs-max) {
+                font-size: 28px;
+            }
+        }
+
+        #{$root}__sub-title {
+            font-size: 32px;
+
+            @media screen and (max-width: $screen-md-max) {
+                font-size: 28px;
+            }
+
+            @media screen and (max-width: $screen-sm-max) {
+                font-size: 24px;
+            }
+
+            @media screen and (max-width: $screen-xs-max) {
+                font-size: 20px;
+            }
+        }
+
+        #{$root}__description {
+            font-style: italic;
+        }
+
+        #{$root}__image {
+            flex: 0 0 172px;
+            position: relative;
+
+            img {
+                border-radius: 50%;
+            }
+        }
+
+        #{$root}__content {
+            position: relative;
+        }
+    }
+}

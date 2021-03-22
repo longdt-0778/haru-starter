@@ -1,0 +1,128 @@
+/*-----------------------------------
+ * FOOTER
+ *-----------------------------------*/
+// Footer for theme unit test
+.original-footer {
+    text-align: center;
+    padding: 30px 0;
+}
+
+// Main footer
+#haru-footer-main {
+    // Footer Default
+    &.footer-default {
+        
+    }
+    // Footer 3
+    &.footer-3 {
+        
+    }
+    // Special style
+    .footer-default-info {
+        letter-spacing: 1.2px;
+        strong {
+            color: $primary_color;
+        }
+    }
+    .footer-fullwidth-info {
+        color: rgba($white, .9);
+        letter-spacing: 0.12em;
+    }
+    .footer-fullwidth-copyright {
+        color: $text_color_secondary;
+        letter-spacing: 0.12em;
+        strong {
+            color: $white;
+        }
+    }
+}
+
+.footer-logo {
+    @media only screen and (min--moz-device-pixel-ratio: 2),
+    only screen and (-o-min-device-pixel-ratio: 2/1),
+    only screen and (-webkit-min-device-pixel-ratio: 2),
+    only screen and (min-device-pixel-ratio: 2) {
+        display: none;
+    }
+}
+
+.footer-logo-retina {
+    display: none;
+
+    @media only screen and (min--moz-device-pixel-ratio: 2),
+    only screen and (-o-min-device-pixel-ratio: 2/1),
+    only screen and (-webkit-min-device-pixel-ratio: 2),
+    only screen and (min-device-pixel-ratio: 2) {
+        display: block;
+    }
+
+    img {
+        max-height: 24px;
+        width: auto;
+    }
+}
+
+// Subscribe
+.subscribe-default {
+    position: relative;
+    margin: 0 auto;
+    max-width: 360px;
+    border: 1px solid rgba($white, .5);
+    .subscribe-email {
+        input[type="email"] {
+            background: none;
+            border: none;
+            padding: 0 10px 0 70px;
+            line-height: 48px;
+            width: 100%;
+            font-weight: $fw-semi-bold;
+            color: $white;
+            @include placeholder($white);
+            &:focus {
+                outline: none;
+            }
+        }
+    }
+    .subscribe-submit {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 60px;
+        height: 100%;
+        &:before {
+            content: "\f1d8";
+            font-family: FontAwesome;
+            color: $white;
+            position: absolute;
+            right: 3px;
+            top: 50%;
+            @include transform(translateY(-50%));
+        }
+        input[type="submit"] {
+            border: none;
+            background: transparent;
+            color: $white;
+            font-size: 0;
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 100%;
+            @include transition(all .3s ease);
+            @include rounded(0);
+            &:hover {
+                background: transparent;
+                color: $primary_color;
+                @include transition(all .3s ease);
+            }
+            &:focus {
+                outline: none;
+            }
+
+        }
+    }
+}
+.mc4wp-response {
+    padding-top: 3%;
+    text-align: center;
+}

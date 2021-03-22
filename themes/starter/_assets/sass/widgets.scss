@@ -1,0 +1,204 @@
+// Starter
+
+// Starter portfolios
+.widget-starter-portfolios {
+    ul {
+        list-style: none;
+        list-style-type: none;
+        padding-left: 0;
+
+        // Remove a sign from Mega Menu
+        a {
+            &:after {
+                display: none;
+            }
+        }
+
+        // Style List
+        &.list_style_1, 
+        &.list_style_2 {
+            li {
+                padding-bottom: 10px;
+                .portfolio-image {
+                    width: 27%;
+                    float: left;
+                    margin-right: 10px;
+                    margin-top: 10px;
+                }
+                .portfolio-content {
+                    width: 68%;
+                    float: right;
+                    .portfolio-title {
+                        line-height: 1.4;
+                        a {
+                            font-weight: $fw_semi_bold;
+                        }
+                    }
+                    .portfolio-meta {
+                        font-size: 12px;
+
+                        span {
+                            padding: 0 6px;
+                            font-style: italic;
+                            &:first-child {
+                                padding-left: 0;
+                            }
+                            i {
+                                color: $primary_color;
+                                padding-right: 5px;
+                            }
+                            &.comment-count {
+                                display: none;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        // Carousel Style
+        &.carousel_1,
+        &.carousel_2 {
+            li {
+                .portfolio-image {
+
+                }
+                .portfolio-content {
+                    .portfolio-title {
+                        a {
+                            font-weight: $fw_semi_bold;
+                        }
+                    }
+
+                    .portfolio-meta {
+                        display: none;
+                    }
+                }
+            }
+            .owl-nav {
+                margin-top: 10px;
+
+                .owl-prev, 
+                .owl-next {
+                    display: inline-block;
+                    font-size: 12px;
+                    margin-right: 8px;
+                    height: 25px;
+                    line-height: 25px;
+                    border: 1px solid $border_color;
+                    text-align: center;
+                    width: 25px;
+                    &:hover {
+                        background-color: $primary_color;
+                        border: 1px solid $primary_color;
+                        color: $white;
+                    }
+                }
+            }
+        }
+    }
+}
+.widget-social-profile {
+	ul {
+		list-style: none;
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+        li {
+            display: inline-block;
+            @media screen and (max-width: $screen-xs-max) {
+                padding: 0 5px;
+            }
+            &:first-child {
+            	a {
+            		i {
+            			padding-left: 0;
+            		}
+            	}
+            }
+            a {
+                color: $text_color_secondary;
+                display: inline-block;
+                font-size: 0;
+                text-align: center;
+                @include transition(all .3s);
+                &:hover {
+                    color: $primary_color;
+                    @include transition(all .3s);
+                }
+                i {
+                    font-size: 16px;
+                    padding: 10px 10px;
+                }
+            }
+        }
+	}
+}
+// My Account
+.widget-my-account {
+	a {
+       	color: $text_color_secondary;
+       	@include transition(all .3s);
+       	&:hover {
+            color: $primary_color;
+            @include transition(all .3s);
+        }
+        &:first-child {
+        	padding-right: 15px;
+        	border-right: 1px solid $border_color;
+        }
+        &:last-child {
+        	padding-left: 12px;
+        }
+   	}
+}
+// Text widget
+.widget_text {
+    
+}
+
+// Canvas sidebar
+.haru-introduce-widget {
+    margin-top: 30px;
+    margin-bottom: 30px;
+    text-align: center;
+    .intro-description {
+        font-style: italic;
+        margin-top: 20px;
+    }
+}
+
+.haru-gallery-widget {
+    .gallery-images {
+        list-style: none;
+        padding: 0;
+        margin: -3px!important;
+    }
+    .gallery-image {
+        display: inline-block;
+        width: 33.333333%;
+        float: left;
+        padding: 3px;
+        &:hover {
+            img {
+                transform: scale(1.1);
+                transition: all .3s;
+            }
+        }
+    }
+    a {
+        display: block;
+        overflow: hidden;
+    }
+    img {
+        transform: scale(1);
+        transition: all .3s;
+    }
+}
+
+.sidebar-socials {
+    clear: both;
+    padding-top: 30px;
+    text-align: center;
+}
+

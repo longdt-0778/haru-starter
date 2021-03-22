@@ -1,0 +1,158 @@
+// Buttons
+$root: '.haru-button';
+$haru-icon: '.haru-icon';
+
+#{$root} {
+	display: inline-block;
+	color: $cl-white;
+  fill: $cl-white;
+  line-height: 1;
+	padding: 0 25px;
+	font-weight: $fw-bold;
+	text-align: center;
+	transition: all .3s;
+
+	&--size {
+		&-large {
+			height: 80px;
+			line-height: 80px;
+			font-size: 18px;
+			font-weight: $fw-bold;
+
+			@media screen and (max-width: $screen-md-max) {
+				height: 70px;
+				line-height: 70px;
+				font-size: 17px;
+			}
+
+			@media screen and (max-width: $screen-xs-max) {
+				height: 60px;
+				line-height: 60px;
+			}
+
+			#{$haru-icon} {
+				margin-left: 32px;
+			}
+		}
+
+		&-medium {
+			height: $e-height-base;
+			line-height: $e-height-base;
+			font-weight: $fw-bold;
+		}
+	}
+
+	&--bg {
+		&-primary {
+			background-color: $cl-primary;
+
+			&:hover {
+				background-color: darken($cl-primary, 5%);
+				color: $cl-white;
+			}
+		}
+
+		&-black {
+			background-color: $cl-black;
+			color: $cl-white;
+
+			&:hover {
+				color: $cl-white;
+			}
+
+			#{$haru-icon} {
+				background-color: $cl-white;
+			}
+		}
+
+		&-white {
+			background-color: $cl-white;
+			color: $cl-primary;
+
+			&:hover {
+				color: $cl-primary;
+			}
+
+			#{$haru-icon} {
+				background-color: $cl-primary;
+			}
+		}
+	}
+
+	&--border {
+		&-primary {
+			border: 1px solid $cl-primary;
+			line-height: $e-height-base - 2px;
+			color: $cl-primary;
+
+			&:hover {
+        background-color: $cl-primary;
+        color: $cl-white;
+			}
+		}
+	}
+
+	&--round {
+		&-small {
+			border-radius: $border-radius-small;
+		}
+
+		&-normal {
+			border-radius: $border-radius;
+		}
+
+		&-large {
+			border-radius: $border-radius-large;
+		}
+
+		&-full {
+			border-radius: 50%;
+		}
+	}
+
+	&--text {
+		padding: 0;
+
+		#{$haru-icon} {
+			margin-left: 15px;
+		}
+
+		&-primary {
+			color: $cl-primary;
+
+			#{$haru-icon} {
+				background-color: $cl-primary;
+			}
+		}
+
+		&-white {
+			color: $cl-white;
+
+			#{$haru-icon} {
+				background-color: $cl-white;
+			}
+		}
+	}
+
+	&--loading {
+    &:before {
+      content: '\f110';
+      font-family: "Font Awesome 5 Free";
+      font-weight: $fw-bold;
+      animation-name: haruSpin;
+      animation-duration: 2000ms;
+      animation-iteration-count: infinite;
+      animation-timing-function: linear;
+      margin-right: 3px;
+      display: none;
+    }
+  }
+
+  &.loading {
+  	pointer-events: none;
+
+    &:before {
+      display: inline-block;
+    }
+  }
+}

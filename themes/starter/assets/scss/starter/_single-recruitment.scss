@@ -1,0 +1,203 @@
+.single-recruitment-title {
+	&__sub {
+		font-size: 24px;
+		font-weight: $fw-bold;
+		color: $cl-primary;
+
+		@media screen and (max-width: $screen-sm-max) {
+			font-size: 20px;
+		}
+
+		@media screen and (max-width: $screen-xs-max) {
+			font-size: 16px;
+		}
+	}
+
+	&__main {
+		font-size: 52px;
+		margin-top: 0;
+		margin-bottom: 40px;
+		line-height: 1.5;
+
+		@media screen and (max-width: $screen-sm-max) {
+			font-size: 40px;
+		}
+
+		@media screen and (max-width: $screen-xs-max) {
+			font-size: 28px;
+		}
+	}
+}
+
+.single-recruitment-content {
+	h4 {
+		font-size: 18px;
+		color: $cl-primary;
+		margin-top: 30px;
+
+		@media screen and (max-width: $screen-xs-max) {
+			font-size: 16px;
+		}
+	}
+
+	ul {
+		padding-inline-start: 18px;
+	}
+
+	h5 {
+		font-size: 16px;
+		margin-top: 15px;
+	}
+}
+
+.single-wrap {
+	display: flex;
+	margin-top: 145px;
+	margin-bottom: 80px;
+
+	@media screen and (max-width: $screen-sm-max) {
+		display: block;
+		margin-top: 80px;
+	}
+
+	.single-sidebar-right {
+		flex: 0 0 364px;
+
+		@media screen and (max-width: $screen-sm-max) {
+			margin-top: 30px;
+		}
+	}
+}
+
+.single-main {
+	padding-right: 24px;
+}
+
+.single-recruitment-testimonial {
+	margin-bottom: 32px;
+}
+
+.testimonial-item {
+	border: 1px solid $cl-border;
+	border-radius: $border-radius-large;
+	padding: 28px;
+	text-align: center;
+
+	&__avatar {
+		img {
+			border-radius: 50%;
+			max-width: 172px;
+		}
+	}
+
+	&__name {
+		font-size: 24px;
+		margin-bottom: 5px;
+	}
+
+	&__position {
+		font-size: 16px;
+	}
+
+	&__quote {
+		font-size: 16px;
+		font-style: italic;
+		padding: 0 15px;
+		position: relative;
+		margin-top: 20px;
+		margin-bottom: 10px;
+
+		&:before {
+			content: '';
+			width: 14px;
+			height: 12px;
+			background-size: cover;
+			background-image: url(assets/images/icon-quote.svg);
+			position: absolute;
+			left: 3px;
+		}
+	}
+}
+
+.single-recruitment-apply {
+	background-color: $cl-primary;
+	padding: 32px;
+	border-radius: $border-radius-large;
+	position: relative;
+	margin-bottom: 20px;
+
+	&:before {
+		content: '';
+		position: absolute;
+		width: 44px;
+		height: 44px;
+		background-color: rgba($cl-white, .1);
+		border-radius: 50%;
+		right: 16px;
+		top: 19px;
+	}
+
+	.single-recruitment-bear {
+		margin-top: 10px;
+	}
+
+	h6 {
+		font-size: 24px;
+		color: $cl-white;
+		position: relative;
+		z-index: 0;
+
+		@media screen and (max-width: $screen-xs-max) {
+			font-size: 20px;
+		}
+
+		&:before {
+			content: '';
+			position: absolute;
+			width: 39px;
+			height: 39px;
+			background-color: rgba($cl-white, .1);
+			border-radius: 50%;
+			left: -15px;
+			top: 3px;
+			z-index: -1;
+		}
+	}
+
+	.recruitment-apply-list {
+		padding: 0;
+		list-style: none;
+		color: $cl-white;
+		font-weight: $fw-semi-bold;
+	}
+
+	.recruitment-apply-item {
+		display: flex;
+		margin-bottom: 10px;
+
+		&:before {
+			content: '';
+			width: 25.5px;
+			height: 25.5px;
+			background-size: cover;
+			background-image: url(assets/images/icon-check.png);
+			margin-right: 5px;
+		}
+	}
+
+	.recruitment-apply-btn {
+		width: 100%;
+		height: 64px;
+		line-height: 64px;
+		font-size: 16px;
+		margin-top: 45px;
+
+		.haru-icon {
+			margin-left: 20px;
+		}
+	}
+}
+
+.recruitement-contact-form {
+	background-color: $cl-red-3;
+}

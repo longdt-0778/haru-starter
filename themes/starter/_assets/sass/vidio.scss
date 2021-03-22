@@ -1,0 +1,118 @@
+// Need use this don't use in theme options
+@import "starter/vidi";
+
+.body-font {
+    font-family: $body_font;
+}
+
+.secondary-font {
+    font-family: $secondary_font;
+}
+
+.cl-secondary {
+    color: $text_color_secondary;
+}
+
+.cl-white {
+    color: $white;
+}
+
+// Home 3
+.footer-social-3 {
+    .social-list {
+        &.align-right {
+            @media screen and (max-width: $screen-xs-max) {
+                text-align: left!important;
+                margin-bottom: 25px!important;
+            }
+        }
+    }
+}
+
+// Contact Us
+.contact-info {
+    padding-right: 5%!important;
+
+    @media screen and (max-width: $screen-sm-max) {
+        padding-right: 0!important;
+    }
+}
+
+.overflow-visible {
+    overflow: visible!important;
+}
+
+.vertical-menu-holder {
+    @media screen and (max-width: $screen-sm-max) {
+        min-height: 0;
+    }
+
+    @media screen and (max-width: $screen-xs-max) {
+        min-height: 1px;
+    }
+}
+
+// Haru Responsive
+.haru-col-sm-3 {
+    @media screen and (max-width: $screen-sm-max) {
+        width: 25%!important;    
+    }
+
+    @media screen and (max-width: $screen-xs-max) {
+        width: auto!important;    
+    }
+}
+.haru-col-sm-4 {
+    @media screen and (max-width: $screen-sm-max) {
+        width: 33.333333%!important;    
+    }
+
+    @media screen and (max-width: $screen-xs-max) {
+        width: auto!important;    
+    }
+}
+.haru-col-sm-6 {
+    @media screen and (max-width: $screen-sm-max) {
+        width: 50%!important;    
+    }
+
+    @media screen and (max-width: $screen-xs-max) {
+        width: auto!important;    
+    }
+
+    &:nth-child(3) {
+        @media screen and (max-width: $screen-sm-max) {
+            clear: left;
+        }
+        @media screen and (max-width: $screen-xs-max) {
+            clear: none;
+        }
+    }
+}
+.haru-col-sm-8 {
+    @media screen and (max-width: $screen-sm-max) {
+        width: 66.666666%!important;    
+    }
+
+    @media screen and (max-width: $screen-xs-max) {
+        width: auto!important;    
+    }
+}
+.haru-col-sm-9 {
+    @media screen and (max-width: $screen-sm-max) {
+        width: 75%!important;    
+    }
+
+    @media screen and (max-width: $screen-xs-max) {
+        width: auto!important;    
+    }
+}
+.haru-col-sm-12 {
+    @media screen and (max-width: $screen-sm-max) {
+        width: 100%!important;    
+    }
+
+    @media screen and (max-width: $screen-xs-max) {
+        width: auto!important;    
+    }
+}

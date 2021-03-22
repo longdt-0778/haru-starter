@@ -1,0 +1,37 @@
+// Header-6
+header {
+    &.header-6 {
+        // Nav
+        .haru-header-nav-wrap {
+            height: 70px;
+            transition: all .3s;
+            border-bottom: 1px solid $border_color;
+
+            &.nav-sticky {
+                border: none;
+            }
+
+            .header-navigation {
+                .menu-wrap {
+                    .haru-main-menu {
+                        > li {
+                            > a {
+                                line-height: 70px;
+                            }
+                        }
+                    }
+                }
+                .header-right {
+                    .header-elements {
+                        margin-left: 5px;
+
+                        .header-elements-item {
+                            margin-left: 25px;
+                        }
+                    }
+                }
+            }
+        }
+        // Sticky
+    }
+}

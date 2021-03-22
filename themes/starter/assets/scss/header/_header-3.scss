@@ -1,0 +1,162 @@
+// Header-3
+.header-3 {
+    .haru-header-nav-above-wrap {
+        border-bottom: 1px solid $cl-border;
+
+        .header-nav-above {
+            height: 80px;
+            padding: 10px 0;
+
+            .header-left {
+                -webkit-box-flex: 1;
+                -ms-flex: 1 0 0px;
+                flex: 1 0 0;
+            }
+            .header-logo {
+                    
+            }
+            .header-right {
+                display: flex;
+                -webkit-box-flex: 1;
+                -ms-flex: 1 0 0px;
+                flex: 1 0 0;
+                -webkit-box-pack: end;
+                -ms-flex-pack: end;
+                justify-content: flex-end;
+            }
+            .header-elements-item {
+                
+            }
+        }
+    }
+    // Nav
+    .haru-header-nav-wrap {
+        border-bottom: 1px solid $cl-border;
+
+        &.nav-sticky {
+            border: none;
+        }
+
+        .header-navigation {
+            .header-primary-menu {
+                .menu-wrap {
+                    .haru-main-menu {
+                        > li {
+                            &.current-menu-item {
+                                > a {
+                                    // color: $cl-text;
+                                }
+                            }
+                            > a {
+                                line-height: 60px;
+                            }
+                        }
+                    }
+                }
+            }
+            .header-elements-nav {
+                margin-left: 20px;
+            }
+        }
+    }
+    // Header Over Slideshow
+    &.header-over-slideshow {
+        .haru-header-nav-above-wrap {
+            .header-elements {
+                .header-elements-item {
+                    color: $white;
+                    &.search-box-wrap {
+                        input[type="text"] {
+                            color: $white;
+                            letter-spacing: 1px;
+                            @include placeholder(rgba($white, .5));
+                        }
+                        .search-box {
+                            button {
+                                &:hover {
+                                    color: $white;
+                                }
+                            }
+                        }
+                    }
+                    &.mini-cart-wrap {
+                        .widget_shopping_cart_content {
+                            .widget_shopping_cart_icon {
+                                position: relative;
+                                .total {
+                                    background: $white;
+                                    color: $cl-primary;
+                                }
+                                > i {
+                                    &:hover {
+                                        color: $white;
+                                    }
+
+                                }
+                            }
+                        }
+                    }
+                    .my-wishlist-wrap {
+                        .haru-wishlist {
+                            i {
+                                color: $white;
+                            }
+                            span.total {
+                                background-color: $white;
+                                color: $cl-primary;
+                            }
+                        }
+                    }
+                    &.user-account-wrap {
+                        .user-account-content {
+                            &.logged-out {
+                                a {
+                                    color: $white;
+                                }
+                            }
+                        }
+                    }
+                    &.search-button-wrap {
+                        a {
+                            &:hover {
+                                color: $white;
+                            }
+                            i {
+                                color: $white;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        .haru-header-nav-wrap {
+            .header-navigation {
+                .menu-wrap {
+                    .haru-main-menu {
+                        // Only apply option for level 1
+                        > li {
+                            &.current-menu-item {
+                                > a {
+                                    &:before {
+
+                                    }
+                                }
+                            }
+                            > a {
+                                &:before {
+
+                                }
+                            }
+                            &:hover {
+                                > a {
+
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    // Sticky
+}

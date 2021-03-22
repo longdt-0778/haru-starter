@@ -1,0 +1,38 @@
+// Placeholder text: https://github.com/twbs/bootstrap/pull/11526
+@mixin placeholder($color: $input-color-placeholder) {
+  &::-moz-placeholder {
+    color: $color;
+    opacity: 1; 
+  }
+
+  &:-ms-input-placeholder { 
+    color: $color; 
+  }
+
+  &::-webkit-input-placeholder { 
+    color: $color; 
+  }
+}
+
+// Scrollbar
+@mixin scrollbars($size, $foreground-color, $background-color: mix($foreground-color, white,  50%), $border-radius: $border-radius) {
+  & {
+    scrollbar-face-color: $foreground-color;
+    scrollbar-track-color: $background-color;
+  }
+
+  &::-webkit-scrollbar {
+    width: $size;
+    height: $size;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: $foreground-color;
+    border-radius: $border-radius;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: $background-color;
+    border-radius: $border-radius;
+  }
+}

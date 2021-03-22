@@ -1,0 +1,50 @@
+// Product Quick View
+.product-quick-view {
+    background-color: $cl-white;
+    margin: 30px auto;
+    max-width: 900px;
+    position: relative;
+    box-shadow: 0 2px 3px rgba($cl-black, .5);
+
+    .single-product-top {
+        .single-product-image-wrap {
+            .product-label__item {
+                font-size: 12px;
+            }
+        }
+    }
+
+    .summary {
+        overflow: auto;
+        overflow-x: hidden;
+        position: absolute;
+        right: 0;
+        top: 0;
+        height: 100%;
+        width: calc(100% - 15px);
+        padding-top: 20px;
+        padding-bottom: 30px;
+
+        @media screen and (max-width: $screen-xs-max) {
+            position: relative;
+            width: 100%;
+            padding-top: 0;
+        }
+    }
+
+    .woocommerce-review-link {
+        pointer-events: none;
+    }
+
+    .mfp-close {
+        &:hover {
+            background-color: transparent;
+            border: none;
+            color: $cl-primary;
+        }
+    }
+}
+
+.haru-scroll-content {
+    @include scrollbars(3px, $cl-primary, #ededed, 0);
+}

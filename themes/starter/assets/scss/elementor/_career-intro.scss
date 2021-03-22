@@ -1,0 +1,182 @@
+$root: '.haru-career-intro';
+
+#{$root} {
+    position: relative;
+    text-align: center;
+
+    &__content {
+        position: relative;
+        color: $cl-white;
+        border-radius: $border-radius-large;
+        padding: 0 5%;
+        background-size: cover;
+
+        &:before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            background-color: rgba($cl-primary, .9);
+            z-index: 0;
+            border-radius: $border-radius-large;
+        }
+
+        &:after {
+            content: '';
+            position: absolute;
+            background-color: $cl-red-2;
+            border-radius: 50%;
+            width: 42px;
+            height: 42px;
+            top: 75px;
+            left: 75px;
+            z-index: 0;
+
+            @media screen and (max-width: $screen-xs-max) {
+                top: 55px;
+                left: 55px;
+            }
+        }
+
+        > div {
+            position: relative;
+            z-index: 1;
+        }
+    }
+
+    &__sub-title {
+        font-size: 18px;
+        font-weight: $fw-light;
+        padding-top: 100px;
+        position: relative;
+
+        @media screen and (max-width: $screen-md-max) {
+            font-size: 16px;
+        }
+
+        &:before {
+            content: '';
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            background-color: $cl-red;
+            top: 46px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: -1;
+        }
+    }
+
+    &__title {
+        font-size: 56px;
+        font-weight: $fw-bold;
+        line-height: 1.5;
+        margin-bottom: 80px;
+
+        @media screen and (max-width: $screen-md-max) {
+            font-size: 48px;
+        }
+
+        @media screen and (max-width: $screen-sm-max) {
+            font-size: 36px;
+            margin-bottom: 60px;
+        }
+
+        @media screen and (max-width: $screen-xs-max) {
+            font-size: 32px;
+        }
+    }
+
+    &__description {
+        font-size: 32px;
+        font-weight: $fw-bold;
+        margin-bottom: 30px;
+
+        @media screen and (max-width: $screen-md-max) {
+            font-size: 28px;
+        }
+
+        @media screen and (max-width: $screen-sm-max) {
+            font-size: 24px;
+        }
+
+        @media screen and (max-width: $screen-xs-max) {
+            font-size: 20px;
+        }
+    }
+
+    &__sub-description {
+        font-size: 24px;
+
+        @media screen and (max-width: $screen-md-max) {
+            font-size: 20px;
+        }
+
+        @media screen and (max-width: $screen-sm-max) {
+            font-size: 18px;
+        }
+
+        @media screen and (max-width: $screen-xs-max) {
+            font-size: 16px;
+        }
+    }
+
+    &__btn-wrap {
+        margin-top: 50px;
+        padding-bottom: 50px;
+
+        @media screen and (max-width: $screen-xs-max) {
+            width: 100%;
+        }
+
+        .haru-button {
+            display: block;
+            width: 406px;
+            max-width: 100%;
+            margin: 0 auto;
+        }
+
+        .haru-button__icon {
+            width: 24px;
+            height: 24px;
+            margin-left: 12px;
+            border-radius: 50%;
+            display: inline-block;
+            background-color: rgba($cl-primary, .1);
+            line-height: 22px;
+            text-align: center;
+            position: relative;
+            top: -1px;
+        }
+
+        .haru-icon {
+            margin-left: 0;
+        }
+    }
+
+    &__btn-text {
+        color: $cl-black-2;
+        font-size: 18px;
+        font-weight: $fw-bold;
+        margin-bottom: 32px;
+
+        @media screen and (max-width: $screen-md-max) {
+            font-size: 16px;
+        }
+    }
+
+    &--style-1 {
+       
+    }
+
+    &--style-3 {
+        #{$root}__sub-title {
+            &:before {
+                display: none;
+            }
+        }
+    }
+}

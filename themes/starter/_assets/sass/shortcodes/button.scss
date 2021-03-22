@@ -1,0 +1,28 @@
+// Button style
+.button_style_1 {
+    @media screen and (max-width: $screen-xs-max) {
+        
+    }
+    
+    button,
+    a {
+        background-color: $primary_color!important;
+        height: 40px!important;
+        border: 1px solid $primary_color!important;
+        border-radius: $border_radius!important;
+        padding: 0 25px!important;
+        line-height: 38px!important;
+        font-weight: $fw-medium;
+        font-family: $secondary_font;
+        color: $white!important;
+        transition: all .3s!important;
+
+        &:hover {
+            background-color: transparent!important;
+            border: 1px solid $primary_color!important;
+            color: $primary_color!important;
+            transition: all .3s!important;
+        }
+    }
+}
+

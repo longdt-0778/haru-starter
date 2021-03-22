@@ -1,0 +1,665 @@
+$root: '.haru-nav-menu';
+$haru: '.haru';
+$haru-item: '.haru-item';
+$haru-sub-item: '.haru-sub-item';
+$haru-menu-toggle: '.haru-menu-toggle';
+$elementor-root: '.elementor-widget-haru-nav-menu';
+
+#{$root} {
+    display: block;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    line-height: normal;
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+
+    .menu-label {
+        border-radius: 2px;
+        color: $white;
+        padding: 2px 3px;
+        font-size: 9px;
+        text-align: center;
+        vertical-align: baseline;
+        margin-left: 5px;
+        position: relative;
+        top: -8px;
+    }
+
+    .menu-icon {
+        height: 16px;
+        line-height: 16px;
+        margin-right: 8px;
+
+        img {
+            max-height: 100%;
+        }
+    }
+
+    .sub-arrow {
+        i {
+            font-style: normal;
+            margin-left: 5px;
+            font-family: "FontAwesome";
+        }
+    }
+
+    ul {
+        padding: 0;
+        margin: 0;
+        list-style: none;
+        line-height: normal;
+        -webkit-tap-highlight-color: rgba(0,0,0,0);
+    }
+
+    a,
+    li {
+        position: relative;
+        display: block;
+    }
+
+    // Level 0
+    > li {
+        > a {
+            display: flex;
+            align-items: center;
+        }
+    }
+
+    
+
+    &--layout-horizontal {
+        display: flex;
+
+        #{$root} {
+            display: flex;
+            flex-wrap: wrap;
+
+            a {
+                white-space: nowrap;
+            }
+        }
+    }
+
+    &--indicator {
+        &-none {
+            #{$root} {
+                #{$haru-item} {
+                    &.has-submenu {
+                        padding-right: 20px;
+
+                        .sub-arrow {
+                            display: none;
+                        }
+                    }
+                }
+            }
+        }
+
+        &-chevron {
+            #{$root} {
+                .sub-arrow {
+                    i:before {
+                        content: "\f078";
+                    }
+                }
+            }
+        }
+
+        &-angle {
+            #{$root} {
+                .sub-arrow {
+                    i:before {
+                        content: "\f107";
+                    }
+                }
+            }
+        }
+
+        &-classic {
+            #{$root} {
+                .sub-arrow {
+                    i:before {
+                        content: "\f0d7";
+                    }
+                }
+            }
+        }
+
+        &-plus {
+            #{$root} {
+                .sub-arrow {
+                    i:before {
+                        content: '+';
+                    }
+
+                    &.active {
+                        i:before {
+                            content: '-';
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    &__align {
+        &-left {
+            #{$root} {
+                margin-right: auto;
+                justify-content: flex-start;
+            }
+        }
+
+        &-right {
+            #{$root} {
+                margin-left: auto;
+                justify-content: flex-end;
+            }
+        }
+
+        &-center {
+            #{$root} {
+                margin-left: auto;
+                margin-right: auto;
+                justify-content: center;
+            }
+        }
+
+        &-justify {
+            #{$root}--layout-horizontal {
+                #{$root} {
+                    width: 100%;
+
+                    > li {
+                        flex-grow: 1;
+
+                        > a {
+                            justify-content: center;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    &--main {
+        .menu-item-has-children {
+            &:hover {
+                // Level 1
+                > .sub-menu {
+                    display: block;
+                    top: 100%;
+                    left: 0;
+                    z-index: 99;
+                    background-color: $white;
+
+                    > .menu-item-has-children {
+                        &:hover {
+                            // Level 2
+                            > .sub-menu {
+                                display: block;
+                                top: 0;
+                                left: 100%;
+                                z-index: 99;
+                                background-color: $white;
+
+                                > .menu-item-has-children {
+                                    &:hover {
+                                        // Level 3
+                                        > .sub-menu {
+                                            display: block;
+                                            top: 0;
+                                            left: 100%;
+                                            z-index: 99;
+                                            background-color: $white;
+
+                                            > .menu-item-has-children {
+                                                &:hover {
+                                                    // Level 4
+                                                    > .sub-menu {
+                                                        display: block;
+                                                        top: 0;
+                                                        left: 100%;
+                                                        z-index: 99;
+                                                        background-color: $white;
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            > .sub-menu {
+                box-shadow: 0 0 10px 0 rgba(204, 204, 204, 0.5);
+
+                .sub-arrow {
+                    float: right;
+                }
+            }
+        }
+
+        #{$root} {
+            ul {
+                position: absolute;
+                min-width: 200px;
+                display: none;
+            }
+
+            a {
+                padding: 10px 13px;
+            }
+        }
+    }
+
+    &--dropdown {
+        background-color: $white;
+        font-size: 13px;
+        display: none;
+        max-height: 100vh;
+
+        ul:not(.sub-menu),
+        li {
+            display: block;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            line-height: normal;
+            -webkit-tap-highlight-color: rgba(0,0,0,0);
+        }
+
+        ul.sub-menu {
+            display: none;
+        }
+
+        ul {
+            ul {
+                a,
+                a:hover,
+                a:focus,
+                a:active {
+                    border-left: 8px solid transparent; 
+                }
+
+                ul {
+                    a,
+                    a:hover,
+                    a:focus,
+                    a:active {
+                        border-left: 16px solid transparent; 
+                    }
+
+                    ul {
+                        a,
+                        a:hover,
+                        a:focus,
+                        a:active {
+                            border-left: 24px solid transparent; 
+                        }
+
+                        ul {
+                            a,
+                            a:hover,
+                            a:focus,
+                            a:active {
+                                border-left: 32px solid transparent; 
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        a {
+            // color: #494c4f;
+            padding: 10px 13px;
+        }
+
+        #{$haru-item} {
+            &:hover,
+            &:focus,
+            &.highlighted,
+            &.haru-item-active {
+                background-color: $cl-primary;
+                color: $white;
+            }
+        }
+
+        &-tablet {
+            #{$root}--main {
+                @media screen and (max-width: 1024px) {
+                    display: none!important;
+                }
+            }
+
+            #{$root}--dropdown,
+            #{$haru-menu-toggle} {
+                @media screen and (min-width: 1025px) {
+                    display: none!important;
+                }
+            }
+
+            span.sub-arrow {
+                @media screen and (max-width: 1024px) {
+                    position: absolute;
+                    top: 50%;
+                    margin-top: -17px;
+                    left: auto;
+                    right: 10px;
+                    width: 34px;
+                    height: 34px;
+                    overflow: hidden;
+                    font: bold 16px/34px monospace !important;
+                    text-align: center;
+                    text-shadow: none;
+                    background: rgba($black, 0.1);
+                    border-radius: 4px;
+                    z-index: 9;
+                }
+            }
+
+            &#{$root}--indicator {
+                &-none {
+
+                }
+
+                &-plus {
+                    a.highlighted {
+                        .sub-arrow {
+                            i:before {
+                                @media screen and (max-width: 1024px) {
+                                    content: '-';
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        &-mobile {
+            #{$root}--main {
+                @media screen and (max-width: 767px) {
+                    display: none!important;
+                }
+            }
+
+            #{$root}--dropdown,
+            #{$haru-menu-toggle} {
+                @media screen and (min-width: 768px) {
+                    display: none!important;
+                }
+            }
+
+            span.sub-arrow {
+                @media screen and (max-width: 767px) {
+                    position: absolute;
+                    top: 50%;
+                    margin-top: -17px;
+                    left: auto;
+                    right: 0;
+                    width: 34px;
+                    height: 34px;
+                    overflow: hidden;
+                    font: bold 16px/34px monospace !important;
+                    text-align: center;
+                    text-shadow: none;
+                    background: rgba($black, 0.1);
+                    border-radius: 4px;
+                    z-index: 9;
+                }
+            }
+
+            &#{$root}--indicator {
+                &-plus {
+                    a.highlighted {
+                        .sub-arrow {
+                            i:before {
+                                @media screen and (max-width: 767px) {
+                                    content: '-';
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        &#{$root}__container {
+            margin-top: 10px;
+            overflow: auto;
+            z-index: 99;
+            // transform-origin: top;
+            // transition: max-height .3s, transform .3s;
+        }
+    }
+
+    &--stretch {
+        #{$root}--dropdown {
+            position: absolute;
+        }
+    }
+}
+
+#{$haru-menu-toggle} {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    padding: .25em;
+    cursor: pointer;
+    border: 0 solid;
+    border-radius: 3px;
+    background-color: rgba($black, .05);
+    color: #494c4f;
+
+    &.haru-active {
+        i:before {
+            content: '\e87f';
+        }
+    }
+}
+
+#{$elementor-root} {
+    &:not(#{$root}--toggle) {
+        #{$haru-menu-toggle} {
+            display: none;
+        }
+    }
+
+    .elementor-widget-container {
+        display: flex;
+        flex-direction: column;
+    }
+
+    #{$root}--main {
+        #{$haru-item} {
+            color: $cl-text-menu;
+
+            &:hover,
+            &:focus,
+            &.highlighted,
+            &.haru-item-active {
+                color: $cl-primary;
+            }
+        }
+    }
+}
+
+#{$haru-item} {
+    &:before,
+    &:after {
+        display: block;
+        position: absolute;
+        transition: .3s;
+    }
+
+    &:not(:hover):not(:focus):not(#{$haru-item}-active) {
+        &:before,
+        &:after {
+            opacity: 0;
+        }
+    }
+
+    &-active,
+    &:hover,
+    &:focus {
+        &:before,
+        &:after {
+            transform: scale(1);
+        }
+    }
+}
+
+#{$haru} {
+    &--pointer {
+        &-overline,
+        &-underline,
+        &-double-line {
+            #{$haru-item} {
+                &:before,
+                &:after {
+                    background-color: $cl-primary;
+                    height: 2px;
+                    width: 100%;
+                    left: 0;
+                    z-index: 1;
+                }
+            }
+
+            &#{$haru}--animation {
+                &-slide {
+                    #{$haru-item} {
+                        &:not(:hover):not(:focus):not(#{$haru-item}-active) {
+                            &:before {
+                                width: 8px;
+                                left: -16px;
+                            }
+
+                            &:after {
+                                width: 8px;
+                                left: calc( 100% + 16px);
+                            }
+                        }
+                    }
+                }
+
+                &-grow {
+                    #{$haru-item} {
+                        &:not(:hover):not(:focus):not(#{$haru-item}-active) {
+                            &:before,
+                            &:after {
+                                height: 0;
+                                width: 0;
+                                left: 50%;
+                            }
+                        }
+                    }
+                }
+
+                &-drop {
+                    &-in {
+                        #{$haru-item} {
+                            &:not(:hover):not(:focus):not(#{$haru-item}-active) {
+                                &:before {
+                                    top: -8px;
+                                }
+
+                                &:after {
+                                    bottom: -8px;
+                                }
+                            }
+                        }
+                    }
+
+                    &-out {
+                        #{$haru-item} {
+                            &:not(:hover):not(:focus):not(#{$haru-item}-active) {
+                                &:before {
+                                    top: 8px;
+                                }
+
+                                &:after {
+                                    bottom: 8px;
+                                }
+                            }
+                        }
+                    }
+                }
+
+                &-none {
+                    transition-duration: 0s;
+
+                    &:before,
+                    &:after,
+                    &:hover,
+                    &:focus {
+                        transition-duration: 0s;
+                    }
+
+                    #{$haru-item} {
+                        transition-duration: 0s;
+
+                        &:before,
+                        &:after,
+                        &:hover,
+                        &:focus {
+                            transition-duration: 0s;
+                        }
+                    }
+                }
+            }
+        }
+
+        &-overline,
+        &-double-line {
+            #{$haru-item} {
+                &:before {
+                    content: '';
+                    top: 0;
+                }
+            }
+        }
+
+        &-underline,
+        &-double-line {
+            #{$haru-item} {
+                &:after {
+                    content: '';
+                    bottom: 0;
+                }
+            }
+        }
+    }
+}
+
+#{$haru-sub-item} {
+    &:hover,
+    &:focus,
+    &.highlighted,
+    &.haru-item-active {
+        background-color: $cl-primary;
+        color: $white;
+        transition: all .3s;
+    }
+}
+
+.elementor-screen-only,
+.screen-reader-text,
+.screen-reader-text span,
+.ui-helper-hidden-accessible {
+    position: absolute;
+    top: -10000em;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    overflow: hidden;
+    clip: rect(0,0,0,0);
+    border: 0;
+}
+

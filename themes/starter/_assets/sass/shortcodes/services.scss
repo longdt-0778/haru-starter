@@ -1,0 +1,111 @@
+/*-----------------------------------
+ * SERVICES SHORTCODE
+ *-----------------------------------*/
+.services-shortcode-wrap {
+	.services-list {
+		display: flex;
+		flex-wrap: wrap;
+		&.columns-2 {
+			.service-item {
+				width: 50%;
+			}
+		}
+		&.columns-3 {
+			.service-item {
+				width: 33.333333%;
+			}
+		}
+		&.columns-4 {
+			.service-item {
+				width: 25%;
+				&:nth-child(4n) {
+					border-right: 0;
+				}
+				&:nth-child(n+5) {
+					border-bottom: 0;
+					@media screen and (max-width: $screen-sm-max) {
+						border-bottom: 1px solid $border_color;
+					}
+				}
+				// Responsive
+				&:nth-child(2n) {
+					@media screen and (max-width: $screen-sm-max) {
+						border-right: 0;
+					}
+				}
+				&:last-child,
+				&:nth-last-child(2) {
+				  	border-bottom: 0;
+				}
+				@media screen and (max-width: $screen-sm-max) {
+					width: 50%;
+				}
+			}
+		}
+		&.columns-5 {
+			.service-item {
+				width: 20%;
+			}
+		}
+	}
+	&.style_1 {
+		.service-item {
+			border-right: 1px solid $border_color;
+			border-bottom: 1px solid $border_color;
+			padding: 20px;
+			text-align: center;
+			transform: translateX(0);
+			transition: all .3s;
+			@media screen and (max-width: $screen-xs-max) {
+				padding: 20px 10px;
+			}
+			&.no-border {
+				border-bottom: none;
+				@media screen and (max-width: $screen-sm-max) {
+					border-bottom: 1px solid $border_color;
+				}
+				&:hover {
+					border-bottom: none;
+				}
+			}
+			.icon-wrap {
+				color: $heading_color;
+				font-size: 56px;
+				@media screen and (max-width: $screen-md-max) {
+					font-size: 48px;
+				}
+				@media screen and (max-width: $screen-xs-max) {
+					font-size: 36px;
+				}
+			}
+			.icon-title {
+				font-size: 24px;
+				font-weight: $fw_bold;
+				padding-bottom: 15px;
+				@media screen and (max-width: $screen-lg-max) {
+					font-size: 20px;
+				}
+				@media screen and (max-width: $screen-md-max) {
+					font-size: 18px;
+				}
+				@media screen and (max-width: $screen-xs-max) {
+					font-size: 16px;
+				}
+				a {
+					color: $heading_color;
+				}
+			}
+			&:hover {
+				background-color: $white;
+				box-shadow: 0px 13px 30px 0px rgba($heading_color, .08 );
+				border-right: 1px solid transparent;
+				border-bottom: 1px solid transparent;
+				transform: translateX(-1px);
+				transition: all .3s;
+				.icon-wrap {
+					color: $primary_color!important;
+				}
+			}
+		}
+	}
+}

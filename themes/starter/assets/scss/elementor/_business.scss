@@ -1,0 +1,263 @@
+$root: '.haru-business';
+
+#{$root} {
+
+	ul {
+		list-style: none;
+		list-style-type: none;
+		padding: 0;
+		margin: 0;
+		display: flex;
+
+		@media screen and (max-width: $screen-xs-max) {
+			display: block;
+		}
+	}
+
+	li {
+		width: 50%;
+
+		@media screen and (max-width: $screen-xs-max) {
+			width: 100%;
+		}
+
+		&:first-child {
+			margin-right: 20px;
+
+			@media screen and (max-width: $screen-xs-max) {
+				margin-right: 0;
+				margin-bottom: 25px;
+			}
+		}
+
+		&:last-child {
+			margin-left: 20px;
+
+			@media screen and (max-width: $screen-xs-max) {
+				margin-left: 0;
+			}
+		}
+	}
+
+	&__item {
+		border: 1px solid $cl-border;
+		border-radius: $border-radius-large;
+		padding: 48px;
+		background-color: $cl-white;
+		position: relative;
+
+		@media screen and (max-width: $screen-sm-max) {
+			padding: 36px;
+		}
+
+		&--active {
+			border: 1px solid $cl-primary;
+			background-color: $cl-primary;
+
+			&:before {
+				content: '';
+				width: 66px;
+				height: 66px;
+				border-radius: 50%;
+				background-color: #d82329;
+				position: absolute;
+				right: 33px;
+				top: 0;
+				transform: translateY(-50%);
+			}
+
+			#{$root}__title {
+				color: $cl-white;
+			}
+
+			#{$root}__sub-title {
+				color: $white;
+
+				&:before {
+					background-color: rgba($cl-white, .3);
+				}
+			}
+
+			#{$root}__description {
+				color: $cl-white;
+			}
+		}
+
+		&:nth-child(2) {
+			&:before {
+				content: '';
+				width: 36px;
+				height: 36px;
+				border-radius: 50%;
+				background-color: $cl-primary;
+				position: absolute;
+				right: -83px;
+				bottom: 166px;
+				transform: translateY(-50%);
+
+				@media screen and (max-width: $screen-sm-max) {
+					display: none;
+				}
+			}
+
+			&:after {
+				content: '';
+				width: 66px;
+				height: 66px;
+				border-radius: 50%;
+				background-color: #f7f7f7;
+				position: absolute;
+				right: 55%;
+				bottom: -85px;
+			}
+		}
+	}
+
+	&__title {
+		color: $cl-black;
+		font-weight: $fw-bold;
+		line-height: 1.2;
+	}
+
+	&__sub-title {
+		font-weight: $fw-light;
+		position: relative;
+		z-index: 0;
+		margin-top: 30px;
+		margin-bottom: 56px;
+
+		&:before {
+			content: '';
+			position: absolute;
+			width: 38px;
+			height: 38px;
+			background-color: #f3f3f3;
+			border-radius: 50%;
+			left: 0;
+			top: 50%;
+			transform: translate(-50%, -50%);
+			z-index: -1;
+		}
+	}
+
+	&__description {
+		font-size: 16px;
+	}
+
+	&__btn {
+		display: flex;
+    align-items: center;
+    justify-content: center;
+
+		#{$root}--bg-white {
+			color: $cl-primary;
+		}
+
+		.haru-button__icon {
+			width: 24px;
+			height: 24px;
+			margin-left: 12px;
+			border-radius: 50%;
+			display: inline-block;
+			background-color: rgba($cl-primary, .1);
+			line-height: 20px;
+			text-align: center;
+
+			@media screen and (max-width: $screen-md-max) {
+				line-height: 22px;
+			}
+		}
+
+		.haru-icon {
+			margin-left: 0;
+		}
+
+		&.haru-button--bg-black {
+			.haru-button__icon {
+				background-color: rgba($cl-white, .1);
+			}
+		}
+	}
+
+	&--style-1 {
+		#{$root}__title {
+			font-size: 40px;
+			margin-bottom: 32px;
+
+			@media screen and (max-width: $screen-lg-max) {
+				font-size: 36px;
+			}
+
+			@media screen and (max-width: $screen-md-max) {
+				font-size: 32px;
+			}
+
+			@media screen and (max-width: $screen-xs-max) {
+				font-size: 28px;
+			}
+		}
+
+		#{$root}__description {
+			margin-bottom: 85px;
+		}
+	}
+
+	&--style-2 {
+		#{$root}__item {
+			@media screen and (max-width: $screen-sm-max) {
+				padding: 30px;
+			}
+		}
+
+		#{$root}__title {
+			font-size: 32px;
+			margin-bottom: 20px;
+
+			@media screen and (max-width: $screen-xs-max) {
+				font-size: 24px;
+			}
+		}
+
+		#{$root}__description {
+			margin-bottom: 55px;
+		}
+
+		.haru-button--text {
+			font-size: 18px;
+
+			@media screen and (max-width: $screen-md-max) {
+				font-size: 16px;
+			}
+
+			&-white {
+				.haru-button__icon {
+					background-color: rgba($cl-white, .1);
+				}
+
+				&:hover {
+					color: $cl-white;
+				}
+			}
+		}
+
+		.haru-button__icon {
+			width: 24px;
+			height: 24px;
+			margin-left: 12px;
+			border-radius: 50%;
+			display: inline-block;
+			background-color: rgba($cl-primary, .1);
+			line-height: 20px;
+			text-align: center;
+
+			@media screen and (max-width: $screen-md-max) {
+				line-height: 22px;
+			}
+		}
+
+		.haru-icon {
+			margin-left: 0;
+		}
+	}
+}
+

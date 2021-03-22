@@ -1,0 +1,129 @@
+$root: '.haru-content-carousel';
+
+#{$root} {
+    margin-bottom: 70px;
+
+    ul {
+        padding: 0;
+        margin: 0;
+    }
+
+    #{$root}__item {
+
+    }
+
+    .haru-button {
+        margin-bottom: 15px;
+    }
+
+    .haru-arrow-right {
+        transform: scale(.8);
+        position: relative;
+        bottom: -3px;
+    }
+
+    .slick-next {
+        right: 0;
+    }
+
+    .slick-prev {
+        right: 72px;
+    }
+
+    &--style-1 {
+        #{$root}__image {
+            width: 100%;
+        }
+
+        #{$root}__content {
+            padding-top: 20px;
+        }
+
+        #{$root}__title {
+            font-size: 32px;
+            line-height: 1.5;
+            margin-top: 10px;
+            margin-bottom: 25px;
+
+            @media screen and (max-width: $screen-md-max) {
+                font-size: 28px;
+            }
+
+            @media screen and (max-width: $screen-sm-max) {
+                font-size: 24px;
+            }
+
+            @media screen and (max-width: $screen-xs-max) {
+                font-size: 20px;
+            }
+        }
+
+        #{$root}__description {
+            font-size: 16px;
+            margin-bottom: 20px;
+
+            @media screen and (max-width: $screen-xs-max) {
+                font-size: 15px;
+            }
+        }
+
+        .slick-prev,
+        .slick-next {
+            position: absolute;
+            bottom: -60px;
+        }
+    }
+
+    &--style-2 {
+        margin-bottom: 0;
+
+        ul {
+            margin: 0 -10px;
+        }
+
+        #{$root}__item {
+            position: relative;
+            margin: 0 10px 135px 10px;
+        }
+
+        #{$root}__content {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 100%;
+        }
+
+        #{$root}__image {
+            width: auto;
+            border-radius: $border-radius;
+        }
+
+        #{$root}__title {
+            font-size: 16px;
+            margin-top: 20px;
+            margin-bottom: 15px;
+        }
+
+        #{$root}__description {
+            color: $cl-black-3;
+        }
+
+        .slick-prev,
+        .slick-next {
+            position: absolute;
+            top: -120px;
+        }
+    }
+
+    &--core-value {
+        margin-top: 230px;
+
+        @media screen and (max-width: $screen-md-max) {
+            margin-top: 160px;
+        }
+
+        @media screen and (max-width: $screen-xs-max) {
+            margin-top: 40px;
+        }
+    }
+}

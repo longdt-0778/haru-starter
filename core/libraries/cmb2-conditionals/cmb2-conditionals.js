@@ -280,9 +280,11 @@ jQuery( document ).ready( function( $ ) {
 
 	switch( true ) {
 
-		// init for classic editor
+		// init for classic editor: https://github.com/jcchavezs/cmb2-conditionals/issues/65
 		case $( '#post' ).length > 0:
 			if ( $('body.post-type-product').length <= 0 ) {
+				CMB2ConditionalsInit( '#post', '#post .cmb2-wrap' );
+			} else {
 				CMB2ConditionalsInit( '#post', '#post .cmb2-wrap' );
 			}
 			break;

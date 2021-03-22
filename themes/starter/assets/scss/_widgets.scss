@@ -1,0 +1,186 @@
+// Starter
+// Post thumbnail
+.widget-post-thumbnail {
+  ul {
+    list-style: none;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    padding-top: 10px;
+
+    // Thumbnail left
+    &.thumb_left {
+      li {
+        border-bottom: 1px solid $cl-border;
+        padding-bottom: 20px;
+        margin-bottom: 20px;
+
+        &:last-child {
+          border: none;
+        }
+
+        .posts-thumbnail-image {
+          width: 28%;
+          float: left;
+        }
+
+        .posts-thumbnail-content {
+          width: 65%;
+          float: right;
+
+          h4 {
+            margin-bottom: 3px;
+            margin-top: -5px;
+            font-size: 14px;
+            line-height: 1.4;
+            font-weight: $fw-medium;
+
+            a {
+              color: $cl-heading;
+
+              &:hover {
+                color: $cl-link-hover;
+              }
+            }
+          }
+          
+          .posts-thumbnail-meta {
+            font-style: italic;
+
+            span {
+              margin-right: 5px;
+
+              &:last-child {
+                margin-right: 0;
+              }
+            }
+
+            .datetime {
+              font-size: 13px;
+            }
+
+            .comment-count {
+              i {
+                margin-right: 5px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.widget-social-profile {
+  ul {
+    list-style: none;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+
+    li {
+      display: inline-block;
+
+      @media screen and (max-width: $screen-xs-max) {
+        padding: 0 5px;
+      }
+
+      &:first-child {
+        a {
+          i {
+            padding-left: 0;
+          }
+        }
+      }
+
+      a {
+        color: $cl-text-2;
+        display: inline-block;
+        font-size: 0;
+        text-align: center;
+        transition: all .3s;
+
+        &:hover {
+          color: $cl-primary;
+          transition: all .3s;
+        }
+
+        i {
+          font-size: 16px;
+          padding: 10px 10px;
+        }
+      }
+    }
+  }
+}
+
+// My Account
+.widget-my-account {
+  a {
+    color: $cl-text-2;
+    transition: all .3s;
+
+    &:hover {
+      color: $cl-primary;
+      transition: all .3s;
+    }
+
+    &:first-child {
+      padding-right: 15px;
+      border-right: 1px solid $cl-border;
+    }
+
+    &:last-child {
+      padding-left: 12px;
+    }
+  }
+}
+
+// Text widget
+.widget_text {
+  
+}
+
+// Canvas sidebar
+.haru-introduce-widget {
+  margin-top: 30px;
+  margin-bottom: 30px;
+  text-align: center;
+
+  .intro-description {
+    font-style: italic;
+    margin-top: 20px;
+  }
+}
+
+.haru-gallery-widget {
+  .gallery-images {
+    list-style: none;
+    padding: 0;
+    margin: -3px!important;
+  }
+
+  .gallery-image {
+    display: inline-block;
+    width: 33.333333%;
+    float: left;
+    padding: 3px;
+
+    &:hover {
+      img {
+        transform: scale(1.1);
+        transition: all .3s;
+      }
+    }
+  }
+
+  a {
+    display: block;
+    overflow: hidden;
+  }
+
+  img {
+    transform: scale(1);
+    transition: all .3s;
+  }
+}

@@ -1,0 +1,105 @@
+.footer-contact-shortcode-wrap {
+    // Style 1
+    &.style_1 {
+        .footer-contact-content {
+            .contact-information {
+                list-style: none;
+                list-style-type: none;
+                padding: 0;
+                margin: 0;
+
+                li {
+                    color: $cl-text-2;
+                    padding: 5px 0;
+
+                    span {
+                        margin-right: 20px;
+
+                        &.contact-icon {
+                            display: none;
+                            color: $cl-text-2;
+                            font-size: 20px;
+                            min-width: 20px;
+                        }
+
+                        &.contact-label {
+                            color: $cl-heading;
+                            font-weight: normal;
+                            display: none;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    
+    // Style 2
+    &.style_2 {
+        .footer-contact-content {
+            .contact-information {
+                list-style: none;
+                list-style-type: none;
+                padding: 0;
+                margin: 0;
+
+                li {
+                    padding: 5px 0;
+
+                    span {
+                        margin-right: 20px;
+
+                        &.contact-icon {
+                            display: none;
+                            font-size: 20px;
+                            min-width: 20px;
+                        }
+
+                        &.contact-label {
+                            color: $cl-heading;
+                            font-weight: $fw-normal;
+                            display: none;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    // Style 3
+    &.style_3 {
+        .footer-contact-content {
+            .contact-information {
+                list-style: none;
+                list-style-type: none;
+                padding: 0;
+                margin: 0;
+
+                li {
+                    padding: 5px 0;
+                    margin-bottom: 6px;
+
+                    &:first-child {
+                        padding-top: 0;
+                    }
+
+                    span {
+                        margin-right: 20px;
+
+                        &.contact-icon {
+                            display: none;
+                            font-size: 20px;
+                            min-width: 20px;
+                        }
+
+                        &.contact-label {
+                            color: $cl-heading;
+                            font-weight: $fw-medium;
+                            display: block;
+                            text-transform: uppercase;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

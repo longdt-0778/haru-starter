@@ -1,0 +1,46 @@
+$root: '.haru-footer-link';
+
+#{$root} {
+
+	ul {
+		list-style: none;
+		list-style-type: none;
+		padding: 0;
+		margin: 0;
+	}
+
+	li {
+		margin-bottom: 15px;
+
+		&:last-child {
+			margin-bottom: 0;
+		}
+	}
+
+	&--style-1 {
+		a {
+			color: $cl-black-2;
+			transition: all .3s;
+
+			&:hover,
+			&:active {
+				color: $cl-primary;
+				transition: all .3s;
+			}
+		}
+	}
+
+	&--style-2 {
+		a {
+			color: $cl-black-3;
+			transition: all .3s;
+
+			&:hover,
+			&:active {
+				color: $cl-black-2;
+				text-decoration: underline;
+				transition: all .3s;
+			}
+		}
+	}
+}

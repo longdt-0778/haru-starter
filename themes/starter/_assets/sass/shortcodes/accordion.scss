@@ -1,0 +1,61 @@
+.accordion-shortcode-wrap {
+	&.style_1 {
+		.accordion-shortcode-content {
+			.panel {
+				margin-bottom: 25px;
+				@include box-shadow(none);
+			}
+			.panel-heading {
+				padding: 0;
+				position: relative;
+				a {
+					border-bottom: 2px solid $border_color;
+					color: $heading_color;
+					display: block;
+					font-size: 24px;
+					padding: 5px 10px 5px 0;
+					@media screen and (max-width: $screen-lg-max) {
+		                font-size: 22px;
+		            }
+					@media screen and (max-width: $screen-md-max) {
+		                font-size: 20px;
+		            }
+		            @media screen and (max-width: $screen-sm-max) {
+		                font-size: 18px;
+		            }
+		            @media screen and (max-width: $screen-xs-max) {
+		                font-size: 16px;
+		            }
+					&.in,
+					&[aria-expanded="true"] {
+						border-bottom: 2px solid $primary_color;
+						&:before {
+							content: "\f367";
+							color: $primary_color;
+						}
+					}
+					&.collapsed {
+						border-bottom: 2px solid $border_color;
+						&:before {
+							content: "\f272";
+							color: $heading_color;
+						}
+					}
+					&:before {
+						content: "\f067";
+						color: $heading_color;
+						font-family: FontAwesome;
+						position: absolute;
+						right: 0;
+						top: 50%;
+						@include transform(translateY(-50%));
+					}
+				}
+			}
+			.panel-body {
+				border-top: none;
+				padding-left: 0;
+			}
+		}
+	} 
+}

@@ -1,0 +1,71 @@
+/*-----------------------------------
+ * PRODUCT BASE
+ *-----------------------------------*/
+.products-shortcode-paging-wrap {
+    margin-top: 40px;
+    @media screen and (max-width: $screen-sm-max) {
+        margin-top: 25px;
+    }
+    &.paging-default {
+        .woocommerce-pagination {
+            // Page Number
+            ul.page-numbers {
+                list-style: none;
+                list-style-type: none;
+                display: inline-block;
+                padding: 0;
+                margin: 0;
+                li {
+                    display: inline-block;
+                    padding-right: 5px;
+                    span, a {
+                        border: 1px solid $cl-border;
+                        color: $cl-heading;
+                        display: inline-block;
+                        padding: 2px 13px;
+                        transition: all .3s;
+                    }
+                    span.current {
+                        background-color: $cl-primary;
+                        border: 1px solid $cl-primary;
+                        color: $white;
+                    }
+                    a {
+                        &:hover, &:focus {
+                            background: $cl-primary;
+                            border: 1px solid $cl-primary;
+                            color: $white;
+                        }
+                        &.prev, &.next {
+                            text-transform: capitalize;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    // Loadmore
+    &.paging-load-more {
+        button {
+            border: 2px solid #ccc;
+            background: transparent;
+            color: $cl-primary;
+            font-weight: 700;
+            letter-spacing: .1em;
+            padding: 10px 20px;
+            text-align: center;
+            text-transform: uppercase;
+            width: 160px;
+            transition: all .3s;
+            &:hover {
+                border: 2px solid $cl-primary;
+                background: $cl-primary;
+                color: $white;
+                transition: all .3s;
+            }
+            &:focus {
+                outline: none;
+            }
+        }
+    }
+}

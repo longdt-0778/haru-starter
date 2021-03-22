@@ -1,0 +1,73 @@
+/*-----------------------------------
+ * VIDEO SHORTCODE
+ *-----------------------------------*/
+.video-shortcode-wrap {
+    &.style_1 {
+        text-align: center;
+        .video-title {
+            color: $white;
+            font-size: 48px;
+            font-weight: $fw_semi_bold;
+            line-height: 1.3;
+            margin-top: 40px;
+            @media screen and(max-width: $screen-lg-max) {
+                font-size: 40px;
+            }
+            @media screen and(max-width: $screen-md-max) {
+                font-size: 36px;
+            }
+            @media screen and(max-width: $screen-sm-max) {
+                font-size: 28px;
+            }
+            @media screen and(max-width: $screen-xs-max) {
+                font-size: 20px;
+            }
+        }
+        .video-button {
+            a {
+                display: block;
+                width: 90px;
+                height: 90px;
+                background: $white;
+                position: relative;
+                margin: 0 auto;
+                @include rounded(50%);
+                @media screen and(max-width: $screen-sm-max) {
+                    width: 70px;
+                    height: 70px;
+                }
+                &:before {
+                    content: '';
+                    position: absolute;
+                    left: 0;
+                    top: 0;
+                    width: 100%;
+                    height: 100%;
+                    border-radius: 50%;
+                }
+                &:after {
+                    content: '';
+                    position: absolute;
+                    left: calc(50% + 2px);
+                    top: 50%;
+                    width: 0;
+                    height: 0;
+                    border-left: 20px solid $heading_color;
+                    border-bottom: 15px solid transparent;
+                    border-top: 15px solid transparent;
+                    transform: translate(-50%, -50%);
+                    @media screen and(max-width: $screen-xs-max) {
+                        border-left: 16px solid $heading_color;
+                        border-bottom: 12px solid transparent;
+                        border-top: 12px solid transparent;
+                    }
+                }
+                &:hover {
+                    &:before {
+                        @include animation(sonarEffect 1.3s ease-out 75ms);
+                    }
+                }
+            }
+        }
+    }
+}

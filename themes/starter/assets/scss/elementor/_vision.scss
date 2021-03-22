@@ -1,0 +1,68 @@
+$root: '.haru-vision';
+
+#{$root} {
+    &--style-1 {
+        ul {
+            list-style: none;
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+        }
+
+        #{$root}__item {
+            width: 50%;
+            color: $cl-black;
+            margin-bottom: 20px;
+            padding-top: 60px;
+            border-top: 4px solid $cl-black;
+
+            @media screen and (max-width: $screen-sm-max) {
+                padding-top: 40px;
+            }
+
+            &:first-child {
+                margin-right: 20px;
+            }
+
+            &:last-child {
+                margin-left: 20px;
+            }
+        }
+
+        #{$root}__title {
+            font-size: 24px;
+            font-weight: $fw-bold;
+            margin-bottom: 20px;
+
+            @media screen and (max-width: $screen-md-max) {
+                font-size: 20px;
+            }
+
+            @media screen and (max-width: $screen-xs-max) {
+                font-size: 18px;
+            }
+        }
+
+        #{$root}__description {
+            font-size: 18px;
+            color: $cl-black-3;
+
+            @media screen and (max-width: $screen-md-max) {
+                font-size: 16px;
+            }
+
+            @media screen and (max-width: $screen-xs-max) {
+                font-size: 14px;
+            }
+        }
+
+        #{$root}__active {
+            border-top-color: $cl-primary;
+
+            #{$root}__title {
+                color: $cl-primary;
+            }
+        }
+    }
+}

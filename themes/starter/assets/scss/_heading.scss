@@ -1,0 +1,32 @@
+// Headings
+$root: '.haru-heading';
+
+#{$root} {
+	&--style-1 {
+		font-size: 20px;
+    margin-top: 0px;
+    margin-bottom: 30px;
+    padding-bottom: 10px;
+    font-weight: $fw-bold;
+    position: relative;
+    text-transform: uppercase;
+
+    @media screen and (max-width: $screen-sm-max) {
+      font-size: 18px;
+    }
+
+    @media screen and (max-width: $screen-xs-max) {
+      font-size: 16px;
+    }
+
+    &:before {
+      content: '';
+      position: absolute;
+      height: 2px;
+      width: 50px;
+      background-color: $cl-primary;
+      left: 0;
+      bottom: 0;
+    }
+	}
+}

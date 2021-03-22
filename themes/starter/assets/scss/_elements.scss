@@ -1,0 +1,227 @@
+/*-----------------------------------
+ * BACK TO TOP
+ *-----------------------------------*/
+.back-to-top {
+  background: rgba($cl-black, .3);
+  display: block;
+  position: fixed;
+  right: 30px;
+  bottom: -50px;
+  width: 48px;
+  height: 48px;
+  line-height: 48px;
+  z-index: 999;
+  text-align: center;
+  transition: all .3s;
+
+  &:before {
+    content: '\f077';
+    font-family: "Font Awesome 5 Free";
+    font-weight: $fw-bold;
+    color: $cl-white;
+    font-size: 16px;
+  }
+
+  &.in {
+    bottom: 30px;
+  }
+
+  &:hover {
+    background: rgba($cl-black, .5);
+  }
+}
+
+/*-----------------------------------
+ * AJAX LOADING OVERFLOW
+ *-----------------------------------*/
+.haru-ajax-overflow {
+  display: none;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  background-color: rgba($cl-black, .5);
+  transition: all .3s;
+
+  &.active {
+    display: table;
+    z-index: 99999;
+  }
+
+  .haru-ajax-loading {
+    width: 60px;
+    height: 50px;
+    background-color: $cl-white;
+    display: inline-block;
+    left: 0;
+    right: 0;
+    margin: auto;
+    position: absolute;
+    top: 50%;
+    transform: translate(0, -50%);
+    box-shadow: 0 1px 8px rgba($cl-black, .2);
+
+    .loading-wrapper {
+      width: 38px;
+      height: 38px;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%,-50%);
+
+    }
+  }
+
+  // Spinner copy from loading.scss
+  .spinner {
+    width: 5px;
+    height: 5px;
+    background-color: $cl-primary;
+    position: absolute;
+    border-radius: 50%;
+
+    animation: round-9 .8s infinite;
+  }
+
+  #spinner_one {
+    top: 5px;
+    left: 5px;
+
+  }
+
+  #spinner_two {
+    top: 0;
+    left: 16px;
+    animation-delay: .1s;
+  }
+
+  #spinner_three {
+    top: 5px;
+    left: 27px;
+    animation-delay: .2s;
+  }
+
+  #spinner_four {
+    top: 16px;
+    left: 31px;
+    animation-delay: .3s;
+  }
+
+  #spinner_five {
+    top: 27px;
+    left: 27px;
+    animation-delay: .4s;
+  }
+
+  #spinner_six {
+    top: 31px;
+    left: 16px;
+    animation-delay: .5s;
+  }
+
+  #spinner_seven {
+    top: 27px;
+    left: 5px;
+    animation-delay: .6s;
+  }
+
+  #spinner_eight {
+    top: 16px;
+    left: 0;
+    animation-delay: .7s;
+  }
+}
+
+/*-----------------------------------
+ * SOCIAL SHARE
+ *-----------------------------------*/
+.haru-social-share {
+  &__label {
+    font-weight: $fw-bold;
+    color: $cl-heading;
+    margin-right: 15px;
+  }
+
+  &__list {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    display: inline-block;
+
+    li {
+      display: inline-block;
+
+      a {
+        padding: 6px;
+      }
+    }
+  }
+
+  &__facebook {
+    a {
+      &:before {
+        content: '\f39e';
+        font-family: "Font Awesome 5 Brands";
+      }
+    }
+  }
+
+  &__twitter {
+    a {
+      &:before {
+        content: '\f099';
+        font-family: "Font Awesome 5 Brands";
+      }
+    }
+  }
+
+  &__linkedin {
+    a {
+      &:before {
+        content: '\f0e1';
+        font-family: "Font Awesome 5 Brands";
+      }
+    }
+  }
+
+  &__tumblr {
+    a {
+      &:before {
+        content: '\f173';
+        font-family: "Font Awesome 5 Brands";
+      }
+    }
+  }
+
+  &__pinterest {
+    a {
+      &:before {
+        content: '\f0d2';
+        font-family: "Font Awesome 5 Brands";
+      }
+    }
+  }
+
+  &__vk {
+    a {
+      &:before {
+        content: '\f189';
+        font-family: "Font Awesome 5 Brands";
+      }
+    }
+  }
+
+  &__telegram {
+    a {
+      &:before {
+        content: '\f3fe';
+        font-family: "Font Awesome 5 Brands";
+      }
+    }
+  }
+}

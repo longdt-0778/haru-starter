@@ -1,0 +1,82 @@
+// Variables
+.countdown-shortcode-wrap {
+    // Number style
+    &.number {
+        .countdown-content {
+            .list-time {
+                list-style: none;
+                padding: 0;
+                li {
+                    position: relative;
+                    display: inline-block;
+                    p {
+                        margin: 0;
+                        &.countdown-number {
+                            color: $heading_color;
+                            font-size: 34px;
+                            font-weight: 600;
+                            padding: 0 30px;
+                            position: relative;
+                            @include box-sizing(content-box);
+                            @media screen and ( max-width:$screen-sm-max ) {
+                                font-size: 28px;
+                                padding: 0 20px;
+                            }
+                            @media screen and ( max-width:$screen-xs-max ) {
+                                font-size: 16px;
+                            }
+                            &:after {
+                                content: ":";
+                                font-size: 18px;
+                                position: absolute;
+                                right: -5px;
+                                top: 50%;
+                                @include transform(translateY(-50%));
+                            }
+                        }
+                    }
+                    &:last-child {
+                        p {
+                            &.countdown-number {
+                                &:after {
+                                    content: "";
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        // Align
+        &.text-left {
+            .countdown-content {
+                .list-time {
+                    li {
+                        text-align: center;
+                        &:first-child {
+                            p {
+                                &.countdown-number,
+                                &.countdown-text {
+                                    padding-left: 0;
+                                }
+                            }
+                        }
+                        p {
+                            &.countdown-text {
+                                padding: 0 30px;
+                                @media screen and ( max-width:$screen-sm-max ) {
+                                    padding: 0 15px;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    // Starter Style
+    &.starter {
+
+    }
+
+}

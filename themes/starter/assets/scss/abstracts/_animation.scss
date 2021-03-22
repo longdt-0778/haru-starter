@@ -1,0 +1,84 @@
+// Icon hover animation (From Tympanus)
+/*-----------------------------------
+ * ICON HOVER EFFECT KEYFRAMES
+ *-----------------------------------*/
+@-webkit-keyframes sonarEffect {
+  0% {
+    opacity: .3;
+  }
+
+  40% {
+    opacity: .5;
+    box-shadow: 0 0 0 2px rgba($cl-black, .1), 0 0 10px 10px $cl-primary, 0 0 0 10px rgba($cl-black, .5);
+  }
+
+  100% {
+    box-shadow: 0 0 0 2px rgba($cl-black, .1), 0 0 10px 10px $cl-primary, 0 0 0 10px rgba($cl-black, .5);
+    -webkit-transform: scale(1.5);
+    opacity: 0;
+  }
+}
+
+@-moz-keyframes sonarEffect {
+  0% {
+    opacity: .3;
+  }
+
+  40% {
+    opacity: .5;
+    box-shadow: 0 0 0 2px rgba($cl-black, .1), 0 0 10px 10px $cl-primary, 0 0 0 10px rgba($cl-black, .5);
+  }
+
+  100% {
+    box-shadow: 0 0 0 2px rgba($cl-black, .1), 0 0 10px 10px $cl-primary, 0 0 0 10px rgba($cl-black, .5);
+    -moz-transform: scale(1.5);
+    opacity: 0;
+  }
+}
+
+@keyframes sonarEffect {
+  0% {
+    opacity: .3;
+  }
+
+  40% {
+    opacity: .5;
+    box-shadow: 0 0 0 2px rgba($cl-black, .1), 0 0 10px 10px $cl-primary, 0 0 0 10px rgba($cl-black, .5);
+  }
+
+  100% {
+    box-shadow: 0 0 0 2px rgba($cl-black, .1), 0 0 10px 10px $cl-primary, 0 0 0 10px rgba($cl-black, .5);
+    transform: scale(1.5);
+    opacity: 0;
+  }
+}
+
+@-moz-keyframes haruSpin {
+  from {
+    -moz-transform: rotate(0deg);
+  }
+
+  to {
+    -moz-transform: rotate(360deg);
+  }
+}
+
+@-webkit-keyframes haruSpin {
+  from {
+    -webkit-transform: rotate(0deg);
+  }
+
+  to {
+    -webkit-transform: rotate(360deg);
+  }
+}
+
+@keyframes haruSpin {
+  from {
+    transform:rotate(0deg);
+  }
+
+  to {
+    transform:rotate(360deg);
+  }
+}

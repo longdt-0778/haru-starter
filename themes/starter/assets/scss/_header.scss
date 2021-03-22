@@ -1,0 +1,114 @@
+/*-----------------------------------
+ * HEADER
+ *-----------------------------------*/
+@import "header/top-header";
+@import "header/header-1";
+@import "header/header-2";
+@import "header/header-3";
+@import "header/header-10";
+@import "header/header-4";
+@import "header/header-5";
+@import "header/header-6";
+@import "header/header-7";
+// Header left menu
+@import "header/header-8";
+// Header Vertical Bar
+@import "header/megamenu";
+@import "header/header-mobile";
+@import "header/header-elements";
+@import "header/popup-menu";
+@import "header/onepage-menu";
+
+$root: '.haru-header';
+
+// Header main
+#{$root} {
+  &--transparent {
+    top: 0px;
+    position: absolute;
+    width: 100%;
+    z-index: 99;
+    left: 0;
+  }
+
+  &--sticky {
+    &-on {
+      &#{$root}--sticky-header {
+        #{$root}__desktop {
+          background-color: $white;
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100%;
+          z-index: 100;
+          box-shadow: 0 0 10px 0 rgba(204, 204, 204, .5);
+          transition: all .3s ease-in-out;
+        }
+      }
+
+      &#{$root}--sticky-menu {
+        #{$root}__sticky-menu {
+          background-color: $white;
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100%;
+          z-index: 100;
+          box-shadow: 0 0 10px 0 rgba(204, 204, 204, .5);
+          transition: all .3s ease-in-out;
+        }
+      }
+    }
+  }
+}
+
+// Special case when have admin bar
+body {
+  &.admin-bar {
+    #{$root} {
+      &--transparent {
+        top: 32px;
+      }
+
+      &__desktop {
+
+        &-sticky {
+          top: 32px;
+        }
+      }
+    }
+  }
+  &.layout-float {
+    header.haru-main-header {
+      padding: 0 100px;
+      @media screen and (max-width: $screen-lg-max) {
+        padding: 0 50px;
+      }
+    }
+  }
+}
+
+// Mobile Header
+// .haru-mobile-header {
+//     position: relative;
+//     z-index: 1000;
+
+//     // Process Sticky Header Nav
+//     .haru-mobile-header-wrap {
+//         &.nav-sticky {
+//             position: fixed;
+//             top: 0;
+//             width: 100%;
+//         }
+//     }
+
+//     &.header-mobile-sticky {
+
+//     }
+
+//     &.sticky-menu {
+//         position: fixed!important;
+//         width: 100%;
+//         background-color: $white;
+//     }
+// }

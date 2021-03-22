@@ -1,0 +1,17 @@
+$root: '.haru-video';
+
+#{$root} {
+    #{$root}__desktop {
+        @media screen and (max-width: $screen-xs-max) {
+            display: none;
+        }
+    }
+
+    #{$root}__mobile {
+        display: none;
+
+        @media screen and (max-width: $screen-xs-max) {
+            display: block;
+        }
+    }
+}

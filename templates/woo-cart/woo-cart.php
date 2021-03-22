@@ -9,8 +9,8 @@
 */
 
 ?>
-<div class="header-elements-item mini-cart-wrap no-price">
-    <div class="widget_shopping_cart_content">
-        <?php get_template_part( 'woocommerce/cart/mini-cart' ); ?>
-    </div>
+<div class="header-elements-item mini-cart-wrap <?php echo esc_attr( $settings['show_price'] == 'yes' ) ? 'with-price' : 'no-price'; ?>">
+  <div class="widget_shopping_cart_content">
+    <?php get_template_part( 'woocommerce/cart/mini-cart' ); ?>
+  </div>
 </div>

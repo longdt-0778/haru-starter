@@ -1,0 +1,17 @@
+// Order tracking
+.track_order {
+  > p {
+    &:first-child {
+      background: $cl-gray-2;
+      border: 2px dashed $cl-border;
+      padding: 15px;
+    }
+  }
+}
+
+.order-info {
+  padding: 15px;
+  border: 2px dashed $cl-border;
+  background-color: $cl-gray;
+  font-weight: $fw-semi-bold;
+}

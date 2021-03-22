@@ -1,0 +1,154 @@
+/* Icon Box Shortcode CSS */
+.icon-box-shortcode-wrap {
+    margin-bottom: 25px;
+    // Style 1
+    &.style_1 {
+        .icon-box-container {
+            .icon-box-top {
+                display: flex;
+                align-items: center;
+
+                &:hover {
+                    .icon-wrap {
+                        color: $primary_color!important;
+                        @include transition(all .3s);
+                    }
+                }
+            }
+
+            .icon-wrap {
+                color: $text_color_secondary;
+                font-size: 32px;
+                line-height: 1;
+                width: 40px;
+                margin-right: 20px;
+                @include transition(all .3s);
+
+                @media screen and (max-width: $screen-md-max) {
+                    font-size: 30px;
+                    margin-right: 10px;
+                }
+
+                @media screen and (max-width: $screen-sm-max) {
+                    font-size: 28px;
+                    margin-right: 5px;
+                }
+            }
+
+            .icon-title {
+                font-size: 24px;
+                font-weight: $fw_medium;
+                line-height: 1.3;
+
+                @media screen and (max-width: $screen-md-max) {
+                    font-size: 20px;
+                }
+
+                @media screen and (max-width: $screen-sm-max) {
+                    font-size: 16px;
+                }
+            }
+
+            .icon-content {
+                padding-top: 10px;
+            }
+        }      
+    }
+
+    // Style 2
+    &.style_2 {
+        .icon-box-container {
+            text-align: center;
+
+            .icon-wrap {
+                img {
+                    max-width: 150px;
+                }
+            }
+            .icon-content {
+                padding: 0 10px;
+
+                @media screen and (max-width: $screen-sm-max) {
+                    padding: 0;
+                }
+
+                .icon-title {
+                    font-size: 18px;
+                    margin-top: 30px;
+                    position: relative;
+
+                    @media screen and (max-width: $screen-sm-max) {
+                        font-size: 16px;
+                    }
+                    
+                    h5 {
+                        font-weight: $fw_medium;
+                    }
+                    
+                    a {
+                        color: $heading_color;
+                        font-weight: $fw_medium;
+                        @include transition(all .3s);
+
+                        &:hover {
+                            color: $primary_color;
+                            @include transition(all .3s);
+                        }
+                    }
+                }
+
+                .icon-description {
+                    margin-top: 15px;
+                } 
+            }
+        }
+    }
+
+    // Style 3
+    &.style_3 {
+        border: 1px solid $border_color;
+        border-radius: $border_radius;
+
+        .icon-box-container {
+            text-align: center;
+
+            .icon-content {
+                padding: 0 10px;
+
+                @media screen and (max-width: $screen-md-max) {
+                    
+                }
+
+                .icon-title {
+                    font-size: 14px;
+                    font-weight: $fw_medium;
+                    margin-top: 25px;
+                    position: relative;
+                    text-transform: uppercase;
+
+                    @media screen and (max-width: $screen-md-max) {
+                        font-size: 16px;
+                    }
+
+                    @media screen and (max-width: $screen-sm-max) {
+                        font-size: 14px;
+                    }
+
+                    a {
+                        color: $heading_color;
+                        @include transition(all .3s);
+
+                        &:hover {
+                            color: $primary_color;
+                            @include transition(all .3s);
+                        }
+                    }
+                }
+
+                .icon-description {
+                    margin-bottom: 25px;
+                } 
+            }
+        }
+    }
+}

@@ -1,0 +1,152 @@
+/*-----------------------------------
+ * WOOCOMMERCE WISHLIST
+ *-----------------------------------*/
+
+#yith-wcwl-form {
+    .wishlist-title-container {
+        text-align: center;
+    }
+
+    .wishlist-title {
+        h2 {
+            color: $cl-heading;
+            font-size: 18px;
+            margin: 0;
+            text-transform: uppercase;
+
+            @media screen and (max-width: $screen-xs-max) {
+                font-size: 16px;
+            }
+        }
+
+        .show-title-form {
+            padding: 0;
+            background-color: transparent;
+            color: inherit;
+            line-height: inherit;
+            height: auto;
+        }
+    }
+}
+
+.wishlist_table {
+    tr {
+        .product-remove {
+            text-align: center;
+        }
+
+        .product-name {
+            a {
+                color: $cl-heading;
+                font-weight: $fw-semi-bold;
+            }
+        }
+
+        .product-stock-status {
+            .wishlist-in-stock {
+                color: $cl-primary;
+            }
+
+            .wishlist-out-of-stock{
+                color: red;
+            }
+        }
+
+        .product-add-to-cart {
+            .button {
+                line-height: $e-height-base;
+                min-width: 130px;
+            }
+        }
+    }
+
+    &.mobile {
+        margin: 0;
+        padding: 0;
+
+        li {
+            position: relative;
+            padding-bottom: 20px;
+            margin-bottom: 20px;
+            border-bottom: 1px solid $cl-border;
+
+            &:last-child {
+                border: none;
+                padding-bottom: 0;
+            }
+
+            .item-details {
+                h3 {
+                    font-size: $fs-base;
+                    font-weight: $fw-semi-bold;
+                    margin-top: 0;
+                    margin-bottom: 0;
+                }
+            }
+
+            table.item-details-table {
+                td {
+                    font-size: 12px!important;
+                    font-weight: $fw-semi-bold!important;
+                    padding: 3px 0!important;
+
+                    &.label {
+                        color: $cl-heading;
+                    }
+                }
+            }
+
+            table.additional-info {
+                td {
+                    font-size: 12px!important;
+                    font-weight: $fw-semi-bold!important;
+                    padding: 3px 0!important;
+
+                    &.label {
+                        color: $cl-heading;
+                    }
+                }
+            }
+
+            .product-remove {
+                position: absolute;
+                right: 0;
+                top: 0;
+            }
+
+            .additional-info-wrapper {
+                .product-add-to-cart {
+                    margin-bottom: 0;
+
+                    a.button {
+                        padding: 0 25px!important;
+                        margin-bottom: 0!important;
+                        display: block;
+                        width: 100%;
+                        line-height: $e-height-base;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.yith-wcwl-share {
+    float: none!important;
+
+    .yith-wcwl-share-title {
+        font-size: 18px;
+        text-transform: uppercase;
+
+        @media screen and (max-width: $screen-xs-max) {
+            font-size: 16px;
+        }
+    }
+
+    .share-button {
+        a {
+            border-radius: $border-radius;
+        }
+    }
+}
+

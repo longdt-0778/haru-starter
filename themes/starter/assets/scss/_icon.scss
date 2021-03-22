@@ -1,0 +1,16 @@
+// Buttons
+$root: '.haru-icon';
+
+#{$root} {
+	background-repeat: no-repeat;
+  background-size: cover;
+  display: inline-block;
+  background-color: $cl-text;
+}
+
+.haru-arrow-right {
+	-webkit-mask-image: url(assets/images/icon-arrow-right.svg);
+  mask-image: url(assets/images/icon-arrow-right.svg);
+  width: 13.12px;
+  height: 10px;
+}

@@ -1,0 +1,228 @@
+$root: '.haru-tab';
+
+#{$root} {
+
+	ul {
+		list-style: none;
+		list-style-type: none;
+		padding: 0;
+		margin: 0;
+	}
+
+	li {
+		
+	}
+
+	&__nav {
+		ul {
+			display: flex;
+			justify-content: flex-start;
+			align-items: center;
+		}
+
+		li {
+			display: flex;
+			flex: 1 1 auto;
+			justify-content: center;
+			align-items: center;
+			background-color: #f1f1f1;
+			cursor: pointer;
+			padding: 10px 20px;
+			text-align: center;
+
+			&.active-default,
+			&.active,
+			&:hover {
+				background-color: $cl-primary;
+				color: $cl-white;
+
+				svg path {
+					fill: $cl-white!important;
+				}
+			}
+		}
+
+		img,
+		svg {
+			width: 16px;
+			margin-right: 10px;
+		}
+
+		img {
+			margin-right: 10px;
+		}
+
+		.top-icon {
+			li {
+				flex-wrap: wrap;
+			}
+
+			img,
+			i,
+			svg {
+				margin-bottom: 10px;
+			}
+
+			#{$root}__title {
+		    flex: 1 1 100%;
+		    line-height: 1;
+			}
+			
+		}
+	}
+
+	#{$root}__content {
+		.active-default,
+		.active {
+			display: block;
+			width: 100%;
+			padding: 20px;
+			opacity: 1;
+			animation: fadeIn linear .3s;
+		}
+
+		> div,
+		.inactive {
+			display: none;
+		}
+	}
+
+	&__icon {
+		display: flex;
+		margin-right: 10px;
+	}
+
+	&__title {
+
+	}
+
+	&--vertical {
+		display: flex;
+
+		#{$root}__nav {
+			flex: 0 0 auto;
+		}
+
+		#{$root}__nav > ul {
+			flex-flow: column wrap;
+
+			li {
+				width: 100%;
+				justify-content: start;
+			}
+		}
+	}
+
+	&--style-1 {
+		
+	}
+
+	&--style-2 {
+		#{$root}__nav {
+			margin: 0 auto;
+			max-width: 1140px;
+
+			ul {
+				@media screen and (max-width: $screen-xs-max) {
+					display: block;
+					padding: 0 15px;
+				}
+			}
+
+			li {
+				background-color: transparent;
+				border-top: 4px solid $cl-black-2;
+				font-size: 16px;
+				font-weight: $fw-bold;
+				color: $cl-black-3;
+				margin: 0 12px;
+				text-align: left;
+				justify-content: start;
+				padding: 20px 30px;
+				transition: all .3s;
+
+				&.active-default,
+				&.active,
+				&:hover {
+					background-color: transparent;
+					border-top: 4px solid $cl-primary;
+					color: $cl-primary;
+					transition: all .3s;
+
+					svg path {
+						fill: $cl-white!important;
+					}
+				}
+			}
+		}
+
+		#{$root}__content {
+			> div {
+				padding: 0!important;
+			}
+		}
+	}
+
+	&--style-3 {
+		#{$root}__nav {
+			margin-bottom: 80px;
+
+			@media screen and (max-width: $screen-md-max) {
+				margin-top: 50px;
+			}
+
+			@media screen and (max-width: $screen-sm-max) {
+				margin-top: 60px;
+			}
+
+			@media screen and (max-width: $screen-xs-max) {
+				margin-top: 50px;
+				margin-bottom: 50px;
+			}
+
+			ul {
+				@media screen and (max-width: $screen-xs-max) {
+					display: block;
+					padding: 0 15px;
+				}
+			}
+
+			li {
+				background-color: transparent;
+				flex: unset;
+				font-size: 52px;
+				font-weight: $fw-bold;
+				color: $cl-black-3;
+
+				@media screen and (max-width: $screen-md-max) {
+					font-size: 40px;
+				}
+
+				@media screen and (max-width: $screen-sm-max) {
+					font-size: 28px;
+				}
+
+				@media screen and (max-width: $screen-xs-max) {
+					font-size: 20px;
+				}
+
+				&.active-default,
+				&.active,
+				&:hover {
+					color: $cl-black;
+				}
+
+				&:first-child {
+					padding-left: 0;
+				}
+			}
+		}
+
+		#{$root}__content {
+			.active-default,
+			.active {
+				padding: 0;
+			}
+		}
+	}
+}

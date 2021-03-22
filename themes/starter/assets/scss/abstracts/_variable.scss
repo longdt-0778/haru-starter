@@ -1,0 +1,130 @@
+// Declare less variables in theme options
+// $primary_color:                 #C01111 !default; // use the !default flag to prevent your preset variables from being overridden
+// $secondary_color:               #fe5b34 !default;
+// $text_color:                    #4d5969 !default;
+// $heading_color:                 #2b3441 !default;
+// $link_color:                    #4d5969 !default;
+// $link_color_hover:              #C01111 !default;
+// $link_color_active:             #C01111 !default;
+
+// $body_font: 'Lato' !default;
+
+// $secondary_font: 'Montserrat' !default;
+
+// Declare less Typography variables in theme options (other variables processed in theme options - output of Redux framework)
+// $menu_font:                     'Montserrat' !default;
+// $menu_font_size:                14px !default;
+// $menu_font_weight:              500 !default;
+
+// $text_color_secondary:          #aba4ac !default; // Optional
+// $text_color_tertiary:           #757575 !default; // Optional
+// Variable header
+// $text_color_menu: 							#433246 !default;
+// $header_background_color: 			#fff;
+
+$font-primary: 					'Lato' !default;
+$font-secondary: 				'Montserrat' !default;
+$font-menu:             'Montserrat' !default;
+
+$fs-base: 							14px;
+$fs-menu:               14px !default;
+$fs-small: 							12px;
+$fs-extra-small: 				10px;
+
+$fw-menu:              	600 !default;
+$fw-light: 							300;
+$fw-normal: 						400;
+$fw-medium: 						500;
+$fw-semi-bold: 					600;
+$fw-bold: 							700;
+$fw-extra-bold: 				900;
+
+$cl-primary:            #c72538 !default;
+$cl-secondary:          darken($cl-primary, 5%) !default;
+$cl-text: 							#696969 !default;
+$cl-text-2: 						#ababab !default;
+$cl-text-3: 						#9b9b9b !default;
+$cl-text-menu: 					#433246 !default;
+$cl-link:               #696969 !default;
+$cl-link-hover:         #c72538 !default;
+$cl-link-active:        #c72538 !default;
+$cl-heading: 						#000 !default;
+$cl-border:        			#eee !default;
+$cl-border-2:        		#ccc !default;
+$cl-border-3:        		#d8d8d8 !default;
+$cl-bg-header: 					#fff;
+$cl-black: 							#000;
+$cl-black-2: 						#4d5969;
+$cl-black-3: 						#949ba4;
+$cl-black-5: 						#e4e4e4;
+$cl-white: 							#fff;
+$cl-white-2: 						#f9f9f9;
+$cl-gray: 							#f5f5f5;
+$cl-gray-2: 						#f9f9f9;
+$cl-red: 								#d82329;
+$cl-red-2: 							#ef3f45;
+$cl-red-3: 							#ffeff0;
+
+// Dark mode
+$cl-bg-dark: 						#1d1d1d;
+$cl-text-dark: 					#ababab;
+$cl-white-dark: 				#fff;
+$cl-border-dark: 				#333;
+$cl-border-2-dark: 			#696969;
+
+$border-radius: 				0;
+$border-radius-small: 	2px;
+$border-radius-medium: 	10px;
+$border-radius-large: 	16px;
+
+// Base height for element like button
+$e-height-base: 52px;
+$input-height-base: 38px;
+
+// DECLARE SOME LESS VARIABLES TO USE
+$white:                 #fff;
+$black:                 #000;
+
+//** Deprecated `$screen-xs` as of v3.0.1
+$screen-xs:                  480px;
+
+//** Deprecated `$screen-small-mobile` as of v3.0.1
+$screen-mobile:              320px;
+//** Deprecated `$screen-xs-min` as of v3.2.0
+$screen-xs-min:              $screen-xs;
+//** Deprecated `$screen-phone` as of v3.0.1
+$screen-phone:               $screen-xs-min;
+
+// Small screen / tablet
+//** Deprecated `$screen-sm` as of v3.0.1
+$screen-sm:                  768px;
+$screen-sm-min:              $screen-sm;
+//** Deprecated `$screen-tablet` as of v3.0.1
+$screen-tablet:              $screen-sm-min;
+
+// Medium screen / desktop
+//** Deprecated `$screen-md` as of v3.0.1
+$screen-md:                  992px;
+$screen-md-min:              $screen-md;
+//** Deprecated `$screen-desktop` as of v3.0.1
+$screen-desktop:             $screen-md-min;
+
+// Large screen / wide desktop
+//** Deprecated `$screen-lg` as of v3.0.1
+$screen-lg:                  1200px;
+$screen-lg-min:              $screen-lg;
+//** Deprecated `$screen-lg-desktop` as of v3.0.1
+$screen-lg-desktop:          $screen-lg-min;
+
+// Extra Large screen / wide desktop
+//** Deprecated `$screen-lg` as of v3.0.1
+$screen-xl:                  1400px;
+$screen-xl-min:              $screen-xl;
+//** Deprecated `$screen-xl-desktop` as of v3.0.1
+$screen-xl-desktop:          $screen-xl-min;
+
+// So media queries don't overlap when required, provide a maximum
+$screen-xs-max:              ($screen-sm-min - 1);
+$screen-sm-max:              ($screen-md-min - 1);
+$screen-md-max:              ($screen-lg-min - 1);
+$screen-lg-max:              ($screen-xl-min - 1);

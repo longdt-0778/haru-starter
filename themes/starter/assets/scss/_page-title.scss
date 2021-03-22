@@ -1,0 +1,73 @@
+$root: '.haru-page-title ';
+
+#{$root} {
+  position: relative;
+  background-size: cover;
+  background-color: $cl-gray;
+  padding: 30px 0;
+  margin-bottom: 80px;
+
+  &:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba($cl-black, .5);
+  }
+
+  &__content {
+    position: relative;
+    word-break: break-word;
+  }
+
+  &__heading {
+    &--main {
+      color: $cl-white;
+      margin-top: 0;
+    }
+
+    &--sub {
+      color: $cl-white;
+    }
+  }
+
+  &__breadcrumbs {
+    .haru-breadcrumb {
+      color: $cl-white;
+    }
+
+    ul {
+      padding: 0;
+      margin: 0;
+      list-style: none;
+
+      li {
+        display: inline-block;
+      }
+    }
+
+    a {
+      color: $cl-white;
+
+      &:hover {
+        color: $cl-primary;
+        transition: all .3s;
+      }
+    }
+
+    span {
+      color: $cl-white;
+    }
+
+    .delimiter {
+      margin: 0 5px;
+
+      &:before {
+        display: inline-block;
+        content: '»';
+      }
+    }
+  }
+}

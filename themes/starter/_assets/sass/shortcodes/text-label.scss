@@ -1,0 +1,73 @@
+/*-----------------------------------
+ * TEXT LABEL SHORTCODE
+ *-----------------------------------*/
+.text-label-shortcode-wrap {
+	&.style_1 {
+		.text-title {
+			color: rgba($heading_color, .05);
+			font-weight: $fw_bold;
+			font-size: 120px;
+			min-width: 360px;
+			transform: rotate(-90deg);
+			@media screen and(max-width: $screen-md-max) {
+				font-size: 100px;
+			}
+			@media screen and(max-width: $screen-sm-max) {
+				font-size: 80px;
+			}
+			@media screen and(max-width: $screen-xs-max) {
+				transform: rotate(0deg);
+			}
+		}
+	}
+	&.style_2 {
+		.text-title {
+			font-weight: 900;
+			font-size: 150px;
+			transform: rotate(-90deg);
+			color: rgba($white, .2);
+			-webkit-text-fill-color: transparent; /* Will override color (regardless of order) */
+			-webkit-text-stroke-width: 2px;
+			-webkit-text-stroke-color: rgba($white, .2);
+			@media screen and(max-width: $screen-md-max) {
+				font-size: 120px;
+			}
+		}
+	}
+	&.style_3 {
+		.text-title {
+			font-weight: 900;
+			font-size: 200px;
+			color: #eed3dd;
+			-webkit-text-fill-color: transparent; /* Will override color (regardless of order) */
+			-webkit-text-stroke-width: 4px;
+			-webkit-text-stroke-color: #eed3dd;
+			@media screen and(max-width: $screen-sm-max) {
+				font-size: 130px;
+			}
+			@media screen and(max-width: $screen-xs-max) {
+				font-size: 100px;
+			}
+		}
+	}
+	&.style_4 {
+		.text-title {
+			font-weight: 900;
+			font-size: 100px;
+			line-height: 1.1;
+			color: #eed3dd;
+			-webkit-text-fill-color: transparent; /* Will override color (regardless of order) */
+			-webkit-text-stroke-width: 2px;
+			-webkit-text-stroke-color: #eed3dd;
+			@media screen and(max-width: $screen-lg-max) {
+				font-size: 80px;
+			}
+			@media screen and(max-width: $screen-md-max) {
+				font-size: 65px;
+			}
+			@media screen and(max-width: $screen-sm-max) {
+				font-size: 45px;
+			}
+		}
+	}
+}

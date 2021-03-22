@@ -1,0 +1,399 @@
+// Process Sidebar
+aside {
+  margin-bottom: 30px;
+}
+
+.widget-title {
+  font-size: 18px;
+  line-height: 1.4;
+  margin-top: 0px;
+  margin-bottom: 25px;
+  font-weight: $fw-bold;
+  position: relative;
+  text-transform: uppercase;
+
+  @media screen and (max-width: $screen-md-max) {
+    font-size: 16px;
+  }
+
+  @media screen and (max-width: $screen-xs-max) {
+    font-size: 14px;
+  }
+}
+
+
+// Category
+.widget_categories, 
+.widget_archive {
+  ul {
+    list-style: none;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+
+    li {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 12px;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+
+      &:hover {
+        > a {
+          color: $cl-primary;
+        }
+
+        > .count {
+          background-color: $cl-primary;
+          border: 1px solid $cl-primary;
+          color: $cl-white;
+          transition: all .3s;
+        }
+      }
+
+      &:focus {
+        outline: none;
+      }
+
+      a {
+        flex: 1 1 auto;
+        transition: all .3s;
+      }
+
+      .count {
+        border: 1px solid $cl-border;
+        color: $cl-heading;
+        padding: 0 5px;
+        font-size: 12px;
+        border-radius: 20px;
+        min-width: 30px;
+        text-align: center;
+        transition: all .3s;
+      }
+    }
+
+    .children {
+      flex: 1 1 100%;
+      padding-left: 20px;
+      margin-top: 12px;
+    }
+  }
+}
+
+// Archive
+.widget_archive {
+
+}
+
+// Calendar
+.widget_calendar {
+  .calendar_wrap {
+    table {
+      width: 100%;
+      border: 1px solid $cl-border;
+      text-align: center;
+
+      th {
+        border-bottom: 1px solid $cl-border;
+        text-align: center;
+        padding: 5px 0;
+        background: $cl-gray;
+        color: $cl-heading;
+        font-weight: $fw-semi-bold;
+      }
+
+      td {
+        border-left: 1px solid $cl-border;
+        border-bottom: 1px solid $cl-border;
+        padding: 5px 0;
+      }
+    }
+  }
+}
+
+// Pages
+.widget_pages {
+  ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    list-style-type: none;
+
+    li {
+      display: flex;
+      flex-wrap: wrap;
+      margin-bottom: 12px;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+
+      &:focus {
+        outline: none;
+      }
+
+      a {
+        flex: 1 1 auto;
+        transition: all .3s;
+      }
+    }
+
+    .children {
+      flex: 1 1 100%;
+      padding-left: 20px;
+      margin-top: 12px;
+    }
+  }
+}
+
+// Meta
+.widget_meta {
+  ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    list-style-type: none;
+
+    li {
+      display: flex;
+      flex-wrap: wrap;
+      margin-bottom: 12px;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+
+      &:focus {
+        outline: none;
+      }
+
+      a {
+        flex: 1 1 auto;
+        transition: all .3s;
+      }
+    }
+  }
+}
+
+// Recent comment
+.widget_recent_comments {
+  ul {
+    list-style: none;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+
+    li {
+      margin-bottom: 12px;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+
+      &:focus {
+        outline: none;
+      }
+
+      a {
+        color: $cl-heading;
+        flex: 1 1 auto;
+        transition: all .3s;
+
+        &:hover {
+          color: $cl-primary;
+        }
+
+        &:not(.url) {
+          font-weight: $fw-semi-bold;
+        }
+      }
+    }
+  }
+}
+
+// Recent Posts
+.widget_recent_entries {
+  ul {
+    list-style: none;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+
+    li {
+      margin-bottom: 12px;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+
+      &:focus {
+        outline: none;
+      }
+
+      a {
+        flex: 1 1 auto;
+        transition: all .3s;
+      }
+    }
+  }
+}
+
+// RSS
+.widget_rss {
+  > ul {
+    list-style: none;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+
+    li {
+      margin-bottom: 12px;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+
+      &:focus {
+        outline: none;
+      }
+
+      a {
+        color: $cl-heading;
+        font-weight: $fw-semi-bold;
+        flex: 1 1 auto;
+        transition: all .3s;
+
+        &:hover {
+          color: $cl-primary;
+        }
+      }
+
+      .rssSummary {
+        font-weight: $fw-normal;
+      }
+
+      cite {
+        color: $cl-heading;
+      }
+    }
+  }
+}
+
+// Nav Menu
+.widget_nav_menu {
+  ul {
+    list-style: none;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+
+    li {
+      margin-bottom: 12px;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+
+      &:focus {
+        outline: none;
+      }
+
+      a {
+        flex: 1 1 auto;
+        transition: all .3s;
+      }
+    }
+  }
+
+  .sub-menu {
+    margin-top: 12px;
+    margin-left: 20px;
+
+    @media screen and (max-width: $screen-md-max) {
+      margin-left: 15px;
+    }
+  }
+}
+
+// Search: use for search page too
+.search-form {
+  position: relative;
+  background-color: transparent;
+  border: 1px solid $cl-border;
+  border-radius: $border-radius;
+
+  label {
+    display: block;
+    margin-bottom: 0;
+
+    input[type="search"] {
+      width: calc(100% - 60px);
+      height: $e-height-base;
+      background-color: transparent;
+      border: none;
+      outline: none;
+      padding-left: 20px;
+      padding-right: 5px;
+      font-weight: $fw-normal;
+      @include placeholder($cl-text-2);
+    }
+  }
+  
+  .search-submit {
+    color: rgba($cl-text-2, .8);
+    width: 60px;
+    padding: 0;
+    position: absolute;
+    font-size: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    overflow: hidden;
+    border: none;
+    background: none;
+    outline: none;
+
+    &:hover {
+      color: $cl-primary;
+    }
+
+    &:before {
+      content: '\f002';
+      font-family: "Font Awesome 5 Free";
+      font-weight: $fw-bold;
+      position: absolute;
+      font-size: 14px;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+  }
+}
+
+// Tag
+.widget_tag_cloud {
+  .tagcloud {
+    a {
+      background-color: #f8f8f8;
+      border-radius: $border-radius;
+      color: $cl-text;
+      display: inline-block;
+      margin: 6px 4px 0 0;
+      padding: 4px 12px;
+      font-size: $fs-base!important;
+      text-transform: capitalize;
+      transition: all .3s;
+
+      &:hover {
+        background-color: $cl-primary;
+        color: $white;
+        transition: all .3s;
+      }
+    }
+  }
+}
+
